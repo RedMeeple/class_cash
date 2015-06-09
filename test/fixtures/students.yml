@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  cash: 1
+  period_id: 1
+  password_digest: MyString
+  good_behevior: false
+  richest: false
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  cash: 1
+  period_id: 1
+  password_digest: MyString
+  good_behevior: false
+  richest: false
