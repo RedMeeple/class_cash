@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       user = Instructor.find_by_email(params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to root_path, notice: "Login Successful"
+        redirect_to dashboard_instructor_path, notice: "Login Successful"
       else
         flash.now[:notice] = "User and Password do not match our records."
       end

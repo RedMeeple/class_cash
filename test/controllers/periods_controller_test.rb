@@ -1,4 +1,11 @@
 require 'test_helper'
+require 'periods_controller.rb'
+
+class PeriodsController < ApplicationController
+  def logged_in?
+    true
+  end
+end
 
 class PeriodsControllerTest < ActionController::TestCase
   setup do

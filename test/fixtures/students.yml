@@ -6,7 +6,7 @@ one:
   email: MyString
   cash: 1
   period_id: 1
-  password_digest: MyString
+  password_digest: <%= BCrypt::Password.create("password") %>
   good_behevior: false
   richest: false
 
@@ -16,6 +16,6 @@ two:
   email: MyString
   cash: 1
   period_id: 1
-  password_digest: MyString
+  password_digest: <%= BCrypt::Password.create("password") %>
   good_behevior: false
   richest: false

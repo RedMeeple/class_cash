@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<%= link_to "Logout", sessions_logout_path if session[:user_id] %>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <% if @user %>
+    <h2>Welcome, <%= @user.name %></h2>
+  <% end %>
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

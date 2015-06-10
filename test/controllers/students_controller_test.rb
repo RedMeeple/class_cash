@@ -1,4 +1,11 @@
 require 'test_helper'
+require 'students_controller.rb'
+
+class StudentsController <  ApplicationController
+  def logged_in?
+    true
+  end
+end
 
 class StudentsControllerTest < ActionController::TestCase
   setup do

@@ -1,5 +1,12 @@
 require 'test_helper'
+require 'jobs_controller.rb'
 
+
+class JobsController <  ApplicationController
+  def logged_in?
+    true
+  end
+end
 class JobsControllerTest < ActionController::TestCase
   setup do
     @job = jobs(:one)
