@@ -8,6 +8,9 @@ class JobsController < ApplicationController
     end
   end
 
+  def enter_behavior
+
+  end
   # GET /jobs
   # GET /jobs.json
   def index
@@ -21,7 +24,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new(student_id: params[:student_id])
   end
 
   # GET /jobs/1/edit
@@ -35,7 +38,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.html { redirect_to students_path, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }

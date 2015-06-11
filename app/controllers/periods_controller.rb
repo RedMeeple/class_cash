@@ -8,6 +8,10 @@ class PeriodsController < ApplicationController
       redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end
+
+  def enter_behavior
+    @period.students.build
+  end
   # GET /periods
   # GET /periods.json
   def index
@@ -76,6 +80,6 @@ class PeriodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name)
+      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, :good_behavior])
     end
 end
