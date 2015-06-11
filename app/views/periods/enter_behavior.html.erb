@@ -13,12 +13,14 @@
 
   <%= f.fields_for(:students) do |ff| %>
     <div class="field">
-      <%= ff.label :good_behavior %><br>
+      <%= ff.object.first_name %>
+      <%= ff.object.last_name %>
+      <%= ff.label :good_behavior %>
       <%= ff.check_box :good_behavior %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Behavior"%>
   </div>
 <% end %>

@@ -8,9 +8,6 @@ class JobsController < ApplicationController
     end
   end
 
-  def enter_behavior
-
-  end
   # GET /jobs
   # GET /jobs.json
   def index
