@@ -14,26 +14,26 @@
     font-size: 3.2rem;
   }
   
-  .login-welcome-link {
-    position: relative;
-    text-decoration: none;
-    color: #000000;
-    
-    &:hover,
-    &:focus {
-      color: blue;
-    }
-  }
-  
-    .login-welcome-button {
-      position: relative;
-      font-size: 2rem;
-      margin: 0 auto;
-      border: 1px solid black;
-      width: 60%;
+    .login-welcome-link {
+      text-decoration: none;
+      color: #000000;
+      width: 50%;
       
       &:hover,
       &:focus {
-        background-color: #000000;
+        color: blue;
       }
     }
+    
+      .login-welcome-button {
+        position: relative;
+        margin: 0 auto;
+        font-size: 2rem;
+        border: 1px solid #000000;
+        max-width: 60%;
+        
+        &:hover,
+        &:focus {
+          background-color: #000000;
+        }
+      }
