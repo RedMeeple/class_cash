@@ -13,8 +13,8 @@
 
   <%= f.fields_for(:students) do |ff| %>
     <div class="field">
-      <% ff.label :first_name %>
-      <%= ff.text_field :first_name %>
+      <%= ff.object.first_name %>
+      <%= ff.object.last_name %>
       <%= ff.label :good_behavior %>
       <%= ff.check_box :good_behavior %>
     </div>
