@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  first_name: "student"
+  last_name: "last_name"
+  email: "student_email"
   cash: 1
   period_id: 1
   password_digest: <%= BCrypt::Password.create("password") %>
@@ -11,10 +11,10 @@ one:
   richest: false
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  cash: 1
+  first_name: "student2"
+  last_name: "last_name2"
+  email: "student_email2"
+  cash: 100
   period_id: 1
   password_digest: <%= BCrypt::Password.create("password") %>
   good_behevior: false

@@ -10,10 +10,9 @@
       <th>Email</th>
       <th>Cash</th>
       <th>Period</th>
-      <th>Password digest</th>
       <th>Good behevior</th>
       <th>Richest</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -25,12 +24,10 @@
         <td><%= student.email %></td>
         <td><%= student.cash %></td>
         <td><%= student.period_id %></td>
-        <td><%= student.password_digest %></td>
         <td><%= student.good_behevior %></td>
         <td><%= student.richest %></td>
-        <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

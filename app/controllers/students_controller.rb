@@ -11,6 +11,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
+    Student.richest?
     @students = Student.all
   end
 

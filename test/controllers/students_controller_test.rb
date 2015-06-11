@@ -25,7 +25,7 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should create student" do
     assert_difference('Student.count') do
-      post :create, student: { cash: @student.cash, email: @student.email, first_name: @student.first_name, good_behevior: @student.good_behevior, last_name: @student.last_name, password_digest: @student.password_digest, period_id: @student.period_id, richest: @student.richest }
+      post :create, student: { cash: @student.cash, email: @student.email, first_name: @student.first_name, good_behevior: @student.good_behevior, last_name: @student.last_name, password: "password", period_id: @student.period_id, richest: @student.richest }
     end
 
     assert_redirected_to student_path(assigns(:student))
