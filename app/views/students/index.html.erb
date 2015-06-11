@@ -9,8 +9,7 @@
       <th>Last name</th>
       <th>Email</th>
       <th>Cash</th>
-      <th>Period</th>
-      <th>Good behevior</th>
+      <th>Good behavior</th>
       <th>Richest</th>
       <th colspan="2"></th>
     </tr>
@@ -23,9 +22,9 @@
         <td><%= student.last_name %></td>
         <td><%= student.email %></td>
         <td><%= student.cash %></td>
-        <td><%= student.period_id %></td>
-        <td><%= student.good_behevior %></td>
+        <td><%= student.good_behavior %></td>
         <td><%= student.richest %></td>
+        <td><%= link_to 'View', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

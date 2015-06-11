@@ -7,7 +7,7 @@ class StudentTest < ActiveSupport::TestCase
 
   test "richest?" do
     Student.richest?
-    
+
     assert @student.richest
     refute students(:one).richest
   end
