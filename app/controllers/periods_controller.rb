@@ -10,6 +10,7 @@ class PeriodsController < ApplicationController
   end
 
   def enter_behavior
+    @period = Period.find_by_id(params[:period_id])
     @period.students.build
   end
   # GET /periods
