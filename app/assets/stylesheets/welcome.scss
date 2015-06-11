@@ -1,4 +1,4 @@
-.login-welcome-container {
+.welcome-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8,13 +8,13 @@
   width: 60%;
 }
 
-  .login-welcome {
+  .welcome {
     position: relative;
     display: block;
     font-size: 3.2rem;
   }
   
-    .login-welcome-link {
+    .welcome-link {
       text-decoration: none;
       color: #000000;
       width: 50%;
@@ -25,7 +25,7 @@
       }
     }
     
-      .login-welcome-button {
+      .welcome-button {
         display: block;
         position: relative;
         margin: 0 auto;
