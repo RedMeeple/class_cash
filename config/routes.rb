@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post 'sessions/login'
   get 'sessions/logout'
 
-  root 'welcome#home'
-  get 'welcome/home'
+  root 'dashboard#index'
+  get 'dashboard/index'
 
   get 'students/send_money'
 

@@ -2,16 +2,13 @@ class DashboardController < ApplicationController
   before_action :instructor_logged_in?, only: [:instructor]
   before_action :student_logged_in?, only: [:student]
 
-
-  private def instructor_logged_in?
-    unless Instructor.find_by_id(session[:user_id])
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
-
-  private def student_logged_in?
-    unless Student.find_by_id(session[:user_id])
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
+  def index
+    if session[:user_type] == "instructor"
+      redirect_to :controller => 'dashboard', :action => 'instructor'
+    elsif session[:user_type] == "student"
+      redirect_to :controller => 'dashboard', :action => 'student'
+    else
+      redirect_to sessions_login_path
     end
   end
 
@@ -21,5 +18,18 @@ class DashboardController < ApplicationController
 
   def instructor
     @instructor = Instructor.find_by_id(session[:user_id])
+  end
+
+
+  private def instructor_logged_in?
+    unless Instructor.find_by_id(session[:user_id]) && (session[:user_type] == "instructor")
+      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
+    end
+  end
+
+  private def student_logged_in?
+    unless Student.find_by_id(session[:user_id]) && (session[:user_type] == "student")
+      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
+    end
   end
 end

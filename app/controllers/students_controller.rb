@@ -11,6 +11,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
+    Student.richest?
     @students = Student.all
   end
 
@@ -35,7 +36,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to students_path, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -49,7 +50,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -81,6 +82,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :email, :cash, :period_id, :password_digest, :good_behevior, :richest)
+      params.require(:student).permit(:first_name, :last_name, :email, :cash, :period_id, :password, :good_behavior, :richest)
     end
 end

@@ -2,13 +2,25 @@ class SessionsController < ApplicationController
 
   def login
     if request.post?
-      user = Instructor.find_by_email(params[:email])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect_to dashboard_instructor_path, notice: "Login Successful"
-      else
-        flash.now[:notice] = "User and Password do not match our records."
+      if user = Instructor.find_by_email(params[:email])
+        if user && user.authenticate(params[:password])
+          session[:user_id] = user.id
+          session[:user_type] = "instructor"
+          redirect_to dashboard_instructor_path, notice: "Login Successful"
+        else
+          flash.now[:notice] = "User and Password do not match our records."
+        end
+      elsif user = Student.find_by_email(params[:email])
+        if user && user.authenticate(params[:password])
+          session[:user_id] = user.id
+          session[:user_type] = "student"
+          redirect_to dashboard_student_path, notice: "Login Successful"
+        else
+          flash.now[:notice] = "User and Password do not match our records."
+        end
       end
+    else
+      flash.now[:notice] = "User and Password do not match our records."
     end
   end
 
