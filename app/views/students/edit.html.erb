@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @student %> |
+<%= link_to 'Show', @student %>
 <%= link_to 'Back', students_path %>
+<%= link_to 'Assign Job', new_job_path(student_id: @student.id) %>

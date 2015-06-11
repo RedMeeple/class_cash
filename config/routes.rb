@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/home'
+
   get 'dashboard/student'
 
   get 'dashboard/instructor'
@@ -12,9 +14,15 @@ Rails.application.routes.draw do
 
   get 'students/send_money'
 
-  resources :periods
+
   resources :students
   resources :jobs
+  resources :periods do
+    collection do
+      get 'enter_behavior'
+      patch 'enter_behavior'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
