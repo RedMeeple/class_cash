@@ -1,5 +1,6 @@
-
 <div class="login-welcome-container">
   <div class="login-welcome">welcome to class cash</div>
-  <%= link_to 'Login', sessions_login_path, class: "login-welcome-link"%>
+    <%= link_to sessions_login_path, class: "login-welcome-link" do %>
+      <div class="login-welcome-button">Login</div>
+    <% end %>
 </div>

@@ -27,3 +27,15 @@
       color: blue;
     }
   }
+  
+    .login-welcome-button {
+      position: relative;
+      margin: 0 auto;
+      border: 1px solid black;
+      width: 60%;
+      
+      &:hover,
+      &:focus {
+        background-color: #000000;
+      }
+    }
