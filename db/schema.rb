@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150609203844) do
     t.integer  "cash"
     t.integer  "period_id"
     t.string   "password_digest"
-    t.boolean  "good_behevior"
+    t.boolean  "good_behavior"
     t.boolean  "richest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
