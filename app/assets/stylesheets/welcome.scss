@@ -1,10 +1,26 @@
+.login-welcome-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: bold;
+}
+
 .login-welcome {
   position: relative;
   display: block;
   font-size: 2rem;
-  
+  text-transform: uppercase;
 }
 
 .login-welcome-link {
-  text-decoration: none;
+  position: relative;
+  font-size: 2rem;
+  border: 1px solid #000000;
+  
+  & a {
+    text-decoration: none;
+    color: #000000;
+  }
 }

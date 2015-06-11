@@ -58,8 +58,12 @@ table {
 body * {
   box-sizing: border-box;
   font-size: 62.5%;
-  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+  font-family: Roboto, Helvetica, sans-serif;
   line-height: 1.5;
+}
+
+body {
+  background-color: #FEFEFD;
 }
 
 
