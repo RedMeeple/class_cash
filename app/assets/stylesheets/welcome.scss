@@ -11,14 +11,12 @@
   .login-welcome {
     position: relative;
     display: block;
-    font-size: 2rem;
+    font-size: 3.2rem;
   }
   
   .login-welcome-link {
     position: relative;
-    font-size: 2rem;
     text-decoration: none;
-    height: 5rem;
     color: #000000;
     
     &:hover,
@@ -29,6 +27,7 @@
   
     .login-welcome-button {
       position: relative;
+      font-size: 2rem;
       margin: 0 auto;
       border: 1px solid black;
       width: 60%;
