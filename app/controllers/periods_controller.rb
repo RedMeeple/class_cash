@@ -10,8 +10,7 @@ class PeriodsController < ApplicationController
   end
 
   def enter_behavior
-    @period = Period.find_by_id(params[:period_id])
-    @period.students.build
+    @period = Period.find_by_id(session[:user_id])
   end
   # GET /periods
   # GET /periods.json
