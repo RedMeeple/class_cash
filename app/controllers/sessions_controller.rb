@@ -19,8 +19,6 @@ class SessionsController < ApplicationController
           flash.now[:notice] = "User and Password do not match our records."
         end
       end
-    else
-      flash.now[:notice] = "User and Password do not match our records."
     end
   end
 

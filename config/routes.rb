@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'sessions/logout'
 
   root 'welcome#home'
-  get 'dashboard/index'
 
   get 'students/send_money'
 

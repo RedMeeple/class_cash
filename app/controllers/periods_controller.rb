@@ -53,6 +53,7 @@ class PeriodsController < ApplicationController
   def update
     respond_to do |format|
       if @period.update(period_params)
+        @period.pay_students
         format.html { redirect_to @period, notice: 'Period was successfully updated.' }
         format.json { render :show, status: :ok, location: @period }
       else

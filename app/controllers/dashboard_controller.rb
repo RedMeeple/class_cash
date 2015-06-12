@@ -2,16 +2,6 @@ class DashboardController < ApplicationController
   before_action :instructor_logged_in?, only: [:instructor]
   before_action :student_logged_in?, only: [:student]
 
-  def index
-    if session[:user_type] == "instructor"
-      redirect_to :controller => 'dashboard', :action => 'instructor'
-    elsif session[:user_type] == "student"
-      redirect_to :controller => 'dashboard', :action => 'student'
-    else
-      redirect_to sessions_login_path
-    end
-  end
-
   def student
     @student = Student.find_by_id(session[:user_id])
   end
