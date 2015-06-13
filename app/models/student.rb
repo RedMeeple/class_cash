@@ -12,6 +12,9 @@ class Student < ActiveRecord::Base
   def jobs(id)
     jobs = Job.where(student_id: id).all
     jobs = jobs.map {|job| job.description}
-    jobs.join(",\n")
+  end
+
+  def completed_job_task
+    self.cash += 20
   end
 end
