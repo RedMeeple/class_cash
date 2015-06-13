@@ -9,7 +9,19 @@
   transform: translate(-50%, -50%);
 }
 
-.student-list td,
-.student-list th {
-  border: 1px solid black;
-}
+  .student-list th {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .student-list td {
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 0.8rem;
+  }
+  
+  .student-list-info:hover {
+    background-color: black;
+    color: white;
+  }
