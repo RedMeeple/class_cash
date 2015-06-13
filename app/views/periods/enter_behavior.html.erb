@@ -17,7 +17,8 @@
       <%= ff.object.last_name %>
       <%= ff.label :good_behavior %>
       <%= ff.check_box :good_behavior %>
-      <%= ff.object.jobs(ff.object.id).each do |job| %>
+      <% ff.object.jobs(ff.object.id).each do |job| %>
+        <%= job.description %>
         <%= ff.label :completed_job_task %>
         <%= ff.check_box :completed_job_task %>
       <% end %>
