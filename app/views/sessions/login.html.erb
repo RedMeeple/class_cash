@@ -1,10 +1,14 @@
 <div class="login-container">
   <div class="login-title">Login</div>
   <%= form_tag do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <div class="login-email-container">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="login-password-container">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
     <%= submit_tag "Submit"%>
   <% end %>
 </div>
