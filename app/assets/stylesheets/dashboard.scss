@@ -1,3 +1,63 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Dashboard - Instructor
+
+.dashboard-instructor-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5rem 0;
+  background-color: #47A275;
+  width: 60%;
+  min-width: 20rem;
+  max-width: 30rem;
+}
+
+  .dashboard-instructor-welcome {
+    position: relative;
+    font-size: 2rem;
+    text-align: center;
+    color: #FAFAFA;
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-instructor-roster {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    width: 15rem;
+    background-color: #223D42;
+    color: #FAFAFA;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    font-size: 1rem;
+    
+    &:hover,
+    &:focus {
+      background-color: #FAFAFA;
+      color: #223D42;
+    }
+  }
+  
+  .dashboard-instructor-behavior {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    width: 15rem;
+    background-color: #223D42;
+    color: #FAFAFA;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    
+    &:hover,
+    &:focus {
+      background-color: #FAFAFA;
+      color: #223D42;
+    }
+  }

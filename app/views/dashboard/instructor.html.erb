@@ -1,5 +1,5 @@
-<h1>Welcome</h1>
-
-
-<%= link_to 'View Roster', students_path %>
-<%= link_to 'Enter Today\'s Behavior', enter_behavior_periods_path %>
+<div class="dashboard-instructor-container">
+  <div class="dashboard-instructor-welcome">Welcome</div>
+  <%= link_to 'View Roster', students_path, class: "dashboard-instructor-roster" %>
+  <%= link_to 'Enter Today\'s Behavior', enter_behavior_periods_path, class: "dashboard-instructor-behavior" %>
+</div>
