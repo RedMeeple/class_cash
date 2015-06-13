@@ -7,7 +7,6 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :cash
       t.integer :period_id
       t.string :password_digest
-      t.boolean :good_behavior
       t.boolean :richest
 
       t.timestamps null: false

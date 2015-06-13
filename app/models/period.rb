@@ -1,5 +1,5 @@
 class Period < ActiveRecord::Base
-  has_many :students
+  has_many :students, dependent: :destroy
   belongs_to :instructor
   accepts_nested_attributes_for :students
 

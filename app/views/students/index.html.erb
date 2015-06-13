@@ -8,7 +8,7 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Cash</th>
-      <th>Good Behavior</th>
+      <th>Yesterday's Behavior</th>
       <th>Richest</th>
       <th>Jobs</th>
       <th colspan="2"></th>
@@ -21,7 +21,7 @@
         <td><%= student.first_name %></td>
         <td><%= student.last_name %></td>
         <td><%= student.cash %></td>
-        <td><%= student.good_behavior %></td>
+        <td><%= student.good_behavior_yesterday(student.id) %></td>
         <td><%= student.richest %></td>
         <td><% student.jobs(student.id).each do |job|%>
           <%= job.description %><br>

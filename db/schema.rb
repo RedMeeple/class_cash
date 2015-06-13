@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609203844) do
+ActiveRecord::Schema.define(version: 20150613215044) do
+
+  create_table "behaviors", force: :cascade do |t|
+    t.integer  "student_id"
+    t.date     "date"
+    t.boolean  "well_behaved"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "instructors", force: :cascade do |t|
     t.string   "first_name"
@@ -45,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150609203844) do
     t.integer  "cash"
     t.integer  "period_id"
     t.string   "password_digest"
-    t.boolean  "good_behavior"
     t.boolean  "richest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
