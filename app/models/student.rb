@@ -20,7 +20,7 @@ class Student < ActiveRecord::Base
   end
 
   def good_behavior_yesterday(id)
-    if a =Behavior.where(date: Date.yesterday, student_id: id).first
+    if a = Behavior.where(date: Date.yesterday, student_id: id).first
       a.well_behaved
     end
   end
@@ -29,9 +29,5 @@ class Student < ActiveRecord::Base
     if a = Behavior.where(date: Date.today, student_id: id).first
       a.well_behaved
     end
-  end
-
-  def send_money(recipient, amount)
-    
   end
 end

@@ -22,6 +22,9 @@
     <%= f.number_field :amount %>
   </div>
   <div class="actions">
+    <%= f.hidden_field :sender_id, value: @student.id %>
+  </div>
+  <div class="actions">
     <%= f.submit 'Send Money'%>
   </div>
 

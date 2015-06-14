@@ -13,6 +13,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @received = Transaction.where(recipient_id: @student.id).all
+    @sent = Transaction.where(sender_id: @student.id).all
   end
 
   # GET /students/new
@@ -71,8 +73,8 @@ class StudentsController < ApplicationController
   end
 
   def sent_money
-    @transaction = Transaction.create(transaction_params)
     @student = Student.find_by_id(session[:user_id])
+    @transaction = Transaction.create(transaction_params)
     @student.update(cash: (@student.cash - @transaction.amount))
     @recipient = Student.find_by_id(@transaction.recipient_id)
     @recipient.update(cash: (@recipient.cash + @transaction.amount))

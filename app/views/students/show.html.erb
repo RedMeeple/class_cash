@@ -30,6 +30,24 @@
   <%= @student.richest %>
 </p>
 
+<p>
+  <strong>Received Money: </strong>
+  <ol>
+    <% @received.each do |r| %>
+      <li><%= r.amount %> from <%= Student.find(r.sender_id).first_name %> <%= Student.find(r.sender_id).last_name %></li>
+    <% end %>
+  </ol>
+</p>
+
+<p>
+  <strong>Sent Money: </strong>
+  <ol>
+    <% @sent.each do |s| %>
+      <li><%= s.amount %> to <%= Student.find(s.recipient_id).first_name %> <%= Student.find(s.recipient_id).last_name %></li>
+    <% end %>
+  </ol>
+</p>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
 <%= link_to 'Home', root_path %>
