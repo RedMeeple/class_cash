@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+  'use strict';
+  
+  var app = {};
+  
+  if ($('.student-list').length) {
+    console.log('hi');
+  }
+  
+  
+});
