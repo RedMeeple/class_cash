@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   get 'students/send_money'
-
+  post 'students/sent_money'
 
   resources :students
   resources :jobs

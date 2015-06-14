@@ -54,14 +54,14 @@ class PeriodsController < ApplicationController
     respond_to do |format|
       if @period.update(period_params)
         @period.pay_students
-        
-        format.html { redirect_to @period, notice: 'Period was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Period was successfully updated.' }
         format.json { render :show, status: :ok, location: @period }
       else
         format.html { render :edit }
         format.json { render json: @period.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /periods/1
@@ -82,6 +82,6 @@ class PeriodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, :good_behavior])
+      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, behaviors_attributes: [:id, :well_behaved, :date]])
     end
 end

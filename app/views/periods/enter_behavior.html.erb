@@ -16,7 +16,7 @@
       <div>
         <%= ff.object.first_name %>
         <%= ff.object.last_name %>
-        <%= f.fields_for(:behaviors) do |fff| %>
+        <%= ff.fields_for(:behaviors) do |fff| %>
           <%= fff.label :good_behavior %>
           <%= fff.check_box :well_behaved %>
           <% fff.hidden_field :date, value: Date.today %>

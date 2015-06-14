@@ -6,7 +6,8 @@ class Period < ActiveRecord::Base
   def pay_students
     @students = Student.where(period_id: self.id).all
     @students.each do |student|
-      if student.good_behavior
+      a = Behavior.where(date: Date.today, student_id: student.id).first
+      if a && a.well_behaved
         student.update(cash: (student.cash + self.payscale))
       end
     end
