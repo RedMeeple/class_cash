@@ -21,7 +21,6 @@
     font-size: 0.8rem;
   }
   
-  .student-list-info:hover {
-    background-color: black;
-    color: white;
+  .student-list-info:not(:last-child) {
+    border-bottom: 1px solid #223D42;
   }
