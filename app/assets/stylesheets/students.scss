@@ -16,11 +16,27 @@
   }
   
   .student-list td {
-    padding: 0.5rem;
-    text-align: left;
+    padding: 0.3rem 1rem;
     font-size: 0.8rem;
   }
   
   .student-list-info:not(:last-child) {
     border-bottom: 1px solid #223D42;
+  }
+  
+  .student-list-info a {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #47A275;
+    color: #FAFAFA;
+    padding: 0.2rem 1rem;
+    
+    &:hover,
+    &:focus {
+      background-color: #223D42;
+    }
+  }
+  
+  .student-list-info-cash {
+    text-align: right;
   }
