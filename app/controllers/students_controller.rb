@@ -1,13 +1,8 @@
 class StudentsController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in?, except: [:send_money]
+  before_action :student_logged_in?, only: [:send_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id])
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
   # GET /students
   # GET /students.json
   def index
@@ -18,6 +13,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @received = Transaction.where(recipient_id: @student.id).all
+    @sent = Transaction.where(sender_id: @student.id).all
   end
 
   # GET /students/new
@@ -70,8 +67,30 @@ class StudentsController < ApplicationController
   end
 
   def send_money
-    @recipient = Student.find(params[:first_name, :last_name])
-    @amount = params[:amount]
+    @student = Student.find_by_id(session[:user_id])
+    @students = Student.where(period_id: @student.period_id).all
+    @transaction = Transaction.new(sender_id: @student.id)
+  end
+
+  def sent_money
+    @student = Student.find_by_id(session[:user_id])
+    @transaction = Transaction.create(transaction_params)
+    @student.update(cash: (@student.cash - @transaction.amount))
+    @recipient = Student.find_by_id(@transaction.recipient_id)
+    @recipient.update(cash: (@recipient.cash + @transaction.amount))
+    redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent."
+  end
+
+  private def student_logged_in?
+    unless Student.find_by_id(session[:user_id])
+      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
+    end
+  end
+
+  private def logged_in?
+    unless Instructor.find_by_id(session[:user_id])
+      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
+    end
   end
 
   private
@@ -81,6 +100,10 @@ class StudentsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    def transaction_params
+      params.require(:transaction).permit(:recipient_id, :sender_id, :amount)
+    end
+
     def student_params
       params.require(:student).permit(:first_name, :last_name, :email, :cash,
           :period_id, :password, :richest, behaviors_attributes: [:id, :well_behaved, :date])

@@ -20,6 +20,14 @@ class Student < ActiveRecord::Base
   end
 
   def good_behavior_yesterday(id)
-    Behavior.where(date: Date.yesterday, student_id: id).first.well_behaved
+    if a = Behavior.where(date: Date.yesterday, student_id: id).first
+      a.well_behaved
+    end
+  end
+
+  def good_behavior_today(id)
+    if a = Behavior.where(date: Date.today, student_id: id).first
+      a.well_behaved
+    end
   end
 end
