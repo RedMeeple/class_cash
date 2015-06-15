@@ -16,8 +16,10 @@
   }
   
   .student-list td {
-    padding: 0.3rem 1rem;
+    padding: 0.2rem 1rem;
     font-size: 0.8rem;
+    height: 3rem;
+    vertical-align: bottom;
   }
   
   .student-list-info:not(:last-child) {
