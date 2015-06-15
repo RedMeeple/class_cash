@@ -30,4 +30,5 @@ class Student < ActiveRecord::Base
       a.well_behaved
     end
   end
+
 end

@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     Student.richest?
-    @students = Student.all
+    @students = Student.where(instructor_id: session[:user_id])
   end
 
   # GET /students/1

@@ -28,10 +28,12 @@ class PeriodsController < ApplicationController
   # GET /periods/new
   def new
     @period = Period.new
+    @instructor = Instructor.find_by_id(session[:user_id])
   end
 
   # GET /periods/1/edit
   def edit
+    @instructor = Instructor.find_by_id(session[:user_id])
   end
 
   # POST /periods
