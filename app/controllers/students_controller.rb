@@ -20,10 +20,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @periods = Period.where(instructor_id: session[:user_id])
   end
 
   # GET /students/1/edit
   def edit
+    @periods = Period.where(instructor_id: session[:user_id])
   end
 
   # POST /students

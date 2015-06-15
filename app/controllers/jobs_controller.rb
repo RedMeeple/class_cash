@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :logged_in?
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_students, only: [:new, :edit]
 
   private def logged_in?
     unless Instructor.find_by_id(session[:user_id])
@@ -73,6 +74,15 @@ class JobsController < ApplicationController
     def set_job
       @job = Job.find(params[:id])
     end
+
+    def set_students
+      @periods = Period.where(instructor_id: session[:user_id]).all
+      @students = []
+      @periods.each do |period|
+        @students += Student.where(period_id: period.id).all.to_a
+      end
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
