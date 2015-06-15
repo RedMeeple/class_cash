@@ -13,3 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+  'use strict';
+  
+  if ($('.student-list').length) {
+    
+    $('.student-list').find('.student-list-info-richest').each(function (index, element) {
+      
+      if ($(element).text() === 'true') {
+        $(element).html('<i class="fa fa-money"></i>');
+      } else {
+        $(element).text('');
+      }
+    });
+  }
+  
+  
+});
