@@ -1,3 +1,9 @@
+// Place all the styles related to the navigation bar here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'colors';
+
 .link-logout {
   position: absolute;
   top: 1rem;
@@ -5,13 +11,12 @@
   display: inline-block;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  background-color: #BED5BD;
-  color: #223D42;
-  font-weight: bold;
+  background-color: $primary-btn-color;
+  color: $primary-btn-font-color;
   
   &:hover,
   &:focus {
-    background-color: #5A6B64;
-    color: #FAFAFA;
+    background-color: $light-pale-green;
+    color: $secondary-btn-font-color;
   }
 }
