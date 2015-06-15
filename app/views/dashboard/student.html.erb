@@ -7,5 +7,8 @@
 <div>
   The class average is $<%= @period.class_average %>
 </div>
+<% if @student.richest %>
+  You are the richest!
+<% end %>
 
 <%= link_to 'Send Money', students_send_money_path %>
