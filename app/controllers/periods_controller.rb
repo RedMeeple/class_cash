@@ -10,12 +10,14 @@ class PeriodsController < ApplicationController
   end
 
   def enter_behavior
-    @period = Period.find_by_id(session[:user_id])
+    @period = Period.find_by_instructor_id(session[:user_id])
+    @students = Student.where(period_id: @period.id).all
+    @students.each { |student| student.behaviors.build }
   end
   # GET /periods
   # GET /periods.json
   def index
-    @periods = Period.all
+    @periods = Period.where(instructor_id: session[:user_id]).all
   end
 
   # GET /periods/1

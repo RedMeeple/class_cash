@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :logged_in?, except: [:send_money]
-  before_action :student_logged_in?, only: [:send_money]
+  before_action :logged_in?, except: [:send_money, :sent_money]
+  before_action :student_logged_in?, only: [:send_money, :sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
