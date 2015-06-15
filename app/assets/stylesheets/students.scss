@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Students List Page
+
 .student-list {
   position: absolute;
   top: 50%;
@@ -47,3 +49,169 @@
     text-align: center;
     color: #47A275;
   }
+  
+// New Student Page
+
+.students-new-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+}
+
+  .students-new-firstname {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-firstname-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-firstname-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
+    
+  .students-new-lastname {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-lastname-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-lastname-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
+    
+  .students-new-email {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-email-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-email-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
+    
+  .students-new-cash {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-cash-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-cash-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
+    
+  .students-new-period {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-period-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-period-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
+    
+  .students-new-password {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+    .students-new-password-text {
+      position: relative;
+      display: inline-block;
+      
+      & label {
+        font-size: 1rem;
+      }
+    }
+    
+    .students-new-password-input {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      
+      & input {
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }

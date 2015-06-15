@@ -11,31 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :cash %><br>
-    <%= f.number_field :cash %>
-  </div>
-  <div class="field">
-    <%= f.label :period_id %><br>
-    <%= f.number_field :period_id %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="students-new-container">
+    <div class="field students-new-firstname">
+      <div class="students-new-firstname-text">
+        <%= f.label :first_name %>
+      </div>
+      <div class="students-new-firstname-input">
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="field students-new-lastname">
+      <div class="students-new-lastname-text">
+        <%= f.label :last_name %>
+      </div>
+      <div class="students-new-lastname-input">
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+    <div class="field students-new-email">
+      <div class="students-new-email-text">
+        <%= f.label :email %>
+      </div>
+      <div class="students-new-email-input">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="field students-new-cash">
+      <div class="students-new-cash-text">
+        <%= f.label :cash %>
+      </div>
+      <div class="students-new-cash-input">
+        <%= f.number_field :cash %>
+      </div>
+    </div>
+    <div class="field students-new-period">
+      <div class="students-new-period-text">
+        <%= f.label :period_id %>
+      </div>
+      <div class="students-new-period-input">
+        <%= f.number_field :period_id %>
+      </div>
+    </div>
+    <div class="field students-new-password">
+      <div class="students-new-password-text">
+        <%= f.label :password %>
+      </div>
+      <div class="students-new-password-input">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
