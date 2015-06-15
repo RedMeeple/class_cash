@@ -46,7 +46,7 @@
     </div>
     <div class="field students-new-period">
       <div class="students-new-period-text">
-        <%= f.label :period_id %>
+        <%= f.label :period %>
       </div>
       <div class="students-new-period-input">
         <%= f.select :period_id, @periods.map{ |period| [period.name, period.id] }, include_blank: true %>
