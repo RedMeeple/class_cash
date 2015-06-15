@@ -22,7 +22,7 @@ $(function () {
     $('.student-list').find('.student-list-info-richest').each(function (index, element) {
       
       if ($(element).text() === 'true') {
-        $(element).html('<i class="fa fa-money fa-3x"></i>');
+        $(element).html('<i class="fa fa-money fa-2x"></i>');
       } else {
         $(element).text('');
       }
