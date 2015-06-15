@@ -1,6 +1,14 @@
+<h1>Welcome, <%= @student.first_name %></h1>
 
 
-You have $<%= @student.cash %>
-
+<div>
+  You have $<%= @student.cash %>
+</div>
+<div>
+  The class average is $<%= @period.class_average %>
+</div>
+<% if @student.richest %>
+  You are the richest!
+<% end %>
 
 <%= link_to 'Send Money', students_send_money_path %>

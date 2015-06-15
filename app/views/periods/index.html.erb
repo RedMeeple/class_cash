@@ -5,9 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Instructor</th>
-      <th>Payscale</th>
       <th>Name</th>
+      <th>Number of Students</th>
+      <th>Payscale</th>
+      <th>Class Average</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +16,13 @@
   <tbody>
     <% @periods.each do |period| %>
       <tr>
-        <td><%= period.instructor_id %></td>
-        <td><%= period.payscale %></td>
         <td><%= period.name %></td>
+        <td><%= period.students.count %></td>
+        <td><%= period.payscale %></td>
+        <td><%= period.class_average %></td>
         <td><%= link_to 'Show', period %></td>
         <td><%= link_to 'Edit', edit_period_path(period) %></td>
-        <td><%= link_to 'Destroy', period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Enter Behavior Data', enter_behavior_periods_path %></td>
       </tr>
     <% end %>

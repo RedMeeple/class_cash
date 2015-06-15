@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
 
   def student
     @student = Student.find_by_id(session[:user_id])
+    @period = Period.find_by_id(@student.period_id)
   end
 
   def instructor
