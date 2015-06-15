@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'colors';
+
 .welcome-container {
   position: absolute;
   top: 50%;
@@ -9,35 +11,33 @@
   transform: translate(-50%, -50%);
   text-align: center;
   font-weight: bold;
-  width: 60%;
-  min-width: 20rem;
-  max-width: 30rem;
-  padding: 5rem 0;
-  background-color: #47A275;
+  width: 20rem;
+  padding: 3rem 0;
+  background-color: $primary-bg-color;
 }
 
   .welcome {
     position: relative;
     display: block;
-    font-size: 3.2rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
-    color: #FAFAFA;
+    color: $primary-font-color;
   }
   
     .welcome-link {
       text-decoration: none;
-      width: 50%;
+      width: 10rem;
       display: block;
       position: relative;
       margin: 0 auto;
-      font-size: 2rem;
-      background-color: #FAFAFA;
-      max-width: 15rem;
-      color: #47A275;
+      padding: 0.5rem 0;
+      font-size: 1.25rem;
+      background-color: $primary-btn-color;
+      color: $primary-btn-font-color;
       
       &:hover,
       &:focus {
-        color: #FAFAFA;
-        background-color: #223D42;
+        background-color: $secondary-btn-color;
+        color: $secondary-btn-font-color;
       }
     }
