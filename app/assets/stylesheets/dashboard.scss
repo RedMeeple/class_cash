@@ -24,63 +24,9 @@
     margin-bottom: 2rem;
   }
   
-  .dashboard-instructor-roster {
-    position: relative;
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem 0;
-    width: 15rem;
-    background-color: $primary-btn-color;
-    color: $primary-btn-font-color;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    font-size: 1rem;
-    
-    &:hover,
-    &:focus {
-      background-color: $secondary-btn-color;
-      color: $secondary-btn-font-color;
-    }
-  }
-  
-  .dashboard-instructor-behavior {
-    position: relative;
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem 0;
-    width: 15rem;
-    background-color: $primary-btn-color;
-    color: $primary-btn-font-color;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    font-size: 1rem;
-    
-    &:hover,
-    &:focus {
-      background-color: $secondary-btn-color;
-      color: $secondary-btn-font-color;
-    }
-  }
-  
-  .dashboard-instructor-jobs {
-    position: relative;
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem 0;
-    width: 15rem;
-    background-color: $primary-btn-color;
-    color: $primary-btn-font-color;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    font-size: 1rem;
-    
-    &:hover,
-    &:focus {
-      background-color: $secondary-btn-color;
-      color: $secondary-btn-font-color;
-    }
-  }
-  
+  .dashboard-instructor-roster,
+  .dashboard-instructor-behavior,
+  .dashboard-instructor-jobs,
   .dashboard-instructor-periods {
     position: relative;
     text-decoration: none;
@@ -89,7 +35,7 @@
     width: 15rem;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     text-align: center;
     font-size: 1rem;
     
@@ -98,4 +44,14 @@
       background-color: $secondary-btn-color;
       color: $secondary-btn-font-color;
     }
+  }
+  
+  .dashboard-instructor-roster,
+  .dashboard-instructor-behavior,
+  .dashboard-instructor-jobs {
+     margin: 0 auto 2rem auto;
+  }
+  
+  .dashboard-instructor-periods {
+     margin: 0 auto;
   }
