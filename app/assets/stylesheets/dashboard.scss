@@ -51,6 +51,25 @@
     width: 15rem;
     background-color: #223D42;
     color: #FAFAFA;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    font-size: 1rem;
+    
+    &:hover,
+    &:focus {
+      background-color: #FAFAFA;
+      color: #223D42;
+    }
+  }
+  
+  .dashboard-instructor-jobs {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    width: 15rem;
+    background-color: #223D42;
+    color: #FAFAFA;
     margin: 0 auto;
     text-align: center;
     font-size: 1rem;
