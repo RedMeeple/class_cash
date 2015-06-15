@@ -1,0 +1,17 @@
+.link-logout {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #BED5BD;
+  color: #223D42;
+  font-weight: bold;
+  
+  &:hover,
+  &:focus {
+    background-color: #5A6B64;
+    color: #FAFAFA;
+  }
+}
