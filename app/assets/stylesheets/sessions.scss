@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'colors';
+
 .login-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2rem 2rem;
-  color: #FAFAFA;
-  background-color: #47A275;
-  width: 60%;
-  min-width: 20rem;
-  max-width: 25rem;
+  color: $primary-font-color;
+  background-color: $primary-bg-color;
+  width: 25rem;
 }
 
   .login-title {
@@ -67,17 +67,17 @@
     .login-container input[type="submit"] {
       position: relative;
       display: block;
-      background-color: #223D42;
-      color: #FAFAFA;
+      background-color: $primary-btn-color;
+      color: $primary-btn-font-color;
       border: 0;
       margin: 0 auto;
-      font-size: 1rem;
+      font-size: 1.25rem;
       width: 10rem;
       padding: 0.5rem 0;
       
       &:hover,
       &:focus {
-        background-color: #FAFAFA;
-        color: #223D42;
+        background-color: $secondary-btn-color;
+        color: $secondary-btn-font-color;
       }
     }
