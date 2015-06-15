@@ -1,3 +1,5 @@
+<h1>Behavior Entry for <%= Date.today %></h1>
+
 <%= form_for(@period) do |f| %>
   <% if @period.errors.any? %>
     <div id="error_explanation">
@@ -20,13 +22,13 @@
           <%= fff.label :good_behavior %>
           <%= fff.check_box :well_behaved %>
           <% fff.hidden_field :date, value: Date.today %>
-        <% end %>
-      </div>
-      <div>
-        <% ff.object.jobs(ff.object.id).each do |job| %>
-          <%= job.description %>
-          <%= ff.label :completed_job_task %>
-          <%= ff.check_box :completed_job_task %>
+          <div>
+            <% ff.object.jobs(ff.object.id).each do |job| %>
+              <%= job.description %>
+              <%= fff.label :did_job %>
+              <%= fff.check_box :did_job %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

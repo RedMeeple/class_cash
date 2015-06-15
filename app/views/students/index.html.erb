@@ -18,7 +18,7 @@
       <tr class="student-list-info">
         <td class="student-list-info-firstname"><%= student.first_name %></td>
         <td class="student-list-info-lastname"><%= student.last_name %></td>
-        <td class="student-list-info-cash"><%= student.cash %></td>
+        <td class="student-list-info-cash">$<%= student.cash %></td>
         <td class="student-list-info-behavior"><%= student.good_behavior_today(student.id) || student.good_behavior_yesterday(student.id) %></td>
         <td class="student-list-info-richest"><%= student.richest %></td>
         <td class="student-list-info-jobs"><% student.jobs(student.id).each do |job|%>

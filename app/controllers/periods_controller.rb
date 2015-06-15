@@ -84,6 +84,6 @@ class PeriodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, behaviors_attributes: [:id, :well_behaved, :date]])
+      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, behaviors_attributes: [:id, :well_behaved, :date, :did_job]])
     end
 end
