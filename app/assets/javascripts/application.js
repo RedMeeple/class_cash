@@ -20,7 +20,12 @@ $(function () {
   if ($('.student-list').length) {
     
     $('.student-list').find('.student-list-info-richest').each(function (index, element) {
-      console.log($(element).text());
+      
+      if ($(element).text() === 'true') {
+        $(element).html('<i class="fa fa-money"></i>');
+      } else {
+        $(element).text('');
+      }
     });
   }
   
