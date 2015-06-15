@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'colors';
+
 // Dashboard - Instructor
 
 .dashboard-instructor-container {
@@ -9,18 +11,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 5rem 0;
-  background-color: #47A275;
-  width: 60%;
-  min-width: 20rem;
-  max-width: 30rem;
+  padding: 2rem 0;
+  background-color: $primary-bg-color;
+  width: 20rem;
 }
 
   .dashboard-instructor-welcome {
     position: relative;
     font-size: 2rem;
     text-align: center;
-    color: #FAFAFA;
+    color: $primary-font-color;
     margin-bottom: 2rem;
   }
   
@@ -30,16 +30,16 @@
     display: block;
     padding: 0.5rem 0;
     width: 15rem;
-    background-color: #223D42;
-    color: #FAFAFA;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
     margin: 0 auto 2rem auto;
     text-align: center;
     font-size: 1rem;
     
     &:hover,
     &:focus {
-      background-color: #FAFAFA;
-      color: #223D42;
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
     }
   }
   
@@ -49,16 +49,16 @@
     display: block;
     padding: 0.5rem 0;
     width: 15rem;
-    background-color: #223D42;
-    color: #FAFAFA;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
     margin: 0 auto 2rem auto;
     text-align: center;
     font-size: 1rem;
     
     &:hover,
     &:focus {
-      background-color: #FAFAFA;
-      color: #223D42;
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
     }
   }
   
@@ -68,15 +68,34 @@
     display: block;
     padding: 0.5rem 0;
     width: 15rem;
-    background-color: #223D42;
-    color: #FAFAFA;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    font-size: 1rem;
+    
+    &:hover,
+    &:focus {
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
+    }
+  }
+  
+  .dashboard-instructor-periods {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    width: 15rem;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
     margin: 0 auto;
     text-align: center;
     font-size: 1rem;
     
     &:hover,
     &:focus {
-      background-color: #FAFAFA;
-      color: #223D42;
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
     }
   }
