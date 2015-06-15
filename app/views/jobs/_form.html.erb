@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_id %><br>
-    <%= f.number_field :student_id %>
+    <%= f.label :student %><br>
+    <%= f.select :student_id, @students.map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

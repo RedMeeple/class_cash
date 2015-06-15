@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :logged_in?, except: [:send_money]
-  before_action :student_logged_in?, only: [:send_money]
+  before_action :logged_in?, except: [:send_money, :sent_money]
+  before_action :student_logged_in?, only: [:send_money, :sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
@@ -20,10 +20,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @periods = Period.where(instructor_id: session[:user_id])
   end
 
   # GET /students/1/edit
   def edit
+    @periods = Period.where(instructor_id: session[:user_id])
   end
 
   # POST /students
