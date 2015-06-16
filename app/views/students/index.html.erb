@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
+
+<div class="links">
+  <%= link_to 'Add New Student', new_student_path, class: "add-new-student" %>
+  <%= link_to 'Home', root_path, class: "home" %>
+</div>
 
 <table class="student-list">
   <thead>
@@ -31,8 +36,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Add New Student', new_student_path %>
-<%= link_to 'Home', root_path %>
