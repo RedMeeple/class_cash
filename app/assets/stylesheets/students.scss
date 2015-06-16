@@ -4,7 +4,7 @@
 
 @import 'colors';
 
-// Students List Page
+// Students List Page (students/index.html.erb)
 
 .student-list {
   position: relative;
@@ -52,7 +52,7 @@
     color: $green;
   }
   
-// New Student Page
+// New Student Page (students/new.html.erb)
 
 .students-new-title {
   position: relative;
@@ -134,7 +134,7 @@
     }
   }
   
-// Student Show Page
+// Student Show Page (students/show.html.erb)
 
 .student-show-container {
   position: relative;
