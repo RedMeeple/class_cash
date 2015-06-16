@@ -12,15 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require app.js
-//= require_tree .
-
-$(function () {
-  'use strict';
-  
-  if ($('.student-list').length) {
-    app.students.tableRichest();
-  }
-  
-  
-});
+//= require app
+//= require students
+//= require init
