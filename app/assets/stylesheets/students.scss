@@ -133,3 +133,51 @@
       color: $secondary-btn-font-color;
     }
   }
+  
+// Student Show Page
+
+.student-show-container {
+  position: relative;
+  top: 6rem;
+  display: block;
+  width: 20rem;
+  padding: 2rem 2rem;
+  margin: 0 auto;
+  background-color: $primary-bg-color;
+  color: $primary-font-color;
+}
+
+  .student-show-firstname-container,
+  .student-show-lastname-container,
+  .student-show-email-container,
+  .student-show-cash-container,
+  .student-show-period-container,
+  .student-show-richest-container,
+  .student-show-received-container,
+  .student-show-sent-container {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  
+    .student-show-firstname-title,
+    .student-show-lastname-title,
+    .student-show-email-title,
+    .student-show-cash-title,
+    .student-show-period-title,
+    .student-show-richest-title,
+    .student-show-received-title,
+    .student-show-sent-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .student-show-firstname-text,
+    .student-show-lastname-text,
+    .student-show-email-text,
+    .student-show-cash-text,
+    .student-show-period-text,
+    .student-show-richest-text {
+      position: relative;
+      display: inline-block;
+    }

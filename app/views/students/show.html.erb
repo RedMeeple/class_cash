@@ -1,53 +1,57 @@
 <div id="notice"><%= notice %></div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
-</p>
+<div class="links">
+  <%= link_to 'Edit', edit_student_path(@student), class: "edit" %>
+  <%= link_to 'Back', students_path, class: "back" %>
+  <%= link_to 'Home', root_path, class: "home" %>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
-
-<p>
-  <strong>Cash:</strong>
-  <%= @student.cash %>
-</p>
-
-<p>
-  <strong>Period:</strong>
-  <%= @student.period.name %>
-</p>
-
-<p>
-  <strong>Richest:</strong>
-  <%= @student.richest %>
-</p>
-
-<p>
-  <strong>Received Money: </strong>
-  <ol>
-    <% @received.each do |r| %>
-      <li><%= r.amount %> from <%= Student.find(r.sender_id).first_name %> <%= Student.find(r.sender_id).last_name %></li>
-    <% end %>
-  </ol>
-</p>
-
-<p>
-  <strong>Sent Money: </strong>
-  <ol>
-    <% @sent.each do |s| %>
-      <li><%= s.amount %> to <%= Student.find(s.recipient_id).first_name %> <%= Student.find(s.recipient_id).last_name %></li>
-    <% end %>
-  </ol>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %>
-<%= link_to 'Back', students_path %>
-<%= link_to 'Home', root_path %>
+<div class="student-show-container">
+  <div class="student-show-firstname-container">
+    <div class="student-show-firstname-title">First name:</div>
+    <div class="student-show-firstname-text"><%= @student.first_name %></div>
+  </div>
+  
+  <div class="student-show-lastname-container">
+    <div class="student-show-lastname-title">Last name:</div>
+    <div class="student-show-lastname-text"><%= @student.last_name %></div>
+  </div>
+  
+  <div class="student-show-email-container">
+    <div class="student-show-email-title">Email:</div>
+    <div class="student-show-email-text"><%= @student.email %></div>
+  </div>
+  
+  <div class="student-show-cash-container">
+    <div class="student-show-cash-title">Cash:</div>
+    <div class="student-show-cash-text"><%= @student.cash %></div>
+  </div>
+  
+  <div class="student-show-period-container">
+    <div class="student-show-period-title">Period:</div>
+    <div class="student-show-period-text"><%= @student.period.name %></div>
+  </div>
+  
+  <div class="student-show-richest-container">
+    <div class="student-show-richest-title">Richest:</div>
+    <div class="student-show-richest-text"><%= @student.richest %></div>
+  </div>
+  
+  <div class="student-show-received-container">
+    <div class="student-show-received-title">Received Money: </div>
+    <ol>
+      <% @received.each do |r| %>
+        <li><%= r.amount %> from <%= Student.find(r.sender_id).first_name %> <%= Student.find(r.sender_id).last_name %></li>
+      <% end %>
+    </ol>
+  </div>
+  
+  <div class="student-show-sent-container">
+    <div class="student-show-sent-title">Sent Money: </div>
+    <ol>
+      <% @sent.each do |s| %>
+        <li><%= s.amount %> to <%= Student.find(s.recipient_id).first_name %> <%= Student.find(s.recipient_id).last_name %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>
