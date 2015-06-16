@@ -2,12 +2,17 @@
 
   <div class="enter-behavior-title">Behavior Entry for <%= Date.today %></div>
 
+  <%= form_for(@period) do |f| %>
+    <% if @period.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
       <ul>
       <% @period.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
+    <% end %>
   <% end %>
 
   <% @students.order(:last_name).each do |s| %>
@@ -21,6 +26,7 @@
           <%= ff.hidden_field :date, value: Date.today %>
         </div>
       <% end %>
+
   <% end %>
 </div>
 
