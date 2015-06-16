@@ -7,10 +7,10 @@
 // Students List Page
 
 .student-list {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 6rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
   .student-list th {
@@ -57,159 +57,40 @@
 
 .students-new-title {
   position: relative;
-  top: 8rem;
+  top: 6rem;
   display: block;
   text-align: center;
   font-size: 2rem;
-  color: #223D42;
+  color: $secondary-font-color;
 }
 
 .students-new-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  top: 8rem;
+  display: block;
+  margin: 0 auto;
   width: 25rem;
-  background-color: #82B8A4;
-  padding: 2rem 3rem;
+  background-color: $primary-bg-color;
+  color: $primary-font-color;
+  padding: 3rem 2rem;
 }
 
-  .students-new-firstname {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-    .students-new-firstname-text {
-      position: relative;
-      display: inline-block;
-      
-      & label {
-        font-size: 1rem;
-      }
-    }
-    
-    .students-new-firstname-input {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      
-      & input {
-        font-size: 1rem;
-        width: 10rem;
-      }
-    }
-    
-  .students-new-lastname {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-    .students-new-lastname-text {
-      position: relative;
-      display: inline-block;
-      
-      & label {
-        font-size: 1rem;
-      }
-    }
-    
-    .students-new-lastname-input {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      
-      & input {
-        font-size: 1rem;
-        width: 10rem;
-      }
-    }
-    
-  .students-new-email {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-    .students-new-email-text {
-      position: relative;
-      display: inline-block;
-      
-      & label {
-        font-size: 1rem;
-      }
-    }
-    
-    .students-new-email-input {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      
-      & input {
-        font-size: 1rem;
-        width: 10rem;
-      }
-    }
-    
-  .students-new-cash {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-    .students-new-cash-text {
-      position: relative;
-      display: inline-block;
-      
-      & label {
-        font-size: 1rem;
-      }
-    }
-    
-    .students-new-cash-input {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      
-      & input {
-        font-size: 1rem;
-        width: 10rem;
-      }
-    }
-    
-  .students-new-period {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-    .students-new-period-text {
-      position: relative;
-      display: inline-block;
-      
-      & label {
-        font-size: 1rem;
-      }
-    }
-    
-    .students-new-period-input {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      
-      & select {
-        font-size: 1rem;
-        width: 10rem;
-      }
-    }
-    
+  .students-new-firstname,
+  .students-new-lastname,
+  .students-new-email,
+  .students-new-cash,
+  .students-new-period,
   .students-new-password {
     position: relative;
     display: block;
     margin-bottom: 1rem;
   }
   
+    .students-new-firstname-text,
+    .students-new-lastname-text,
+    .students-new-email-text,
+    .students-new-cash-text,
+    .students-new-period-text,
     .students-new-password-text {
       position: relative;
       display: inline-block;
@@ -219,12 +100,18 @@
       }
     }
     
+    .students-new-firstname-input,
+    .students-new-lastname-input,
+    .students-new-email-input,
+    .students-new-cash-input,
+    .students-new-period-input,
     .students-new-password-input {
       position: absolute;
       right: 0;
       display: inline-block;
       
-      & input {
+      & input,
+      & select {
         font-size: 1rem;
         width: 10rem;
       }
@@ -233,16 +120,17 @@
   .students-new-container input[type="submit"] {
     position: relative;
     display: block;
-    background-color: #223D42;
-    color: #FAFAFA;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
     border: 0;
-    margin: 0 auto;
-    font-size: 1rem;
+    margin: 3rem auto 0 auto;
+    font-size: 1.25rem;
     width: 10rem;
     padding: 0.5rem 0;
     
     &:hover,
     &:focus {
-      background-color: #47A275;
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
     }
   }

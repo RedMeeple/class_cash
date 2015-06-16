@@ -5,10 +5,10 @@
 @import 'colors';
 
 .login-container {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 6rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   padding: 2rem 2rem;
   color: $primary-font-color;
   background-color: $primary-bg-color;
@@ -53,7 +53,7 @@
       color: $primary-btn-font-color;
       border: 0;
       margin: 0 auto;
-      font-size: 1.25rem;
+      font-size: 1rem;
       width: 10rem;
       padding: 0.5rem 0;
       

@@ -5,10 +5,10 @@
 @import 'colors';
 
 .welcome-container {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 6rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-align: center;
   width: 20rem;
   padding: 3rem 0;
@@ -30,7 +30,7 @@
       position: relative;
       margin: 0 auto;
       padding: 0.5rem 0;
-      font-size: 1.25rem;
+      font-size: 1rem;
       background-color: $primary-btn-color;
       color: $primary-btn-font-color;
       
