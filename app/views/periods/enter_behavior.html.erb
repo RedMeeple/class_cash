@@ -6,27 +6,27 @@
     <% if @period.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
-      <ul>
-      <% @period.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+          <ul>
+          <% @period.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+      </div>
     <% end %>
-  <% end %>
 
-  <% @students.order(:last_name).each do |s| %>
-    <div><%= s.first_name %> <%= s.last_name %></div>
-      <%= f.fields_for(@behavior) do |ff| %>
-        <div>
-          <%= ff.label :well_behaved %><br>
-          <%= ff.check_box :well_behaved %>
-        </div>
-        <div class="field">
-          <%= ff.hidden_field :date, value: Date.today %>
-        </div>
-      <% end %>
+    <% @students.order(:last_name).each do |s| %>
+      <div><%= s.first_name %> <%= s.last_name %></div>
+        <%= f.fields_for(@behavior) do |ff| %>
+          <div>
+            <%= ff.label :well_behaved %><br>
+            <%= ff.check_box :well_behaved %>
+          </div>
+          <div class="field">
+            <%= ff.hidden_field :date, value: Date.today %>
+          </div>
+        <% end %>
 
+    <% end %>
   <% end %>
 </div>
 
