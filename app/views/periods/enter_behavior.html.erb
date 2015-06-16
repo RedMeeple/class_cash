@@ -1,42 +1,47 @@
-<h1>Behavior Entry for <%= Date.today %></h1>
+<div class="enter-behavior-container">
 
-<%= form_for(@period) do |f| %>
-  <% if @period.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
+  <div class="enter-behavior-title">Behavior Entry for <%= Date.today %></div>
 
-      <ul>
-      <% @period.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.fields_for(:students) do |ff| %>
-    <div class="field">
-      <div>
-        <%= ff.object.first_name %>
-        <%= ff.object.last_name %>
-        <%= ff.fields_for(:behaviors) do |fff| %>
-          <%= fff.label :good_behavior %>
-          <%= fff.check_box :well_behaved %>
-          <% fff.hidden_field :date, value: Date.today %>
-          <div>
-            <% ff.object.jobs(ff.object.id).each do |job| %>
-              <%= job.description %>
-              <%= fff.label :did_job %>
-              <%= fff.check_box :did_job %>
-            <% end %>
-          </div>
+  <%= form_for(@period) do |f| %>
+    <% if @period.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
+  
+        <ul>
+        <% @period.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
+        </ul>
       </div>
+    <% end %>
+  
+    <%= f.fields_for(:students) do |ff| %>
+      <div class="field">
+        <div>
+          <%= ff.object.first_name %>
+          <%= ff.object.last_name %>
+          <%= ff.fields_for(:behaviors) do |fff| %>
+            <%= fff.label :good_behavior %>
+            <%= fff.check_box :well_behaved %>
+            <% fff.hidden_field :date, value: Date.today %>
+            <div>
+              <% ff.object.jobs(ff.object.id).each do |job| %>
+                <%= job.description %>
+                <%= fff.label :did_job %>
+                <%= fff.check_box :did_job %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  
+    <div class="actions">
+      <%= f.submit "Submit Behavior and Pay"%>
     </div>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Submit Behavior and Pay"%>
-  </div>
-<% end %>
-
-<%= link_to 'Home', root_path %>
+<div class="links">
+  <%= link_to 'Home', root_path, class: "home" %>
+</div>
