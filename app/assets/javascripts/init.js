@@ -5,5 +5,9 @@ $(function () {
     app.students.tableRichest();
   }
   
+  if ($('.student-show-container').length) {
+    app.students.individualRichest();
+  }
+  
   
 });

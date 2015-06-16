@@ -11,5 +11,17 @@ app.students = {
         $(element).text('');
       }
     });
+    
+  },
+  
+  individualRichest: function () {
+    var str = $('.student-show-richest-text').text();
+    
+    if (str === 'true') {
+      $('.student-show-richest-text').text('Yes');
+    } else {
+      $('.student-show-richest-text').text('No');
+    }
+    
   },
 }
