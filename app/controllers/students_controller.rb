@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     Student.richest?
-    @students = Student.all
+    @students = Student.where(period_id: Period.where(instructor_id: session[:user_id])).all
   end
 
   # GET /students/1
@@ -76,11 +76,20 @@ class StudentsController < ApplicationController
 
   def sent_money
     @student = Student.find_by_id(session[:user_id])
-    @transaction = Transaction.create(transaction_params)
-    @student.update(cash: (@student.cash - @transaction.amount))
-    @recipient = Student.find_by_id(@transaction.recipient_id)
-    @recipient.update(cash: (@recipient.cash + @transaction.amount))
-    redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent."
+    @transaction = Transaction.new(transaction_params)
+
+    respond_to do |format|
+      if @transaction.save
+        @student.update(cash: (@student.cash - @transaction.amount))
+        @recipient = Student.find_by_id(@transaction.recipient_id)
+        @recipient.update(cash: (@recipient.cash + @transaction.amount))
+        format.html { redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent." }
+        format.json { render :show, status: :created, location: @transaction }
+      else
+        format.html { render :new }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private def student_logged_in?
