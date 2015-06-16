@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'colors';
+
 // Students List Page
 
 .student-list {
@@ -25,19 +27,20 @@
   }
   
   .student-list-info:not(:last-child) {
-    border-bottom: 1px solid #223D42;
+    border-bottom: 1px solid $primary-btn-color;
   }
   
   .student-list-info a {
     text-decoration: none;
     display: inline-block;
-    background-color: #47A275;
-    color: #FAFAFA;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
     padding: 0.2rem 1rem;
     
     &:hover,
     &:focus {
-      background-color: #223D42;
+      background-color: $third-btn-color;
+      color: $third-btn-font-color
     }
   }
   
@@ -47,7 +50,7 @@
   
   .student-list-info-richest {
     text-align: center;
-    color: #47A275;
+    color: $green;
   }
   
 // New Student Page
