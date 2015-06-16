@@ -9,8 +9,7 @@
 .student-list {
   position: relative;
   top: 6rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
 }
 
   .student-list th {
