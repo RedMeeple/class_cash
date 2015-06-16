@@ -4,32 +4,32 @@
 
 @import 'colors';
 
-// Students List Page (students/index.html.erb)
+// Students Table Page (students/index.html.erb)
 
-.student-list {
+.student-table {
   position: relative;
   top: 6rem;
   margin: 0 auto;
 }
 
-  .student-list th {
+  .student-table th {
     padding: 0.5rem;
     text-align: center;
     font-size: 1rem;
   }
   
-  .student-list td {
+  .student-table td {
     padding: 0.2rem 1rem;
     font-size: 0.8rem;
     height: 3rem;
     vertical-align: bottom;
   }
   
-  .student-list-info:not(:last-child) {
+  .student-table-info:not(:last-child) {
     border-bottom: 1px solid $primary-btn-color;
   }
   
-  .student-list-info a {
+  .student-table-info a {
     text-decoration: none;
     display: inline-block;
     background-color: $primary-btn-color;
@@ -43,11 +43,11 @@
     }
   }
   
-  .student-list-info-cash {
+  .student-table-info-cash {
     text-align: right;
   }
   
-  .student-list-info-richest {
+  .student-table-info-richest {
     text-align: center;
     color: $green;
   }
