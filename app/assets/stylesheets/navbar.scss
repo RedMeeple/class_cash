@@ -64,3 +64,21 @@
     color: $secondary-btn-font-color;
   }
 }
+
+.back {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  text-align: center;
+  margin: 0 0.5rem;
+  width: 10rem;
+  background-color: $primary-btn-color;
+  color: $primary-btn-font-color;
+  
+  &:hover,
+  &:focus {
+    background-color: $light-pale-green;
+    color: $secondary-btn-font-color;
+  }
+}
