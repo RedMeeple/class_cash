@@ -1,9 +1,6 @@
-<h1>Behavior Entry for <%= Date.today %></h1>
+<div class="enter-behavior-container">
 
-<%= form_for(@period) do |f| %>
-  <% if @period.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
+  <div class="enter-behavior-title">Behavior Entry for <%= Date.today %></div>
 
       <ul>
       <% @period.errors.full_messages.each do |message| %>
@@ -25,10 +22,8 @@
         </div>
       <% end %>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Submit Behavior and Pay"%>
-  </div>
-<% end %>
-
-<%= link_to 'Home', root_path %>
+<div class="links">
+  <%= link_to 'Home', root_path, class: "home" %>
+</div>

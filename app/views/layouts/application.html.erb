@@ -9,7 +9,7 @@
 <body>
 
 <%= link_to "Logout", sessions_logout_path, class: "link-logout" if session[:user_id] %>
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 <div class="container">
   <% if @user %>
     <h2>Welcome, <%= @user.name %></h2>
