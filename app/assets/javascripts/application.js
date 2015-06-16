@@ -12,21 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require app.js
 //= require_tree .
 
 $(function () {
   'use strict';
   
   if ($('.student-list').length) {
-    
-    $('.student-list').find('.student-list-info-richest').each(function (index, element) {
-      
-      if ($(element).text() === 'true') {
-        $(element).html('<i class="fa fa-money fa-2x"></i>');
-      } else {
-        $(element).text('');
-      }
-    });
+    app.students.tableRichest();
   }
   
   
