@@ -9,6 +9,9 @@ $(function () {
     app.students.individualRichest();
   }
   
+  if ($('.welcome-container').length || $('.login-container').length) {
+    $('.navigation').remove();
+  }
   
   
   
