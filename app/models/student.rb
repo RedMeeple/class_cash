@@ -8,8 +8,10 @@ class Student < ActiveRecord::Base
 
   def self.richest?
     Student.update_all richest: false
-    rich = Student.order(:cash).last
-    rich.update(richest: true)
+    Period.all.each do |p|
+      rich = Student.where(period_id: p.id).order(:cash).last
+      rich.update(richest: true)
+    end
   end
 
   def jobs(id)

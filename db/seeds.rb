@@ -15,7 +15,15 @@ Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test
 
 end
 
+10.times do
+  Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+      email: Faker::Internet.email, cash: (1..100).to_a.sample, period_id: 2,
+      password: "password")
+
+end
+
 Period.create(name: "Test", payscale: 20, instructor_id: 1)
+Period.create(name: "Test2", payscale: 20, instructor_id: 1)
 
 10.times do
   Job.create(payscale: [20,25,30].sample, student_id: (1..10).to_a.sample,
