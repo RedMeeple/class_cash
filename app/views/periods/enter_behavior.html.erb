@@ -2,33 +2,35 @@
 
   <div class="enter-behavior-title">Behavior Entry for <%= Date.today %></div>
 
-  <%= form_for(@period) do |f| %>
-    <% if @period.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@period.errors.count, "error") %> prohibited this period from being saved:</h2>
-          <ul>
-          <% @period.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Well Behaved</th>
+      <th>Completed Job</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= form_for(@period) do |f| %>
+    <% @students.each do |student| %>
+      <%= f.fields_for(:behaviors) do |ff| %>
+        <tr>
+          <%= ff.hidden_field :date, value: Date.today %>
+          <%= ff.hidden_field :student_id, value: student.id %>
+          <td><%= student.first_name %> <%= student.last_name %></td>
+          <td><%= ff.check_box :well_behaved %></td>
+          <td><%= student.jobs(student.id).length %></td>
+        <% end %></tr>
+      <% end %>
+      <div class="actions">
+        <%= f.submit %>
       </div>
     <% end %>
+  </tbody>
+</table>
 
-    <% @students.order(:last_name).each do |s| %>
-      <div><%= s.first_name %> <%= s.last_name %></div>
-        <%= f.fields_for(@behavior) do |ff| %>
-          <div>
-            <%= ff.label :well_behaved %><br>
-            <%= ff.check_box :well_behaved %>
-          </div>
-          <div class="field">
-            <%= ff.hidden_field :date, value: Date.today %>
-          </div>
-        <% end %>
 
-    <% end %>
-  <% end %>
-</div>
 
 <div class="links">
   <%= link_to 'Home', root_path, class: "home" %>

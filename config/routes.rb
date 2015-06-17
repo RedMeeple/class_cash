@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :periods do
     collection do
       get 'enter_behavior'
-      patch 'enter_behavior'
+      post 'enter_behavior'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
