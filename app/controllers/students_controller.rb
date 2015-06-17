@@ -70,7 +70,7 @@ class StudentsController < ApplicationController
 
   def send_money
     @student = Student.find_by_id(session[:user_id])
-    @students = Student.where(period_id: @student.period_id).all
+    @students = Student.where(period_id: Period.where(instructor_id: @student.period.instructor_id)).all
     @transaction = Transaction.new(sender_id: @student.id)
   end
 

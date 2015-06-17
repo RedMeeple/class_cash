@@ -2,7 +2,7 @@ class Period < ActiveRecord::Base
   has_many :students, dependent: :destroy
   has_many :behaviors, through: :student
   belongs_to :instructor
-  accepts_nested_attributes_for :students
+  accepts_nested_attributes_for :students, reject_if: :all_blank
 
   def pay_students
     @students = Student.where(period_id: self.id).all

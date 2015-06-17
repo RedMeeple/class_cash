@@ -14,6 +14,8 @@ class PeriodsController < ApplicationController
     @students = @period.students
     @students.each {|s| s.behaviors.build }
   end
+
+
   # GET /periods
   # GET /periods.json
   def index
@@ -30,6 +32,7 @@ class PeriodsController < ApplicationController
   def new
     @period = Period.new
     @instructor = Instructor.find_by_id(session[:user_id])
+    20.times { @period.students.build }
   end
 
   # GET /periods/1/edit
@@ -87,6 +90,7 @@ class PeriodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, behaviors_attributes: [:id, :well_behaved, :date, :did_job]])
+      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, :first_name,
+          :last_name, :password, :email, behaviors_attributes: [:id, :well_behaved, :date, :did_job]])
     end
 end
