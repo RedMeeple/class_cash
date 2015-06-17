@@ -181,3 +181,56 @@
       position: relative;
       display: inline-block;
     }
+    
+    
+// Students Send Money Page (students/send_money.html.erb)
+
+.student-send-money-container {
+  position: relative;
+  top: $standard-margin-top;
+  display: block;
+  width: 20rem;
+  padding: $standard-padding-all;
+  margin: 0 auto;
+  background-color: $primary-bg-color;
+  color: $primary-font-color;
+}
+
+  .student-send-money-title {
+    position: relative;
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .student-send-money-recipient,
+  .student-send-money-amount {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  
+    .student-send-money-recipient-title,
+    .student-send-money-amount-title {
+      position: relative;
+      display: inline-block;
+      width: 8rem;
+    }
+    
+    .student-send-money-recipient-input,
+    .student-send-money-amount-input {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .student-send-money-container input[type="submit"] {
+      border: 0;
+      font-size: 1rem;
+      background-color: $primary-btn-color;
+      color: $primary-btn-font-color;
+      padding: 0.5rem 1rem;
+      display: block;
+      margin: 0 auto;
+    }

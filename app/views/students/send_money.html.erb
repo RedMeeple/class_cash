@@ -1,33 +1,36 @@
-<h1>Send Cash</h1>
-
-<%= form_for @transaction, url: students_sent_money_path do |f| %>
-  <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% @transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="student-send-money-container">
+  
+  <div class="student-send-money-title">Send Cash</div>
+  
+  <%= form_for @transaction, url: students_sent_money_path do |f| %>
+    <% if @transaction.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>
+  
+        <ul>
+        <% @transaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field student-send-money-recipient">
+      <div class="student-send-money-recipient-title"><%= f.label :recipient %></div>
+      <div class="student-send-money-recipient-input"><%= f.select :recipient_id, @students.map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %></div>
     </div>
+    <div class="field student-send-money-amount">
+      <div class="student-send-money-amount-title"><%= f.label :amount %></div>
+      <div class="student-send-money-amount-input"><%= f.number_field :amount %></div>
+    </div>
+    <div class="actions">
+      <%= f.hidden_field :sender_id, value: @student.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Send Money'%>
+    </div>
+  
   <% end %>
-
-  <div class="field">
-    <%= f.label :recipient %><br>
-    <%= f.select :recipient_id, @students.map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
-  </div>
-  <div class="actions">
-    <%= f.hidden_field :sender_id, value: @student.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Send Money'%>
-  </div>
-
-<% end %>
-
-<%= link_to 'Home', root_path %>
+  
+  <%= link_to 'Home', root_path %>
+</div>
