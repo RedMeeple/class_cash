@@ -1,7 +1,7 @@
 $(function () {
   'use strict';
   
-  if ($('.student-list').length) {
+  if ($('.student-table').length) {
     app.students.tableRichest();
   }
   

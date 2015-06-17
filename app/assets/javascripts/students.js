@@ -3,7 +3,7 @@
 
 app.students = {
   tableRichest: function () {
-    $('.student-list').find('.student-list-info-richest').each(function (index, element) {
+    $('.student-table').find('.student-table-info-richest').each(function (index, element) {
       
       if ($(element).text() === 'true') {
         $(element).html('<i class="fa fa-money fa-2x"></i>');
