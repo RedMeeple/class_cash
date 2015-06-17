@@ -12,7 +12,7 @@ class PeriodsController < ApplicationController
   def enter_behavior
     @period = Period.find_by_instructor_id(session[:user_id])
     @students = @period.students
-    @students.each {|s| @behavior = Behavior.new(student_id: s.id) }
+    @students.each {|s| s.behaviors.build }
   end
   # GET /periods
   # GET /periods.json
@@ -83,10 +83,6 @@ class PeriodsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_period
       @period = Period.find(params[:id])
-    end
-
-    def behavior_params
-      params.require(:behavior).permit(:well_behaved, :date)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
