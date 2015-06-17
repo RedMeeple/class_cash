@@ -4,99 +4,49 @@
 
 @import 'variables';
 
-.link-logout {
+.navigation {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  text-align: center;
-  width: 10rem;
-  background-color: $primary-btn-color;
-  color: $primary-btn-font-color;
-  
-  &:hover,
-  &:focus {
-    background-color: $light-pale-green;
-    color: $secondary-btn-font-color;
-  }
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
-.links {
+// .menu-btn div {
+// 	position: absolute;
+// 	left: 100%;
+// 	top: 64%;
+// 	padding-right: 8px;
+// 	margin-top: -0.50em;
+// 	line-height: 1.2;
+// 	font-size: 18px;
+// 	font-weight: 200;
+// 	vertical-align: middle;
+// 	z-index: 99;
+// }
+
+.menu-btn span {
+	display: block;
+	width: 1.5rem;
+	height: 0.3rem;
+	margin: 0.1rem 0;
+	background: #000000;
+	z-index: 99;
+}
+
+.menu-responsive {
+	display: none;
   position: absolute;
-  right: 12rem;
-  top: 1rem;
-}
-
-.add-new-student {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  text-align: center;
-  margin: 0 0.5rem;
-  width: 10rem;
-  background-color: $primary-btn-color;
-  color: $primary-btn-font-color;
+  right: 0;
   
-  &:hover,
-  &:focus {
-    background-color: $light-pale-green;
-    color: $secondary-btn-font-color;
+  & a {
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
   }
 }
 
-.home {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  text-align: center;
-  margin: 0 0.5rem;
-  width: 10rem;
-  background-color: $primary-btn-color;
-  color: $primary-btn-font-color;
-  
-  &:hover,
-  &:focus {
-    background-color: $light-pale-green;
-    color: $secondary-btn-font-color;
-  }
-}
-
-.back {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  text-align: center;
-  margin: 0 0.5rem;
-  width: 10rem;
-  background-color: $primary-btn-color;
-  color: $primary-btn-font-color;
-  
-  &:hover,
-  &:focus {
-    background-color: $light-pale-green;
-    color: $secondary-btn-font-color;
-  }
-}
-
-.edit {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  text-align: center;
-  margin: 0 0.5rem;
-  width: 10rem;
-  background-color: $primary-btn-color;
-  color: $primary-btn-font-color;
-  
-  &:hover,
-  &:focus {
-    background-color: $light-pale-green;
-    color: $secondary-btn-font-color;
-  }
+.expand {
+  position: absolute;
+	display: block;
 }

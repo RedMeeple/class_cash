@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ClassCash</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= link_to "Logout", sessions_logout_path, class: "link-logout" if session[:user_id] %>
-<div id="notice"><%= notice %></div>
-<div class="container">
-  <% if @user %>
-    <h2>Welcome, <%= @user.name %></h2>
-  <% end %>
-  <div class="row">
-    <%= yield %>
-  </div>
-</div>
-
-</body>
+  <head>
+    
+    <title>ClassCash</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+      
+  </head>
+  
+  <body>
+    <div class="navigation">
+      <div class="menu-btn" id="menu-btn">
+        <!--<div></div>-->
+      	<span></span>
+      	<span></span>
+      	<span></span>
+      </div>
+      <div class="menu-responsive">
+        <ul>
+          <li><%= link_to "Logout", sessions_logout_path, class: "link-logout" if session[:user_id] %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="notice">
+      <%= notice %>
+    </div>
+    
+    <div class="container">
+      <% if @user %>
+        <h2>Welcome, <%= @user.name %></h2>
+      <% end %>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  
+  </body>
 </html>
