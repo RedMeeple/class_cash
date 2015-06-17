@@ -2,17 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'colors';
+@import 'variables';
 
 // Dashboard - Instructor
 
 .dashboard-instructor-container {
   position: relative;
-  top: 6rem;
+  top: $standard-margin-top;
   display: block;
   margin: 0 auto;
   padding: 2rem 0;
   background-color: $primary-bg-color;
+  color: $primary-font-color;
   width: 20rem;
 }
 
@@ -54,4 +55,37 @@
   
   .dashboard-instructor-periods {
      margin: 0 auto;
+  }
+  
+  
+// Dashboard - Student
+
+.dashboard-student-container {
+  position: relative;
+  top: $standard-margin-top;
+  display: block;
+  margin: 0 auto;
+  padding: $standard-padding-all;
+  background-color: $primary-bg-color;
+  color: $primary-font-color;
+  width: 20rem;
+}
+
+  .dashboard-student-send-money-link {
+    text-decoration: none;
+    text-align: center;
+    width: 10rem;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    
+    &:hover,
+    &:focus {
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
+    }
   }
