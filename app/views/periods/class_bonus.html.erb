@@ -1,0 +1,22 @@
+<h2><%= @period.name %></h2>
+
+<% if params[:amount] %>
+  <p>$<%= params[:amount] %> has been distributed.</p>
+  <% individual = params[:amount].to_i / @period.students.length %>
+  <% @period.students.each do |student| %>
+    <% student.update(cash: (student.cash + individual)) %>
+  <% end %>
+<% else %>
+  <h1>A class bonus will be evenly divided amongst all student for this period.  The bonus may be a positive or a negative number.</h1>
+
+  <%= form_tag class_bonus_periods_path do %>
+    <div class="field">
+      Amount: $<%= number_field_tag :amount %>
+    </div>
+    <div class="actions">
+      <%= submit_tag %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Home', root_path %>

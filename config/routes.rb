@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     collection do
       get 'enter_behavior'
       post 'enter_behavior'
+      get 'class_bonus'
+      post 'class_bonus'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
