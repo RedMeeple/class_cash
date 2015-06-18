@@ -2,24 +2,33 @@ $(function () {
   'use strict';
   
   if ($('.student-table').length) {
+    var uL = $('.menu-responsive ul');
+    
+    app.navbar.homeLink(uL);
+    app.navbar.newStudentLink(uL);
+    
     app.students.tableRichest();
-    app.navbar.tableStudents();
   }
   
   if ($('.student-show-container').length) {
+    var uL = $('.menu-responsive ul');
+    
+    app.navbar.homeLink(uL);
+    app.navbar.editStudentLink(uL);
+    
     app.students.individualRichest();
-    app.navbar.showStudent();
+  }
+  
+  if ($('.students-new-title').length) {
+    var uL = $('.menu-responsive ul');
+    
+    app.navbar.homeLink(uL);
   }
   
   if ($('.welcome-container').length || $('.login-container').length) {
     app.navbar.removeBurger();
   }
   
-  if ($('.students-new-title').length) {
-    app.navbar.newStudent();
-  }
-  
   app.navbar.hamburger();
-  
   
 });
