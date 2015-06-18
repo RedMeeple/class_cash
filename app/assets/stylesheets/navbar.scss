@@ -6,8 +6,8 @@
 
 .navigation {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1rem;
 }
 
 
@@ -40,8 +40,10 @@
   
   & a {
     display: block;
+    text-align: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    width: 5rem;
+    padding: 0.2rem 0;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
   }

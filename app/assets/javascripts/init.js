@@ -10,12 +10,14 @@ $(function () {
   }
   
   if ($('.welcome-container').length || $('.login-container').length) {
-    $('.navigation').remove();
+    app.nav.removeBurger();
   }
   
+  if ($('.student-show-container').length) {
+    app.nav.showStudent();
+  }
+  
+  app.nav.hamburger();
   
   
-  $('.menu-btn').click(function () {
-    $('.menu-responsive').toggleClass('expand');
-  });
 });
