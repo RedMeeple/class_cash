@@ -2,6 +2,9 @@ class StudentsController < ApplicationController
   before_action :logged_in?, except: [:send_money, :sent_money]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_up_menu_instructor
+  before_action :set_up_menu_student, only: [:student]
+  
 
   # GET /students
   # GET /students.json
@@ -120,4 +123,14 @@ class StudentsController < ApplicationController
       params.require(:student).permit(:first_name, :last_name, :email, :cash,
           :period_id, :password, :richest, behaviors_attributes: [:id, :well_behaved, :date, :did_job])
     end
-end
+  end
+
+  # navigation links for the instructor's view relating to the students controller
+  private def set_up_menu_instructor
+    @students_instructor = true
+  end
+  
+  # navigation links for the students's view relating to the students controller
+  private def set_up_menu_student
+    @students_student = true  
+  end
