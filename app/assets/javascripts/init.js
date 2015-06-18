@@ -15,6 +15,10 @@ $(function () {
     app.navbar.removeBurger();
   }
   
+  if ($('.students-new-title').length) {
+    app.navbar.newStudent();
+  }
+  
   app.navbar.hamburger();
   
   
