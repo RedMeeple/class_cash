@@ -3,21 +3,19 @@ $(function () {
   
   if ($('.student-table').length) {
     app.students.tableRichest();
+    app.navbar.tableStudents();
   }
   
   if ($('.student-show-container').length) {
     app.students.individualRichest();
+    app.navbar.showStudent();
   }
   
   if ($('.welcome-container').length || $('.login-container').length) {
-    app.nav.removeBurger();
+    app.navbar.removeBurger();
   }
   
-  if ($('.student-show-container').length) {
-    app.nav.showStudent();
-  }
-  
-  app.nav.hamburger();
+  app.navbar.hamburger();
   
   
 });
