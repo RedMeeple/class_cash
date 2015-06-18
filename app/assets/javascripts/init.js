@@ -19,7 +19,7 @@ $(function () {
   if ($('.student-show-container').length) {
     var uL = $('.menu-responsive ul');
     
-    app.navbar.homeLink(uL);
+    // app.navbar.homeLink(uL);
     app.navbar.editStudentLink(uL);
     
     app.students.individualRichest();
