@@ -1,0 +1,32 @@
+<a href="#myModal" class="fa fa-bolt" data-toggle="modal"></a>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"><%= period.name %></h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for @bonus, url: class_bonus_periods_path do |f| %>
+      <% if @bonus.errors.any? %>
+        <div class="alert alert-error">
+          <ul>
+          <% @bonus.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.hidden_field :period_id, value: period.id %>
+
+      <div class="field">
+        Amount: $<%= f.number_field :amount %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>

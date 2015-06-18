@@ -24,7 +24,7 @@
         <td> <%= link_to 'Edit', edit_period_path(period) %> | </td>
         <td> <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
         <td> <%= link_to 'Enter Behavior Data', enter_behavior_periods_path %> | </td>
-        <td> <%= link_to 'Class Bonus', class_bonus_periods_path %></td>
+        <td> <%= render partial: 'class_bonus', locals: { period: period } %></td>
       </tr>
     <% end %>
   </tbody>

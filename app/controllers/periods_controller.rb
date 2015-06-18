@@ -10,19 +10,36 @@ class PeriodsController < ApplicationController
   end
 
   def enter_behavior
-    @period = Period.find_by_instructor_id(session[:user_id])
+    @period = Period.where(instructor_id: session[:user_id]).last
     @students = @period.students
     @students.each {|s| s.behaviors.build }
   end
 
+  def update_behavior
+    
+  end
+
   def class_bonus
-    @period = Period.find_by_instructor_id(session[:user_id])
+    @bonus = Bonus.new(bonus_params)
+
+    if @bonus.save
+      @period = Period.find(@bonus.period.id)
+      individual = @bonus.amount.to_i / @period.students.count
+      @period.students.each do |student|
+        student.update(cash: (student.cash + individual))
+      end
+      redirect_to periods_path, notice: "$#{@bonus.amount} has been distributed."
+    else
+      redirect_to periods_path, notice: "This bonus did not go through."
+    end
+
   end
 
   # GET /periods
   # GET /periods.json
   def index
     @periods = Period.where(instructor_id: session[:user_id]).all
+    @bonus = Bonus.new
   end
 
   # GET /periods/1
@@ -64,7 +81,6 @@ class PeriodsController < ApplicationController
   def update
     respond_to do |format|
       if @period.update(period_params)
-        @period.pay_students
         format.html { redirect_to root_path, notice: 'Period was successfully updated.' }
         format.json { render :show, status: :ok, location: @period }
       else
@@ -91,6 +107,9 @@ class PeriodsController < ApplicationController
       @period = Period.find(params[:id])
     end
 
+    def bonus_params
+      params.require(:bonus).permit(:period_id, :amount)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, :first_name,
