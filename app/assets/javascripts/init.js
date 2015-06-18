@@ -1,6 +1,12 @@
 $(function () {
   'use strict';
   
+  app.navbar.hamburger();
+  
+  if ($('.welcome-container').length || $('.login-container').length) {
+    app.navbar.removeBurger();
+  }
+  
   if ($('.student-table').length) {
     var uL = $('.menu-responsive ul');
     
@@ -24,11 +30,5 @@ $(function () {
     
     app.navbar.homeLink(uL);
   }
-  
-  if ($('.welcome-container').length || $('.login-container').length) {
-    app.navbar.removeBurger();
-  }
-  
-  app.navbar.hamburger();
   
 });
