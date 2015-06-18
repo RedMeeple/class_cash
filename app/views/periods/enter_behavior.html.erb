@@ -21,6 +21,7 @@
           <td><%= student.first_name %> <%= student.last_name %></td>
           <td><%= ff.check_box :well_behaved %></td>
           <td><%= student.jobs(student.id).length %></td>
+          <td><%= ff.check_box :did_job %></td>
         <% end %></tr>
       <% end %>
       <div class="actions">

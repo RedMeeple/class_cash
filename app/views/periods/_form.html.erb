@@ -22,6 +22,35 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <h3>Add Students</h3>
+  <table class="student-table">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>E-mail Address</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :students do |ff| %>
+        <tr>
+          <td><div class="field">
+            <%= ff.text_field :first_name %>
+          </div></td>
+          <td><div class="field">
+            <%= ff.text_field :last_name %>
+          </div></td>
+          <td><div class="field">
+            <%= ff.email_field :email %>
+          </div></td>
+          <td><div class="field">
+            <%= ff.password_field :password %>
+          </div></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div class="actions">
     <%= f.submit %>
   </div>
