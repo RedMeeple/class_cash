@@ -20,7 +20,7 @@
       <div class="menu-responsive">
         <ul>
           <li><%= link_to "Logout", sessions_logout_path, class: "link-logout" if session[:user_id] %></li>
-          <% if @show_edit_link %>
+          <% if @show_edit_link_instructor %>
             <li><%= link_to 'Home', root_path, class: "home" %></li>
           <% end %>
         </ul>
