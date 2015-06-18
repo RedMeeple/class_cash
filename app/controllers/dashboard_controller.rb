@@ -21,11 +21,11 @@ class DashboardController < ApplicationController
   end
   
   private def set_up_menu_instructor
-    @show_edit_link_instructor = true
+    @dashboard_instructor = true
   end
   
   private def set_up_menu_student
-    @show_edit_link_student = true  
+    @dashboard_student = true  
   end
     
   

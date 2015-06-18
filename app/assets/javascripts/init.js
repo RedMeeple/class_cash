@@ -8,11 +8,6 @@ $(function () {
   }
   
   if ($('.student-table').length) {
-    var uL = $('.menu-responsive ul');
-    
-    app.navbar.homeLink(uL);
-    app.navbar.newStudentLink(uL);
-    
     app.students.tableRichest();
   }
   
