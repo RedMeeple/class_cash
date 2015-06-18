@@ -15,6 +15,9 @@ class PeriodsController < ApplicationController
     @students.each {|s| s.behaviors.build }
   end
 
+  def class_bonus
+    @period = Period.find_by_instructor_id(session[:user_id])
+  end
 
   # GET /periods
   # GET /periods.json

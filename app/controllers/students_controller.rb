@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
   def index
     Student.richest?
     @students = Student.where(period_id: Period.where(instructor_id: session[:user_id])).all
+    @periods = Period.where(instructor_id: session[:user_id])
   end
 
   # GET /students/1
