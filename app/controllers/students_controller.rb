@@ -2,9 +2,8 @@ class StudentsController < ApplicationController
   before_action :logged_in?, except: [:send_money, :sent_money]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :set_up_menu_instructor
-  before_action :set_up_menu_student, only: [:student]
-  
+  before_action :nav_links_instructor
+  before_action :nav_links_student
 
   # GET /students
   # GET /students.json
@@ -126,11 +125,11 @@ class StudentsController < ApplicationController
   end
 
   # navigation links for the instructor's view relating to the students controller
-  private def set_up_menu_instructor
+  private def nav_links_instructor
     @students_instructor = true
   end
   
   # navigation links for the students's view relating to the students controller
-  private def set_up_menu_student
+  private def nav_links_student
     @students_student = true  
   end
