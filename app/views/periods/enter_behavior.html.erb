@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-      <%= form_for @period, url: update_behavior_period_path(@period.id) do |period_form| %>
+      <%= form_for @period, url: update_behavior_period_path(@period) do |period_form| %>
         <% @students.each do |student| %>
           <%= period_form.fields_for :students, student do |student_form| %>
             <%= student_form.fields_for :behaviors, (student.behaviors.find_by_date(Date.today) || student.behaviors.build) do |behavior_form| %>

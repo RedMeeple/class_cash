@@ -12,6 +12,10 @@ class Period < ActiveRecord::Base
       if a && a.well_behaved
         student.update(cash: (student.cash + self.payscale))
       end
+      if a && a.did_job
+        pay = Job.where(student_id: student.id).all.sum(:payscale)
+        student.update(cash: (student.cash + pay))
+      end
     end
   end
 
