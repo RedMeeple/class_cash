@@ -2,8 +2,6 @@
 
   <div class="enter-behavior-title">Behavior Entry for <%= Date.today %></div>
 
-
-<%= form_tag(update_behavior_periods_path(@period.id)) do %>
   <table>
     <thead>
       <tr>
@@ -14,28 +12,22 @@
     </thead>
 
     <tbody>
-      <% @students.each do |student| %>
-        <tr>
-          <td><%= student.first_name %> <%= student.last_name %></td>
-          <td><%= check_box_tag :well_behaved, {checked: true} %></td>
-          <td>
-            <% student.jobs.each do |job| %>
-              <%= job.description %>
-              <%= ff.check_box :did_job, {checked: true} %><br>
-            <% end %>
-          </td>
-        </tr>
+      <%= form_for(@period) do |period_form| %>
+        <% @students.each do |student| %>
+          <%= period_form.fields_for :students, student do |student_form| %>
+            <%= student_form.fields_for :behaviors, (student.behaviors.find_by_date(Date.today) || student.behaviors.build) do |behavior_form| %>
+              <tr>
+              <%= behavior_form.hidden_field :date, value: Date.today %>
+              <%= behavior_form.hidden_field :student_id, value: student.id %>
+              <td><%= student.first_name %> <%= student.last_name %></td>
+              <td><%= behavior_form.check_box :well_behaved %></td>
+              <td><%= student.jobs(student.id).length %></td>
+            <% end %></tr>
+          <% end %>
+        <% end %>
+        <div class="actions">
+          <%= period_form.submit %>
+        </div>
       <% end %>
-
     </tbody>
   </table>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
-
-
-<div class="links">
-  <%= link_to 'Home', root_path, class: "home" %>
-</div>

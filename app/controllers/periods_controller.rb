@@ -11,15 +11,15 @@ class PeriodsController < ApplicationController
 
   def enter_behavior
     @students = @period.students
-    @students.each {|s| s.behaviors.build(date: Date.today, student_id: s.id) }
   end
 
   def update_behavior
-    if @period.save(period_params)
+    if @period.save(behavior_params)
       @period.pay_students
       redirect_to period_path(@period), notice: 'Behavior was successfully entered.'
     else
-      render :edit
+      @instructor = Instructor.find_by_id(session[:user_id])
+      render :enter_behavior
     end
   end
 
@@ -114,9 +114,14 @@ class PeriodsController < ApplicationController
     def bonus_params
       params.require(:bonus).permit(:period_id, :amount)
     end
+
+    def behavior_params
+      params.require(:behavior).permit(:student_id, :well_behaved, :did_job)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name, students_attributes: [:id, :first_name,
-          :last_name, :password, :email, behaviors_attributes: [:id, :well_behaved, :date, :did_job]])
+      params.require(:period).permit(:instructor_id, :payscale, :name,
+          students_attributes: [:id, :first_name, :last_name, :password, :email,
+          behaviors_attributes: [:id, :well_behaved, :date, :did_job, :student_id]])
     end
 end
