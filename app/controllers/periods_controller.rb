@@ -1,6 +1,6 @@
 class PeriodsController < ApplicationController
   before_action :logged_in?
-  before_action :set_period, only: [:show, :edit, :update, :destroy]
+  before_action :set_period, only: [:show, :edit, :update, :destroy, :enter_behavior, :update_behavior]
 
 
   private def logged_in?
@@ -10,13 +10,17 @@ class PeriodsController < ApplicationController
   end
 
   def enter_behavior
-    @period = Period.where(instructor_id: session[:user_id]).last
     @students = @period.students
-    @students.each {|s| s.behaviors.build }
+    @students.each {|s| s.behaviors.build(date: Date.today, student_id: s.id) }
   end
 
   def update_behavior
-    
+    if @period.save(period_params)
+      @period.pay_students
+      redirect_to period_path(@period), notice: 'Behavior was successfully entered.'
+    else
+      render :edit
+    end
   end
 
   def class_bonus

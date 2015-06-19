@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :set_up_menu_instructor
   before_action :set_up_menu_student, only: [:student]
-  
+
 
   # GET /students
   # GET /students.json
@@ -97,13 +97,13 @@ class StudentsController < ApplicationController
   end
 
   private def student_logged_in?
-    unless Student.find_by_id(session[:user_id])
+    unless Student.find_by_id(session[:user_id]) && session[:user_type] == "student"
       redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end
 
   private def logged_in?
-    unless Instructor.find_by_id(session[:user_id])
+    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
       redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end
@@ -129,8 +129,8 @@ class StudentsController < ApplicationController
   private def set_up_menu_instructor
     @students_instructor = true
   end
-  
+
   # navigation links for the students's view relating to the students controller
   private def set_up_menu_student
-    @students_student = true  
+    @students_student = true
   end

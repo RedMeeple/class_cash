@@ -18,12 +18,11 @@ Rails.application.routes.draw do
   resources :jobs
   resources :periods do
     collection do
-      get 'enter_behavior'
-      post 'enter_behavior'
       post 'class_bonus'
     end
     member do
-
+      get 'enter_behavior'
+      post 'update_behavior'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
