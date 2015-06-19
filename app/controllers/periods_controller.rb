@@ -14,11 +14,10 @@ class PeriodsController < ApplicationController
   end
 
   def update_behavior
-    if @period.save(behavior_params)
+    if @period.update(period_params)
       @period.pay_students
-      redirect_to period_path(@period), notice: 'Behavior was successfully entered.'
+      redirect_to periods_path, notice: 'Today\'s behavior has been updated.'
     else
-      @instructor = Instructor.find_by_id(session[:user_id])
       render :enter_behavior
     end
   end
@@ -83,6 +82,7 @@ class PeriodsController < ApplicationController
   # PATCH/PUT /periods/1
   # PATCH/PUT /periods/1.json
   def update
+    @period.pay_students
     respond_to do |format|
       if @period.update(period_params)
         format.html { redirect_to root_path, notice: 'Period was successfully updated.' }

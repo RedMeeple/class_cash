@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'enter_behavior'
-      post 'update_behavior'
+      patch 'update_behavior'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
