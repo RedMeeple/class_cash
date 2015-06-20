@@ -208,7 +208,7 @@
   .student-send-money-amount {
     position: relative;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     width: 100%;
   }
   
@@ -216,7 +216,7 @@
     .student-send-money-amount-title {
       position: relative;
       display: inline-block;
-      width: 8rem;
+      width: 6rem;
     }
     
     .student-send-money-recipient-input,
@@ -224,6 +224,11 @@
       position: relative;
       display: inline-block;
     }
+    
+      .student-send-money-recipient-input select,
+      .student-send-money-amount-input input {
+        width: 8rem;
+      }
     
     .student-send-money-container input[type="submit"] {
       border: 0;
