@@ -1,8 +1,10 @@
 <div id="notice"><%= notice %></div>
+<%= link_to 'New Job', new_job_path %>
+<%= link_to 'Home', root_path %>
 
 <h1>Listing Jobs</h1>
 
-<table class="student-list">
+<table class="jobs-table">
   <thead>
     <tr>
       <th>Student</th>
@@ -25,8 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Job', new_job_path %>
-<%= link_to 'Home', root_path %>

@@ -1,3 +1,13 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'variables';
+
+// Jobs Page (views/jobs/index.html.erb)
+
+.jobs-table {
+  position: relative;
+  margin: 0 auto;
+  top: $standard-margin-top;
+}
