@@ -30,7 +30,7 @@
         <td class="student-list-info-cash">$<%= student.cash %></td>
         <td class="student-list-info-behavior"><%= student.good_behavior_today(student.id) || student.good_behavior_yesterday(student.id) %></td>
         <td class="student-list-info-richest"><%= student.richest %></td>
-        <td class="student-list-info-jobs"><% student.jobs(student.id).each do |job|%>
+        <td class="student-list-info-jobs"><% student.jobs.each do |job|%>
           <%= job.description %><br>
         <% end %></td>
         <td><%= link_to 'Details', student %></td>
