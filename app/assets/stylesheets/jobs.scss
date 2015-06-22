@@ -6,8 +6,28 @@
 
 // Jobs Page (views/jobs/index.html.erb)
 
+.jobs-title {
+  position: relative;
+  text-align: center;
+  top: 4rem;
+}
+
 .jobs-table {
   position: relative;
   margin: 0 auto;
   top: $standard-margin-top;
 }
+
+  .jobs-table a {
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0.5rem;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    
+    &:hover,
+    &:focus {
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
+    }
+  }
