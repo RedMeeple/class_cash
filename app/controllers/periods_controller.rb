@@ -25,7 +25,7 @@ class PeriodsController < ApplicationController
   def class_bonus
     @bonus = Bonus.new(bonus_params)
 
-    if @bonus.save
+    if @bonus.save && @bonus.period.students.count > 0
       @period = Period.find(@bonus.period.id)
       individual = @bonus.amount.to_i / @period.students.count
       @period.students.each do |student|
