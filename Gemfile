@@ -4,6 +4,7 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
   ruby '2.2.2'
+  gem 'puma'
 end
 
 gem 'whenever', require: false
