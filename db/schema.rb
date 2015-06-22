@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621113708) do
+ActiveRecord::Schema.define(version: 20150622123728) do
 
   create_table "behaviors", force: :cascade do |t|
     t.integer  "student_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150621113708) do
     t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "reason"
   end
 
   create_table "daily_balances", force: :cascade do |t|

@@ -112,7 +112,7 @@ class PeriodsController < ApplicationController
     end
 
     def bonus_params
-      params.require(:bonus).permit(:period_id, :amount)
+      params.require(:bonus).permit(:period_id, :amount, :reason)
     end
 
     def behavior_params

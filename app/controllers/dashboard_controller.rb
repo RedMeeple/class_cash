@@ -3,11 +3,12 @@ class DashboardController < ApplicationController
   before_action :student_logged_in?, only: [:student]
   before_action :nav_links_instructor, only: [:instructor]
   before_action :nav_links_student, only: [:student]
-  
+
 
   def student
     @student = Student.find_by_id(session[:user_id])
     @period = Period.find_by_id(@student.period_id)
+    @bonuses = Bonus.where(period_id: @student.period_id).last(5).reverse
   end
 
   def instructor
@@ -17,9 +18,9 @@ class DashboardController < ApplicationController
   private def nav_links_instructor
     @dashboard_instructor = true
   end
-  
+
   private def nav_links_student
-    @dashboard_student = true  
+    @dashboard_student = true
   end
 
   private def instructor_logged_in?

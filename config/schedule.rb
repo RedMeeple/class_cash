@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :path, '/Desktop/The\Iron\Yard/class_cash'
+set :path, '/Desktop/The\ Iron\ Yard/class_cash'
 
 case @environment
 

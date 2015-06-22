@@ -1,17 +1,26 @@
 
 <div class="dashboard-student-container">
   <div>Welcome, <%= @student.first_name %></h1>
-  
-  
+
+
   <div>
     You have $<%= @student.cash %>
   </div>
   <div>
     The class average is $<%= @period.class_average %>
   </div>
-  <% if @student.richest %>
-    You are the richest!
+  <div>
+    <% if @student.richest %>
+      You are the richest!
+    <% end %>
+  </div>
+
+  <h3>Class Bonuses</h3>
+  <% @bonuses.each do |bonus| %>
+    <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %>.</div>
   <% end %>
-  
+
+
+
   <%= link_to 'Send Money', students_send_money_path, class: "dashboard-student-send-money-link" %>
 </div>
