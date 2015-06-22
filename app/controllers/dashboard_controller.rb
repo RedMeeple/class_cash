@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
     @student = Student.find_by_id(session[:user_id])
     @period = Period.find_by_id(@student.period_id)
     @bonuses = Bonus.where(period_id: @student.period_id).last(5).reverse
-    @extras = Extra.where(student_id: @student.id)
+    @extras = Extra.where(student_id: @student.id).last(5).reverse
   end
 
   def instructor

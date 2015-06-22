@@ -17,7 +17,7 @@
 
     <div class="field student-send-money-recipient">
       <div class="student-send-money-recipient-title"><%= f.label :student %></div>
-      <div class="student-send-money-recipient-input"><%= f.select :student_id, @students.map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %></div>
+      <div class="student-send-money-recipient-input"><%= f.select :student_id, @students.order(:last_name).map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %></div>
     </div>
     <div class="field student-send-money-amount">
       <div class="student-send-money-amount-title"><%= f.label :amount %></div>
