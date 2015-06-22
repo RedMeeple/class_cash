@@ -96,6 +96,25 @@ class StudentsController < ApplicationController
     end
   end
 
+  def give_bonus
+    @instructor = Instructor.find_by_id(session[:user_id])
+    @students = Student.where(period_id: Period.where(instructor_id: @instructor.id))
+    @extra = Extra.new(instructor_id: @instructor.id)
+  end
+
+  def gave_bonus
+    @extra = Extra.new(extra_params)
+
+    if @extra.save
+      @student = Student.find_by_id(@extra.student_id)
+      @student.update(cash: (@student.cash + @extra.amount))
+      redirect_to students_give_bonus_path, notice: "$#{@extra.amount} has been sent."
+    else
+      render :give_bonus, notice: "Please try again."
+    end
+
+  end
+
   private def student_logged_in?
     unless Student.find_by_id(session[:user_id]) && session[:user_type] == "student"
       redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
@@ -117,6 +136,10 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
       params.require(:transaction).permit(:recipient_id, :sender_id, :amount)
+    end
+
+    def extra_params
+      params.require(:extra).permit(:instructor_id, :student_id, :amount, :reason)
     end
 
     def student_params

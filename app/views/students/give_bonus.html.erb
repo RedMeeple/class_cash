@@ -1,0 +1,38 @@
+<div class="student-send-money-container">
+
+  <div class="student-send-money-title">Give Bonus</div>
+
+  <%= form_for @extra, url: students_gave_bonus_path do |f| %>
+    <% if @extra.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@extra.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+        <ul>
+        <% @extra.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field student-send-money-recipient">
+      <div class="student-send-money-recipient-title"><%= f.label :student %></div>
+      <div class="student-send-money-recipient-input"><%= f.select :student_id, @students.map{ |a| [[a.first_name, a.last_name].join(" "), a.id] }, include_blank: true %></div>
+    </div>
+    <div class="field student-send-money-amount">
+      <div class="student-send-money-amount-title"><%= f.label :amount %></div>
+      <div class="student-send-money-amount-input"><%= f.number_field :amount %></div>
+    </div>
+    <div>
+      <p>The student is receiving this for: </p>
+      <div><%= f.text_field :reason %></div>
+    </div>
+    <div class="actions">
+      <%= f.hidden_field :instructor_id, value: @instructor.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Send Money'%>
+    </div>
+
+  <% end %>
+</div>

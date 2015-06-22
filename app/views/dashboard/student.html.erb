@@ -15,6 +15,11 @@
     <% end %>
   </div>
 
+  <h3>Personal Bonuses</h3>
+  <% @extras.each do |extra| %>
+    <div>You received $<%= extra.amount %> for <%= extra.reason %>.</div>
+  <% end %>
+
   <h3>Class Bonuses</h3>
   <% @bonuses.each do |bonus| %>
     <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %>.</div>

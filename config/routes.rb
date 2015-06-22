@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'students/send_money'
   post 'students/sent_money'
+  get 'students/give_bonus'
+  post 'students/gave_bonus'
 
   resources :students
   resources :jobs
