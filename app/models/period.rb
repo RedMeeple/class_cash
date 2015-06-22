@@ -22,7 +22,11 @@ class Period < ActiveRecord::Base
   def class_average
     students = Student.where(period_id: self.id).all
     total = students.sum(:cash)
-    total / students.length
+    if students.length > 0
+      total / students.length
+    else
+      0
+    end
   end
 
 end
