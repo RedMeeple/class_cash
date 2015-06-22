@@ -14,10 +14,6 @@ class Student < ActiveRecord::Base
     end
   end
 
-  def jobs(id)
-    Job.where(student_id: id).all
-  end
-
   def completed_job_task
   end
 
@@ -31,6 +27,10 @@ class Student < ActiveRecord::Base
     if a = Behavior.where(date: Date.today, student_id: id).first
       a.well_behaved
     end
+  end
+
+  def save_balance
+    DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
   end
 
 end

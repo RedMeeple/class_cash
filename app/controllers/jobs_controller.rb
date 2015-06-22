@@ -12,7 +12,8 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @periods = Period.where(instructor_id: session[:user_id]).all
+    @students = Student.where(period_id: Period.where(instructor_id: session[:user_id])).all
   end
 
   # GET /jobs/1

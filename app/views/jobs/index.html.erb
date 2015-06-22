@@ -4,26 +4,34 @@
 
 <h1 class="jobs-title">Listing Jobs</h1>
 
-<table class="jobs-table">
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Description</th>
-      <th>Payscale</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
+<% @periods.each do |per| %>
+  <table class="jobs-table">
+    <thead>
       <tr>
-        <td><%= job.student.first_name %> <%= job.student.last_name %></td>
-        <td><%= job.description %></td>
-        <td><%= job.payscale %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan="5"><%= per.name %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <th>Student</th>
+        <th>Description</th>
+        <th>Payscale</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% per.students.order(:last_name).each do |s| %>
+        <% unless s.jobs.empty? %>
+          <tr>
+            <td><%= s.first_name %> <%= s.last_name %></td>
+            <% s.jobs.each do |job| %>
+              <td><%= job.description %></td>
+              <td><%= job.payscale %></td>
+              <td><%= link_to 'Edit', edit_job_path(job) %></td>
+              <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
