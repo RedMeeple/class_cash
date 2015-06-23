@@ -16,5 +16,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.plural 'bonus', 'bonuses'
+  inflect.irregular 'bonus', 'bonuses'
 end
