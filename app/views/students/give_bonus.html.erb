@@ -1,6 +1,7 @@
 <div class="student-send-money-container">
 
   <div class="student-send-money-title">Give Bonus</div>
+  <h3>A bonus can be a positive or negative amount.</h3>
 
   <%= form_for @extra, url: students_gave_bonus_path do |f| %>
     <% if @extra.errors.any? %>

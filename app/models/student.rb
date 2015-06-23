@@ -33,4 +33,10 @@ class Student < ActiveRecord::Base
     DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
   end
 
+  def self.save_all_balances
+    Student.all.each do |student|
+      student.save_balance
+    end
+  end
+
 end

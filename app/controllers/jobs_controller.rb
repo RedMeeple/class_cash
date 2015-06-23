@@ -12,8 +12,8 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @periods = Period.where(instructor_id: session[:user_id]).all
-    @students = Student.where(period_id: Period.where(instructor_id: session[:user_id])).all
+    @periods = Period.where(instructor_id: session[:user_id])
+    @students = @periods.joins(:students)
   end
 
   # GET /jobs/1
@@ -35,15 +35,12 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to students_path, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
+    if @job.save
+      redirect_to students_path, notice: 'Job was successfully created.'
+    else
+      render :new
     end
+
   end
 
   # PATCH/PUT /jobs/1

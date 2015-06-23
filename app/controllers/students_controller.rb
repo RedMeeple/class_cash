@@ -10,8 +10,8 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     Student.richest?
-    @students = Student.where(period_id: Period.where(instructor_id: session[:user_id])).all
     @periods = Period.where(instructor_id: session[:user_id])
+    @students = @periods.joins(:students)
   end
 
   # GET /students/1
@@ -74,7 +74,13 @@ class StudentsController < ApplicationController
 
   def send_money
     @student = Student.find_by_id(session[:user_id])
-    @students = Student.where(period_id: Period.where(instructor_id: @student.period.instructor_id)).all
+    @periods = Period.where(instructor_id: @student.period.instructor_id)
+    #@students = @periods.joins(:students)
+
+    @students = Student.where(
+        period_id: Period.where(
+        instructor_id: @student.period.instructor_id)).all
+
     @transaction = Transaction.new(sender_id: @student.id)
   end
 
@@ -82,18 +88,13 @@ class StudentsController < ApplicationController
     @student = Student.find_by_id(session[:user_id])
     @transaction = Transaction.new(transaction_params)
 
-    respond_to do |format|
-      if @transaction.save
-        @student.update(cash: (@student.cash - @transaction.amount))
-        @recipient = Student.find_by_id(@transaction.recipient_id)
-        @recipient.update(cash: (@recipient.cash + @transaction.amount))
-        format.html { redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent." }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
+    if @transaction.save
+      @transaction.finalize
+      redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent."
+    else
+      render :send_money
     end
+
   end
 
   def give_bonus
