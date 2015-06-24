@@ -13,10 +13,10 @@
     </thead>
 
     <tbody>
-      <% per.students.order(:last_name).each do |s| %>
+      <% per.students.each do |s| %>
         <% unless s.jobs.empty? %>
           <tr>
-            <td><%= s.first_name %> <%= s.last_name %></td>
+            <td><%= s.full_name %></td>
             <td><% s.jobs.each do |job| %>
               <div>
                 <%= job.description %>

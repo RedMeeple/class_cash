@@ -6,6 +6,8 @@ class Student < ActiveRecord::Base
 
   accepts_nested_attributes_for :behaviors
 
+  default_scope { order('last_name') }
+
   def self.richest?
     Student.update_all richest: false
     Period.all.each do |p|
@@ -37,6 +39,10 @@ class Student < ActiveRecord::Base
     Student.all.each do |student|
       student.save_balance
     end
+  end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
 
 end

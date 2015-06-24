@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-      <% per.students.order(:last_name).each do |student| %>
+      <% per.students.each do |student| %>
         <tr class="student-table-info">
           <td class="student-table-info-firstname"><%= student.first_name %></td>
           <td class="student-table-info-lastname"><%= student.last_name %></td>

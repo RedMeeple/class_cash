@@ -93,7 +93,7 @@ class StudentsController < ApplicationController
 
   def give_bonus
     @instructor = Instructor.find_by_id(session[:user_id])
-    @students = Student.where(period_id: Period.where(instructor_id: @instructor.id))
+    @periods = Period.where(instructor_id: @instructor.id)
     @extra = Extra.new(instructor_id: @instructor.id)
   end
 

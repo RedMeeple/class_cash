@@ -18,7 +18,7 @@
     <div class="field student-send-money-recipient">
       <div class="student-send-money-recipient-title"><%= f.label :recipient %></div>
       <div class="student-send-money-recipient-input">
-        <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :first_name %>
+        <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
       </div>
     </div>
     <div class="field student-send-money-amount">
