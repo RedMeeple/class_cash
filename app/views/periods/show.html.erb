@@ -43,7 +43,7 @@
 
 <h3>Class Bonuses</h3>
 <% @bonuses.each do |bonus| %>
-  <%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.
+  <div><%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
 <% end %>
 
 <%= link_to 'Edit', edit_period_path(@period) %>

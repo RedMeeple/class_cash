@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :student %><br>
-    <%= f.select :student_id, @students.map{ |a| [a.full_name, a.id] }, include_blank: true %>
+    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

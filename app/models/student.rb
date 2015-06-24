@@ -11,7 +11,7 @@ class Student < ActiveRecord::Base
   def self.richest?
     Student.update_all richest: false
     Period.all.each do |p|
-      rich = Student.where(period_id: p.id).order(:cash).last
+      rich = Student.unscoped.where(period_id: p.id).order(:cash).last
       rich.update(richest: true) if rich
     end
   end
