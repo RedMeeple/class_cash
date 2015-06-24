@@ -5,12 +5,7 @@ class AwardsController < ApplicationController
   # GET /awards
   # GET /awards.json
   def index
-    @awards = Award.all
-  end
-
-  # GET /awards/1
-  # GET /awards/1.json
-  def show
+    @awards = AwardType.all
   end
 
   # GET /awards/new
@@ -18,10 +13,6 @@ class AwardsController < ApplicationController
     @award = Award.new
     @awards = AwardType.all
     @periods = Period.where(instructor_id: session[:user_id])
-  end
-
-  # GET /awards/1/edit
-  def edit
   end
 
   # POST /awards
@@ -34,20 +25,6 @@ class AwardsController < ApplicationController
       redirect_to new_award_path, notice: 'Award was successfully created.'
     else
       render :new
-    end
-  end
-
-  # PATCH/PUT /awards/1
-  # PATCH/PUT /awards/1.json
-  def update
-    respond_to do |format|
-      if @award.update(award_params)
-        format.html { redirect_to @award, notice: 'Award was successfully updated.' }
-        format.json { render :show, status: :ok, location: @award }
-      else
-        format.html { render :edit }
-        format.json { render json: @award.errors, status: :unprocessable_entity }
-      end
     end
   end
 

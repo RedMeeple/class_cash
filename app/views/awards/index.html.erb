@@ -1,28 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Awards</h1>
+<h1>Available Awards</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Award type</th>
-      <th>Reason</th>
-      <th>Payment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="student-table">
 
   <tbody>
     <% @awards.each do |award| %>
+      <% @students = Award.where(award_type_id: award.id).map(&:student) %>
       <tr>
-        <td><%= award.student_id %></td>
-        <td><%= award.award_type %></td>
-        <td><%= award.reason %></td>
-        <td><%= award.payment %></td>
-        <td><%= link_to 'Show', award %></td>
-        <td><%= link_to 'Edit', edit_award_path(award) %></td>
-        <td><%= link_to 'Destroy', award, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= award.name %></td>
+        <td><%= award.picture %></td>
+        <td>Recipients: <ol class="recipients">
+          <% @students.map do |s| %>
+            <li><%= s.full_name %></li>
+          <% end %>
+        </ol></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Award', new_award_path %>
+<%= link_to 'Give Award', new_award_path %>

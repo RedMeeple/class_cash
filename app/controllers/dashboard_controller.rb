@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
     @extras = Extra.where(student_id: @student.id).last(5).reverse
     @sent = Transaction.where(sender_id: @student.id).last(5).reverse
     @received = Transaction.where(recipient_id: @student.id).last(5).reverse
+    @awards = Award.where(student_id: @student.id)
   end
 
   def instructor

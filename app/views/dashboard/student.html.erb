@@ -35,6 +35,13 @@
     <div>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
 
+  <h3>Your Awards</h3>
+  <% @awards.each do |a| %>
+    <div>
+      You reveived the <%= a.award_type.name %> award for <%= a.reason %>.
+    </div>
+  <% end %>
+
 
 
   <%= link_to 'Send Money', students_send_money_path, class: "dashboard-student-send-money-link" %>
