@@ -25,6 +25,16 @@
     <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %>.</div>
   <% end %>
 
+  <h3>Student Transactions</h3>
+  <h4>You received</h4>
+  <% @received.each do |r| %>
+    <div>$<%= r.amount %> from <%= Student.find(r.sender_id).first_name %> for <%= r.reason %>.</div>
+  <% end %>
+  <h4>You sent</h4>
+  <% @sent.each do |s| %>
+    <div>$<%= s.amount %> to <%= Student.find(s.recipient_id).first_name %> for <%= s.reason %>.</div>
+  <% end %>
+
 
 
   <%= link_to 'Send Money', students_send_money_path, class: "dashboard-student-send-money-link" %>
