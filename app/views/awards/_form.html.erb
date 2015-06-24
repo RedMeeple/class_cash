@@ -1,0 +1,30 @@
+<%= form_for(@award) do |f| %>
+  <% if @award.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@award.errors.count, "error") %> prohibited this award from being saved:</h2>
+
+      <ul>
+      <% @award.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    I am going to give <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
+  </div>
+  <div class="field">
+     the award for <%= f.select :award_type_id, @awards.map{ |a| [a.name, a.id] } %>,
+  </div>
+  <div class="field">
+    because <%= f.text_field :reason %>.
+  </div>
+  <div class="field">
+    This award is going to come with an extra bonus of $<%= f.number_field :payment %>.
+  </div>
+  <div class="actions">
+    <%= f.submit "Give Award"%>
+  </div>
+<% end %>

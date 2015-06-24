@@ -29,7 +29,7 @@ app.students = {
     $('.student-table').find('.student-table-info-behavior').each(function (index, element) {
 
       if ($(element).text() === 'true') {
-        $(element).html('<i class="fa fa-star fa-2x"></i>');
+        $(element).html('<i class="fa fa-star-o fa-2x"></i>');
       } else {
         $(element).text('');
       }

@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require app
 //= require students
-//= require bootstrap
 //= require navbar
 //= require init

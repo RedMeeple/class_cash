@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   before_action :set_students, only: [:new, :edit]
 
   private def logged_in?
-    unless Instructor.find_by_id(session[:user_id])
+    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
       redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end

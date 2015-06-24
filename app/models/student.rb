@@ -3,6 +3,7 @@ class Student < ActiveRecord::Base
   belongs_to :period
   has_many :jobs, dependent: :destroy
   has_many :behaviors, dependent: :destroy
+  has_many :awards
 
   accepts_nested_attributes_for :behaviors
 

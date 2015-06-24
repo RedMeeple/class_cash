@@ -26,7 +26,7 @@ Period.create(name: "Test", payscale: 20, instructor_id: 1)
 Period.create(name: "Test2", payscale: 20, instructor_id: 1)
 
 10.times do
-  Job.create(payscale: [20,25,30].sample, student_id: (11..20).to_a.sample,
+  Job.create(payscale: [20,25,30].sample, student_id: (1..20).to_a.sample,
       description: "Class Job")
 end
 
@@ -36,3 +36,5 @@ end
         date: (Date.today - n))
   end
 end
+
+AwardType.create(name: "Richest", picture: "fa fa-bug")

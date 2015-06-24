@@ -17,41 +17,46 @@
     text-align: center;
     font-size: 1rem;
   }
-  
+
   .student-table td {
     padding: 0.2rem 1rem;
     font-size: 0.8rem;
     height: 3rem;
     vertical-align: bottom;
   }
-  
+
   .student-table-info:not(:last-child) {
     border-bottom: 1px solid $primary-btn-color;
   }
-  
+
   .student-table-info a {
     text-decoration: none;
     display: inline-block;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
     padding: 0.2rem 1rem;
-    
+
     &:hover,
     &:focus {
       background-color: $third-btn-color;
       color: $third-btn-font-color
     }
   }
-  
+
   .student-table-info-cash {
     text-align: right;
   }
-  
+
   .student-table-info-richest {
     text-align: center;
     color: $green;
   }
-  
+
+  .student-table-info-behavior {
+    text-align: center;
+    color: #E5BC3B;
+  }
+
 // New Student Page (students/new.html.erb)
 
 .students-new-title {
@@ -84,7 +89,7 @@
     display: block;
     margin-bottom: 1rem;
   }
-  
+
     .students-new-firstname-text,
     .students-new-lastname-text,
     .students-new-email-text,
@@ -93,12 +98,12 @@
     .students-new-password-text {
       position: relative;
       display: inline-block;
-      
+
       & label {
         font-size: 1rem;
       }
     }
-    
+
     .students-new-firstname-input,
     .students-new-lastname-input,
     .students-new-email-input,
@@ -108,14 +113,14 @@
       position: absolute;
       right: 0;
       display: inline-block;
-      
+
       & input,
       & select {
         font-size: 1rem;
         width: 10rem;
       }
     }
-    
+
   .students-new-container input[type="submit"] {
     position: relative;
     display: block;
@@ -126,14 +131,14 @@
     font-size: 1.25rem;
     width: 10rem;
     padding: 0.5rem 0;
-    
+
     &:hover,
     &:focus {
       background-color: $secondary-btn-color;
       color: $secondary-btn-font-color;
     }
   }
-  
+
 // Student Show Page (students/show.html.erb)
 
 .student-show-container {
@@ -159,7 +164,7 @@
     display: block;
     width: 100%;
   }
-  
+
     .student-show-firstname-title,
     .student-show-lastname-title,
     .student-show-email-title,
@@ -171,7 +176,7 @@
       position: relative;
       display: inline-block;
     }
-    
+
     .student-show-firstname-text,
     .student-show-lastname-text,
     .student-show-email-text,
@@ -181,8 +186,8 @@
       position: relative;
       display: inline-block;
     }
-    
-    
+
+
 // Students Send Money Page (students/send_money.html.erb)
 
 .student-send-money-container {
@@ -203,7 +208,7 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-  
+
   .student-send-money-recipient,
   .student-send-money-amount {
     position: relative;
@@ -211,25 +216,25 @@
     margin-bottom: 2rem;
     width: 100%;
   }
-  
+
     .student-send-money-recipient-title,
     .student-send-money-amount-title {
       position: relative;
       display: inline-block;
       width: 6rem;
     }
-    
+
     .student-send-money-recipient-input,
     .student-send-money-amount-input {
       position: relative;
       display: inline-block;
     }
-    
+
       .student-send-money-recipient-input select,
       .student-send-money-amount-input input {
         width: 8rem;
       }
-    
+
     .student-send-money-container input[type="submit"] {
       border: 0;
       font-size: 1rem;
@@ -238,7 +243,7 @@
       padding: 0.5rem 1rem;
       display: block;
       margin: 0 auto;
-      
+
       &:hover,
       &:focus {
         background-color: $secondary-btn-color;

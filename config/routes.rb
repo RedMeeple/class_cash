@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :awards
   get 'transactions/index'
 
   get 'welcome/home'

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624014449) do
+ActiveRecord::Schema.define(version: 20150624172846) do
+
+  create_table "award_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "award_type_id"
+    t.string   "reason"
+    t.integer  "payment"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "behaviors", force: :cascade do |t|
     t.integer  "student_id"

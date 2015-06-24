@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  award_type: :one
+  reason: MyString
+  payment: 1
+
+two:
+  student_id: 1
+  award_type: :one
+  reason: MyString
+  payment: 1

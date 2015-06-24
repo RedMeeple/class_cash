@@ -3,7 +3,7 @@ class Transaction < ActiveRecord::Base
 
   def finalize
     sender = Student.find_by_id(self.sender_id)
-    if self.amount < sender.cash
+    if self.amount <= sender.cash
       sender.update(cash: (sender.cash - self.amount))
       recipient = Student.find_by_id(self.recipient_id)
       recipient.update(cash: (recipient.cash + self.amount))
