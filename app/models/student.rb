@@ -8,14 +8,6 @@ class Student < ActiveRecord::Base
 
   default_scope { order('last_name') }
 
-  def self.richest?
-    Student.update_all richest: false
-    Period.all.each do |p|
-      rich = Student.unscoped.where(period_id: p.id).order(:cash).last
-      rich.update(richest: true) if rich
-    end
-  end
-
   def completed_job_task
   end
 

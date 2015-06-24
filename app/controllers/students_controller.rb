@@ -9,7 +9,6 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    Student.richest?
     @periods = Period.where(instructor_id: session[:user_id])
     @students = @periods.joins(:students)
   end
