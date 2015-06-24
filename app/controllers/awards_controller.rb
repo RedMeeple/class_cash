@@ -5,7 +5,8 @@ class AwardsController < ApplicationController
   # GET /awards
   # GET /awards.json
   def index
-    @awards = AwardType.all
+    @award_types = AwardType.all
+    @instructor = Instructor.find_by_id(session[:user_id])
   end
 
   # GET /awards/new
