@@ -19,9 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :path, '/Desktop/The Iron Yard/class_cash'
+set :path, '/Users/awbedell/Desktop/The Iron Yard/class_cash'
 
 
-every :day, at: '4pm' do
+every :weekday, at: '9pm' do
   runner 'Student.save_all_balances'
 end
