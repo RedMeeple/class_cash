@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
+
   get 'welcome/home'
 
   get 'dashboard/student'

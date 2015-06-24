@@ -1,0 +1,25 @@
+
+
+<table class="student-table">
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Recipient</th>
+      <th>Amount</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |t| %>
+      <tr class="student-table-info">
+        <td class="student-table-info-firstname"><%= Student.find(t.sender_id).full_name %></td>
+        <td class="student-table-info-lastname"><%= Student.find(t.recipient_id).full_name %></td>
+        <td class="student-table-info-cash">$<%= t.amount %></td>
+        <td class="student-table-info-behavior"><%= t.reason %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Home', root_path %>
