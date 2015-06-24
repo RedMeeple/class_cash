@@ -24,13 +24,13 @@
         <td> <%= link_to 'Edit', edit_period_path(period) %> | </td>
         <td> <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
         <td> <%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %> | </td>
-        <td> <%= render partial: 'class_bonus', locals: { period: period } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+        <td> <%= render partial: 'class_bonus' %></td>
 
 <%= link_to 'New Period', new_period_path %>
 <%= link_to 'Home', root_path %>
