@@ -80,12 +80,11 @@ class StudentsController < ApplicationController
   def sent_money
     @student = Student.find_by_id(session[:user_id])
     @transaction = Transaction.new(transaction_params)
-
-    if @transaction.save
-      @transaction.finalize
+    if @transaction.finalize
+      @transaction.save
       redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent."
     else
-      render :send_money
+      redirect_to dashboard_student_path, notice: "Transaction failed."
     end
 
   end
