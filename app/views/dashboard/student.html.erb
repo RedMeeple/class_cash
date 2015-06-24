@@ -17,22 +17,22 @@
 
   <h3>Personal Bonuses</h3>
   <% @extras.each do |extra| %>
-    <div>You received $<%= extra.amount %> for <%= extra.reason %>.</div>
+    <div>You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
 
   <h3>Class Bonuses</h3>
   <% @bonuses.each do |bonus| %>
-    <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %>.</div>
+    <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
 
   <h3>Student Transactions</h3>
   <h4>You received</h4>
   <% @received.each do |r| %>
-    <div>$<%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for <%= r.reason %>.</div>
+    <div>$<%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
   <h4>You sent</h4>
   <% @sent.each do |s| %>
-    <div>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for <%= s.reason %>.</div>
+    <div>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
 
 

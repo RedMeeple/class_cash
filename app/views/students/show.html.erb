@@ -35,7 +35,7 @@
     <div class="student-show-received-title">Received Money: </div>
     <ol>
       <% @received.each do |r| %>
-        <li><%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for <%= r.reason %>.</li>
+        <li><%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</li>
       <% end %>
     </ol>
   </div>
@@ -44,7 +44,7 @@
     <div class="student-show-sent-title">Sent Money: </div>
     <ol>
       <% @sent.each do |s| %>
-        <li><%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for <%= s.reason %>.</li>
+        <li><%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</li>
       <% end %>
     </ol>
   </div>

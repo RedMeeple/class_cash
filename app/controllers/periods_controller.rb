@@ -49,6 +49,7 @@ class PeriodsController < ApplicationController
   # GET /periods/1.json
   def show
     @students = @period.students
+    @bonuses = Bonus.where(period_id: @period.id)
   end
 
   # GET /periods/new
