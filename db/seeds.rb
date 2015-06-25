@@ -22,8 +22,8 @@ end
 
 end
 
-Period.create(name: "Test", payscale: 20, instructor_id: 1)
-Period.create(name: "Test2", payscale: 20, instructor_id: 1)
+Period.create(name: "Test Period", payscale: 20, instructor_id: 1)
+Period.create(name: "Test Period 2", payscale: 20, instructor_id: 1)
 
 10.times do
   Job.create(payscale: [20,25,30].sample, student_id: (1..20).to_a.sample,
@@ -38,3 +38,27 @@ end
 end
 
 AwardType.create(name: "Richest", picture: "fa fa-bug")
+AwardType.create(name: "100%", picture: "fa fa-graduation-cap")
+
+20.times do
+  Award.create(student_id: (1..20).to_a.sample, payment: (100..1000).to_a.sample,
+  award_type_id: [1, 2].sample, reason: "because")
+end
+
+20.times do |n|
+  Behavior.create(date: Date.today, well_behaved: [true, false].sample, did_job: [true, false].sample, student_id: n+1)
+end
+
+10.times do
+  Extra.create(student_id: (1..20).to_a.sample, amount: [100, 150, 200].sample,
+      instructor_id: 1, reason: "behaving well")
+end
+
+3.times do
+  Bonus.create(period_id: [1, 2].sample, reason: "being awesome", amount: 1000)
+end
+
+50.times do
+  Transaction.create(sender_id: (1..20).to_a.sample, recipient_id: (1..20).to_a.sample,
+      amount: (1..10).to_a.sample, reason: "helping me out")
+end

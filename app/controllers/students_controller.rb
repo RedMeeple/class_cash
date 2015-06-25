@@ -16,8 +16,9 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @received = Transaction.where(recipient_id: @student.id).all
-    @sent = Transaction.where(sender_id: @student.id).all
+    @received = Transaction.where(recipient_id: @student.id)
+    @sent = Transaction.where(sender_id: @student.id)
+    @awards = Award.where(student_id: @student.id)
   end
 
   # GET /students/new

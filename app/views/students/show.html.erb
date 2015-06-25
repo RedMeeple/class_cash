@@ -50,4 +50,14 @@
       <% end %>
     </ol>
   </div>
+
+  <div class="student-show-sent-container">
+    <div class="student-show-sent-title">Awards: </div>
+    <ol>
+      <% @awards.each do |a| %>
+        <li><%= a.award_type.name %> for <%= a.reason %> on
+          <%= a.created_at.strftime('%b %e, %Y') %>. $<%= a.payment %></li>
+      <% end %>
+    </ol>
+  </div>
 </div>
