@@ -9,7 +9,7 @@
       <% students = @instructor.find_students_with_award(award_type.id) %>
       <tr>
         <td><%= award_type.name %></td>
-        <td><%= award_type.picture %></td>
+        <td><i class="<%= award_type.picture %> fa-4x"></i></td>
         <td>Recipients:
           <ol class="recipients">
             <% students.each do |s| %>
