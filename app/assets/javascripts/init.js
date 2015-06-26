@@ -28,4 +28,17 @@ $(function () {
     app.navbar.homeLink(uL);
   }
 
+  // input section stuff
+  $('.login-input-box').focusin(function() {
+    $(this).siblings('span').addClass('focus-in');
+  });
+
+  $('.login-input-box').focusout(function() {
+    var characters = $(this).val();
+    if (characters === '') {
+    $(this).siblings('span').removeClass('focus-in');
+  }
+  });
+
+
 });
