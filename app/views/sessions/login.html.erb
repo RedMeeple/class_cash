@@ -1,16 +1,14 @@
 <div class="login-container">
   <div class="login-title">Login</div>
   <%= form_tag({}, {:class => 'login-form'}) do %>
-    <div class="login-email-container">
       <%= label_tag :email,nil, class: 'login-input-label' do %>
         <span class="focus-out">Email</span>
         <%= text_field_tag :email, nil, class: 'login-input-box' %>
       <% end %>
-    </div>
-    <div class="login-password-container">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
+      <%= label_tag :password, nil, class: 'login-input-label' do %>
+        <span class="focus-out">Password</span>
+        <%= password_field_tag :password, nil, class: 'login-input-box' %>
+      <% end %>
     <%= submit_tag "Submit"%>
   <% end %>
 </div>
