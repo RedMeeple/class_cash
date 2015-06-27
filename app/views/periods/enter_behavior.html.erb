@@ -12,28 +12,29 @@
     </thead>
 
     <tbody>
-      <%= form_for @period, url: update_behavior_period_path(@period) do |period_form| %>
+      <%= form_for @period, url: update_behavior_period_path(@period) do |f| %>
         <% @students.each do |student| %>
-          <%= period_form.fields_for :students, student do |student_form| %>
-            <%= student_form.fields_for :behaviors, (student.behaviors.find_by_date(Date.today) || student.behaviors.build) do |behavior_form| %>
+          <%= f.fields_for :students, student do |ff| %>
+            <%= ff.fields_for :behaviors, student.behaviors.build do |ffb| %>
               <tr>
-              <%= behavior_form.hidden_field :date, value: Date.today %>
-              <%= behavior_form.hidden_field :student_id, value: student.id %>
+              <%= ffb.hidden_field :date, value: Date.today %>
+              <%= ffb.hidden_field :student_id, value: student.id %>
               <td><%= student.full_name %></td>
-              <td><%= behavior_form.check_box :well_behaved, {:checked=>true} %></td>
+              <td><%= ffb.check_box :well_behaved, {:checked=>true} %></td>
               <% student.jobs.each do |job| %>
-                <td><%= job.description %> <%= behavior_form.check_box :did_job, {:checked=>true} %></td>
+                <%= ff.fields_for :jobs, student.jobs.find_by_id(job.id) do |ffj|%>
+                  <td><%= job.description %> <%= ffj.check_box :last_date_done, {checked: true}, Date.today, nil %></td>
+                <% end %>
               <%end %>
             <% end %></tr>
           <% end %>
         <% end %>
         <div class="actions">
-          <%= period_form.submit "Submit" %>
+          <%= f.submit "Submit" %>
         </div>
       <% end %>
     </tbody>
   </table>
-
 </div>
 
 <%= link_to 'Home', root_path %>

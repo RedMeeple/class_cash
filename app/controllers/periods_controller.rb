@@ -123,6 +123,7 @@ class PeriodsController < ApplicationController
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name,
           students_attributes: [:id, :first_name, :last_name, :password, :email,
-          behaviors_attributes: [:id, :well_behaved, :date, :did_job, :student_id]])
+          behaviors_attributes: [:id, :well_behaved, :date, :student_id],
+          jobs_attributes: [:id, :last_date_done]])
     end
 end
