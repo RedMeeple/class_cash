@@ -74,6 +74,42 @@ body #notice {
   font-size: 1rem;
 }
 
+/* General Forms and Inputs */
+form label {
+  position: relative;
+  display: block;
+}
+
+form input {
+  margin: 0 auto;
+  display: block;
+  outline: none;
+  font-size: 1em;
+  text-align: left;
+  border: 0;
+  
+  &:focus {
+    box-shadow: 0 0 1rem 0.3rem #223D42;
+  }
+}
+
+.focus-out {
+  position: absolute;
+  left: 1%;
+  z-index: 100;
+  color: #999;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+.focus-in {
+  position: absolute;
+  top: 1%;
+  z-index: 100;
+  font-size: 0.2em;
+  transition: all 0.25s ease;
+}
+
 
 // body {
 //   background-color: #fff;
