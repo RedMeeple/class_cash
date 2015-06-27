@@ -29,20 +29,6 @@
     border-bottom: 1px solid $primary-btn-color;
   }
 
-  .student-table-info a {
-    text-decoration: none;
-    display: inline-block;
-    background-color: $primary-btn-color;
-    color: $primary-btn-font-color;
-    padding: 0.2rem 1rem;
-
-    &:hover,
-    &:focus {
-      background-color: $third-btn-color;
-      color: $third-btn-font-color
-    }
-  }
-
   .student-table-info-cash {
     text-align: right;
   }
@@ -56,6 +42,24 @@
     text-align: center;
     color: #E5BC3B;
   }
+  
+  .student-table-info-options {
+    position: relative;
+    color: $secondary-btn-font-color;
+    
+    &:hover .student-table-info-options-list {
+      display: block;
+      z-index: 1;
+    }
+  }
+  
+  .student-table-info-options-list {
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-decoration: none;
+  }
+  
 
 // New Student Page (students/new.html.erb)
 
