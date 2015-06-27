@@ -43,21 +43,33 @@
     color: #E5BC3B;
   }
   
+  .student-table-info-options span {
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    padding: 0.2rem 1rem;
+  }
+  
   .student-table-info-options {
     position: relative;
-    color: $secondary-btn-font-color;
     
     &:hover .student-table-info-options-list {
       display: block;
       z-index: 1;
+      
+      & a {
+        text-decoration: none;
+        background-color: $third-btn-color;
+        color: $third-btn-font-color;
+        display: block;
+        padding: 0.2rem 1.15rem;
+      }
     }
   }
   
   .student-table-info-options-list {
     position: absolute;
     display: none;
-    width: 100%;
-    text-decoration: none;
+    text-align: center;
   }
   
 
