@@ -18,12 +18,12 @@
       <tr>
         <td><%= period.name %></td>
         <td><%= period.students.count %></td>
-        <td><%= period.payscale %></td>
-        <td><%= period.class_average %></td>
-        <td><%= link_to 'Show', period %> | </td>
-        <td> <%= link_to 'Edit', edit_period_path(period) %> | </td>
-        <td> <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
-        <td> <%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %> | </td>
+        <td>$<%= period.payscale %></td>
+        <td>$<%= period.class_average %></td>
+        <td><%= link_to 'Show', period %></td>
+        <td><%= link_to 'Edit', edit_period_path(period) %></td>
+        <td><%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %></td>
       </tr>
     <% end %>
   </tbody>
