@@ -1,10 +1,5 @@
 <div id="notice"><%= notice %></div>
 
-<div class="links">
-  <% link_to 'Add New Student', new_student_path, class: "add-new-student" %>
-  <% link_to 'Home', root_path, class: "home" %>
-</div>
-
 <% @periods.each do |per| %>
   <% per.find_richest %>
   <table class="student-table">

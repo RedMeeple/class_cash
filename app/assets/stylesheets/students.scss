@@ -44,9 +44,12 @@
   }
   
   .student-table-info-options span {
+    display: block;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
-    padding: 0.2rem 1rem;
+    width: 5rem;
+    padding: 0.3rem 0;
+    text-align: center;
   }
   
   .student-table-info-options {
@@ -61,7 +64,8 @@
         background-color: $third-btn-color;
         color: $third-btn-font-color;
         display: block;
-        padding: 0.2rem 1.15rem;
+        width: 5rem;
+        padding: 0.3rem 0;
       }
     }
   }
