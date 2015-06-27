@@ -1,5 +1,5 @@
 class AwardsController < ApplicationController
-  before_action :set_award, only: [:show, :edit, :update, :destroy]
+  before_action :set_award, only: [:update, :destroy]
   before_action :logged_in?
 
   # GET /awards
@@ -33,10 +33,7 @@ class AwardsController < ApplicationController
   # DELETE /awards/1.json
   def destroy
     @award.destroy
-    respond_to do |format|
-      format.html { redirect_to awards_url, notice: 'Award was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to awards_url, notice: 'Award was successfully destroyed.'
   end
 
   private def logged_in?
