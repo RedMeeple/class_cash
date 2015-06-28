@@ -15,3 +15,5 @@
   <% @loans_received.where(accepted: nil).each do |loan| %>
     <%= link_to "View Terms from #{Student.find_by_id(loan.lender_id).full_name}", confirmation_loan_path(loan) %>
   <% end %>
+
+<%= link_to 'Home', root_path %>

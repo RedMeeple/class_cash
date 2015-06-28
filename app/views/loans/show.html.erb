@@ -16,13 +16,13 @@
 </p>
 
 <p>
-  <strong>Interest:</strong>
-  <%= @loan.interest %>
+  <strong>Weekly Interest:</strong>
+  <%= @loan.interest %>%
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @loan.end_date %>
+  <%= @loan.end_date.strftime("%b %e, %Y") %>
 </p>
 
 <p>
@@ -30,4 +30,5 @@
   $<%= @loan.balance %>
 </p>
 
-<%= link_to 'All Loans', loans_path %>
+<%= link_to 'All Loans', all_loans_path %>
+<%= link_to 'Home', root_path %>
