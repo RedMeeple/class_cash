@@ -14,7 +14,7 @@ Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test
 
   10.times do
     Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-        cash: (1..100).to_a.sample, period_id: period.id,
+        cash: (100..500).to_a.sample, period_id: period.id,
         password: "password")
 
   end
@@ -31,20 +31,23 @@ end
 
 50.times do |n|
   Student.all.each do |student|
-    DailyBalance.create(student_id: student.id, amount: (1..100).to_a.sample,
+    DailyBalance.create(student_id: student.id, amount: (100..500).to_a.sample,
         date: (Date.today - n))
   end
 end
 
-AwardType.create(name: "Richest", picture: "fa fa-bug")
-AwardType.create(name: "100%", picture: "fa fa-graduation-cap")
+AwardType.create(name: "The Richest", picture: "fa fa-bug")
+AwardType.create(name: "Perfect Score Award", picture: "fa fa-graduation-cap")
+AwardType.create(name: "The Einstein Award", picture: "fa fa-flask")
+AwardType.create(name: "The Peacemaker Award", picture: "fa fa-flag-o")
+AwardType.create(name: "The Helping Hands Award", picture: "fa fa-users")
 
 20.times do
-  Award.create(student_id: (1..20).to_a.sample, payment: (100..1000).to_a.sample,
-  award_type_id: [1, 2].sample, reason: "because")
+  Award.create(student_id: (1..30).to_a.sample, payment: (100..1000).to_a.sample,
+  award_type_id: [1, 2, 3, 4, 5].sample, reason: "because")
 end
 
-20.times do |n|
+30.times do |n|
   Behavior.create(date: Date.today, well_behaved: [true, false].sample, student_id: n+1)
 end
 
@@ -53,7 +56,7 @@ end
       instructor_id: 1, reason: "behaving well")
 end
 
-3.times do
+4.times do
   Bonus.create(period_id: [1, 2, 3].sample, reason: "being awesome", amount: 1000)
 end
 
