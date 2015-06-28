@@ -15,7 +15,7 @@ Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test
   10.times do
     Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
         cash: (100..500).to_a.sample, period_id: period.id,
-        password: "password")
+        password: "password", can_loan: true)
 
   end
 end
@@ -63,4 +63,9 @@ end
 50.times do
   Transaction.create(sender_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
       amount: (1..10).to_a.sample, reason: "helping me out")
+end
+
+5.times do
+  Loan.create(lender_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
+  amount: 50, end_date: Date.today+30, balance: 50)
 end

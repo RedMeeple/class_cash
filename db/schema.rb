@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627215724) do
+ActiveRecord::Schema.define(version: 20150628125743) do
 
   create_table "award_types", force: :cascade do |t|
     t.string   "name"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 20150627215724) do
     t.date     "last_date_done"
   end
 
+  create_table "loans", force: :cascade do |t|
+    t.integer  "lender_id"
+    t.integer  "recipient_id"
+    t.integer  "amount"
+    t.integer  "balance"
+    t.integer  "interest"
+    t.date     "end_date"
+    t.boolean  "accepted"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "periods", force: :cascade do |t|
     t.integer  "instructor_id"
     t.integer  "payscale"
@@ -98,6 +110,7 @@ ActiveRecord::Schema.define(version: 20150627215724) do
     t.boolean  "richest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.boolean  "can_loan"
   end
 
   create_table "transactions", force: :cascade do |t|
