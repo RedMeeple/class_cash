@@ -76,3 +76,72 @@
   margin: 0 auto;
   width: 20rem;
 }
+
+// Period Table Page (periods/show.html.erb)
+
+.period-title-container {
+  position: relative;
+  text-align: center;
+  top: 4rem;
+}
+
+.period-table {
+  position: relative;
+  top: $standard-margin-top;
+  margin: 0 auto;
+}
+
+  .period-table th {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .period-table td {
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
+    height: 3rem;
+    vertical-align: bottom;
+  }
+
+  .period-table-info:not(:last-child) {
+    border-bottom: 1px solid $primary-btn-color;
+  }
+  
+  .period-table-info-options span {
+    display: block;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    width: 5rem;
+    padding: 0.3rem 0;
+    text-align: center;
+  }
+  
+  .period-table-info-options {
+    position: relative;
+    
+    &:hover .period-table-info-options-list {
+      display: block;
+      z-index: 1;
+      
+      & a {
+        text-decoration: none;
+        background-color: $third-btn-color;
+        color: $third-btn-font-color;
+        display: block;
+        width: 5rem;
+        padding: 0.3rem 0;
+      }
+    }
+  }
+  
+  .period-table-info-options-list {
+    position: absolute;
+    display: none;
+    text-align: center;
+  }
+  
+  .period-table-info-richest {
+    text-align: center;
+    color: $green;
+  }
