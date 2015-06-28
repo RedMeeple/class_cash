@@ -2,7 +2,7 @@
 
 <h1>Your Classes</h1>
 
-<table class="student-list">
+<table class="periods-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,21 +15,34 @@
 
   <tbody>
     <% @periods.each do |period| %>
-      <tr>
-        <td><%= period.name %></td>
-        <td><%= period.students.count %></td>
-        <td><%= period.payscale %></td>
-        <td><%= period.class_average %></td>
-        <td><%= link_to 'Show', period %> | </td>
-        <td> <%= link_to 'Edit', edit_period_path(period) %> | </td>
-        <td> <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
-        <td> <%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %> | </td>
+      <tr class="periods-table-info">
+        <td class="periods-table-info-name"><%= period.name %></td>
+        <td class="periods-table-info-count"><%= period.students.count %></td>
+        <td class="periods-table-info-payscale"><%= period.payscale %></td>
+        <td class="periods-table-info-average"><%= period.class_average %></td>
+        <td class="periods-table-info-options">
+          <span>Options</span>
+          <ul class="periods-table-info-options-list">
+            <li><%= link_to 'Show', period %></li>
+            <li><%= link_to 'Edit', edit_period_path(period) %></li>
+            <li><%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li><%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
         <td> <%= render partial: 'class_bonus' %></td>
 
 <%= link_to 'New Period', new_period_path %>

@@ -4,29 +4,61 @@
 
 @import 'variables';
 
-// Enter Behavior
+// Periods Table Page (periods/index.html.erb)
 
-.enter-behavior-container {
+.periods-table {
   position: relative;
   top: $standard-margin-top;
-  display: block;
-  width: 25rem;
   margin: 0 auto;
-  background-color: $primary-bg-color;
-  color: $primary-font-color;
-  padding: 1rem;
 }
 
-  .enter-behavior-title {
-    margin-bottom: 2rem;
+  .periods-table th {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .periods-table td {
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
+    height: 3rem;
+    vertical-align: bottom;
+  }
+
+  .periods-table-info:not(:last-child) {
+    border-bottom: 1px solid $primary-btn-color;
   }
   
-  .enter-behavior-container input[type="submit"] {
-    border: 0;
-    font-size: 1rem;
+  .periods-table-info-options span {
+    display: block;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
-    padding: 0.5rem 1rem;
-    display: block;
-    margin: 0 auto;
+    width: 5rem;
+    padding: 0.3rem 0;
+    text-align: center;
   }
+  
+  .periods-table-info-options {
+    position: relative;
+    
+    &:hover .periods-table-info-options-list {
+      display: block;
+      z-index: 1;
+      
+      & a {
+        text-decoration: none;
+        background-color: $third-btn-color;
+        color: $third-btn-font-color;
+        display: block;
+        width: 5rem;
+        padding: 0.3rem 0;
+      }
+    }
+  }
+  
+  .periods-table-info-options-list {
+    position: absolute;
+    display: none;
+    text-align: center;
+  }
+  
