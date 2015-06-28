@@ -9,7 +9,7 @@
     <thead>
       <tr>
         <th colspan="5"><%= per.name %></th>
-      </tr>``
+      </tr>
     </thead>
 
     <tbody>
@@ -17,14 +17,16 @@
         <% unless s.jobs.empty? %>
           <tr>
             <td><%= s.full_name %></td>
-            <td><% s.jobs.each do |job| %>
-              <div>
-                <%= job.description %>
-                $<%= job.payscale %>
-                <%= link_to 'Edit', edit_job_path(job) %>
-                <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div><br>
-            <% end %></td>
+            <td>
+              <% s.jobs.each do |job| %>
+                <div>
+                  <%= job.description %>
+                  $<%= job.payscale %>
+                  <%= link_to 'Edit', edit_job_path(job) %>
+                  <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>
