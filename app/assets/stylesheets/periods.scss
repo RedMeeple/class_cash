@@ -6,6 +6,12 @@
 
 // Periods Table Page (periods/index.html.erb)
 
+.periods-table-title {
+  position: relative;
+  text-align: center;
+  top: 4rem;
+}
+
 .periods-table {
   position: relative;
   top: $standard-margin-top;
@@ -62,3 +68,11 @@
     text-align: center;
   }
   
+// Class Bonus Page (periods/_class_bonus.html.erb)
+
+.new_bonus {
+  top: 20rem; // this seems super hacky, need to fix
+  position: relative;
+  margin: 0 auto;
+  width: 20rem;
+}
