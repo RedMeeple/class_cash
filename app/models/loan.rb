@@ -13,4 +13,17 @@ class Loan < ActiveRecord::Base
       end
     end
   end
+
+  def calculate_new_balance
+    if ((Date.today - self.created_at.to_date) % 7 == 0)
+      self.update(balance: (self.balance + (self.balance * self.interest / 100)))
+    end
+  end
+
+  def self.update_balances
+    Loan.all.each do |loan|
+      loan.calculate_new_balance
+    end
+  end
+
 end
