@@ -6,6 +6,7 @@ class Student < ActiveRecord::Base
   has_many :awards
 
   accepts_nested_attributes_for :behaviors
+  accepts_nested_attributes_for :jobs
 
   default_scope { order('last_name') }
 

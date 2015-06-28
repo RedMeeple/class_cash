@@ -38,5 +38,4 @@ app.students = {
   },
 
 
-
 }
