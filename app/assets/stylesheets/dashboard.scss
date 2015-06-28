@@ -11,7 +11,7 @@
   top: $standard-margin-top;
   display: block;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
   background-color: $primary-bg-color;
   color: $primary-font-color;
   width: 20rem;
@@ -19,42 +19,28 @@
 
   .dashboard-instructor-welcome {
     position: relative;
-    font-size: 2rem;
+    font-size: 3em;
     text-align: center;
     color: $primary-font-color;
-    margin-bottom: 2rem;
   }
   
-  .dashboard-instructor-roster,
-  .dashboard-instructor-behavior,
-  .dashboard-instructor-jobs,
-  .dashboard-instructor-periods {
+  .dashboard-instructor-container a {
     position: relative;
     text-decoration: none;
     display: block;
     padding: 0.5rem 0;
-    width: 15rem;
+    margin-top: 1rem;
+    width: 100%;
     background-color: $primary-btn-color;
     color: $primary-btn-font-color;
-    margin: 0 auto 2rem auto;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1em;
     
     &:hover,
     &:focus {
       background-color: $secondary-btn-color;
       color: $secondary-btn-font-color;
     }
-  }
-  
-  .dashboard-instructor-roster,
-  .dashboard-instructor-behavior,
-  .dashboard-instructor-jobs {
-     margin: 0 auto 2rem auto;
-  }
-  
-  .dashboard-instructor-periods {
-     margin: 0 auto;
   }
   
   
