@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :loans do
+    member do
+      get 'confirmation'
+      patch 'confirmation'
+    end
+
+    collection do
+      get 'all'
+    end
+  end
   resources :awards
   get 'transactions/index'
 

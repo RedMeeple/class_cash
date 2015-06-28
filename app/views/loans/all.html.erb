@@ -1,0 +1,14 @@
+<h2>Given Loans<h2>
+  <% @loans_given.each do |loan| %>
+    <div>$<%= loan.amount %> due on <%= loan.end_date.strftime("%b %e, %Y") %></div>
+  <% end %>
+
+<h2>Accepted Loans</h2>
+  <% @loans_received.where(accepted: true).each do |loan| %>
+    <div>$<%= loan.amount %> due on <%= loan.end_date.strftime("%b %e, %Y") %></div>
+  <% end %>
+
+<h2>Loans Needing Your Confirmation<h2>
+  <% @loans_received.where(accepted: nil).each do |loan| %>
+    <%= link_to "View Terms from #{Student.find_by_id(loan.lender_id).full_name}", confirmation_loan_path(loan) %>
+  <% end %>

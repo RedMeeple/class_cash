@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lender</th>
+      <th>Recipient</th>
+      <th>Amount</th>
+      <th>Interest</th>
+      <th>End date</th>
+      <th>Accepted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= Student.find_by_id(loan.lender_id).full_name %></td>
+        <td><%= Student.find_by_id(loan.recipient_id).full_name %></td>
+        <td><%= loan.amount %></td>
+        <td><%= loan.interest %></td>
+        <td><%= loan.end_date %></td>
+        <td><%= loan.accepted %></td>
+        <td><%= link_to 'Show', loan %></td>
+        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -15,7 +15,7 @@ Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test
   10.times do
     Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
         cash: (100..500).to_a.sample, period_id: period.id,
-        password: "password")
+        password: "password", can_loan: true)
 
   end
 end

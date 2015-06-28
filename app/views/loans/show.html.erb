@@ -1,0 +1,33 @@
+
+
+<p>
+  <strong>Lender:</strong>
+  <%= Student.find_by_id(@loan.lender_id).full_name %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= Student.find_by_id(@loan.recipient_id).full_name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @loan.amount %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @loan.interest %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @loan.end_date %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @loan.accepted %>
+</p>
+
+<%= link_to 'All Loans', loans_path %>
