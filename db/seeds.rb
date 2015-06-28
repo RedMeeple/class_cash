@@ -8,26 +8,25 @@
 
 Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
 
-10.times do
-  Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-      email: Faker::Internet.email, cash: (1..100).to_a.sample, period_id: 1,
-      password: "password")
+3.times do |n|
 
+  period = Period.create(name: "Test Period #{n+1}", payscale: 20, instructor_id: 1)
+
+  10.times do
+    Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+        cash: (1..100).to_a.sample, period_id: period.id,
+        password: "password")
+
+  end
 end
 
-10.times do
-  Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-      email: Faker::Internet.email, cash: (1..100).to_a.sample, period_id: 2,
-      password: "password")
-
+Student.all.each do |student|
+  student.update(email: Faker::Internet.safe_email(student.first_name))
 end
 
-Period.create(name: "Test Period", payscale: 20, instructor_id: 1)
-Period.create(name: "Test Period 2", payscale: 20, instructor_id: 1)
-
-10.times do
-  Job.create(payscale: [20,25,30].sample, student_id: (1..20).to_a.sample,
-      description: "Class Job")
+15.times do
+  Job.create(payscale: [20,25,30].sample, student_id: (1..30).to_a.sample,
+      description: Faker::Name.title)
 end
 
 50.times do |n|
@@ -46,19 +45,19 @@ AwardType.create(name: "100%", picture: "fa fa-graduation-cap")
 end
 
 20.times do |n|
-  Behavior.create(date: Date.today, well_behaved: [true, false].sample, did_job: [true, false].sample, student_id: n+1)
+  Behavior.create(date: Date.today, well_behaved: [true, false].sample, student_id: n+1)
 end
 
 10.times do
-  Extra.create(student_id: (1..20).to_a.sample, amount: [100, 150, 200].sample,
+  Extra.create(student_id: (1..30).to_a.sample, amount: [100, 150, 200].sample,
       instructor_id: 1, reason: "behaving well")
 end
 
 3.times do
-  Bonus.create(period_id: [1, 2].sample, reason: "being awesome", amount: 1000)
+  Bonus.create(period_id: [1, 2, 3].sample, reason: "being awesome", amount: 1000)
 end
 
 50.times do
-  Transaction.create(sender_id: (1..20).to_a.sample, recipient_id: (1..20).to_a.sample,
+  Transaction.create(sender_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
       amount: (1..10).to_a.sample, reason: "helping me out")
 end
