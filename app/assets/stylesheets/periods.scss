@@ -145,3 +145,38 @@
     text-align: center;
     color: $green;
   }
+  
+  .period-table-info-cash {
+    text-align: right;
+  }
+  
+.period-class-bonuses {
+  position: relative;
+  top: 15rem; // this seems hacky, need to fix
+  display: block;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $primary-bg-color;
+  color: $primary-font-color;
+  width: 20rem;
+  text-align: center;
+}
+
+  .period-class-bonuses a {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    width: 100%;
+    background-color: $primary-btn-color;
+    color: $primary-btn-font-color;
+    text-align: center;
+    font-size: 1em;
+    
+    &:hover,
+    &:focus {
+      background-color: $secondary-btn-color;
+      color: $secondary-btn-font-color;
+    }
+  }
