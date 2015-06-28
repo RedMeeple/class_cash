@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'
       patch 'confirmation'
+      get 'pay'
+      post 'pay'
     end
 
     collection do

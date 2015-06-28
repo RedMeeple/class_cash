@@ -12,6 +12,10 @@ class Transaction < ActiveRecord::Base
         Period.find_by_id(sender.period.id).find_richest
         Period.find_by_id(recipient.period.id).find_richest
       end
+      if self.reason == "Loan Payment"
+        loan = Loan.where(lender_id: self.recipient_id).find_by_recipient_id(self.sender_id)
+        loan.update(balance: loan.balance - self.amount)
+      end
     end
   end
 end

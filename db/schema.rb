@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150628125743) do
     t.integer  "lender_id"
     t.integer  "recipient_id"
     t.integer  "amount"
+    t.integer  "balance"
     t.integer  "interest"
     t.date     "end_date"
     t.boolean  "accepted"

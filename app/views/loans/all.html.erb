@@ -1,11 +1,14 @@
 <h2>Given Loans<h2>
   <% @loans_given.each do |loan| %>
-    <div>$<%= loan.amount %> due on <%= loan.end_date.strftime("%b %e, %Y") %></div>
+    <div><%= link_to "#{loan.amount} due on #{loan.end_date.strftime("%b %e, %Y")}", loan %></div>
   <% end %>
 
 <h2>Accepted Loans</h2>
   <% @loans_received.where(accepted: true).each do |loan| %>
-    <div>$<%= loan.amount %> due on <%= loan.end_date.strftime("%b %e, %Y") %></div>
+    <div>
+      <%= link_to "#{loan.amount} due on #{loan.end_date.strftime("%b %e, %Y")}", loan %>
+      <%= link_to "Make Payment", pay_loan_path(loan) %>
+    </div>
   <% end %>
 
 <h2>Loans Needing Your Confirmation<h2>

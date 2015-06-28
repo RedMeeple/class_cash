@@ -12,7 +12,7 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= @loan.amount %>
+  $<%= @loan.amount %>
 </p>
 
 <p>
@@ -26,8 +26,8 @@
 </p>
 
 <p>
-  <strong>Accepted:</strong>
-  <%= @loan.accepted %>
+  <strong>Balance Left:</strong>
+  $<%= @loan.balance %>
 </p>
 
 <%= link_to 'All Loans', loans_path %>
