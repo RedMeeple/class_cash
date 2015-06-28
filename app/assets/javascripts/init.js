@@ -27,6 +27,10 @@ $(function () {
 
     app.navbar.homeLink(uL);
   }
+  
+  if ($('.period-title-container').length) {
+    app.periods.tableRichest();
+  }
 
   // input section stuff
   $('.login-input-box').focusin(function() {

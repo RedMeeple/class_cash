@@ -1,17 +1,15 @@
-
-
 <% @period.find_richest %>
 
-<p>
-  <strong>Class:</strong>
-  <%= @period.name %>
-</p>
-<p>
-  <strong>Payscale:</strong>
-  <%= @period.payscale %>
-</p>
+<div class="period-title-container">
+  <div>
+    Class: <%= @period.name %>
+  </div>
+  <div>
+    Payscale: <%= @period.payscale %>
+  </div>
+</div>
 
-<table class="student-list">
+<table class="period-table">
   <thead>
     <tr>
       <th>First name</th>
@@ -26,22 +24,35 @@
 
   <tbody>
     <% @students.each do |student| %>
-      <tr class="student-list-info">
-        <td class="student-list-info-firstname"><%= student.first_name %></td>
-        <td class="student-list-info-lastname"><%= student.last_name %></td>
-        <td class="student-list-info-cash">$<%= student.cash %></td>
-        <td class="student-list-info-behavior"><%= student.good_behavior_today(student.id) || student.good_behavior_yesterday(student.id) %></td>
-        <td class="student-list-info-richest"><%= student.richest %></td>
-        <td class="student-list-info-jobs"><% student.jobs.each do |job|%>
+      <tr class="period-table-info">
+        <td class="period-table-info-firstname"><%= student.first_name %></td>
+        <td class="period-table-info-lastname"><%= student.last_name %></td>
+        <td class="period-table-info-cash">$<%= student.cash %></td>
+        <td class="period-table-info-behavior"><%= student.good_behavior_today(student.id) || student.good_behavior_yesterday(student.id) %></td>
+        <td class="period-table-info-richest"><%= student.richest %></td>
+        <td class="period-table-info-jobs"><% student.jobs.each do |job|%>
           <%= job.description %><br>
         <% end %></td>
-        <td><%= link_to 'Details', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="period-table-info-options">
+          <span>Options</span>
+          <ul class="period-table-info-options-list">
+            <li><%= link_to 'Details', student %></li>
+            <li><%= link_to 'Edit', edit_student_path(student) %></li>
+            <li><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <h3>Class Bonuses</h3>
 <% @bonuses.each do |bonus| %>
