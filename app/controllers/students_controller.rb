@@ -56,6 +56,7 @@ class StudentsController < ApplicationController
         format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
+        @periods = Period.where(instructor_id: current_user.id)
         format.html { render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
