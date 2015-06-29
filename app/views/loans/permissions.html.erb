@@ -1,8 +1,11 @@
+<h3>Loaning Permissions</h3>
+<p>Selected students have the ability to offer loans to other students.  The student can  set the weekly interest percentage.  The student who receives the offer can choose to accept or reject to loan offer.  Every week the new balance will be calculated based on the interest rate chosen by the students.</p>
+
 <%= simple_form_for @period do |f| %>
 
   <%= f.fields_for :students do |ff| %>
     <%= ff.object.full_name %>
-    <%= ff.input :can_loan, as: :boolean %>
+    <%= ff.input :can_loan, as: :boolean, label: false %>
   <% end %>
 
   <%= f.button :submit, "Submit" %>

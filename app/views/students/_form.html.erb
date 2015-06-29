@@ -1,15 +1,4 @@
 <%= simple_form_for @student do |f| %>
-  <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="students-new-container">
     <div class="field students-new-firstname">
@@ -33,7 +22,7 @@
         <%= f.label :email %>
       </div>
       <div class="students-new-email-input">
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
       </div>
     </div>
     <div class="field students-new-cash">
@@ -49,7 +38,7 @@
         <%= f.label :period %>
       </div>
       <div class="students-new-period-input">
-        <%= f.select :period_id, @periods.map{ |period| [period.name, period.id] }, include_blank: true %>
+        <%= f.association :period, label_method: :name, include_blank: true, label: false %>
       </div>
     </div>
     <div class="field students-new-password">
@@ -61,7 +50,7 @@
       </div>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.button :submit %>
     </div>
   </div>
 <% end %>

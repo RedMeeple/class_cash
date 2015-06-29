@@ -1,7 +1,7 @@
 <div class="enter-behavior-container">
 
   <div class="enter-behavior-title">Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></div>
-<%= form_for @period, url: update_behavior_period_path(@period) do |f| %>
+<%= simple_form_for @period, url: update_behavior_period_path(@period) do |f| %>
   <table>
     <thead>
       <tr>
