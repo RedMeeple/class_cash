@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20150629181931) do
   end
 
   create_table "loans", force: :cascade do |t|
-    t.integer  "lender_id"
+    t.integer  "student_id"
     t.integer  "recipient_id"
     t.integer  "amount"
     t.integer  "balance"

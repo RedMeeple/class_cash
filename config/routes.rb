@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       patch 'confirmation'
       get 'pay'
       post 'pay'
+      get 'permissions'
+      patch 'permissions'
     end
 
     collection do

@@ -1,25 +1,31 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :update, :destroy, :confirmation, :pay]
-  before_action :student_logged_in?, except: [:index, :destroy]
-  before_action :instructor_logged_in?, only: [:index, :destroy]
+  before_action :student_logged_in?, except: [:index, :destroy, :permissions]
+  before_action :instructor_logged_in?, only: [:index, :destroy, :permissions]
 
   def confirmation
   end
 
   def pay
-    @transaction = Transaction.new(recipient_id: Student.find_by_id(@loan.lender_id).id,
+    @transaction = Transaction.new(recipient_id: @loan.student.id,
         sender_id: Student.find_by_id(@loan.recipient_id).id, reason: "Loan Payment")
+  end
+
+  def permissions
+    @period = Period.find_by_id(params[:id])
   end
 
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @instructor = Instructor.find_by_id(current_user.id)
+    @loans = @instructor.loans
   end
 
   def all
-    @loans_given = Loan.where(lender_id: current_user.id)
-    @loans_received = Loan.where(recipient_id: current_user.id)
+    @student = Student.find_by_id(current_user.id)
+    @loans_given = @student.loans
+    @loans_received = Loan.where(recipient_id: @student.id)
   end
 
   # GET /loans/1
@@ -32,6 +38,9 @@ class LoansController < ApplicationController
     @loan = Loan.new
     @lender = Student.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @lender.period.instructor_id)
+    unless @lender.can_loan
+      redirect_to dashboard_student_path
+    end
   end
 
   # POST /loans
@@ -83,6 +92,7 @@ class LoansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:lender_id, :recipient_id, :amount, :interest, :end_date, :accepted)
+      params.require(:loan).permit(:student_id, :recipient_id, :amount, :interest, :end_date, :accepted)
     end
+
 end

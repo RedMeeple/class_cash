@@ -1,0 +1,9 @@
+<%= simple_form_for @period do |f| %>
+
+  <%= f.fields_for :students do |ff| %>
+    <%= ff.object.full_name %>
+    <%= ff.input :can_loan, as: :boolean %>
+  <% end %>
+
+  <%= f.button :submit, "Submit" %>
+<% end %>

@@ -66,6 +66,6 @@ end
 end
 
 5.times do
-  Loan.create(lender_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
-  amount: 50, end_date: Date.today+30, balance: 50, accepted: true)
+  Loan.create(student_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
+  amount: 50, end_date: Date.today+30, balance: 50, accepted: true, interest: 5)
 end

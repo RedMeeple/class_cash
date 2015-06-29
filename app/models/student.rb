@@ -2,7 +2,8 @@ class Student < User
   belongs_to :period
   has_many :jobs, dependent: :destroy
   has_many :behaviors, dependent: :destroy
-  has_many :awards
+  has_many :awards, dependent: :destroy
+  has_many :loans, dependent: :destroy
 
   accepts_nested_attributes_for :behaviors
   accepts_nested_attributes_for :jobs

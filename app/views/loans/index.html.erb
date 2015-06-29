@@ -17,7 +17,7 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
-        <td><%= Student.find_by_id(loan.lender_id).full_name %></td>
+        <td><%= loan.student.full_name %></td>
         <td><%= Student.find_by_id(loan.recipient_id).full_name %></td>
         <td><%= loan.amount %></td>
         <td><%= loan.balance %></td>

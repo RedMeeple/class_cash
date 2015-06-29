@@ -1,7 +1,7 @@
 class CreateLoans < ActiveRecord::Migration
   def change
     create_table :loans do |t|
-      t.integer :lender_id
+      t.integer :student_id
       t.integer :recipient_id
       t.integer :amount
       t.integer :balance

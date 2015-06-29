@@ -1,7 +1,8 @@
 class Loan < ActiveRecord::Base
+  belongs_to :student
 
   def finalize
-    lender = Student.find_by_id(self.lender_id)
+    lender = self.student
     transaction do
       if self.accepted
         lender.update(cash: (lender.cash - self.amount))
