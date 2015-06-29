@@ -1,22 +1,9 @@
-<%= form_for(@loan) do |f| %>
-  <% if @loan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+<%= simple_form_for @loan do |f| %>
 
-      <ul>
-      <% @loan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
     <%= f.hidden_field :lender_id, value: @lender.id %>
-  </div>
-  <div class="field">
-    <%= f.label :recipient %><br>
+
     <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
+<<<<<<< HEAD
   </div>
   <div class="field">
     <%= f.label :amount %><br>
@@ -33,4 +20,13 @@
   <div class="actions">
     <%= f.submit "Send for confirmation" %>
   </div>
+=======
+
+    <%= f.input :amount, placeholder: 100 %>
+    <%= f.input :interest %>%
+    <%= f.input :end_date %>
+
+    <%= f.button :submit, "Send for confirmation" %>
+
+>>>>>>> rails
 <% end %>

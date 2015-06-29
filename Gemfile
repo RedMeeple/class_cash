@@ -6,7 +6,7 @@ group :production do
   ruby '2.2.2'
   gem 'puma'
 end
-
+gem 'simple_form'
 gem 'whenever', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
