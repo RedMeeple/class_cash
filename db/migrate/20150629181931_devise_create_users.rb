@@ -10,6 +10,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      # For Students
+      t.integer :cash
+      t.integer :period_id
+      t.boolean :richest
+      t.boolean :can_loan
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

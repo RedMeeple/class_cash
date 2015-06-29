@@ -97,12 +97,8 @@ ActiveRecord::Schema.define(version: 20150629181931) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.integer  "cash"
-    t.integer  "period_id"
-    t.boolean  "richest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "can_loan"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -122,6 +118,10 @@ ActiveRecord::Schema.define(version: 20150629181931) do
     t.integer  "instructor_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.integer  "cash"
+    t.integer  "period_id"
+    t.boolean  "richest"
+    t.boolean  "can_loan"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:instructor_logged_in?, :student_logged_in?]
 
   private def instructor_logged_in?
-    unless current_user.type == "instructor"
+    unless current_user.type == "Instructor"
       redirect_to user_session_path, notice: 'Please login to view this page.'
     end
   end
 
   private def student_logged_in?
-    unless current_user.type == "student"
+    unless current_user.type == "Student"
       redirect_to user_session_path, notice: 'Please login to view this page.'
     end
   end
