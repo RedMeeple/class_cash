@@ -1,30 +1,16 @@
 <div class="student-send-money-container">
 
-  <%= form_for @transaction, url: students_sent_money_path do |f| %>
-    <% if @transaction.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-        <ul>
-        <% @transaction.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%= simple_form_for @transaction, url: students_sent_money_path do |f| %>
 
     <div class="field student-send-money-amount">
-      <div class="student-send-money-amount-title"><%= f.label :amount %></div>
-      <div class="student-send-money-amount-input"><%= f.number_field :amount %></div>
+      <%= f.input :amount, wrapper_html: { class: 'student-send-money-amount-input' } %>
     </div>
-    <div>
+
       <%= f.hidden_field :reason %>
       <%= f.hidden_field :sender_id %>
       <%= f.hidden_field :recipient_id %>
-    </div>
-    <div class="actions">
+
       <%= f.submit 'Make Payment'%>
-    </div>
 
   <% end %>
 
