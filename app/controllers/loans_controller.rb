@@ -1,7 +1,7 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :update, :destroy, :confirmation, :pay]
   before_action :student_logged_in?, except: [:index, :destroy]
-  before_action :logged_in?, only: [:index, :destroy]
+  before_action :instructor_logged_in?, only: [:index, :destroy]
 
   def confirmation
   end
@@ -18,8 +18,8 @@ class LoansController < ApplicationController
   end
 
   def all
-    @loans_given = Loan.where(lender_id: session[:user_id])
-    @loans_received = Loan.where(recipient_id: session[:user_id])
+    @loans_given = Loan.where(lender_id: current_user.id)
+    @loans_received = Loan.where(recipient_id: current_user.id)
   end
 
   # GET /loans/1
@@ -30,7 +30,7 @@ class LoansController < ApplicationController
   # GET /loans/new
   def new
     @loan = Loan.new
-    @lender = Student.find_by_id(session[:user_id])
+    @lender = Student.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @lender.period.instructor_id)
   end
 
@@ -72,18 +72,6 @@ class LoansController < ApplicationController
     respond_to do |format|
       format.html { redirect_to loans_url, notice: 'Loan was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  private def student_logged_in?
-    unless Student.find_by_id(session[:user_id]) && session[:user_type] == "student"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
     end
   end
 

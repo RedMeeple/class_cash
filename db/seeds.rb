@@ -6,16 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
+instructor = Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
 
 3.times do |n|
 
-  period = Period.create(name: "Test Period #{n+1}", payscale: 20, instructor_id: 1)
+  period = Period.create(name: "Test Period #{n+1}", payscale: 20, instructor_id: instructor.id)
 
   10.times do
-    Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+    Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
         cash: (100..500).to_a.sample, period_id: period.id,
-        password: "password", can_loan: true)
+        password: "password", can_loan: true, email: Faker::Internet.email)
 
   end
 end

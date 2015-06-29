@@ -1,13 +1,6 @@
 class PeriodsController < ApplicationController
-  before_action :logged_in?
+  before_action :instructor_logged_in?
   before_action :set_period, only: [:show, :edit, :update, :destroy, :enter_behavior, :update_behavior]
-
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
 
   def enter_behavior
     @students = @period.students
@@ -42,7 +35,7 @@ class PeriodsController < ApplicationController
   # GET /periods
   # GET /periods.json
   def index
-    @periods = Period.where(instructor_id: session[:user_id]).all
+    @periods = Period.where(instructor_id: current_user.id)
     @bonus = Bonus.new
   end
 
@@ -56,13 +49,13 @@ class PeriodsController < ApplicationController
   # GET /periods/new
   def new
     @period = Period.new
-    @instructor = Instructor.find_by_id(session[:user_id])
+    @instructor = Instructor.find_by_id(current_user.id)
     20.times { @period.students.build }
   end
 
   # GET /periods/1/edit
   def edit
-    @instructor = Instructor.find_by_id(session[:user_id])
+    @instructor = Instructor.find_by_id(current_user.id)
   end
 
   # POST /periods

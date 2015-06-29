@@ -1,5 +1,4 @@
-class Instructor < ActiveRecord::Base
-  has_secure_password
+class Instructor < User
   has_many :periods, dependent: :destroy
   has_many :students, through: :periods
   has_many :bonuses, through: :periods

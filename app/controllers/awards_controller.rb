@@ -1,19 +1,19 @@
 class AwardsController < ApplicationController
   before_action :set_award, only: [:update, :destroy]
-  before_action :logged_in?
+  before_action :instructor_logged_in?
 
   # GET /awards
   # GET /awards.json
   def index
     @award_types = AwardType.all
-    @instructor = Instructor.find_by_id(session[:user_id])
+    @instructor = Instructor.find_by_id(current_user.id)
   end
 
   # GET /awards/new
   def new
     @award = Award.new
     @awards = AwardType.all
-    @periods = Period.where(instructor_id: session[:user_id])
+    @periods = Period.where(instructor_id: current_user.id)
   end
 
   # POST /awards
@@ -34,12 +34,6 @@ class AwardsController < ApplicationController
   def destroy
     @award.destroy
     redirect_to awards_url, notice: 'Award was successfully destroyed.'
-  end
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
   end
 
   private
