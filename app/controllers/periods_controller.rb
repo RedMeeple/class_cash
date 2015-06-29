@@ -18,6 +18,7 @@ class PeriodsController < ApplicationController
       @period.pay_students
       redirect_to periods_path, notice: 'Today\'s behavior has been updated.'
     else
+      @students = @period.students
       render :enter_behavior
     end
   end
