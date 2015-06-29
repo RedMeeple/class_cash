@@ -1,18 +1,12 @@
 class JobsController < ApplicationController
-  before_action :logged_in?
+  before_action :instructor_logged_in?
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_students, only: [:new, :edit]
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @periods = Period.where(instructor_id: session[:user_id])
+    @periods = Period.where(instructor_id: current_user.id)
     @students = @periods.joins(:students)
   end
 
@@ -74,7 +68,7 @@ class JobsController < ApplicationController
     end
 
     def set_students
-      @periods = Period.where(instructor_id: session[:user_id]).all
+      @periods = Period.where(instructor_id: current_user.id).all
       @students = []
       @periods.each do |period|
         @students += Student.where(period_id: period.id).all.to_a

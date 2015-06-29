@@ -1,6 +1,6 @@
 <%= simple_form_for @job do |f| %>
 
-  <%= f.association :student, label_method: :full_name, include_blank: true %>
+  <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
   <%= f.input :description %>
   <%= f.input :payscale %>
 

@@ -1,10 +1,10 @@
 class WelcomeController < ApplicationController
 
   def home
-    if session[:user_id]
-      if session[:user_type] == "instructor"
+    if current_user
+      if current_user.type == "instructor"
         redirect_to dashboard_instructor_path
-      elsif session[:user_type] == "student"
+      elsif current_user.type == "student"
         redirect_to dashboard_student_path
       end
     end

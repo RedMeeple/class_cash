@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :logged_in?, except: [:send_money, :sent_money]
+  before_action :instructor_logged_in?, except: [:send_money, :sent_money]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @periods = Period.where(instructor_id: session[:user_id])
+    @periods = Period.where(instructor_id: current_user.id)
     @students = @periods.joins(:students)
   end
 
@@ -24,12 +24,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @periods = Period.where(instructor_id: session[:user_id])
+    @periods = Period.where(instructor_id: current_user.id)
   end
 
   # GET /students/1/edit
   def edit
-    @periods = Period.where(instructor_id: session[:user_id])
+    @periods = Period.where(instructor_id: current_user.id)
   end
 
   # POST /students
@@ -73,13 +73,13 @@ class StudentsController < ApplicationController
   end
 
   def send_money
-    @student = Student.find_by_id(session[:user_id])
+    @student = Student.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @student.period.instructor_id)
     @transaction = Transaction.new(sender_id: @student.id)
   end
 
   def sent_money
-    @student = Student.find_by_id(session[:user_id])
+    @student = Student.find_by_id(current_user.id)
     @transaction = Transaction.new(transaction_params)
     if @transaction.finalize
       @transaction.save
@@ -91,7 +91,7 @@ class StudentsController < ApplicationController
   end
 
   def give_bonus
-    @instructor = Instructor.find_by_id(session[:user_id])
+    @instructor = Instructor.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @instructor.id)
     @extra = Extra.new(instructor_id: @instructor.id)
   end
@@ -107,18 +107,6 @@ class StudentsController < ApplicationController
       render :give_bonus, notice: "Please try again."
     end
 
-  end
-
-  private def student_logged_in?
-    unless Student.find_by_id(session[:user_id]) && session[:user_type] == "student"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
-
-  private def logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && session[:user_type] == "instructor"
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
   end
 
   private
