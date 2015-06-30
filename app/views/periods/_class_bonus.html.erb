@@ -1,26 +1,13 @@
-<%= form_for @bonus, url: class_bonus_periods_path do |f| %>
-  <% if @bonus.errors.any? %>
-    <div class="alert alert-error">
-      <ul>
-      <% @bonus.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for @bonus, url: class_bonus_periods_path do |f| %>
 
   <h3>Award Class Bonus</h3>
   <h4>This may be a positive or negative amount.</h4>
-  <span class="field">
-    Distribute $<%= f.number_field :amount %> to
-  </span>
-  <span class="field">
-    <%= f.select :period_id, @periods.map {|p| [p.name, p.id]} %>
-  </span>
-  <span class="field">
-    for: <%= f.text_field :reason %>
-  </span>
-  <span class="actions">
-    <%= f.submit 'Submit' %>
-  </span>
+
+    Distribute $<%= f.input :amount, label: false %> to
+
+    <%= f.association :period, label_method: :name, label: false%>
+
+    for <%= f.input :reason, label: false %>
+
+    <%= f.button :submit %>
 <% end %>

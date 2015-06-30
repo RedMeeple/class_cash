@@ -25,3 +25,7 @@ set :path, '/Users/awbedell/Desktop/The Iron Yard/class_cash'
 every :weekday, at: '9pm' do
   runner 'Student.save_all_balances'
 end
+
+every :day, at: '12am' do
+  runner 'Loan.update_balances'
+end

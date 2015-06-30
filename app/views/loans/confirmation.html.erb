@@ -1,28 +1,10 @@
-<%= form_for(@loan) do |f| %>
-  <% if @loan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+<%= simple_form_for @loan do |f| %>
 
-      <ul>
-      <% @loan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <p><%= Student.find_by_id(@loan.lender_id).full_name %> is willing to loan you $<%= @loan.amount %> at an interest rate of <%= @loan.interest %>% until <%= @loan.end_date %>.</p>
 
-<p><%= Student.find_by_id(@loan.lender_id).full_name %> is willing to loan you $<%= @loan.amount %> at an interest rate of <%= @loan.interest %>% until <%= @loan.end_date %>.</p>
+  <div>I accept the terms of this loan.</div>
+  <%= f.input :accepted, as: :radio_buttons , label: false%>
 
-  <div class="field">
-    <%= f.label :i_accept_the_terms_of_this_loan %>
-    <%= f.label :accepted, "Yes", value: true  %>
-    <%= f.radio_button :accepted, true %>
-    <%= f.label :accepted, "No", value: false %>
-    <%= f.radio_button :accepted, false, checked: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
+  <%= f.button :submit %>
 
 <% end %>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <title>ClassCash</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
-      
+
   </head>
-  
+
   <body>
     <div class="navigation">
       <div class="menu-btn" id="menu-btn">
@@ -19,7 +19,9 @@
       </div>
       <div class="menu-responsive">
         <ul>
-          <li><%= link_to "Logout", sessions_logout_path, class: "link-logout" if session[:user_id] %></li>
+          <% if user_signed_in? %>
+        </li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "link-logout" %></li>
+          <% end %>
           <% if @dashboard_instructor %>
             <li><%= link_to 'Home', root_path, class: "home" %></li>
           <% end %>
@@ -30,18 +32,15 @@
         </ul>
       </div>
     </div>
-    <div id="notice">
-      <%= notice %>
-    </div>
-    
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div class="container">
-      <% if @user %>
-        <h2>Welcome, <%= @user.name %></h2>
-      <% end %>
       <div class="row">
         <%= yield %>
       </div>
     </div>
-  
+
   </body>
 </html>
