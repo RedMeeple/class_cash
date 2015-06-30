@@ -3,7 +3,7 @@
   <div class="student-send-money-title">Give Bonus</div>
   <h3>A bonus can be a positive or negative amount.</h3>
 
-  <%= form_for @extra, url: students_gave_bonus_path do |f| %>
+  <%= form_for @extra, url: gave_bonus_students_path do |f| %>
     <% if @extra.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@extra.errors.count, "error") %> prohibited this student from being saved:</h2>

@@ -42,7 +42,7 @@
     text-align: center;
     color: #E5BC3B;
   }
-  
+
   .student-table-info-options span {
     display: block;
     background-color: $primary-btn-color;
@@ -51,14 +51,14 @@
     padding: 0.3rem 0;
     text-align: center;
   }
-  
+
   .student-table-info-options {
     position: relative;
-    
+
     &:hover .student-table-info-options-list {
       display: block;
       z-index: 1;
-      
+
       & a {
         text-decoration: none;
         background-color: $third-btn-color;
@@ -69,13 +69,13 @@
       }
     }
   }
-  
+
   .student-table-info-options-list {
     position: absolute;
     display: none;
     text-align: center;
   }
-  
+
 
 // New Student Page (students/new.html.erb)
 

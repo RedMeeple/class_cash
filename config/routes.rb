@@ -25,12 +25,17 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  get 'students/send_money'
-  post 'students/sent_money'
-  get 'students/give_bonus'
-  post 'students/gave_bonus'
-
-  resources :students
+  resources :students do
+    collection do
+      get 'send_money'
+      post 'sent_money'
+      get 'give_bonus'
+      post 'gave_bonus'
+    end
+    member do
+      get 'behavior'
+    end
+  end
   resources :jobs
   resources :periods do
     collection do
