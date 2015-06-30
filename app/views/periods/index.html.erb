@@ -1,5 +1,3 @@
-<div id="notice"><%= notice %></div>
-
 <h1 class="periods-table-title">Your Classes</h1>
 
 <table class="periods-table">
@@ -27,6 +25,7 @@
             <li><%= link_to 'Edit', edit_period_path(period) %></li>
             <li><%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></li>
             <li><%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %></li>
+            <li><%= link_to 'Loaning Permission', permissions_loan_path(period) %></li>
           </ul>
         </td>
       </tr>

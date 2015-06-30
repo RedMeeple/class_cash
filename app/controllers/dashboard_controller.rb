@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
 
 
   def student
-    @student = Student.find_by_id(session[:user_id])
+    @student = Student.find_by_id(current_user.id)
     @period = Period.find_by_id(@student.period_id)
     @bonuses = Bonus.where(period_id: @student.period_id).last(5).reverse
     @extras = Extra.where(student_id: @student.id).last(5).reverse
@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
   end
 
   def instructor
-    @instructor = Instructor.find_by_id(session[:user_id])
+    @instructor = Instructor.find_by_id(current_user.id)
   end
 
   private def nav_links_instructor
@@ -27,15 +27,4 @@ class DashboardController < ApplicationController
     @dashboard_student = true
   end
 
-  private def instructor_logged_in?
-    unless Instructor.find_by_id(session[:user_id]) && (session[:user_type] == "instructor")
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
-
-  private def student_logged_in?
-    unless Student.find_by_id(session[:user_id]) && (session[:user_type] == "student")
-      redirect_to sessions_login_path, notice: 'User or Password does not match our records.'
-    end
-  end
 end

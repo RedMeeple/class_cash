@@ -1,29 +1,9 @@
-<%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+<%= simple_form_for @job do |f| %>
 
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
+  <%= f.input :description %>
+  <%= f.input :payscale %>
 
-  <div class="field">
-    <%= f.label :student %><br>
-    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :payscale %><br>
-    <%= f.number_field :payscale %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
+
 <% end %>

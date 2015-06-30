@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628125743) do
+ActiveRecord::Schema.define(version: 20150629181931) do
 
   create_table "award_types", force: :cascade do |t|
     t.string   "name"
@@ -63,12 +63,8 @@ ActiveRecord::Schema.define(version: 20150628125743) do
   end
 
   create_table "instructors", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -81,7 +77,7 @@ ActiveRecord::Schema.define(version: 20150628125743) do
   end
 
   create_table "loans", force: :cascade do |t|
-    t.integer  "lender_id"
+    t.integer  "student_id"
     t.integer  "recipient_id"
     t.integer  "amount"
     t.integer  "balance"
@@ -101,16 +97,8 @@ ActiveRecord::Schema.define(version: 20150628125743) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.integer  "cash"
-    t.integer  "period_id"
-    t.string   "password_digest"
-    t.boolean  "richest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.boolean  "can_loan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -121,5 +109,32 @@ ActiveRecord::Schema.define(version: 20150628125743) do
     t.datetime "updated_at",   null: false
     t.string   "reason"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "type"
+    t.integer  "student_id"
+    t.integer  "instructor_id"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.integer  "cash"
+    t.integer  "period_id"
+    t.boolean  "richest"
+    t.boolean  "can_loan"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
