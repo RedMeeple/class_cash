@@ -1,13 +1,14 @@
 <%= simple_form_for @loan do |f| %>
+  <%= f.error_notification %>
 
-    <%= f.hidden_field :student_id, value: @lender.id %>
-
+  <%= f.hidden_field :student_id, value: @lender.id %>
+  <%= f.input :state do %>
     <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
+  <% end %>
+  <%= f.input :amount, placeholder: 100 %>
+  <%= f.input :interest %>%
+  <%= f.input :end_date %>
 
-    <%= f.input :amount, placeholder: 100 %>
-    <%= f.input :interest %>%
-    <%= f.input :end_date %>
-
-    <%= f.button :submit, "Send for confirmation" %>
+  <%= f.button :submit, "Send for confirmation" %>
 
 <% end %>

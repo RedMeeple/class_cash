@@ -1,9 +1,9 @@
 <%= simple_form_for @period do |f| %>
+  <%= f.error_notification %>
 
-    <%= f.hidden_field :instructor_id, value: @instructor.id %>
-
-    <%= f.input :payscale, label: "Daily Salary" %>
-    <%= f.input :name %>
+  <%= f.hidden_field :instructor_id, value: @instructor.id %>
+  <%= f.input :payscale, label: "Daily Salary" %>
+  <%= f.input :name %>
 
   <h3>Add Students</h3>
   <table class="student-table">

@@ -1,12 +1,11 @@
 <%= simple_form_for @bonus, url: class_bonus_periods_path do |f| %>
+  <%= f.error_notification %>
 
   <h3>Award Class Bonus</h3>
   <h4>This may be a positive or negative amount.</h4>
 
     Distribute $<%= f.input :amount, label: false %> to
-
     <%= f.association :period, label_method: :name, label: false%>
-
     for <%= f.input :reason, label: false %>
 
     <%= f.button :submit %>

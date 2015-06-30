@@ -3,7 +3,18 @@
   <div class="student-send-money-title">Give Bonus</div>
   <h3>A bonus can be a positive or negative amount.</h3>
 
-  <%= simple_form_for @extra, url: students_gave_bonus_path do |f| %>
+  <%= form_for @extra, url: students_gave_bonus_path do |f| %>
+    <% if @extra.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@extra.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+        <ul>
+        <% @extra.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="field student-send-money-recipient">
       <div class="student-send-money-recipient-title"><%= f.label :student %></div>
@@ -23,7 +34,7 @@
       <%= f.hidden_field :instructor_id, value: @instructor.id %>
     </div>
     <div class="actions">
-      <%= f.button :submit, 'Award Bonus'%>
+      <%= f.submit 'Award Bonus'%>
     </div>
 
   <% end %>

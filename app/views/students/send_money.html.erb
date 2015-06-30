@@ -2,7 +2,18 @@
 
   <div class="student-send-money-title">Send Cash</div>
 
-  <%= simple_form_for @transaction, url: students_sent_money_path do |f| %>
+  <%= form_for @transaction, url: students_sent_money_path do |f| %>
+    <% if @transaction.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+        <ul>
+        <% @transaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="field student-send-money-recipient">
       <div class="student-send-money-recipient-title"><%= f.label :recipient %></div>
@@ -15,15 +26,17 @@
       <div class="student-send-money-amount-input"><%= f.number_field :amount %></div>
     </div>
     <div>
-
-    <%= f.input :reason, collection: [
+      <div><%= f.label :i_am_sending_this_money_for %></div>
+      <div><%= f.select :reason, [
           ['helping me out', 'helping me out'], ['doing a job', 'doing a job'],
-          ['an auction purchase', 'an auction purchase'], ['payment', 'payment'] ],
-          include_blank: true %></div>
-    <%= f.hidden_field :sender_id, value: @student.id %>
-
-    <%= f.button :submit, 'Send Money'%>
-
+          ['an auction purchase', 'an auction purchase'] ], include_blank: true %></div>
+    </div>
+    <div class="actions">
+      <%= f.hidden_field :sender_id, value: @student.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Send Money'%>
+    </div>
 
   <% end %>
 

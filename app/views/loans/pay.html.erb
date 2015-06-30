@@ -1,7 +1,7 @@
 <div class="student-send-money-container">
 
   <%= simple_form_for @transaction, url: students_sent_money_path do |f| %>
-
+    <%= f.error_notification %>
     <div class="field student-send-money-amount">
       <%= f.input :amount, wrapper_html: { class: 'student-send-money-amount-input' } %>
     </div>
