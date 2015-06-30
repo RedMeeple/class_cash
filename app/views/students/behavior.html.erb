@@ -69,16 +69,14 @@ svg.selectAll(".month")
     .attr("class", "month")
     .attr("d", monthPath);
 
-d3.json(json, function(error, json) {
-  if (error) throw error;
-
-  d3.select("svg").selectAll(".day").data(json).style("fill", function(d) {
-    if (d[1] === "false") {
-      return "#8A0808";
-    } else {
-      return "#088A8A";
-    };
-  });
+d3.select("svg").selectAll(".day").data(json).style("fill", function(d) {
+  if (d[1] === false) {
+    return "#8A0808";
+  } else if (d[1] === true) {
+    return "#088A8A";
+  } else {
+    return "#F5FCE6";
+  };
 });
 
 function monthPath(t0) {
