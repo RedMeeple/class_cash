@@ -114,8 +114,6 @@ ActiveRecord::Schema.define(version: 20150629181931) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "type"
-    t.integer  "student_id"
-    t.integer  "instructor_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.integer  "cash"

@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :instructor_logged_in?, except: [:send_money, :sent_money]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior]
 
   before_action :nav_links_instructor
   before_action :nav_links_student
@@ -99,7 +99,6 @@ class StudentsController < ApplicationController
 
   def gave_bonus
     @extra = Extra.new(extra_params)
-
     if @extra.save
       @student = Student.find_by_id(@extra.student_id)
       @student.update(cash: (@student.cash + @extra.amount))
@@ -107,7 +106,10 @@ class StudentsController < ApplicationController
     else
       render :give_bonus, notice: "Please try again."
     end
+  end
 
+  def behavior
+    @all_days = @student.behaviors.map { |b| [b.date, b.well_behaved] }
   end
 
   private

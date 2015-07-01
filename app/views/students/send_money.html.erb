@@ -2,7 +2,7 @@
 
   <div class="student-send-money-title">Send Cash</div>
 
-  <%= form_for @transaction, url: students_sent_money_path do |f| %>
+  <%= form_for @transaction, url: sent_money_students_path do |f| %>
     <% if @transaction.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>

@@ -33,10 +33,11 @@ end
   Student.all.each do |student|
     DailyBalance.create(student_id: student.id, amount: (100..500).to_a.sample,
         date: (Date.today - n))
+    Behavior.create(date: Date.today - n, well_behaved: [true, false].sample, student_id: student.id)
   end
 end
 
-AwardType.create(name: "The Richest", picture: "fa fa-bug")
+AwardType.create(name: "The Richest", picture: "fa fa-trophy")
 AwardType.create(name: "Perfect Score Award", picture: "fa fa-graduation-cap")
 AwardType.create(name: "The Einstein Award", picture: "fa fa-flask")
 AwardType.create(name: "The Peacemaker Award", picture: "fa fa-flag-o")
@@ -45,10 +46,6 @@ AwardType.create(name: "The Helping Hands Award", picture: "fa fa-users")
 20.times do
   Award.create(student_id: (1..30).to_a.sample, payment: (100..1000).to_a.sample,
   award_type_id: [1, 2, 3, 4, 5].sample, reason: "because")
-end
-
-30.times do |n|
-  Behavior.create(date: Date.today, well_behaved: [true, false].sample, student_id: n+1)
 end
 
 10.times do

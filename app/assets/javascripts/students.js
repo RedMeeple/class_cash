@@ -11,7 +11,6 @@ app.students = {
         $(element).text('');
       }
     });
-
   },
 
   individualRichest: function () {
@@ -22,7 +21,6 @@ app.students = {
     } else {
       $('.student-show-richest-text').text('No');
     }
-
   },
 
   tableBehavior: function () {
@@ -34,8 +32,5 @@ app.students = {
         $(element).text('');
       }
     });
-
   },
-
-
 }

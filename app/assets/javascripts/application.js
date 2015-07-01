@@ -17,3 +17,4 @@
 //= require periods
 //= require navbar
 //= require init
+//= require d3.min
