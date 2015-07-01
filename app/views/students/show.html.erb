@@ -33,7 +33,7 @@
     <div class="student-show-received-title">Received Money: </div>
     <ol>
       <% @received.each do |r| %>
-        <li><%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for
+        <li><%= r.amount %> from <%= r.student.full_name %> for
           <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</li>
       <% end %>
     </ol>

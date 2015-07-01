@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20150629181931) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "sender_id"
+    t.integer  "student_id"
     t.integer  "recipient_id"
     t.integer  "amount"
     t.datetime "created_at",   null: false

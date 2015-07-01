@@ -35,6 +35,7 @@
               <li><%= link_to 'Details', student %></li>
               <li><%= link_to 'Edit', edit_student_path(student) %></li>
               <li><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <li><%= link_to 'Behavior History', behavior_student_path(student) %></li>
             </ul>
           </td>
         </tr>

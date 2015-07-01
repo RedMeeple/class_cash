@@ -8,7 +8,7 @@ class LoansController < ApplicationController
 
   def pay
     @transaction = Transaction.new(recipient_id: @loan.student.id,
-        sender_id: Student.find_by_id(@loan.recipient_id).id, reason: "Loan Payment")
+        student_id: Student.find_by_id(@loan.recipient_id).id, reason: "Loan Payment")
   end
 
   def permissions

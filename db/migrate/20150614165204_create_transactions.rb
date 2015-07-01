@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
-      t.integer :sender_id
+      t.integer :student_id
       t.integer :recipient_id
       t.integer :amount
 

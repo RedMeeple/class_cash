@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @received = Transaction.where(recipient_id: @student.id)
-    @sent = Transaction.where(sender_id: @student.id)
+    @sent = @student.transactions
     @awards = Award.where(student_id: @student.id)
   end
 
@@ -76,7 +76,7 @@ class StudentsController < ApplicationController
   def send_money
     @student = Student.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @student.period.instructor_id)
-    @transaction = Transaction.new(sender_id: @student.id)
+    @transaction = Transaction.new(student_id: @student.id)
   end
 
   def sent_money
@@ -120,7 +120,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:recipient_id, :sender_id, :amount, :reason)
+      params.require(:transaction).permit(:recipient_id, :student_id, :amount, :reason)
     end
 
     def extra_params

@@ -28,7 +28,7 @@
   <h3>Student Transactions</h3>
   <h4>You received</h4>
   <% @received.each do |r| %>
-    <div>$<%= r.amount %> from <%= Student.find(r.sender_id).full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+    <div>$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
   <h4>You sent</h4>
   <% @sent.each do |s| %>

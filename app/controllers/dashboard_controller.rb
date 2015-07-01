@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
     @period = Period.find_by_id(@student.period_id)
     @bonuses = Bonus.where(period_id: @student.period_id).last(5).reverse
     @extras = Extra.where(student_id: @student.id).last(5).reverse
-    @sent = Transaction.where(sender_id: @student.id).last(5).reverse
+    @sent = Transaction.where(student_id: @student.id).last(5).reverse
     @received = Transaction.where(recipient_id: @student.id).last(5).reverse
     @awards = Award.where(student_id: @student.id)
   end

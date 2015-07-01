@@ -20,21 +20,20 @@ instructor = Instructor.create(first_name: "Teacher", last_name: "Teacher", emai
   end
 end
 
-Student.all.each do |student|
-  student.update(email: Faker::Internet.safe_email(student.first_name))
-end
-
 15.times do
   Job.create(payscale: [20,25,30].sample, student_id: (1..30).to_a.sample,
       description: Faker::Name.title)
 end
 
-50.times do |n|
-  Student.all.each do |student|
+Student.all.each do |student|
+  50.times do |n|
     DailyBalance.create(student_id: student.id, amount: (100..500).to_a.sample,
         date: (Date.today - n))
     Behavior.create(date: Date.today - n, well_behaved: [true, false].sample, student_id: student.id)
   end
+  student.update(email: Faker::Internet.safe_email(student.first_name))
+  Transaction.create(student_id: student.id, recipient_id: (1..30).to_a.sample,
+      amount: (1..10).to_a.sample, reason: "helping me out")
 end
 
 AwardType.create(name: "The Richest", picture: "fa fa-trophy")
@@ -55,11 +54,6 @@ end
 
 4.times do
   Bonus.create(period_id: [1, 2, 3].sample, reason: "being awesome", amount: 1000)
-end
-
-50.times do
-  Transaction.create(sender_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
-      amount: (1..10).to_a.sample, reason: "helping me out")
 end
 
 5.times do
