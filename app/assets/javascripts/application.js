@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require app
-//= require students
-//= require periods
-//= require navbar
-//= require init
-//= require d3.min
+//
+//= require z_app
+//= require z_loans
+//= require z_periods
+//= require z_students
+//= require zz_init
+

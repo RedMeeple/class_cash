@@ -1,12 +1,6 @@
 $(function () {
   'use strict';
 
-  app.navbar.hamburger();
-
-  if ($('.welcome-container').length || $('.login-container').length) {
-    app.navbar.removeBurger();
-  }
-
   if ($('.student-table').length) {
     app.students.tableRichest();
 
