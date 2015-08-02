@@ -20,11 +20,20 @@ CSS GROUPING GUIDE
   margin: 1rem 0;
 }
 
+body {
+  background: $off-white;
+}
+
 form {
   max-width: 15rem;
   margin: 0 auto;
 }
 
-input:not([type="submit"]) {
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+input.string,
+input.password {
   width: 100%;
 }
