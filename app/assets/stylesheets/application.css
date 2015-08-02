@@ -10,7 +10,26 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require font-awesome
+ *
+ *= require scaffolds
+ *
+ *= require pure-min
+ *= require grids-responsive-min
+ *
+ *= require variables
+ *= require defaults
+ *
+ *= require z_awards
+ *= require z_dashboard
+ *= require z_devise
+ *= require z_jobs
+ *= require z_loans
+ *= require z_periods
+ *= require z_sessions
+ *= require z_students
+ *= require z_transactions
+ *= require z_welcome
+ *
  */
+ 
