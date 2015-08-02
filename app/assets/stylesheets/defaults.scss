@@ -19,3 +19,12 @@ CSS GROUPING GUIDE
 * + * {
   margin: 1rem 0;
 }
+
+form {
+  max-width: 15rem;
+  margin: 0 auto;
+}
+
+input:not([type="submit"]) {
+  width: 100%;
+}
