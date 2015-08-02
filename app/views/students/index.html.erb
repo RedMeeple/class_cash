@@ -2,7 +2,7 @@
 
 <% @periods.each do |per| %>
   <% per.find_richest %>
-  <table class="student-table">
+  <table class="pure-table pure-table-horizontal">
     <thead>
       <tr>
         <th colspan="8"><%= link_to "#{per.name}", per %></th>
