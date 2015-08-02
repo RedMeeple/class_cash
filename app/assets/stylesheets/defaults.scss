@@ -1,0 +1,21 @@
+/* 
+CSS GROUPING GUIDE
+  1. Position
+  2. Box
+  3. Border
+  4. Background
+  5. Text
+  6. Transforms
+  7. Transitions/Animations
+  8. Other
+*/
+
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+}
+
+* + * {
+  margin: 1rem 0;
+}
