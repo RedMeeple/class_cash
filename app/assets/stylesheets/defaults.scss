@@ -24,6 +24,11 @@ body {
   background: $off-white;
 }
 
+.notice, #notice,
+.alert, #alert {
+  text-align: center;
+}
+
 form {
   max-width: 15rem;
   margin: 0 auto;
