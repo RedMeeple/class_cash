@@ -30,13 +30,13 @@
             <%= job.description %><br>
           <% end %></td>
           <td class="student-table-info-options">
-            <span>Options</span>
-            <ul class="student-table-info-options-list">
-              <li><%= link_to 'Details', student %></li>
-              <li><%= link_to 'Edit', edit_student_path(student) %></li>
-              <li><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-              <li><%= link_to 'Behavior History', behavior_student_path(student) %></li>
-            </ul>
+            <div class="pure-button">Options</div>
+            <div class="student-table-info-options-list">
+              <%= link_to 'Details', student, class: "pure-button" %>
+              <%= link_to 'Edit', edit_student_path(student), class: "pure-button" %>
+              <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+              <%= link_to 'Behavior History', behavior_student_path(student), class: "pure-button" %>
+            </div>
           </td>
         </tr>
       <% end %>

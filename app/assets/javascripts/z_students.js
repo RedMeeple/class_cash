@@ -33,4 +33,11 @@ app.students = {
       }
     });
   },
+  
+  displayOptions: function () {
+    $('.student-table-info-options div').on('click', function () {
+      
+      $(this).next().toggleClass('active');
+    });
+  }
 }

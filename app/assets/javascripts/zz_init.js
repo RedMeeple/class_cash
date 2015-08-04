@@ -5,6 +5,8 @@ $(function () {
     app.students.tableRichest();
 
     app.students.tableBehavior();
+    
+    app.students.displayOptions();
   }
 
   if ($('.student-show-container').length) {

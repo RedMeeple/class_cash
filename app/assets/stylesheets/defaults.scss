@@ -16,10 +16,6 @@ CSS GROUPING GUIDE
   box-sizing: border-box;
 }
 
-* + * {
-  margin: 1rem 0;
-}
-
 body {
   background: $off-white;
 }
