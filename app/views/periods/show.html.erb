@@ -28,8 +28,8 @@
         <td class="period-table-info-firstname"><%= student.first_name %></td>
         <td class="period-table-info-lastname"><%= student.last_name %></td>
         <td class="period-table-info-cash">$<%= student.cash %></td>
-        <td class="period-table-info-behavior"><%= student.good_behavior_today(student.id) || student.good_behavior_yesterday(student.id) %></td>
-        <td class="period-table-info-richest"><%= student.richest %></td>
+        <td class="period-table-info-behavior"><%= student.behaved?.html_safe %></td>
+        <td class="period-table-info-richest"><%= student.richest?.html_safe %></td>
         <td class="period-table-info-jobs"><% student.jobs.each do |job|%>
           <%= job.description %><br>
         <% end %></td>
@@ -51,7 +51,7 @@
   <% @bonuses.each do |bonus| %>
     <div><%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
-  
+
   <%= link_to 'Edit', edit_period_path(@period) %>
   <%= link_to 'Periods', periods_path %>
   <%= link_to 'Home', root_path %>

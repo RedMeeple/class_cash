@@ -14,18 +14,6 @@ class Student < User
   def completed_job_task
   end
 
-  def good_behavior_yesterday(id)
-    if a = Behavior.where(date: Date.yesterday, student_id: id).first
-      a.well_behaved
-    end
-  end
-
-  def good_behavior_today(id)
-    if a = Behavior.where(date: Date.today, student_id: id).first
-      a.well_behaved
-    end
-  end
-
   def save_balance
     DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
   end
@@ -38,6 +26,14 @@ class Student < User
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def richest?
+    self.richest ? '<i class="fa fa-money fa-2x"></i>' : ''
+  end
+
+  def behaved?
+    self.behaviors.last.well_behaved ? '<i class="fa fa-star-o fa-2x"></i>' : ''
   end
 
 end
