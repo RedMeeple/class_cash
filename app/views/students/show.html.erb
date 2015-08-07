@@ -26,14 +26,14 @@
 
   <div class="student-show-richest-container">
     <div class="student-show-richest-title">Richest:</div>
-    <div class="student-show-richest-text"><%= @student.richest %></div>
+    <div class="student-show-richest-text"><%= @student.richest ? "Yes" : "No" %></div>
   </div>
 
   <div class="student-show-received-container">
     <div class="student-show-received-title">Received Money: </div>
     <ol>
       <% @received.each do |r| %>
-        <li><%= r.amount %> from <%= r.student.full_name %> for
+        <li>$<%= r.amount %> from <%= r.student.full_name %> for
           <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</li>
       <% end %>
     </ol>
@@ -43,7 +43,7 @@
     <div class="student-show-sent-title">Sent Money: </div>
     <ol>
       <% @sent.each do |s| %>
-        <li><%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for
+        <li>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for
           <%= s.reason %> on <%= s.created_at.strftime('%b %e, %Y') %>.</li>
       <% end %>
     </ol>
@@ -54,7 +54,7 @@
     <ol>
       <% @awards.each do |a| %>
         <li><%= a.award_type.name %> for <%= a.reason %> on
-          <%= a.created_at.strftime('%b %e, %Y') %>. $<%= a.payment %></li>
+          <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></li>
       <% end %>
     </ol>
   </div>
