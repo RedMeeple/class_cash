@@ -1,20 +1,19 @@
 <div id="notice"><%= notice %></div>
 
-<p>
-  <strong>Student:</strong>
-  <%= @job.student.full_name %>
-</p>
+<div class="jobs-show centered">
+  <div>
+    Student: <%= @job.student.full_name %>
+  </div>
+  
+  <div>
+    Description: <%= @job.description %>
+  </div>
+  
+  <div>
+    Payscale: <%= @job.payscale %>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<p>
-  <strong>Payscale:</strong>
-  <%= @job.payscale %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'Edit', edit_job_path(@job), class: "pure-button" %>
+<%= link_to 'Back', jobs_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>
