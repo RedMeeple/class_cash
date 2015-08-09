@@ -46,14 +46,15 @@
   </tbody>
 </table>
 
-<div class="period-class-bonuses">
+<div class="period-bonuses centered">
   <h3>Class Bonuses</h3>
   <% @bonuses.each do |bonus| %>
     <div><%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
-
-  <%= link_to 'Edit', edit_period_path(@period) %>
-  <%= link_to 'Periods', periods_path %>
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period) %>
 </div>
+
+<%= link_to 'Edit', edit_period_path(@period), class: "pure-button" %>
+<%= link_to 'Periods', periods_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>
+<%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period), class: "pure-button" %>
+
