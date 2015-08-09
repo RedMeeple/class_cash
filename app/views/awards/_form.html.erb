@@ -1,4 +1,4 @@
-<%= simple_form_for @award do |f| %>
+<%= simple_form_for @award, html: { class: "pure-form pure-form-stacked" } do |f| %>
 
   <%= f.error_notification %>
 
@@ -7,8 +7,8 @@
     <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
   <% end %>
    the award for <%= f.association :award_type, label_method: :name, include_blank: true, label: false %>,
-  because <%= f.input :reason, label: false %>. This award is going to come with an extra bonus of $<%= f.input :payment, label: false %>.
+  because <%= f.input :reason, label: false %>. This award is going to come with an extra bonus of $<%= f.input :payment, label: false %>
 
-  <%= f.button :submit, "Give Award"%>
+  <%= f.button :submit, "Give Award", class: "pure-button pure-button-primary" %>
 
 <% end %>
