@@ -18,11 +18,37 @@
   display: none;
 }
 
-.active {
-  display: block;
-}
-
 .periods-table-info-options-list a {
   display: block;
   margin: 0;
+}
+
+.period-table-info-options {
+  position: relative;
+}
+
+.period-table-info-options-list {
+  position: absolute;
+  left: 100%;
+  top: 15%;
+  
+  margin-top: 0;
+  
+  display: none;
+}
+
+.period-table-info-options-list a {
+  display: block;
+  margin: 0;
+}
+
+.period-table-info-behavior,
+.period-table-info-richest {
+  text-align: center;
+}
+
+
+
+.active {
+  display: block;
 }

@@ -20,7 +20,11 @@ $(function () {
   }
 
   if ($('.periods-table').length) {
-    app.periods.displayOptions();
+    app.periods.displayPeriodsOptions();
+  }
+  
+  if ($('.period-table').length) {
+    app.periods.displayPeriodOptions();
   }
 
   // input section stuff
