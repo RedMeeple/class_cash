@@ -17,7 +17,7 @@ CSS GROUPING GUIDE
 }
 
 * + * {
-  margin: 1rem 0;
+  margin-top: 1rem;
 }
 
 body {
@@ -36,6 +36,10 @@ form {
 
 input[type="checkbox"] {
   margin-right: 0.5rem;
+}
+
+input[type="submit"] {
+  margin-top: 1rem;
 }
 
 input.string, input.password, input.numeric,
