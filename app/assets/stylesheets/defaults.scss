@@ -38,12 +38,8 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
-input[type="submit"] {
-  margin-top: 1rem;
-}
-
 input.string, input.password, input.numeric,
-input[type="number"], input[type="text"],
+input[type="number"], input[type="text"], input[type="password"],
 select {
   width: 100%;
 }
