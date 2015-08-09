@@ -1,4 +1,4 @@
-<%= simple_form_for @job do |f| %>
+<%= simple_form_for @job, html: { class: "pure-form pure-form-stacked" } do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :state do %>
@@ -7,6 +7,6 @@
   <%= f.input :description %>
   <%= f.input :payscale %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "pure-button pure-button-primary" %>
 
 <% end %>
