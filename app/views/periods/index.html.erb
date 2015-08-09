@@ -1,6 +1,6 @@
-<h1 class="periods-table-title">Your Classes</h1>
+<h1>Your Classes</h1>
 
-<table class="periods-table">
+<table class="pure-table pure-table-bordered centered periods-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,14 +19,14 @@
         <td class="periods-table-info-payscale"><%= period.payscale %></td>
         <td class="periods-table-info-average"><%= period.class_average %></td>
         <td class="periods-table-info-options">
-          <span>Options</span>
-          <ul class="periods-table-info-options-list">
-            <li><%= link_to 'Show', period %></li>
-            <li><%= link_to 'Edit', edit_period_path(period) %></li>
-            <li><%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            <li><%= link_to 'Enter Behavior Data', enter_behavior_period_path(period) %></li>
-            <li><%= link_to 'Loaning Permission', permissions_loan_path(period) %></li>
-          </ul>
+          <div class="pure-button">Options</div>
+          <div class="periods-table-info-options-list">
+            <%= link_to 'Show', period, class: "pure-button" %>
+            <%= link_to 'Edit', edit_period_path(period), class: "pure-button" %>
+            <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+            <%= link_to 'Enter Behavior Data', enter_behavior_period_path(period), class: "pure-button" %>
+            <%= link_to 'Loaning Permission', permissions_loan_path(period), class: "pure-button" %>
+          </div>
         </td>
       </tr>
     <% end %>
@@ -35,5 +35,5 @@
 
 <td> <%= render partial: 'class_bonus' %></td>
 
-<%= link_to 'New Period', new_period_path %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'New Period', new_period_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>

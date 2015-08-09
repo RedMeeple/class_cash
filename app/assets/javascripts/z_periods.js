@@ -3,4 +3,11 @@
 
 app.periods = {
 
+  displayOptions: function () {
+    $('.periods-table-info-options div').on('click', function () {
+  
+      $(this).next().toggleClass('active');
+    });
+  }
+
 }

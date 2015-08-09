@@ -19,8 +19,8 @@ $(function () {
     app.navbar.homeLink(uL);
   }
 
-  if ($('.period-title-container').length) {
-
+  if ($('.periods-table').length) {
+    app.periods.displayOptions();
   }
 
   // input section stuff

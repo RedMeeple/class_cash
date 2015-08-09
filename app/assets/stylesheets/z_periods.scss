@@ -3,3 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'variables';
+
+.periods-table-info-options {
+  position: relative;
+}
+
+.periods-table-info-options-list {
+  position: absolute;
+  left: 100%;
+  top: 15%;
+  
+  margin-top: 0;
+  
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.periods-table-info-options-list a {
+  display: block;
+  margin: 0;
+}
