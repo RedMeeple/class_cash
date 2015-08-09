@@ -2,7 +2,7 @@
 
 <h1>Available Awards</h1>
 
-<table class="student-table">
+<table class="pure-table pure-table-horizontal centered">
 
   <tbody>
     <% @award_types.each do |award_type| %>
@@ -24,5 +24,5 @@
 
 <br>
 
-<%= link_to 'Give Award', new_award_path %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'Give Award', new_award_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>
