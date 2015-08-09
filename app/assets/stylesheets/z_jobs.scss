@@ -3,3 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'variables';
+
+.jobs-table {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.jobs-table-student-name {
+  min-width: 20rem;
+}
+
+.jobs-table-job {
+  min-width: 35rem;
+}

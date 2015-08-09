@@ -1,11 +1,7 @@
-
-<%= link_to 'New Job', new_job_path %>
-<%= link_to 'Home', root_path %>
-
 <h1 class="jobs-title">Listing Jobs</h1>
 
 <% @periods.each do |per| %>
-  <table class="pure-table pure-table-bordered">
+  <table class="pure-table pure-table-bordered centered jobs-table">
     <thead>
       <tr>
         <th colspan="5"><%= per.name %></th>
@@ -16,12 +12,11 @@
       <% per.students.each do |s| %>
         <% unless s.jobs.empty? %>
           <tr>
-            <td><%= s.full_name %></td>
-            <td>
+            <td class="jobs-table-student-name"><%= s.full_name %></td>
+            <td class="jobs-table-job">
               <% s.jobs.each do |job| %>
                 <div>
-                  <%= job.description %>
-                  $<%= job.payscale %>
+                  <%= job.description %>: $<%= job.payscale %>
                   <%= link_to 'Edit', edit_job_path(job) %>
                   <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </div>
@@ -33,3 +28,7 @@
     </tbody>
   </table>
 <% end %>
+
+
+<%= link_to 'New Job', new_job_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>
