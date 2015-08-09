@@ -1,12 +1,12 @@
-<%= simple_form_for @period do |f| %>
+<%= simple_form_for @period, html: { class: "pure-form pure-form-stacked periods-edit" } do |f| %>
   <%= f.error_notification %>
 
   <%= f.hidden_field :instructor_id, value: @instructor.id %>
-  <%= f.input :payscale, label: "Daily Salary" %>
-  <%= f.input :name %>
+  <%= f.input :payscale, label: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
+  <%= f.input :name, wrapper_html: { class: "periods-edit-input-wrapper" } %>
 
   <h3>Add Students</h3>
-  <table class="student-table">
+  <table class="pure-table pure-table-bordered centered">
     <thead>
       <tr>
         <th>First name</th>
@@ -26,7 +26,9 @@
       <% end %>
     </tbody>
   </table>
-
-    <%= f.button :submit %>
-
+  
+  <div>
+  <%= f.button :submit, class: "pure-button pure-button-primary" %>
+  </div>
+  
 <% end %>
