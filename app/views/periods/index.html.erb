@@ -14,10 +14,10 @@
   <tbody>
     <% @periods.each do |period| %>
       <tr class="periods-table-info">
-        <td class="periods-table-info-name"><%= period.name %></td>
-        <td class="periods-table-info-count"><%= period.students.count %></td>
-        <td class="periods-table-info-payscale"><%= period.payscale %></td>
-        <td class="periods-table-info-average"><%= period.class_average %></td>
+        <td><%= period.name %></td>
+        <td class="numeric"><%= period.students.count %></td>
+        <td class="numeric"><%= period.payscale %></td>
+        <td class="numeric"><%= period.class_average %></td>
         <td class="periods-table-info-options">
           <div class="pure-button">Options</div>
           <div class="periods-table-info-options-list">
