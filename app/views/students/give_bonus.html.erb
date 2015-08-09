@@ -1,41 +1,39 @@
-<div class="student-send-money-container">
+<h3>Give Bonus</h3>
+<h3>A bonus can be a positive or negative amount.</h3>
 
-  <div class="student-send-money-title">Give Bonus</div>
-  <h3>A bonus can be a positive or negative amount.</h3>
+<%= form_for @extra, url: gave_bonus_students_path, html: { class: "pure-form pure-form-stacked" } do |f| %>
+  <% if @extra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@extra.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-  <%= form_for @extra, url: gave_bonus_students_path do |f| %>
-    <% if @extra.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@extra.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-        <ul>
-        <% @extra.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field student-send-money-recipient">
-      <div class="student-send-money-recipient-title"><%= f.label :student %></div>
-      <div class="student-send-money-recipient-input">
-        <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
-      </div>
+      <ul>
+      <% @extra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-    <div class="field student-send-money-amount">
-      <div class="student-send-money-amount-title"><%= f.label :amount %></div>
-      <div class="student-send-money-amount-input"><%= f.number_field :amount %></div>
-    </div>
-    <div>
-      <p>The student is receiving this for: </p>
-      <div><%= f.text_field :reason %></div>
-    </div>
-    <div class="actions">
-      <%= f.hidden_field :instructor_id, value: @instructor.id %>
-    </div>
-    <div class="actions">
-      <%= f.submit 'Award Bonus'%>
-    </div>
-
   <% end %>
-</div>
+
+  <div>
+    <%= f.label :student %>
+    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
+  </div>
+  
+  <div>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div>
+    The student is receiving this for:
+    <%= f.text_field :reason %>
+  </div>
+
+  <div class="actions">
+    <%= f.hidden_field :instructor_id, value: @instructor.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Award Bonus", class: "pure-button pure-button-primary" %>
+  </div>
+
+<% end %>

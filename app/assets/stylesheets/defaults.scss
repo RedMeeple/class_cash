@@ -43,6 +43,7 @@ input[type="submit"] {
 }
 
 input.string, input.password, input.numeric,
+input[type="number"], input[type="text"],
 select {
   width: 100%;
 }
