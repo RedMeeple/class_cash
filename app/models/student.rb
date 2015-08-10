@@ -29,7 +29,7 @@ class Student < User
   end
 
   def richest?
-    self.richest ? '<i class="fa fa-money fa-2x"></i>' : ''
+    self.richest ? '<i class="fa fa-money fa-2x top-performer"></i> ' : ''
   end
 
   def behaved?

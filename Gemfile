@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # BOURBON SUITE////////////////////////
 gem 'bourbon'
 gem 'neat'
+gem 'refills'
 
 
 # Use Font-Awesome for icon fonts - See https://github.com/bokmann/font-awesome-rails for more documentation

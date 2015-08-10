@@ -32,9 +32,28 @@
  *= require z_welcome
  *
  */
+
  @import "bourbon";
  @import "base/grid-settings";
  @import "neat";
  @import "base/base";
+ @import "refills/tables";
+ @import "students";
+ @import "reset";
+ @import "golden_ratio";
+ body{
+   background-color:#eee;
+ }
 
- 
+ .site-headers{
+   background-color: #c28dd8;
+   @include size(100% auto);
+   margin:0;
+   color:whitesmoke;
+   h2{
+     margin:0;
+   }
+   h4{
+     margin:0;
+   }
+ }

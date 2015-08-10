@@ -1,0 +1,16 @@
+.student-container{
+  @include outer-container(100%);
+
+}
+
+.top-performer{
+  color:#7f54c4;
+  margin-left: 50%;
+}
+a{
+  margin-left: 35px
+}
+
+.tables{
+  margin:10px, auto;
+}

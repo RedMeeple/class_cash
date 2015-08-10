@@ -1,43 +1,47 @@
-<% @periods.each do |per| %>
-  <% per.find_richest %>
-  <table class="pure-table pure-table-bordered student-table">
-    <thead>
-      <tr>
-        <th colspan="8"><%= link_to "#{per.name}", per %></th>
-      </tr>
-      <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Cash</th>
-        <th>Recent Behavior</th>
-        <th>Richest</th>
-        <th>Jobs</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% per.students.each do |student| %>
-        <tr class="student-table-info">
-          <td class="student-table-info-firstname"><%= student.first_name %></td>
-          <td class="student-table-info-lastname"><%= student.last_name %></td>
-          <td class="student-table-info-cash">$<%= student.cash %></td>
-          <td class="student-table-info-behavior"><%= student.behaved?.html_safe %></td>
-          <td class="student-table-info-richest"><%= student.richest?.html_safe %></td>
-          <td class="student-table-info-jobs"><% student.jobs.each do |job|%>
-            <%= job.description %><br>
-          <% end %></td>
-          <td class="student-table-info-options">
-            <div class="pure-button">Options</div>
-            <div class="student-table-info-options-list">
-              <%= link_to 'Details', student, class: "pure-button" %>
-              <%= link_to 'Edit', edit_student_path(student), class: "pure-button" %>
-              <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
-              <%= link_to 'Behavior History', behavior_student_path(student), class: "pure-button" %>
-            </div>
-          </td>
+<div class="student-container">
+  <div class="site-headers">
+    <h2>Heading</h2>
+    <h4>Sub Heading</h4>
+  </div>
+  <% @periods.each do |per| %>
+    <% per.find_richest %>
+    <table class="tables">
+      <thead>
+        <tr>
+          <th colspan="7"><%= link_to "#{per.name}", per %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Cash</th>
+          <th>Recent Behavior</th>
+          <!-- <th>Richest</th> -->
+          <th>Jobs</th>
+          <th colspan="2">Table Options</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% per.students.each do |student| %>
+          <tr class="student-table-info">
+            <td ><%= student.first_name %> <%= student.richest?.html_safe %></td>
+            <td class="student-table-info-lastname"><%= student.last_name %></td>
+            <td class="student-table-info-cash">$<%= student.cash %></td>
+            <td class="student-table-info-behavior"><%= student.behaved?.html_safe %></td>
+            <!-- <td class="student-table-info-richest"></td> -->
+            <td class="student-table-info-jobs"><% student.jobs.each do |job|%>
+              <%= job.description %><br>
+            <% end %></td>
+            <td colspan="2">
+                <%= link_to 'Details', student %>
+                <%= link_to 'Edit', edit_student_path(student) %>
+                <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Behavior History', behavior_student_path(student) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 <% end %>
+</div>
