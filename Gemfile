@@ -22,6 +22,12 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
+# BOURBON SUITE////////////////////////
+gem 'bourbon'
+gem 'neat'
+
+
 # Use Font-Awesome for icon fonts - See https://github.com/bokmann/font-awesome-rails for more documentation
 gem 'font-awesome-rails'
 
