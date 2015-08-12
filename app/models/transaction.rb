@@ -3,6 +3,7 @@ class Transaction < ActiveRecord::Base
   validates :recipient_id, presence: true
 
   belongs_to :student
+  
   def finalize
     sender = self.student
     transaction do
