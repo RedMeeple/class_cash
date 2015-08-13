@@ -3,28 +3,26 @@
   <table class="pure-table pure-table-bordered student-table">
     <thead>
       <tr>
-        <th colspan="8"><%= link_to "#{per.name}", per %></th>
+        <th colspan="6"><%= link_to "#{per.name}", per %></th>
       </tr>
       <tr>
         <th>First name</th>
         <th>Last name</th>
         <th>Cash</th>
         <th>Recent Behavior</th>
-        <th>Richest</th>
         <th>Jobs</th>
-        <th colspan="2"></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% per.students.each do |student| %>
         <tr class="student-table-info">
-          <td class="student-table-info-firstname"><%= student.first_name %></td>
-          <td class="student-table-info-lastname"><%= student.last_name %></td>
-          <td class="student-table-info-cash">$<%= student.cash %></td>
-          <td class="student-table-info-behavior"><%= student.behaved?.html_safe %></td>
-          <td class="student-table-info-richest"><%= student.richest?.html_safe %></td>
-          <td class="student-table-info-jobs"><% student.jobs.each do |job|%>
+          <td><%= student.richest?.html_safe %> <%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td>$<%= student.cash %></td>
+          <td><%= student.behaved?.html_safe %></td>
+          <td><% student.jobs.each do |job|%>
             <%= job.description %><br>
           <% end %></td>
           <td class="student-table-info-options">

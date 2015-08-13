@@ -8,13 +8,13 @@
     <%= f.association :student do %>
       <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
     <% end %>
-
-    <%= f.input :amount %>
-    The student is receiving this for:
-    <%= f.input :reason %>
+    is receiving
+    $<%= f.input :amount, label: false %>
+    because
+    <%= f.input :reason, label: false %>
 
     <%= f.hidden_field :instructor_id, value: @instructor.id %>
 
-    <%= f.button :submit, "Award Bonus", class: "pure-button pure-button-primary" %>
+    <%= f.button :submit, "Give Bonus", class: "pure-button pure-button-primary" %>
 
 <% end %>
