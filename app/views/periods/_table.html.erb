@@ -3,7 +3,7 @@
     <td><%= student.richest?.html_safe %> <%= student.first_name %></td>
     <td><%= student.last_name %></td>
     <td>$<%= student.cash %></td>
-    <td><%= student.behaved?.html_safe %></td>
+    <td><%= student.behaved?.html_safe if !student.behaviors.empty? %></td>
     <td><% student.jobs.each do |job|%>
       <%= job.description %><br>
     <% end %></td>

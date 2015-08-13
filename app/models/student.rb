@@ -32,6 +32,7 @@ class Student < User
 
   def behaved?
     self.behaviors.last.well_behaved ? '<i class="fa fa-star-o fa-2x"></i>' : ''
+
   end
 
 end
