@@ -8,15 +8,7 @@
   display: block;
 }
 
-<<<<<<< HEAD
-.student-table-info-options-list a {
-  display: block;
-  margin: 0;
-}
-
-// styles for the D3 calendar view of the behaviors
-
-#chart {
+#chart{
   width: 800px;
   margin: 0 auto;
 }
@@ -32,8 +24,6 @@ text.active {
   fill: red;
 }
 
-=======
->>>>>>> 523491b172e88c81e2922c67ca23509bdfcc4658
 .day {
   fill: #fff;
   stroke: #ccc;
@@ -41,7 +31,6 @@ text.active {
 
 .month {
   fill: none;
-<<<<<<< HEAD
   stroke: #fff;
   stroke-width: 4px;
 }
@@ -72,8 +61,3 @@ text.active {
   border: 2px solid #ccc;
   padding: 10px;
 }
-=======
-  stroke: #000;
-  stroke-width: 2px;
-}
->>>>>>> 523491b172e88c81e2922c67ca23509bdfcc4658
