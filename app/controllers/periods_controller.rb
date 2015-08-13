@@ -45,11 +45,12 @@ class PeriodsController < ApplicationController
   def new
     @period = Period.new
     @instructor = Instructor.find_by_id(current_user.id)
-    20.times { @period.students.build }
+    30.times { @period.students.build }
   end
 
   def edit
     @instructor = Instructor.find_by_id(current_user.id)
+    @period.students.build
   end
 
   def create
@@ -68,13 +69,10 @@ class PeriodsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @period.update(period_params)
-        format.html { redirect_to root_path, notice: 'Period was successfully updated.' }
-        format.json { render :show, status: :ok, location: @period }
-      else
-        format.html { render :edit }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
+      @period.update(period_params)
+      @instructor = @period.instructor
+      @period.students.build
+      format.js
     end
 
   end

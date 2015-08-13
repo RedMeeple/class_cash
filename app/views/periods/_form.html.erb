@@ -1,4 +1,4 @@
-<%= simple_form_for @period, html: { class: "pure-form pure-form-stacked periods-edit" } do |f| %>
+<%= simple_form_for @period, remote: !@period.new_record?, html: { class: "pure-form pure-form-stacked periods-edit" } do |f| %>
   <%= f.error_notification %>
 
   <%= f.hidden_field :instructor_id, value: @instructor.id %>
@@ -17,18 +17,25 @@
     </thead>
     <tbody>
       <%= f.fields_for :students do |ff| %>
+        <%= ff.hidden_field :cash, value: 0 %>
         <tr>
           <td><%= ff.input :first_name, label: false %></td>
           <td><%= ff.input :last_name, label: false %></td>
           <td><%= ff.input :email, label: false %></td>
-          <td><%= ff.input :password, label: false %></td>
+          <td>
+            <% if ff.object.new_record? %>
+              <%= ff.input :password, label: false %>
+            <% else %>
+              <%= "password" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  
+
   <div>
   <%= f.button :submit, class: "pure-button pure-button-primary" %>
   </div>
-  
+
 <% end %>
