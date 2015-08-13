@@ -11,9 +11,6 @@ class Student < User
 
   default_scope { order('last_name') }
 
-  def completed_job_task
-  end
-
   def save_balance
     DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
   end

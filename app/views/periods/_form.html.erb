@@ -5,14 +5,13 @@
   <%= f.input :payscale, label: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
   <%= f.input :name, wrapper_html: { class: "periods-edit-input-wrapper" } %>
 
-  <h3>Add Students</h3>
+  <h3>Students</h3>
   <table class="pure-table pure-table-bordered centered">
     <thead>
       <tr>
         <th>First name</th>
         <th>Last name</th>
         <th>E-mail Address</th>
-        <th>Password</th>
       </tr>
     </thead>
     <tbody>
@@ -21,12 +20,9 @@
         <tr>
           <td><%= ff.input :first_name, label: false %></td>
           <td><%= ff.input :last_name, label: false %></td>
-          <td><%= ff.input :email, label: false %></td>
-          <td>
+          <td><%= ff.input :email, label: false %>
             <% if ff.object.new_record? %>
-              <%= ff.input :password, label: false %>
-            <% else %>
-              <%= "password" %>
+              <%= ff.input :password, label: false, placeholder: "Password" %>
             <% end %>
           </td>
         </tr>
