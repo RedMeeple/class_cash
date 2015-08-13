@@ -4,6 +4,21 @@
 
 @import 'variables';
 
+.student-table {
+  margin: 0 auto;
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.student-table td:last-child {
+  border-right: 1px solid #cbcbcb;
+}
+
+.student-table-info-options .pure-button {
+  margin: 0 auto;
+  display: block;
+}
+
 .student-table-info-options {
   position: relative;
 }
@@ -12,9 +27,9 @@
   position: absolute;
   left: 100%;
   top: 15%;
-  
+
   margin-top: 0;
-  
+
   display: none;
 }
 
@@ -25,4 +40,8 @@
 .student-table-info-options-list a {
   display: block;
   margin: 0;
+}
+
+.student-table-info-richest {
+  text-align: center;
 }
