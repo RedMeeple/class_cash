@@ -1,36 +1,36 @@
 <div class="student-show-container">
-  <div class="student-show-firstname-container">
-    <div class="student-show-firstname-title">First name:</div>
-    <div class="student-show-firstname-text"><%= @student.first_name %></div>
+  <div>
+    <div>First name:</div>
+    <div><%= @student.first_name %></div>
   </div>
 
-  <div class="student-show-lastname-container">
-    <div class="student-show-lastname-title">Last name:</div>
-    <div class="student-show-lastname-text"><%= @student.last_name %></div>
+  <div>
+    <div>Last name:</div>
+    <div><%= @student.last_name %></div>
   </div>
 
-  <div class="student-show-email-container">
-    <div class="student-show-email-title">Email:</div>
-    <div class="student-show-email-text"><%= @student.email %></div>
+  <div>
+    <div>Email:</div>
+    <div><%= @student.email %></div>
   </div>
 
-  <div class="student-show-cash-container">
-    <div class="student-show-cash-title">Cash:</div>
-    <div class="student-show-cash-text">$<%= @student.cash %></div>
+  <div>
+    <div>Cash:</div>
+    <div>$<%= @student.cash %></div>
   </div>
 
-  <div class="student-show-period-container">
-    <div class="student-show-period-title">Period:</div>
-    <div class="student-show-period-text"><%= @student.period.name %></div>
+  <div>
+    <div>Period:</div>
+    <div><%= @student.period.name %></div>
   </div>
 
-  <div class="student-show-richest-container">
-    <div class="student-show-richest-title">Richest:</div>
-    <div class="student-show-richest-text"><%= @student.richest ? "Yes" : "No" %></div>
+  <div>
+    <div>Richest:</div>
+    <div><%= @student.richest ? "Yes" : "No" %></div>
   </div>
 
-  <div class="student-show-received-container">
-    <div class="student-show-received-title">Received Money: </div>
+  <div>
+    <div>Received Money: </div>
     <ol>
       <% @received.each do |r| %>
         <li>$<%= r.amount %> from <%= r.student.full_name %> for
@@ -39,8 +39,8 @@
     </ol>
   </div>
 
-  <div class="student-show-sent-container">
-    <div class="student-show-sent-title">Sent Money: </div>
+  <div>
+    <div>Sent Money: </div>
     <ol>
       <% @sent.each do |s| %>
         <li>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for
@@ -49,8 +49,8 @@
     </ol>
   </div>
 
-  <div class="student-show-sent-container">
-    <div class="student-show-sent-title">Awards: </div>
+  <div>
+    <div>Awards: </div>
     <ol>
       <% @awards.each do |a| %>
         <li><%= a.award_type.name %> for <%= a.reason %> on
