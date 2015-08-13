@@ -21,8 +21,8 @@
         percent = d3.format(".1%"),
         format = d3.time.format("%Y-%m-%d");
 
-    var color = function (d) {
-      if (d === true) {
+    var color = function (behavior) {
+      if (behavior === true) {
         return "good";
       } else {
         return "bad";
