@@ -13,12 +13,12 @@
 
   <tbody>
     <% @transactions.reverse.each do |t| %>
-      <tr class="student-table-info">
-        <td class="student-table-info-firstname"><%= Student.find(t.sender_id).full_name %></td>
-        <td class="student-table-info-lastname"><%= Student.find(t.recipient_id).full_name %></td>
-        <td class="student-table-info-cash">$<%= t.amount %></td>
-        <td class="student-table-info-cash"><%= t.reason %></td>
-        <td class="student-table-info-cash"><%= t.created_at.strftime('%b %e, %Y') %></td>
+      <tr>
+        <td><%= t.student.full_name %></td>
+        <td><%= Student.find(t.recipient_id).full_name %></td>
+        <td>$<%= t.amount %></td>
+        <td><%= t.reason %></td>
+        <td><%= t.created_at.strftime('%b %e, %Y') %></td>
       </tr>
     <% end %>
   </tbody>

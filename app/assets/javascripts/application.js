@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //
+//= require d3.min
+//
 //= require z_app
 //= require z_loans
 //= require z_periods

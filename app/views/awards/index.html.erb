@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Available Awards</h1>
+<h1>Awards</h1>
 
 <%= link_to 'Give Award', new_award_path, class: "pure-button" %>
 <%= link_to 'Home', root_path, class: "pure-button" %>
@@ -16,7 +14,7 @@
         <td>Recipients:
           <ol class="recipients">
             <% students.each do |s| %>
-              <li><%= s.full_name %></li>
+              <li><%= s.full_name %> %></li>
             <% end %>
           </ol>
         </td>

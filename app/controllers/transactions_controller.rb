@@ -2,7 +2,8 @@ class TransactionsController < ApplicationController
   before_action :instructor_logged_in?
 
   def index
-    @transactions = Transaction.where(student_id: Student.where(period_id: Period.where(instructor_id: session[:user_id]))).last(100)
+    @instructor = Instructor.find(current_user.id)
+    @transactions = @instructor.transactions
   end
 
 end

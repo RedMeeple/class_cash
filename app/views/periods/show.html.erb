@@ -16,33 +16,13 @@
       <th>Last name</th>
       <th>Cash</th>
       <th>Recent Behavior</th>
-      <th>Richest</th>
       <th>Jobs</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
-      <tr class="period-table-info">
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td class="numeric">$<%= student.cash %></td>
-        <td class="period-table-info-behavior"><%= student.behaved?.html_safe %></td>
-        <td class="period-table-info-richest"><%= student.richest?.html_safe %></td>
-        <td class="period-table-info-jobs"><% student.jobs.each do |job|%>
-          <%= job.description %><br>
-        <% end %></td>
-        <td class="period-table-info-options">
-          <div class="pure-button">Options</div>
-          <div class="period-table-info-options-list">
-            <%= link_to 'Details', student, class: "pure-button" %>
-            <%= link_to 'Edit', edit_student_path(student), class: "pure-button" %>
-            <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
+    <%= render partial: 'table', locals: { students: @students } %>
   </tbody>
 </table>
 
@@ -57,4 +37,3 @@
 <%= link_to 'Periods', periods_path, class: "pure-button" %>
 <%= link_to 'Home', root_path, class: "pure-button" %>
 <%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period), class: "pure-button" %>
-

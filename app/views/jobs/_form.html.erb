@@ -1,12 +1,12 @@
 <%= simple_form_for @job, html: { class: "pure-form pure-form-stacked" } do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :state do %>
+  <%= f.input :student, label: false do %>
     <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
   <% end %>
-  <%= f.input :description %>
-  <%= f.input :payscale %>
+  <%= f.input :description, label: false, placeholder: "Title" %>
+  <%= f.input :payscale, label: false, placeholder: "Daily Payscale" %>
 
-  <%= f.button :submit, class: "pure-button pure-button-primary" %>
+  <%= f.button :submit, "Hire", class: "pure-button pure-button-primary" %>
 
 <% end %>
