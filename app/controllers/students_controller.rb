@@ -90,7 +90,7 @@ class StudentsController < ApplicationController
     if @extra.save
       @student = Student.find_by_id(@extra.student_id)
       @student.update(cash: (@student.cash + @extra.amount))
-      redirect_to students_give_bonus_path, notice: "$#{@extra.amount} has been sent."
+      redirect_to give_bonus_students_path, notice: "$#{@extra.amount} has been sent."
     else
       render :give_bonus, notice: "Please try again."
     end
@@ -130,3 +130,5 @@ class StudentsController < ApplicationController
   private def nav_links_student
     @students_student = true
   end
+
+end

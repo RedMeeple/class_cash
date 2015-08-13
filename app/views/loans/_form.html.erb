@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <%= f.hidden_field :student_id, value: @lender.id %>
-  <%= f.input :state do %>
+  <%= f.association :recipient do %>
     <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
   <% end %>
   <%= f.input :amount, placeholder: 100 %>
