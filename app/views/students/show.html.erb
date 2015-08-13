@@ -1,13 +1,5 @@
 <div class="student-show-container">
-  <div>
-    <div>First name:</div>
-    <div><%= @student.first_name %></div>
-  </div>
-
-  <div>
-    <div>Last name:</div>
-    <div><%= @student.last_name %></div>
-  </div>
+  <h3><%= @student.full_name %></h3>
 
   <div>
     <div>Email:</div>
@@ -24,10 +16,9 @@
     <div><%= @student.period.name %></div>
   </div>
 
-  <div>
-    <div>Richest:</div>
-    <div><%= @student.richest ? "Yes" : "No" %></div>
-  </div>
+
+  <div><%= @student.richest ? "#{@student.first_name} is the richest in the class." : "#{@student.first_name} is not the richest in the class." %></div>
+
 
   <div>
     <div>Received Money: </div>
@@ -55,6 +46,16 @@
       <% @awards.each do |a| %>
         <li><%= a.award_type.name %> for <%= a.reason %> on
           <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></li>
+      <% end %>
+    </ol>
+  </div>
+
+  <div>
+    <div>Bonuses: </div>
+    <ol>
+      <% @bonuses.each do |b| %>
+        <li>$<%= b.amount %> on
+          <%= b.created_at.strftime('%b %e, %Y') %> for <%= b.reason %></li>
       <% end %>
     </ol>
   </div>

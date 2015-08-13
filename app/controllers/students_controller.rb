@@ -14,7 +14,8 @@ class StudentsController < ApplicationController
   def show
     @received = Transaction.where(recipient_id: @student.id)
     @sent = @student.transactions
-    @awards = Award.where(student_id: @student.id)
+    @awards = @student.awards
+    @bonuses = @student.extras
   end
 
   def new
