@@ -6,34 +6,26 @@ class StudentsController < ApplicationController
   before_action :nav_links_instructor
   before_action :nav_links_student
 
-  # GET /students
-  # GET /students.json
   def index
     @periods = Period.where(instructor_id: current_user.id)
     @students = @periods.joins(:students)
   end
 
-  # GET /students/1
-  # GET /students/1.json
   def show
     @received = Transaction.where(recipient_id: @student.id)
     @sent = @student.transactions
     @awards = Award.where(student_id: @student.id)
   end
 
-  # GET /students/new
   def new
     @student = Student.new
     @periods = Period.where(instructor_id: current_user.id)
   end
 
-  # GET /students/1/edit
   def edit
     @periods = Period.where(instructor_id: current_user.id)
   end
 
-  # POST /students
-  # POST /students.json
   def create
     @student = Student.new(student_params)
 
@@ -48,8 +40,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
       if @student.update(student_params)
@@ -63,8 +53,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.json
   def destroy
     @student.destroy
     respond_to do |format|
@@ -112,28 +100,25 @@ class StudentsController < ApplicationController
     @all_days = @student.behaviors.map { |b| [b.date, b.well_behaved] }
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = Student.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def transaction_params
-      params.require(:transaction).permit(:recipient_id, :student_id, :amount, :reason)
-    end
-
-    def extra_params
-      params.require(:extra).permit(:instructor_id, :student_id, :amount, :reason)
-    end
-
-    def student_params
-      params.require(:student).permit(:first_name, :last_name, :email, :cash,
-          :period_id, :password, :richest,
-          behaviors_attributes: [:id, :well_behaved, :date],
-          jobs_attributes: [:id, :last_date_done, :description, :payscale])
-    end
+  private def set_student
+    @student = Student.find(params[:id])
   end
+
+  private def transaction_params
+    params.require(:transaction).permit(:recipient_id, :student_id, :amount, :reason)
+  end
+
+  private def extra_params
+    params.require(:extra).permit(:instructor_id, :student_id, :amount, :reason)
+  end
+
+  private def student_params
+    params.require(:student).permit(:first_name, :last_name, :email, :cash,
+        :period_id, :password, :richest,
+        behaviors_attributes: [:id, :well_behaved, :date],
+        jobs_attributes: [:id, :last_date_done, :description, :payscale])
+  end
+
 
   # navigation links for the instructor's view relating to the students controller
   private def nav_links_instructor
