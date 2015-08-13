@@ -8,3 +8,11 @@ end
 task :save_all_balances => :environment do
   Student.save_all_balances
 end
+
+task :save_all_balances => :environment do
+  Student.save_all_balances
+end
+
+task :update_balances => :environment do
+  Loan.update_balances
+end
