@@ -1,5 +1,8 @@
 <h1>Your Classes</h1>
 
+<%= link_to 'New Period', new_period_path, class: "pure-button" %>
+<%= link_to 'Home', root_path, class: "pure-button" %>
+
 <table class="pure-table pure-table-bordered centered periods-table">
   <thead>
     <tr>
@@ -34,6 +37,3 @@
 </table>
 
 <td> <%= render partial: 'class_bonus' %></td>
-
-<%= link_to 'New Period', new_period_path, class: "pure-button" %>
-<%= link_to 'Home', root_path, class: "pure-button" %>
