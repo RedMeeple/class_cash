@@ -32,35 +32,29 @@ class PeriodsController < ApplicationController
 
   end
 
-  # GET /periods
-  # GET /periods.json
   def index
     @periods = Period.where(instructor_id: current_user.id)
     @bonus = Bonus.new
   end
 
-  # GET /periods/1
-  # GET /periods/1.json
   def show
     @students = @period.students
     @bonuses = Bonus.where(period_id: @period.id)
   end
 
-  # GET /periods/new
   def new
     @period = Period.new
     @instructor = Instructor.find_by_id(current_user.id)
-    20.times { @period.students.build }
+    30.times { @period.students.build }
   end
 
-  # GET /periods/1/edit
   def edit
     @instructor = Instructor.find_by_id(current_user.id)
+    @period.students.build
   end
 
-  # POST /periods
-  # POST /periods.json
   def create
+    @instructor = Instructor.find_by_id(current_user.id)
     @period = Period.new(period_params)
 
     respond_to do |format|
@@ -74,24 +68,16 @@ class PeriodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /periods/1
-  # PATCH/PUT /periods/1.json
   def update
-    @period.pay_students
     respond_to do |format|
-      if @period.update(period_params)
-        format.html { redirect_to root_path, notice: 'Period was successfully updated.' }
-        format.json { render :show, status: :ok, location: @period }
-      else
-        format.html { render :edit }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
+      @period.update(period_params)
+      @instructor = @period.instructor
+      @period.students.build
+      format.js
     end
 
   end
 
-  # DELETE /periods/1
-  # DELETE /periods/1.json
   def destroy
     @period.destroy
     respond_to do |format|
@@ -116,7 +102,7 @@ class PeriodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name,
-          students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan,
+          students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan, :cash,
           behaviors_attributes: [:id, :well_behaved, :date, :student_id],
           jobs_attributes: [:id, :last_date_done]])
     end

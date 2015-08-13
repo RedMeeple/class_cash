@@ -1,6 +1,6 @@
-<h1>Editing <%= @period.name %></h1>
+<h1><%= @period.name %></h1>
 
-<%= render 'form' %>
+<div id="period-edit-form"><%= render 'form' %></div>
 
 <%= link_to 'Show', @period, class: "pure-button" %>
 <%= link_to 'Periods', periods_path, class: "pure-button" %>

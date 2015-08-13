@@ -21,7 +21,7 @@ instructor = Instructor.create(first_name: "Teacher", last_name: "Teacher", emai
 end
 
 15.times do
-  Job.create(payscale: [20,25,30].sample, student_id: (1..30).to_a.sample,
+  Job.create(payscale: [20,25,30].sample, student_id: (2..31).to_a.sample,
       description: Faker::Name.title)
 end
 
@@ -32,7 +32,7 @@ Student.all.each do |student|
     Behavior.create(date: Date.today - n, well_behaved: [true, false].sample, student_id: student.id)
   end
   student.update(email: Faker::Internet.safe_email(student.first_name))
-  Transaction.create(student_id: student.id, recipient_id: (1..30).to_a.sample,
+  Transaction.create(student_id: student.id, recipient_id: (2..31).to_a.sample,
       amount: (1..10).to_a.sample, reason: "helping me out")
 end
 
@@ -43,12 +43,12 @@ AwardType.create(name: "The Peacemaker Award", picture: "fa fa-flag-o")
 AwardType.create(name: "The Helping Hands Award", picture: "fa fa-users")
 
 20.times do
-  Award.create(student_id: (1..30).to_a.sample, payment: (100..1000).to_a.sample,
+  Award.create(student_id: (2..31).to_a.sample, payment: (100..1000).to_a.sample,
   award_type_id: [1, 2, 3, 4, 5].sample, reason: "because")
 end
 
 10.times do
-  Extra.create(student_id: (1..30).to_a.sample, amount: [100, 150, 200].sample,
+  Extra.create(student_id: (2..31).to_a.sample, amount: [100, 150, 200].sample,
       instructor_id: 1, reason: "behaving well")
 end
 
@@ -57,6 +57,6 @@ end
 end
 
 5.times do
-  Loan.create(student_id: (1..30).to_a.sample, recipient_id: (1..30).to_a.sample,
+  Loan.create(student_id: (2..31).to_a.sample, recipient_id: (2..31).to_a.sample,
   amount: 50, end_date: Date.today+30, balance: 50, accepted: true, interest: 5)
 end

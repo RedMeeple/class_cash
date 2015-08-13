@@ -4,24 +4,11 @@
 
 @import 'variables';
 
-.student-table-info-options {
-  position: relative;
-}
-
-.student-table-info-options-list {
-  position: absolute;
-  left: 100%;
-  top: 15%;
-  
-  margin-top: 0;
-  
-  display: none;
-}
-
 .active {
   display: block;
 }
 
+<<<<<<< HEAD
 .student-table-info-options-list a {
   display: block;
   margin: 0;
@@ -45,6 +32,8 @@ text.active {
   fill: red;
 }
 
+=======
+>>>>>>> 523491b172e88c81e2922c67ca23509bdfcc4658
 .day {
   fill: #fff;
   stroke: #ccc;
@@ -52,6 +41,7 @@ text.active {
 
 .month {
   fill: none;
+<<<<<<< HEAD
   stroke: #fff;
   stroke-width: 4px;
 }
@@ -82,3 +72,8 @@ text.active {
   border: 2px solid #ccc;
   padding: 10px;
 }
+=======
+  stroke: #000;
+  stroke-width: 2px;
+}
+>>>>>>> 523491b172e88c81e2922c67ca23509bdfcc4658

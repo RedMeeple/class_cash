@@ -5,14 +5,12 @@ class Student < User
   has_many :awards, dependent: :destroy
   has_many :loans, dependent: :destroy
   has_many :transactions, dependent: :destroy
+  has_many :extras, dependent: :destroy
 
   accepts_nested_attributes_for :behaviors
   accepts_nested_attributes_for :jobs
 
   default_scope { order('last_name') }
-
-  def completed_job_task
-  end
 
   def save_balance
     DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
