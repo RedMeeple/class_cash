@@ -4,8 +4,6 @@
 
   <script>
   
-    var json = <%= raw @all_days.to_json %>
-  
     var width = 960,
         height = 750,
         cellSize = 25; // cell size
@@ -89,11 +87,9 @@
       .style("visibility", "hidden")
       .text("a simple tooltip");
 
-    d3.csv("dji.csv", function(error, csv) {
-      var data = d3.nest()
-        .key(function(d) { return d.Date; })
-        .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
-        .map(csv);
+    
+      // Beginning of mapping data
+      var data = <%= raw @all_days.to_json %>
 
       rect.filter(function(d) { return d in data; })
           .attr("class", function(d) { return "day " + color(data[d]); })
@@ -123,8 +119,9 @@
         var $tooltip = $("#tooltip");
         $tooltip.empty();
       }
-
-    });
+      
+      // Ending of mapping data
+    
 
     function dayTitle (t0) {
       return t0.toString().split(" ")[2];
