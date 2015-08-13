@@ -1,0 +1,20 @@
+<% students.each do |student| %>
+  <tr class="period-table-info">
+    <td><%= student.richest?.html_safe %> <%= student.first_name %></td>
+    <td><%= student.last_name %></td>
+    <td>$<%= student.cash %></td>
+    <td><%= student.behaved?.html_safe %></td>
+    <td><% student.jobs.each do |job|%>
+      <%= job.description %><br>
+    <% end %></td>
+    <td class="period-table-info-options">
+      <div class="pure-button">Options</div>
+      <div class="period-table-info-options-list">
+        <%= link_to 'Details', student, class: "pure-button" %>
+        <%= link_to 'Edit', edit_student_path(student), class: "pure-button" %>
+        <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+        <%= link_to 'Behavior History', behavior_student_path(student), class: "pure-button" %>
+      </div>
+    </td>
+  </tr>
+<% end %>
