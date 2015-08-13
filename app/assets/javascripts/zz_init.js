@@ -23,7 +23,7 @@ $(function () {
     app.periods.displayPeriodsOptions();
   }
   
-  if ($('.period-table').length) {
+  if ($('.period-table-info').length) {
     app.periods.displayPeriodOptions();
   }
 
