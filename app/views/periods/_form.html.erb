@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
   <%= f.hidden_field :instructor_id, value: @instructor.id %>
-  <%= f.input :payscale, label: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
-  <%= f.input :name, wrapper_html: { class: "periods-edit-input-wrapper" } %>
+  <%= f.input :name, label: false, placeholder: "Period Name", wrapper_html: { class: "periods-edit-input-wrapper" } %>
+  <%= f.input :payscale, label: false, placeholder: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
 
   <h3>Students</h3>
   <table class="pure-table pure-table-bordered centered">
@@ -22,7 +22,7 @@
           <td><%= ff.input :last_name, label: false %></td>
           <td><%= ff.input :email, label: false %>
             <% if ff.object.new_record? %>
-              <%= ff.input :password, label: false, placeholder: "Password" %>
+              <td><%= ff.input :password, label: false, placeholder: "Password" %></td>
             <% end %>
           </td>
         </tr>

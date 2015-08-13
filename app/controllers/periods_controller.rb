@@ -54,6 +54,7 @@ class PeriodsController < ApplicationController
   end
 
   def create
+    @instructor = Instructor.find_by_id(current_user.id)
     @period = Period.new(period_params)
 
     respond_to do |format|
@@ -101,7 +102,7 @@ class PeriodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name,
-          students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan,
+          students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan, :cash,
           behaviors_attributes: [:id, :well_behaved, :date, :student_id],
           jobs_attributes: [:id, :last_date_done]])
     end
