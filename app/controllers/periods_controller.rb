@@ -73,6 +73,7 @@ class PeriodsController < ApplicationController
       @period.update(period_params)
       @instructor = @period.instructor
       @period.students.build
+      format.html { redirect_to @period, notice: 'Loaning Permissions Updated.' }
       format.js
     end
 

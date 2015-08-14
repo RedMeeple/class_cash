@@ -36,7 +36,13 @@
       <div class="student-info-heading">Sent Money: </div>
       <ol>
         <% @sent.each do |s| %>
-          <li>$<%= s.amount %> to <%= Student.find(s.recipient_id).full_name %> for
+          <li>$<%= s.amount %> to
+            <% if Student.find_by_id(s.recipient_id) %>
+              <%= Student.find(s.recipient_id).full_name %>
+            <% else %>
+                <%= "Not Available" %>
+            <% end %>
+             for
             <%= s.reason %> on <%= s.created_at.strftime('%b %e, %Y') %>.</li>
         <% end %>
       </ol>
