@@ -87,3 +87,31 @@ text.active {
   border: 2px solid #ccc;
   padding: 10px;
 }
+
+// Student details
+.student-show-container {
+  width: 90%;
+  margin: 25px auto;
+}
+
+.student-info-container {
+  width: 33.33%;
+  float: left;
+  // text-align: center;
+  // background: #0078e7;
+  padding: 25px 10px;
+}
+
+.student-info-container h3 {
+  margin-top: 0;
+}
+
+.student-transaction-info {
+  width: 66.66%;
+  margin-left: 35%;
+  padding: 25px 10px;
+}
+
+.student-info-heading {
+  font-weight: bold;
+}
