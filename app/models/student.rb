@@ -7,6 +7,8 @@ class Student < User
   has_many :transactions, dependent: :destroy
   has_many :extras, dependent: :destroy
   has_many :daily_balances, dependent: :destroy
+  has_many :student_right_assignments, dependent: :destroy
+  has_many :rights, through: :student_right_assignments
 
   accepts_nested_attributes_for :behaviors
   accepts_nested_attributes_for :jobs

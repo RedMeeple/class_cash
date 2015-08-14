@@ -7,6 +7,9 @@
     <td><% student.jobs.each do |job|%>
       <%= job.description %><br>
     <% end %></td>
+    <td><% student.rights.each do |right|%>
+      <%= right.description %><br>
+    <% end %></td>
     <td class="period-table-info-options">
       <div class="pure-button">Options</div>
       <div class="period-table-info-options-list">

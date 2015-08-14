@@ -60,3 +60,11 @@ end
   Loan.create(student_id: (2..31).to_a.sample, recipient_id: (2..31).to_a.sample,
   amount: 50, end_date: Date.today+30, balance: 50, accepted: true, interest: 5)
 end
+
+Right.create(description: "Eating in class")
+Right.create(description: "Drinking in class")
+Right.create(description: "Chewing gum in class")
+Right.create(description: "Be at the beginning of the line for lunch")
+
+
+StudentRightAssignment.create(student_id: 2, right_id: 1, cash_level: 1000)
