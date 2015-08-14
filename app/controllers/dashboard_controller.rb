@@ -13,6 +13,7 @@ class DashboardController < ApplicationController
     @sent = Transaction.where(student_id: @student.id).last(5).reverse
     @received = Transaction.where(recipient_id: @student.id).last(5).reverse
     @awards = Award.where(student_id: @student.id)
+    @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
   end
 
   def instructor

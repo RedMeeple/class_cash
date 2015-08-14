@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <h3>Personal Bonuses</h3>
+  <h3>Your Bonuses</h3>
   <% @extras.each do |extra| %>
     <div>You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
@@ -26,7 +26,7 @@
     <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
   <% end %>
 
-  <h3>Student Transactions</h3>
+  <h3>Transactions</h3>
   <h4>You received</h4>
   <% @received.each do |r| %>
     <div>$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
@@ -39,7 +39,7 @@
   <h3>Your Awards</h3>
   <% @awards.each do |a| %>
     <div>
-      You reveived the <%= a.award_type.name %> award for <%= a.reason %>.
+      You received the <%= a.award_type.name %> award for <%= a.reason %> and got a bonus of $<%= a.payment %>.
     </div>
   <% end %>
 
