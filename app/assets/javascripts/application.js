@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //
 //= require d3.min
+//= require c3.min
 //
 //= require z_app
+//= require z_dashboard
 //= require z_loans
 //= require z_periods
 //= require z_students
