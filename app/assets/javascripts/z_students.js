@@ -8,5 +8,43 @@ app.students = {
 
       $(this).next().toggleClass('active');
     });
+  },
+  
+  cashChart: function (dates, cashAmount) {
+    dates.unshift('dates');
+    cashAmount.unshift('cash');
+
+    var chart = c3.generate({
+      bindto: '.cash-chart',
+      data: {
+        x: 'dates',
+        xFormat: '%Y-%m-%d',
+        columns: [
+          dates,
+          cashAmount
+        ]
+      },
+      axis: {
+        y: {
+          label: {
+            text: 'Close Price',
+            position: 'outer-middle'
+          }
+        },
+        x: {
+          type: 'timeseries',
+          label: {
+            text: 'Time',
+            position: 'outer-middle'
+          },
+          tick: {
+            fit: false,
+            format: function (d) {
+              return d.toLocaleDateString();
+            }
+          }
+        }
+      }
+    });
   }
 }
