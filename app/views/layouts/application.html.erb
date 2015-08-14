@@ -9,6 +9,18 @@
 
   </head>
   <body>
+    <header class="page-header">
+      <div class="top-nav-container">
+        <ul class="top-nav-ul">
+          <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
+          <li class="top-nav-li"><%= link_to 'Assigned Jobs', jobs_path %></li>
+          <li class="top-nav-li"><%= link_to 'Periods Dashboard', periods_path %></li>
+          <li class="top-nav-li"><%= link_to 'Individual Bonus', give_bonus_students_path %></li>
+          <li class="top-nav-li"><%= link_to 'Student Transactions', transactions_index_path %></li>
+          <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
+        </ul>
+      </div>
+    </header>
     <!--<div class="navigation">
       <div class="menu-btn" id="menu-btn">
       	<span></span>

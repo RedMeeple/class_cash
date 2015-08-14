@@ -24,6 +24,28 @@ body {
   background: $off-white;
 }
 
+.page-header {
+  background-color: #0078E7;
+}
+
+.top-nav-ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav-ul a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.top-nav-li {
+  display: inline-block;
+  padding: 0 0.75em 1em 0.75em;
+  cursor: pointer;
+}
+
 .notice, #notice,
 .alert, #alert {
   text-align: center;
