@@ -73,3 +73,35 @@ select {
 td.numeric {
   text-align: right;
 }
+
+.jobs-table, .periods-table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heading-container {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+  height: 80px;
+  min-width: 880px;
+}
+
+.heading-container h1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.buttons-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.buttons-container .pure-button {
+  display: inline-block;
+  margin: 0;
+}
