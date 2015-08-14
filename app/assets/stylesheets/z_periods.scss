@@ -96,8 +96,10 @@
   height: 500px;
   top: 50%;
   left: 50%;
+  border-radius: 5px;
   transform: translate(-50%, -50%);
-  background-color: #0087e7;
+  background-color: #e0e0e0;
+  display: none;
 }
 
 .class-bonus-modal {
@@ -106,6 +108,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+}
+
+.class-bonus-modal-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background-color: #0087e7;
+  border-radius: 5px 5px 0 0;
 }
 
 .close-btn {
