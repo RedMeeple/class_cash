@@ -3,7 +3,7 @@
 
   <%= f.hidden_field :instructor_id, value: @instructor.id %>
   <%= f.input :name, label: false, placeholder: "Period Name", wrapper_html: { class: "periods-edit-input-wrapper" } %>
-  <%= f.input :payscale, label: false, placeholder: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
+  <%= f.input :payscale, label: "Daily Salary", wrapper_html: { class: "periods-edit-input-wrapper" } %>
 
   <h3>Students</h3>
   <table class="pure-table pure-table-bordered centered">

@@ -12,10 +12,8 @@ class RightsController < ApplicationController
   end
 
   def new
+    @instructor = Instructor.find(current_user.id)
     @right = Right.new
-  end
-
-  def edit
   end
 
   def create

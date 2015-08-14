@@ -1,8 +1,9 @@
-<table>
+<table class="pure-table pure-table-bordered centered">
   <thead>
     <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Right</th>
+      <th>Students</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -10,9 +11,13 @@
     <% @rights.each do |right| %>
       <tr>
         <td><%= right.description %></td>
+        <td>
+          <% right.students.each do |s| %>
+            <%= s.full_name %><br>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', right %></td>
-        <td><%= link_to 'Edit', edit_right_path(right) %></td>
-        <td><%= link_to 'Destroy', right, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', right, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

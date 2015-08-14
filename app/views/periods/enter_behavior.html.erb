@@ -2,7 +2,7 @@
 
   <div class="enter-behavior-title">Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></div>
 <%= form_for @period, url: update_behavior_period_path(@period) do |f| %>
-  <table>
+  <table class = "pure-table pure-table-bordered">
     <thead>
       <tr>
         <th>Name</th>
