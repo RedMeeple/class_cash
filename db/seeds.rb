@@ -27,7 +27,7 @@ end
 
 Student.all.each do |student|
   50.times do |n|
-    DailyBalance.create(student_id: student.id, amount: (100..500).to_a.sample,
+    DailyBalance.create(student_id: student.id, amount: (1000..5000).to_a.sample / (n + 1),
         date: (Date.today - n))
     Behavior.create(date: Date.today - n, well_behaved: [true, false].sample, student_id: student.id)
   end
