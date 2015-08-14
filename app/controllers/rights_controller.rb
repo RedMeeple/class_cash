@@ -5,6 +5,7 @@ class RightsController < ApplicationController
   def index
     @instructor = Instructor.find(current_user.id)
     @rights = @instructor.all_rights
+    @new_rights = @instructor.unassigned_rights
   end
 
   def show

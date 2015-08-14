@@ -1,7 +1,0 @@
-<%= simple_form_for Right.new do |f| %>
-  <%= f.association :right %>
-  <%= f.hidden_field :student_id, value: student.id %>
-  <%= f.hidden_field :cash_level, value: %>
-
-  <%= f.button :submit %>
-<% end %>
