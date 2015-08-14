@@ -9,7 +9,7 @@
 
   <tbody>
     <% @rights.each do |right| %>
-      <tr>
+      <tr id="right-row<%= right.id %>">
         <td><%= right.description %></td>
         <td>
           <% right.students.each do |s| %>
@@ -23,16 +23,16 @@
   </tbody>
 </table>
 
+<div><%= render partial: 'form' %></div>
+
 <br>
 
 <h4>Students who have earned a right:</h4>
 <ul>
   <% @new_rights.each do |n| %>
-    <div>
+    <div id="right<%= n.id %>">
       <%= n.student.full_name %>
       <%= render partial: 'rights/new_right', locals: { student: n.student } %>
     </div>
   <% end %>
 </ul>
-
-<%= link_to 'New Right', new_right_path %>
