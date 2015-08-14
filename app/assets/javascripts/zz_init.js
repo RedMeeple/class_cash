@@ -6,19 +6,6 @@ $(function () {
     app.students.displayOptions();
   }
 
-  if ($('.student-show-container').length) {
-    var uL = $('.menu-responsive ul');
-
-    // app.navbar.homeLink(uL);
-    app.navbar.editStudentLink(uL);
-  }
-
-  if ($('.students-new-title').length) {
-    var uL = $('.menu-responsive ul');
-
-    app.navbar.homeLink(uL);
-  }
-
   if ($('.periods-table').length) {
     app.periods.displayPeriodsOptions();
   }
