@@ -1,0 +1,53 @@
+
+<script>
+  var data = <%= raw @daily_balances.to_json %>;
+  var dates = [];
+  var cashAmount = [];
+
+  data.map(function (values) {
+    dates.unshift(values[0]);
+    cashAmount.unshift(values[1]);
+  })
+
+  function cash (dates, cashAmount) {
+
+    dates.unshift('dates');
+    cashAmount.unshift('cash');
+
+    var chart = c3.generate({
+      bindto: '.cash-chart',
+      data: {
+        x: 'dates',
+        xFormat: '%Y-%m-%d',
+        columns: [
+          dates,
+          cashAmount
+        ]
+      },
+      axis: {
+        y: {
+          label: {
+            text: 'Close Price',
+            position: 'outer-middle'
+          }
+        },
+        x: {
+          type: 'timeseries',
+          label: {
+            text: 'Time',
+            position: 'outer-middle'
+          },
+          tick: {
+            fit: false,
+            format: function (d) {
+              return d.toLocaleDateString();
+            }
+          }
+        }
+      }
+    });
+  }
+
+  cash(dates, cashAmount);
+
+</script>

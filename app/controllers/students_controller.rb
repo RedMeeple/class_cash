@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
     @sent = @student.transactions
     @awards = @student.awards
     @bonuses = @student.extras
+    @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
   end
 
   def new
