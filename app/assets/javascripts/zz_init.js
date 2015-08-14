@@ -22,7 +22,7 @@ $(function () {
   if ($('.periods-table').length) {
     app.periods.displayPeriodsOptions();
   }
-  
+
   if ($('.period-table-info').length) {
     app.periods.displayPeriodOptions();
   }
@@ -37,6 +37,17 @@ $(function () {
     if (characters === '') {
     $(this).siblings('span').removeClass('focus-in');
   }
+  });
+
+//Modal for period Awards
+  $('.display-class-bonus-modal').on('click', function() {
+    $('.class-bonus-modal-container').slideDown();
+    $('.class-bonus-modal').fadeIn(1200);
+  });
+
+  $('.close-btn').click(function() {
+    $(this).parent().slideUp();
+    $('.class-bonus-modal').fadeOut('fast');
   });
 
 

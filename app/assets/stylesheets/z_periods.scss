@@ -67,3 +67,50 @@
 .active {
   display: block;
 }
+
+.period-title-container {
+  width: 884px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 65px;
+}
+
+.period-title-main-heading {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+//Awards Modal
+.class-bonus-modal-container {
+  display: none;
+}
+
+.class-bonus-modal-container {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0087e7;
+}
+
+.class-bonus-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.close-btn {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  color: #eee;
+  cursor: pointer;
+}

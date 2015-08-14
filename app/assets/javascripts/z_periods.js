@@ -5,14 +5,14 @@ app.periods = {
 
   displayPeriodsOptions: function () {
     $('.periods-table-info-options div').on('click', function () {
-  
+
       $(this).next().toggleClass('active');
     });
   },
 
   displayPeriodOptions: function () {
     $('.period-table-info-options div').on('click', function () {
-  
+
       $(this).next().toggleClass('active');
     });
   }

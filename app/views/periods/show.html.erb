@@ -1,11 +1,13 @@
 <% @period.find_richest %>
 
 <div class="period-title-container">
-  <div>
-    Class: <%= @period.name %>
+  <div class="period-title-main-heading">
+    Class: <%= @period.name %> - Payscale: <%= @period.payscale %>
   </div>
-  <div>
-    Payscale: <%= @period.payscale %>
+  <div class="buttons-container">
+    <%= link_to 'Edit', edit_period_path(@period), class: "pure-button" %>
+    <%= link_to 'Periods', periods_path, class: "pure-button" %>
+    <%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period), class: "pure-button" %>
   </div>
 </div>
 
@@ -35,5 +37,4 @@
 
 <%= link_to 'Edit', edit_period_path(@period), class: "pure-button" %>
 <%= link_to 'Periods', periods_path, class: "pure-button" %>
-<%= link_to 'Home', root_path, class: "pure-button" %>
 <%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period), class: "pure-button" %>

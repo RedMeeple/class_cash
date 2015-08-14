@@ -2,6 +2,7 @@
   <h1>Your Classes</h1>
   <div class="buttons-container">
     <%= link_to 'New Period', new_period_path, class: "pure-button" %>
+    <button class="pure-button display-class-bonus-modal">Award Class Bonus</button>
   </div>
 </div>
 
@@ -38,4 +39,9 @@
   </tbody>
 </table>
 
-<td> <%= render partial: 'class_bonus' %></td>
+<div class="class-bonus-modal-container">
+  <i class="fa-remove fa fa-2x close-btn"></i>
+  <div class="class-bonus-modal">
+    <td class="test"> <%= render partial: 'class_bonus' %></td>
+  </div>
+</div>
