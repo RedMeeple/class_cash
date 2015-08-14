@@ -1,0 +1,5 @@
+<%= simple_form_for StudentRightAssignment.find_by_student_id(student.id) do |f| %>
+  <%= f.association :right %>
+
+  <%= f.button :submit %>
+<% end %>

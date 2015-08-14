@@ -25,4 +25,11 @@
 
 <br>
 
+<h4>Students who have earned a right:</h4>
+<ul>
+  <% @new_rights.each do |n| %>
+    <%= n.student.full_name %>
+  <% end %>
+</ul>
+
 <%= link_to 'New Right', new_right_path %>
