@@ -1,4 +1,4 @@
-/* 
+/*
 CSS GROUPING GUIDE
   1. Position
   2. Box
@@ -22,6 +22,53 @@ CSS GROUPING GUIDE
 
 body {
   background: $off-white;
+  height: 100%;
+}
+
+.page-header {
+  background-color: #0078E7;
+  padding: 10px 0;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.top-nav-ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav-ul a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.top-nav-li {
+  display: inline-block;
+  padding: 0 0.75em 0.25em 0.75em;
+  cursor: pointer;
+  border-bottom: 3px solid #0078E7;
+}
+
+.top-nav-li:hover {
+  border-bottom: 3px solid #eee;
+}
+
+.signout-icon, .home-icon {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #eee;
+  cursor: pointer;
+  width: 25px;
+  text-decoration: none;
+}
+
+.home-icon {
+  left: 25px;
 }
 
 .notice, #notice,
@@ -50,4 +97,42 @@ select {
 
 td.numeric {
   text-align: right;
+}
+
+.jobs-table, .periods-table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heading-container {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  height: 80px;
+  min-width: 880px;
+  margin-bottom: 10px;
+}
+
+.heading-container h1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.buttons-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.buttons-container .pure-button {
+  display: inline-block;
+  margin: 0;
+}
+
+td .pure-button {
+  display: block;
+  margin: 0 auto;
 }

@@ -1,5 +1,6 @@
 
 <div class="dashboard-student-container">
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "link-logout" %>
   <div>Welcome, <%= @student.full_name %></h1>
 
 

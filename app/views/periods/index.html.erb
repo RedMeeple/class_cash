@@ -1,3 +1,11 @@
+<div class="heading-container">
+  <h1>Your Classes</h1>
+  <div class="buttons-container">
+    <%= link_to 'New Period', new_period_path, class: "pure-button" %>
+    <button class="pure-button display-class-bonus-modal">Award Class Bonus</button>
+  </div>
+</div>
+
 <table class="pure-table pure-table-bordered centered periods-table">
   <thead>
     <tr>
@@ -31,7 +39,11 @@
   </tbody>
 </table>
 
-<td> <%= render partial: 'class_bonus' %></td>
-
-<%= link_to 'New Period', new_period_path, class: "pure-button" %>
-<%= link_to 'Home', root_path, class: "pure-button" %>
+<div class="class-bonus-modal-container">
+  <div class="class-bonus-modal-header">
+    <i class="fa-remove fa fa-2x close-btn"></i>
+  </div>
+  <div class="class-bonus-modal">
+    <td class="test"> <%= render partial: 'class_bonus' %></td>
+  </div>
+</div>

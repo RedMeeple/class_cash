@@ -8,8 +8,23 @@
     <%= csrf_meta_tags %>
 
   </head>
-
   <body>
+    <header class="page-header">
+      <div class="top-nav-container">
+        <ul class="top-nav-ul">
+          <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
+          <li class="top-nav-li"><%= link_to 'Assigned Jobs', jobs_path %></li>
+          <li class="top-nav-li"><%= link_to 'Periods Dashboard', periods_path %></li>
+          <li class="top-nav-li"><%= link_to 'Individual Bonus', give_bonus_students_path %></li>
+          <li class="top-nav-li"><%= link_to 'Student Transactions', transactions_index_path %></li>
+          <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
+        </ul>
+      </div>
+      <% if user_signed_in? %>
+        <%= link_to "", destroy_user_session_path, method: :delete, class: "fa-sign-out fa fa-2x signout-icon" %>
+      <% end %>  
+      <%= link_to "", root_path, class: "fa-home fa fa-2x home-icon" %>
+    </header>
     <!--<div class="navigation">
       <div class="menu-btn" id="menu-btn">
       	<span></span>
@@ -34,8 +49,8 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
+
     <%= yield %>
-      
+
   </body>
 </html>

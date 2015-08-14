@@ -4,6 +4,35 @@
 
 @import 'variables';
 
+.student-table {
+  margin: 0 auto;
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.student-table td:last-child {
+  // border-right: 1px solid #cbcbcb;
+}
+
+.student-table-info-options .pure-button {
+  margin: 0 auto;
+  display: block;
+}
+
+.student-table-info-options {
+  position: relative;
+}
+
+.student-table-info-options-list {
+  position: absolute;
+  left: 100%;
+  top: 15%;
+
+  margin-top: 0;
+
+  display: none;
+}
+
 .active {
   display: block;
 }
@@ -20,6 +49,15 @@ line {
   stroke: #fff;
 }
 
+.student-table-info-options-list a {
+  display: block;
+  margin: 0;
+}
+
+.student-table-info-richest {
+  text-align: center;
+}
+
 text.active {
   fill: red;
 }
@@ -34,6 +72,7 @@ text.active {
   stroke: #fff;
   stroke-width: 4px;
 }
+
 .year-title {
   font-size: 1.5em;
 }
@@ -47,4 +86,30 @@ text.active {
   background-color: #fff;
   border: 2px solid #ccc;
   padding: 10px;
+}
+
+// Student details
+.student-show-container {
+  width: 90%;
+  margin: 25px auto;
+}
+
+.student-info-container {
+  width: 33.33%;
+  float: left;
+  padding: 25px 10px;
+}
+
+.student-info-container h3 {
+  margin-top: 0;
+}
+
+.student-transaction-info {
+  width: 66.66%;
+  margin-left: 35%;
+  padding: 25px 10px;
+}
+
+.student-info-heading {
+  font-weight: bold;
 }

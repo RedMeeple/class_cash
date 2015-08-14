@@ -4,6 +4,10 @@
 
 @import 'variables';
 
+.periods-table td:last-child {
+  border-right: 1px solid #cbcbcb;
+}
+
 .periods-table-info-options {
   position: relative;
 }
@@ -62,4 +66,65 @@
 
 .active {
   display: block;
+}
+
+.period-title-container {
+  width: 884px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 65px;
+}
+
+.period-title-main-heading {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+//Awards Modal
+.class-bonus-modal-container {
+  display: none;
+}
+
+.class-bonus-modal-container {
+  position: fixed;
+  margin: 0;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  background-color: #e0e0e0;
+  display: none;
+}
+
+.class-bonus-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.class-bonus-modal-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background-color: #0087e7;
+  border-radius: 5px 5px 0 0;
+}
+
+.close-btn {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  color: #eee;
+  cursor: pointer;
+  display: none;
 }

@@ -22,7 +22,7 @@ $(function () {
   if ($('.periods-table').length) {
     app.periods.displayPeriodsOptions();
   }
-  
+
   if ($('.period-table-info').length) {
     app.periods.displayPeriodOptions();
   }
@@ -37,6 +37,21 @@ $(function () {
     if (characters === '') {
     $(this).siblings('span').removeClass('focus-in');
   }
+  });
+
+//Awards Modal
+  $('.display-class-bonus-modal').click(function() {
+    $('.class-bonus-modal-container').slideDown();
+    $('.class-bonus-modal-header').slideDown();
+    $('.class-bonus-modal').fadeIn(1000);
+    $('.close-btn').fadeIn();
+  });
+
+  $('.close-btn').click(function() {
+    $(this).parent().parent().slideUp();
+    $('.class-bonus-modal-header').slideUp();
+    $(this).fadeOut();
+    $('.class-bonus-modal').fadeOut('fast');
   });
 
 

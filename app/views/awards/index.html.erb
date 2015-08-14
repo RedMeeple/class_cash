@@ -1,6 +1,11 @@
-<h1>Awards</h1>
+<div class="heading-container-awards">
+  <h1>Awards</h1>
+  <div class="buttons-container">
+    <%= link_to 'Give Award', new_award_path, class: "pure-button" %>
+  </div>
+</div>
 
-<table class="pure-table pure-table-horizontal centered">
+<table class="pure-table pure-table-horizontal centered awards-table">
 
   <tbody>
     <% @award_types.each do |award_type| %>
@@ -11,7 +16,7 @@
         <td>Recipients:
           <ol class="recipients">
             <% students.each do |s| %>
-              <li><%= s.full_name %> %></li>
+              <li><%= s.full_name %></li>
             <% end %>
           </ol>
         </td>
@@ -21,6 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Give Award', new_award_path, class: "pure-button" %>
-<%= link_to 'Home', root_path, class: "pure-button" %>

@@ -9,6 +9,10 @@
   margin-bottom: 1rem;
 }
 
+.jobs-table td:last-child {
+  border-right: 1px solid #cbcbcb;
+}
+
 .jobs-table-student-name {
   min-width: 20rem;
 }
