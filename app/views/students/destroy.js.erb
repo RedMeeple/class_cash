@@ -1,0 +1,1 @@
+$("#period-table<%= @period.id %>").html("<%= j(render partial: 'periods/table', locals: {students: @period.students }) %>")

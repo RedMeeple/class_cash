@@ -3,24 +3,7 @@
 </div>
 <% @periods.each do |per| %>
   <% per.find_richest %>
-  <table class="pure-table pure-table-bordered student-table">
-    <thead>
-      <tr>
-        <th colspan="7"><%= link_to "#{per.name}", per %></th>
-      </tr>
-      <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Cash</th>
-        <th>Recent Behavior</th>
-        <th>Jobs</th>
-        <th>Rights</th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <div id="period-table"><%= render partial: 'periods/table', locals: { students: per.students } %>
-    </tbody>
-  </table>
+  <div id="period-table<%= per.id %>"><%= render partial: 'periods/table', locals: { students: per.students } %></div>
+
 <% end %>

@@ -10,23 +10,7 @@
   </div>
 </div>
 
-<table class="pure-table pure-table-bordered centered period-table">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Cash</th>
-      <th>Recent Behavior</th>
-      <th>Jobs</th>
-      <th>Rights</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <div id="period-table"><%= render partial: 'table', locals: { students: @students } %></div>
-  </tbody>
-</table>
+<div id="period-table<%= @period.id %>"><%= render partial: 'table', locals: { students: @students } %></div>
 
 <div class="period-bonuses centered">
   <h3>Class Bonuses</h3>

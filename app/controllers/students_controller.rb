@@ -44,7 +44,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
+        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         @periods = Period.where(instructor_id: current_user.id)
@@ -55,10 +55,11 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    @period = @student.period
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 
@@ -73,7 +74,7 @@ class StudentsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     if @transaction.finalize
       @transaction.save
-      redirect_to dashboard_student_path, notice: "$#{@transaction.amount} has been sent."
+      redirect_to dashboard_student_path, notice: "$#{@transaction.amount} sent."
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
     end
@@ -91,7 +92,7 @@ class StudentsController < ApplicationController
     if @extra.save
       @student = Student.find_by_id(@extra.student_id)
       @student.update(cash: (@student.cash + @extra.amount))
-      redirect_to give_bonus_students_path, notice: "$#{@extra.amount} has been sent."
+      redirect_to give_bonus_students_path, notice: "$#{@extra.amount} sent to #{@student.first_name}."
     else
       render :give_bonus, notice: "Please try again."
     end
