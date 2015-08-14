@@ -1,15 +1,14 @@
 <h1>Active Loans</h1>
 
-<table>
+<table class="student-table pure-table pure-table-bordered">
   <thead>
     <tr>
       <th>Lender</th>
-      <th>Recipient</th>
+      <th>Borrower</th>
       <th>Amount</th>
       <th>Balance</th>
       <th>Weekly Interest</th>
       <th>End date</th>
-      <th>Accepted</th>
       <th></th>
     </tr>
   </thead>
@@ -23,8 +22,7 @@
         <td><%= loan.balance %></td>
         <td><%= loan.interest %>%</td>
         <td><%= loan.end_date.strftime("%b %e, %Y") %></td>
-        <td><%= loan.accepted %></td>
-        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

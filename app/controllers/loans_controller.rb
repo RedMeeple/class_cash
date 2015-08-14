@@ -15,11 +15,9 @@ class LoansController < ApplicationController
     @period = Period.find_by_id(params[:id])
   end
 
-  # GET /loans
-  # GET /loans.json
   def index
     @instructor = Instructor.find_by_id(current_user.id)
-    @loans = @instructor.loans
+    @loans = @instructor.loans.where(accepted: true)
   end
 
   def all
@@ -28,12 +26,9 @@ class LoansController < ApplicationController
     @loans_received = Loan.where(recipient_id: @student.id)
   end
 
-  # GET /loans/1
-  # GET /loans/1.json
   def show
   end
 
-  # GET /loans/new
   def new
     @loan = Loan.new
     @lender = Student.find_by_id(current_user.id)
@@ -43,8 +38,6 @@ class LoansController < ApplicationController
     end
   end
 
-  # POST /loans
-  # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
 
@@ -59,8 +52,6 @@ class LoansController < ApplicationController
     end
   end
 
-  # PATCH/PUT /loans/1
-  # PATCH/PUT /loans/1.json
   def update
     respond_to do |format|
       if @loan.update(loan_params)
@@ -74,8 +65,6 @@ class LoansController < ApplicationController
     end
   end
 
-  # DELETE /loans/1
-  # DELETE /loans/1.json
   def destroy
     @loan.destroy
     respond_to do |format|
