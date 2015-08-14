@@ -39,14 +39,16 @@ $(function () {
   }
   });
 
-//Modal for period Awards
-  $('.display-class-bonus-modal').on('click', function() {
+//Awards Modal
+  $('.display-class-bonus-modal').click(function() {
     $('.class-bonus-modal-container').slideDown();
-    $('.class-bonus-modal').fadeIn(1200);
+    $('.class-bonus-modal').fadeIn(1000);
+    $('.close-btn').fadeIn();
   });
 
   $('.close-btn').click(function() {
     $(this).parent().slideUp();
+    $(this).fadeOut();
     $('.class-bonus-modal').fadeOut('fast');
   });
 

@@ -92,10 +92,11 @@
 .class-bonus-modal-container {
   position: fixed;
   margin: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #0087e7;
 }
 
@@ -113,4 +114,5 @@
   right: 25px;
   color: #eee;
   cursor: pointer;
+  display: none;
 }
