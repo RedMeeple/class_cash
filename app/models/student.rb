@@ -19,9 +19,19 @@ class Student < User
     DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
   end
 
+  def check_rights
+    levels = [1000, 10000, 25000]
+    levels.each do |level|
+      if self.cash > level && !self.student_right_assignments.find_by_cash_level(level)
+        StudentRightAssignment.create(student_id: self.id, cash_level: level)
+      end
+    end
+  end
+
   def self.save_all_balances
     Student.all.each do |student|
       student.save_balance
+      student.check_rights
     end
   end
 

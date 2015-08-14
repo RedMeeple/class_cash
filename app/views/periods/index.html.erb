@@ -10,7 +10,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Number of Students</th>
+      <th>Total Students</th>
       <th>Payscale</th>
       <th>Class Average</th>
       <th></th>
@@ -22,8 +22,8 @@
       <tr class="periods-table-info">
         <td><%= period.name %></td>
         <td class="numeric"><%= period.students.count %></td>
-        <td class="numeric"><%= period.payscale %></td>
-        <td class="numeric"><%= period.class_average %></td>
+        <td class="numeric">$<%= period.payscale %></td>
+        <td class="numeric">$<%= period.class_average %></td>
         <td class="periods-table-info-options">
           <div class="pure-button">Options</div>
           <div class="periods-table-info-options-list">

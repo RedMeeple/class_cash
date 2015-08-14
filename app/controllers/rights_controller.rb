@@ -43,14 +43,24 @@ class RightsController < ApplicationController
     end
   end
 
-  # DELETE /rights/1
-  # DELETE /rights/1.json
+  def assign_right
+    @student_right_assignment = StudentRightAssignment.find_by_student_id(student.id)
+    @student_right_assignment.update(student_right_assignment_params)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def destroy
     @right.destroy
     respond_to do |format|
       format.html { redirect_to rights_url, notice: 'Right was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  private def student_right_assignment_params
+    params.require(:student_right_assignment).permit(:cash_level, :student_id, :right_id)
   end
 
   private

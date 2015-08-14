@@ -1,5 +1,5 @@
-<%= simple_form_for StudentRightAssignment.find_by_student_id(student.id) do |f| %>
-  <%= f.association :right %>
+<%= simple_form_for StudentRightAssignment.find_by_student_id(student.id), url: assign_right_rights_path do |f| %>
+  <%= f.association :right, label: false, label_method: :description %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, "Assign Right" %>
 <% end %>

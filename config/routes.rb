@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :rights
+  resources :rights do
+    collection do
+      patch 'assign_right' 
+    end
+  end
   devise_for :users
   resources :loans do
     member do
