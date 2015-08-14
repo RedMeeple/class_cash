@@ -29,6 +29,7 @@
 <ul>
   <% @new_rights.each do |n| %>
     <%= n.student.full_name %>
+    <%= render partial: 'rights/new_right', locals: { student: n.student } %>
   <% end %>
 </ul>
 
