@@ -10,14 +10,7 @@
   <tbody>
     <% @rights.each do |right| %>
       <tr id="right-row<%= right.id %>">
-        <td><%= right.description %></td>
-        <td>
-          <% right.students.each do |s| %>
-            <%= s.full_name %><br>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', right %></td>
-        <td><%= link_to 'Remove', right, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render partial: 'show', locals: { right: right } %>
       </tr>
     <% end %>
   </tbody>
@@ -31,7 +24,7 @@
 <ul>
   <% @new_rights.each do |n| %>
     <div id="right<%= n.id %>">
-      <%= n.student.full_name %>
+      <%= n.student.full_name %> for reaching $<%= n.cash_level %>
       <%= render partial: 'rights/new_right', locals: { student: n.student } %>
     </div>
   <% end %>

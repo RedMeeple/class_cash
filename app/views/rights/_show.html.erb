@@ -1,0 +1,9 @@
+
+  <td><%= right.description %></td>
+  <td>
+    <% right.students.each do |s| %>
+      <%= s.full_name %><br>
+    <% end %>
+  </td>
+  <td><%= link_to 'Show', right %></td>
+  <td><%= link_to 'Remove', right, method: :delete, data: { confirm: 'Are you sure?' } %></td>
