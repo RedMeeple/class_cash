@@ -22,8 +22,11 @@ class Student < User
   def check_rights
     levels = [1000, 10000, 25000]
     levels.each do |level|
-      if self.cash > level && !self.student_right_assignments.find_by_cash_level(level)
+      assignment = self.student_right_assignments.find_by_cash_level(level)
+      if self.cash > level && !assignment
         StudentRightAssignment.create(student_id: self.id, cash_level: level)
+      elsif self.cash < level && assignment
+        assignment.delete
       end
     end
   end
