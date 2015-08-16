@@ -14,10 +14,15 @@ class DashboardController < ApplicationController
     @received = Transaction.where(recipient_id: @student.id).last(5).reverse
     @awards = @student.awards
     @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
+    @student_rights = @student.student_right_assignments
   end
 
   def instructor
     @instructor = Instructor.find_by_id(current_user.id)
+    @new_rights = @instructor.unassigned_rights.count
+    @transactions = @instructor.transactions.where("DATE(transactions.created_at) >= ?", Date.today).count
+    @loans = @instructor.loans.where("DATE(loans.created_at) >= ?", Date.today).count
+    @unentered_periods = @instructor.unentered_periods
   end
 
   private def nav_links_instructor

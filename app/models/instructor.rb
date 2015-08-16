@@ -19,4 +19,12 @@ class Instructor < User
     self.student_right_assignments.where(right_id: nil)
   end
 
+  def unentered_periods
+    periods = []
+    self.periods.each do |period|
+      periods << period if period.students.first.behaviors.first.date != Date.today
+    end
+    periods
+  end
+
 end

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :awards
-  get 'transactions/index'
+  get 'transactions/index', as: :transactions
 
   get 'welcome/home'
 

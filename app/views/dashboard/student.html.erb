@@ -14,6 +14,11 @@
   <% end %>
 </div>
 
+<h3>Your Rights</h3>
+<% @student_rights.each do |student_right| %>
+  <div><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
+<% end %>
+
 <h3>Your Bonuses</h3>
 <% @extras.each do |extra| %>
   <div>You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
