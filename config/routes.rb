@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :rights do
     collection do
-      patch 'assign_right' 
+      patch 'assign_right'
     end
   end
+  get 'rights/first/:id/:student_id' => 'rights#fire', as: :fire
+
   devise_for :users
   resources :loans do
     member do

@@ -1,5 +1,5 @@
 class RightsController < ApplicationController
-  before_action :set_right, only: [:show, :destroy]
+  before_action :set_right, only: [:show, :destroy, :fire]
   before_action :instructor_logged_in?
 
   def index
@@ -18,7 +18,7 @@ class RightsController < ApplicationController
 
     respond_to do |format|
       if @right.save
-        format.js
+        format.html { redirect_to rights_path }
       else
         format.html { render :new }
         format.json { render json: @right.errors, status: :unprocessable_entity }
@@ -30,6 +30,15 @@ class RightsController < ApplicationController
     @student_right_assignment = StudentRightAssignment.find_by_student_id(params[:student_right_assignment][:student_id])
     @student_right_assignment.update(student_right_assignment_params)
     @right = @student_right_assignment.right
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def fire
+    StudentRightAssignment.where(student_id: params[:student_id]).find_by_right_id(@right.id).update(right_id: nil)
+    @instructor = Instructor.find(current_user.id)
+    @new_rights = @instructor.unassigned_rights
     respond_to do |format|
       format.js
     end
@@ -52,6 +61,6 @@ class RightsController < ApplicationController
   end
 
   private def right_params
-    params.require(:right).permit(:description, :teacher_id)
+    params.require(:right).permit(:description, :instructor_id)
   end
 end

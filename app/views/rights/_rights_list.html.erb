@@ -1,0 +1,6 @@
+<% @new_rights.each do |n| %>
+  <div id="right<%= n.id %>">
+    <%= n.student.full_name %> for reaching $<%= n.cash_level %>
+    <%= render partial: 'rights/new_right', locals: { student: n.student } %>
+  </div>
+<% end %>

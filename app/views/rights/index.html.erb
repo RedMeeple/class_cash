@@ -21,11 +21,4 @@
 <br>
 
 <h4>Students who have earned a right:</h4>
-<ul>
-  <% @new_rights.each do |n| %>
-    <div id="right<%= n.id %>">
-      <%= n.student.full_name %> for reaching $<%= n.cash_level %>
-      <%= render partial: 'rights/new_right', locals: { student: n.student } %>
-    </div>
-  <% end %>
-</ul>
+<ul id="new-rights-list"><%= render 'rights_list' %></ul>
