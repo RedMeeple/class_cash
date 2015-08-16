@@ -1,20 +1,10 @@
-<table class="pure-table pure-table-bordered centered">
-  <thead>
-    <tr>
-      <th>Right</th>
-      <th>Students</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rights.each do |right| %>
-      <tr id="right-row<%= right.id %>">
-        <%= render partial: 'show', locals: { right: right } %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ol id="rights-list">
+  <% @rights.each do |right| %>
+    <div id="right-row<%= right.id %>">
+      <%= render partial: 'show', locals: { right: right } %>
+    </div>
+  <% end %>
+</ol>
 
 <div><%= render partial: 'form' %></div>
 

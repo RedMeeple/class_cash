@@ -1,12 +1,14 @@
 
-<td><%= right.description %></td>
-<td>
-  <% right.students.each do |s| %>
-    <%= s.full_name %> <%= link_to "x", fire_path(right, s), remote: true %><br>
-  <% end %>
-</td>
-<td>
+<li>
+  <%= right.description %>
   <% if right.instructor %>
-    <%= link_to 'Remove', right, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-</td>
+
+  <ul>
+    <% right.students.each do |s| %>
+      <li><%= s.full_name %> <%= link_to "x", fire_path(right, s), remote: true %></li>
+    <% end %>
+  </ul>
+
+</li>
