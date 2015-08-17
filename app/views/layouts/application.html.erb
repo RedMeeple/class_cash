@@ -32,27 +32,6 @@
         <%= link_to "", root_path, class: "fa-home fa fa-2x home-icon" %>
       <% end %>
     </header>
-    <!--<div class="navigation">
-      <div class="menu-btn" id="menu-btn">
-      	<span></span>
-      	<span></span>
-      	<span></span>
-      </div>
-      <div class="menu-responsive">
-        <ul>
-          <% if user_signed_in? %>
-        </li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "link-logout" %></li>
-          <% end %>
-          <% if @dashboard_instructor %>
-            <li><%= link_to 'Home', root_path, class: "home" %></li>
-          <% end %>
-          <% if @students_instructor %>
-            <li><%= link_to 'Home', root_path, class: "home" %></li>
-            <li><%= link_to 'Add New Student', new_student_path, class: "add-new-student" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>-->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
