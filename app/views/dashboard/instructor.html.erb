@@ -1,15 +1,15 @@
 
 <h3>Welcome</h3>
-<div>You have <%= @new_rights || "no" %> students who have earned a <%= link_to "new right", rights_path %>. </div>
-<div><%= @transactions || "No" %> students have made <%= link_to "transactions", transactions_path %> today.</div>
-<div><%= @loans || "No" %> students have made <%= link_to "loans", loans_path %> today.</div>
+<div>You have <%= @new_rights || "no" %> students who have earned a <%= link_to "new right", rights_path, class: "gen-link" %>. </div>
+<div><%= @transactions || "No" %> students have made <%= link_to "transactions", transactions_path, class: "gen-link" %> today.</div>
+<div><%= @loans || "No" %> students have made <%= link_to "loans", loans_path, class: "gen-link" %> today.</div>
 <div>
   <% if @unentered_periods.length == 0 %>
     Today's behavior entry is complete.
   <% else %>
     Enter today's behavior for
     <% @unentered_periods.each do |up| %>
-      <%= link_to "#{up.name}", enter_behavior_period_path(up) %>
+      <%= link_to "#{up.name}", enter_behavior_period_path(up), class: "gen-link" %>
     <% end %>
   <% end %>
 </div>
