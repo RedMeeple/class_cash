@@ -12,13 +12,15 @@
     <header class="page-header">
       <div class="top-nav-container">
         <ul class="top-nav-ul">
-          <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
-          <li class="top-nav-li"><%= link_to 'Periods', periods_path %></li>
-          <li class="top-nav-li"><%= link_to 'Jobs', jobs_path %></li>
-          <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
-          <li class="top-nav-li"><%= link_to 'Transactions', transactions_path %></li>
-          <li class="top-nav-li"><%= link_to 'Loans', loans_path %></li>
-          <li class="top-nav-li"><%= link_to 'Rights', rights_path %></li>
+          <% if current_user and current_user.type == "Instructor" %>
+            <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
+            <li class="top-nav-li"><%= link_to 'Periods', periods_path %></li>
+            <li class="top-nav-li"><%= link_to 'Jobs', jobs_path %></li>
+            <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
+            <li class="top-nav-li"><%= link_to 'Transactions', transactions_path %></li>
+            <li class="top-nav-li"><%= link_to 'Loans', loans_path %></li>
+            <li class="top-nav-li"><%= link_to 'Rights', rights_path %></li>
+          <% end %>
         </ul>
       </div>
       <% if user_signed_in? %>
