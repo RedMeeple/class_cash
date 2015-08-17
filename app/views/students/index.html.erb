@@ -1,6 +1,10 @@
+
+
 <div class="heading-container">
   <h1 class="roster-title">Roster</h1>
 </div>
+
+<%= link_to 'Give Individual Bonus', give_bonus_students_path %>
 <% @periods.each do |per| %>
   <% per.find_richest %>
 
