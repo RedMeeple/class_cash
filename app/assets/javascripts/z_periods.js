@@ -13,11 +13,15 @@ app.periods = {
   },
 
   displayPeriodOptions: function () {
-    $('.period-table-info-options div').on('click', function () {
+    $('.period-table-info-options').on('click', '.pure-button',function () {
       
-      $('.period-table-info-options div').removeClass('active');
-
-      $(this).next().toggleClass('active');
+      if ($(this).next().hasClass('active')) {
+        $(this).next().toggleClass('active');
+      } else {
+        $('.period-table-info-options-list').removeClass('active');
+        $(this).next().toggleClass('active');
+      }
+      
     });
   }
 }
