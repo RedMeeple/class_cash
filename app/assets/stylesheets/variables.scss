@@ -1,25 +1,14 @@
 // Colors
 
-$steel-gray: #537E7E;
-$dark-blue-gray: #223D42;
-$gray: #5A6B64;
-$light-pale-green: #BED5BD;
-$pale-green: #82B8A4;
-$green: #47A275;
-$blue-green: #5EB2AA;
-$off-white: #FAFAFA;
+$mdl-green-100: #C8E6C9;
+$mdl-green-300: #81C784;
+$mdl-green-500: #4CAF50;
+$mdl-green-700: #388E3C;
+$mdl-green-900: #1B5E20;
 
-$primary-bg-color: $green;
-$primary-font-color: $off-white;
-$secondary-font-color: $dark-blue-gray;
-$primary-btn-color: $dark-blue-gray;
-$primary-btn-font-color: $off-white;
-$secondary-btn-color: $off-white;
-$secondary-btn-font-color: $gray;
-$third-btn-color: $green;
-$third-btn-font-color: $off-white;
+$mdl-grey-100: #F5F5F5;
 
-// Other
-
-$standard-margin-top: 8rem;
-$standard-padding-all: 2rem;
+$body: $mdl-grey-100;
+$green-primary: $mdl-green-500;
+$green-primary-light: $mdl-green-100;
+$green-primary-dark: $mdl-green-900;
