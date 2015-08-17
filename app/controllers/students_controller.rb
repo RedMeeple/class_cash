@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
-  before_action :instructor_logged_in?, except: [:send_money, :sent_money]
+  before_action :instructor_logged_in?, except: [:send_money, :sent_money, :behavior]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
+  before_action :logged_in?, only: [:behavior]
   before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior]
 
   before_action :nav_links_instructor
@@ -132,6 +133,12 @@ class StudentsController < ApplicationController
 
   private def nav_links_student
     @students_student = true
+  end
+
+  private def logged_in?
+    unless current_user
+      redirect_to user_session_path, notice: 'Please login to view this page.'
+    end
   end
 
 end
