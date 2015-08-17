@@ -27,6 +27,7 @@
  *= require z_jobs
  *= require z_loans
  *= require z_periods
+ *= require z_rights
  *= require z_sessions
  *= require z_students
  *= require z_transactions
