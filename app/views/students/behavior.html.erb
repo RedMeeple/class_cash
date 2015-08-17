@@ -94,20 +94,19 @@
     // Beginning of mapping data
     
     rect.filter(function(d) { 
-        for (var i = 0; i < data.length; i++) {
-          if (d === data[i][0]) {
-            return d;
+          for (var i = 0; i < data.length; i++) {
+            if (d === data[i][0]) {
+              return d;
+            }
           }
-        }
-      }).attr("class", function(d) {
+        }).attr("class", function(d) {
           for (var i = 0; i < data.length; i++) {
             if (d === data[i][0]) {
               return "day " + behavior(data[i][1]);
             }
           }
-        }).select("title")
-          .text(function(d) { return d + ": " + data[1]; });
-        
+        })
+      
     //  Tooltip
     
     rect.on("mouseover", mouseover);
