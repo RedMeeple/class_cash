@@ -3,10 +3,10 @@
 
 <%= simple_form_for @period do |f| %>
   <%= f.error_notification %>
-  
+
   <%= f.fields_for :students do |ff| %>
     <%= ff.object.full_name %>
-    <%= ff.input :can_loan, as: :boolean, label: false %>
+    <%= ff.input :can_loan, as: :radio_buttons, label: false %>
   <% end %>
 
   <%= f.button :submit, "Submit" %>

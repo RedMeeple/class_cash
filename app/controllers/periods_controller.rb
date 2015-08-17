@@ -69,11 +69,11 @@ class PeriodsController < ApplicationController
   end
 
   def update
+    @period.update(period_params)
+    @instructor = @period.instructor
+    @period.students.build
     respond_to do |format|
-      @period.update(period_params)
-      @instructor = @period.instructor
-      @period.students.build
-      format.html { redirect_to @period, notice: 'Loaning Permissions Updated.' }
+      format.html { redirect_to periods_path, notice: 'Loaning Permissions Updated.' }
       format.js
     end
 
