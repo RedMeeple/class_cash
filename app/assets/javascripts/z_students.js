@@ -20,7 +20,7 @@ app.students = {
       axis: {
         y: {
           label: {
-            text: 'Close Price',
+            text: 'Cash',
             position: 'outer-middle'
           }
         },
