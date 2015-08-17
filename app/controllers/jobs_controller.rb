@@ -10,22 +10,19 @@ class JobsController < ApplicationController
     @students = @periods.joins(:students)
   end
 
-  # GET /jobs/1
-  # GET /jobs/1.json
   def show
   end
 
-  # GET /jobs/new
   def new
     @job = Job.new(student_id: params[:student_id])
   end
 
-  # GET /jobs/1/edit
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
-  # POST /jobs
-  # POST /jobs.json
   def create
     @job = Job.new(job_params)
 
@@ -37,22 +34,16 @@ class JobsController < ApplicationController
 
   end
 
-  # PATCH/PUT /jobs/1
-  # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job }
+        format.js
       else
-        format.html { render :edit }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
+        format.html { redirect_to jobs_url, notice: 'Job failed to be updated.' }
       end
     end
   end
 
-  # DELETE /jobs/1
-  # DELETE /jobs/1.json
   def destroy
     @job.destroy
     respond_to do |format|
@@ -61,23 +52,19 @@ class JobsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
+  private def set_job
+    @job = Job.find(params[:id])
+  end
 
-    def set_students
-      @periods = Period.where(instructor_id: current_user.id).all
-      @students = []
-      @periods.each do |period|
-        @students += Student.where(period_id: period.id).all.to_a
-      end
+  private def set_students
+    @periods = Period.where(instructor_id: current_user.id).all
+    @students = []
+    @periods.each do |period|
+      @students += Student.where(period_id: period.id).all.to_a
     end
+  end
 
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:student_id, :description, :payscale)
-    end
+  private def job_params
+    params.require(:job).permit(:student_id, :description, :payscale)
+  end
 end
