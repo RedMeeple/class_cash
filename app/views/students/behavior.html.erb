@@ -114,12 +114,12 @@
     function mouseover(d) {
       tooltip.style("visibility", "visible");
       var behavior_data = (data[1] !== undefined) ? data[1] : "none";
-      var purchase_text = d + ": " + behavior(behavior_data[1]);
+      var behavior_text = 'testing';
 
       tooltip.transition()        
                   .duration(200)      
                   .style("opacity", .9);      
-      tooltip.html(purchase_text)  
+      tooltip.html(behavior_text)  
                   .style("left", (d3.event.pageX) + 30 + "px")     
                   .style("top", (d3.event.pageY) + "px"); 
     }
