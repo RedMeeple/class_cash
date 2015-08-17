@@ -18,7 +18,22 @@ class Loan < ActiveRecord::Base
   def calculate_new_balance
     if (Date.today != self.created_at.to_date) && ((Date.today - self.created_at.to_date) % 7 == 0)
       self.update(balance: (self.balance + (self.balance * self.interest / 100)))
+      make_payment
     end
+  end
+
+  def calulate_payment
+    if self.balance <= self.amount / 10
+      self.balance
+    else
+      self.amount / 10
+    end
+  end
+
+  def make_payment
+    t = Transaction.create(reason: "Automatic Loan Payment", recipient_id: self.student_id,
+        student_id: self.recipient_id, amount: calculate_payment)
+    t.finalize
   end
 
   def self.update_balances

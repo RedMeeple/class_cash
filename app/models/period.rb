@@ -3,7 +3,7 @@ class Period < ActiveRecord::Base
   has_many :behaviors, through: :student
   has_many :bonuses, dependent: :destroy
   belongs_to :instructor
-  accepts_nested_attributes_for :students, reject_if: proc { |attributes| attributes['email'].blank? }
+  accepts_nested_attributes_for :students, reject_if: :all_blank
 
   def find_richest
     rich = self.students[0]

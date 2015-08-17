@@ -3,7 +3,7 @@ class Transaction < ActiveRecord::Base
   validates :recipient_id, presence: true
 
   belongs_to :student
-  
+
   def finalize
     sender = self.student
     transaction do
@@ -14,7 +14,7 @@ class Transaction < ActiveRecord::Base
         Period.find_by_id(sender.period.id).find_richest
         Period.find_by_id(recipient.period.id).find_richest
       end
-      if self.reason == "Loan Payment"
+      if self.reason == "Loan Payment" or reason == "Automatic Loan Payment"
         loan = Loan.where(student_id: self.recipient_id).find_by_recipient_id(self.student_id)
         loan.update(balance: loan.balance - self.amount)
         loan.destroy if loan.balance <= 0

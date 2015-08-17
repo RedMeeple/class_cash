@@ -22,8 +22,9 @@
             <li class="top-nav-li"><%= link_to 'Rights', rights_path %></li>
           <% end %>
           <% if current_user and current_user.type == "Student" %>
-            <li class="top-nav-li"><%= link_to 'Transfer Money', send_money_students_path, class: "dashboard-student-send-money-link" %></li>
-            <li class="top-nav-li"><%= link_to 'Your Loans', all_loans_path, class: "dashboard-student-send-money-link" %></li>
+            <li class="top-nav-li"><%= link_to 'Transfer Money', send_money_students_path %></li>
+            <li class="top-nav-li"><%= link_to 'Your Loans', all_loans_path %></li>
+            <li class="top-nav-li"><%= link_to 'Payment History', behavior_student_path(current_user) %></li>
           <% end %>
         </ul>
       </div>
