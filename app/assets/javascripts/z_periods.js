@@ -4,11 +4,15 @@
 app.periods = {
 
   displayPeriodsOptions: function () {
-    $('.periods-table-info-options div').on('click', function () {
+    $('.periods-table-info-options').on('click', '.pure-button', function () {
       
-      $('.periods-table-info-options div').removeClass('active');
-
-      $(this).next().toggleClass('active');
+      if ($(this).next().hasClass('active')) {
+        $(this).next().toggleClass('active');
+      } else {
+        $('.periods-table-info-options-list').removeClass('active');
+        $(this).next().toggleClass('active');
+      }
+      
     });
   },
 
