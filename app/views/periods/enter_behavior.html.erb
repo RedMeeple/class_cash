@@ -21,7 +21,7 @@
               <td><%= ffb.check_box :well_behaved, { checked: true } %></td>
               <td><% student.jobs.each do |job| %>
                 <%= ff.fields_for :jobs, student.jobs.find_by_id(job.id) do |ffj|%>
-                  <div><%= job.description %> <%= ffj.check_box :last_date_done, { checked: true }, Date.today, nil %></div>
+                  <div><%= ffj.check_box :last_date_done, { checked: true }, Date.today, nil %> <%= job.description %></div>
                 <% end %>
               <%end %></td>
           <% end %></tr>
