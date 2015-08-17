@@ -11,3 +11,94 @@
 .dashboard-instructor a {
   display: block;
 }
+
+.dashboard-info-container {
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  min-width: 960px;
+}
+
+.dashboard-info-container a {
+  color: #333;
+}
+
+.dashboard-info {
+  width: 33%;
+  padding-bottom: 33%;
+  background: #5EC1A3;
+  display: inline-block;
+  position: relative;
+}
+
+.dashboard-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dashboard-stat {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  font-size: 62px;
+}
+
+.dashboard-stat-heading {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  font-size: 28px;
+}
+
+.dashboard-stat-behavior {
+  width: 33%;
+  padding-bottom: 50px;
+  background-color: #5EC1A3;
+  display: inline-block;
+  position: relative;
+  margin-top: 0;
+}
+
+.period-title {
+  position: absolute;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.dashboard-section-title {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.dashboard-header-container {
+  position: relative;
+  width: 90%;
+  min-width: 960px;
+  margin: 0 auto;
+}
+
+.stats-totals-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.stats-totals {
+  margin-left: 25px;
+}
