@@ -59,6 +59,7 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
+        @period.students.update_all(cash: 0, can_loan: false)
         format.html { redirect_to @period, notice: 'Period was successfully created.' }
         format.json { render :show, status: :created, location: @period }
       else
@@ -69,12 +70,15 @@ class PeriodsController < ApplicationController
   end
 
   def update
-    @period.update(period_params)
-    @instructor = @period.instructor
-    @period.students.build
     respond_to do |format|
-      format.html { redirect_to periods_path, notice: 'Loaning Permissions Updated.' }
-      format.js
+      if @period.update!(period_params)
+        @instructor = @period.instructor
+        @period.students.build
+        format.html { redirect_to periods_path, notice: 'Loaning Permissions Updated.' }
+        format.js
+      else
+        format.html { redirect_to periods_path, notice: @periods.errors }
+      end
     end
 
   end
@@ -82,13 +86,12 @@ class PeriodsController < ApplicationController
   def destroy
     @period.destroy
     respond_to do |format|
-      format.html { redirect_to periods_url, notice: 'Period was successfully destroyed.' }
+      format.html { redirect_to periods_url, notice: 'Period was removed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_period
       @period = Period.find(params[:id])
     end
@@ -100,7 +103,7 @@ class PeriodsController < ApplicationController
     def behavior_params
       params.require(:behavior).permit(:student_id, :well_behaved, :did_job)
     end
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name,
           students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan, :cash,

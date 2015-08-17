@@ -1,9 +1,9 @@
 
 <li>
-  <%= right.description %>
+  <h3><%= right.description %>
   <% if right.instructor %>
     <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <% end %></h3>
 
   <ul>
     <% right.students.each do |s| %>

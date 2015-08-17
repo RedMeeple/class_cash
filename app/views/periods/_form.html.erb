@@ -16,7 +16,6 @@
     </thead>
     <tbody>
       <%= f.fields_for :students do |ff| %>
-        <%= ff.hidden_field :cash, value: 0 %>
         <tr>
           <td><%= ff.input :first_name, label: false %></td>
           <td><%= ff.input :last_name, label: false %></td>

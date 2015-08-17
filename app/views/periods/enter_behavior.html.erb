@@ -1,6 +1,6 @@
 <div class="enter-behavior-container">
 
-  <div class="enter-behavior-title">Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></div>
+  <div class="heading-container"><h1>Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></h1></div>
 <%= form_for @period, url: update_behavior_period_path(@period) do |f| %>
   <table class = "pure-table pure-table-bordered">
     <thead>
@@ -34,5 +34,3 @@
   </div>
 <% end %>
 </div>
-
-<%= link_to 'Home', root_path %>

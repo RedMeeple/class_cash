@@ -1,11 +1,11 @@
-<ol id="rights-list">
+<ul id="rights-list">
   <% @rights.each do |right| %>
     <div id="right-row<%= right.id %>">
       <%= render partial: 'show', locals: { right: right } %>
     </div>
   <% end %>
   <li><%= render partial: 'form' %></li>
-</ol>
+</ul>
 
 <br>
 
