@@ -27,7 +27,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      redirect_to jobs_path, notice: 'Job was successfully created.'
+      redirect_to jobs_path, notice: "#{@job.student.first_name} was hired."
     else
       render :new
     end
