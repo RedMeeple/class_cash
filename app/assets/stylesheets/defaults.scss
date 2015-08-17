@@ -99,9 +99,10 @@ td.numeric {
   text-align: right;
 }
 
-.jobs-table, .periods-table {
+.jobs-table, .periods-table, .period-table, .student-table {
   width: 80%;
   margin: 0 auto;
+  min-width: 880px;
 }
 
 .heading-container {
