@@ -5,6 +5,8 @@ app.periods = {
 
   displayPeriodsOptions: function () {
     $('.periods-table-info-options div').on('click', function () {
+      
+      $('.periods-table-info-options div').removeClass('active');
 
       $(this).next().toggleClass('active');
     });
@@ -12,6 +14,8 @@ app.periods = {
 
   displayPeriodOptions: function () {
     $('.period-table-info-options div').on('click', function () {
+      
+      $('.period-table-info-options div').removeClass('active');
 
       $(this).next().toggleClass('active');
     });
