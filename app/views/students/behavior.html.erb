@@ -100,12 +100,9 @@
           }
         }
       }).attr("class", function(d) {
-        console.log(d);
           for (var i = 0; i < data.length; i++) {
-            if (d === data[i][0] && (data[i][1] === true)) {
-              return "day good";
-            } else if (d === data[i][0] && (data[i][1] === false)) {
-              return "day bad";
+            if (d === data[i][0]) {
+              return "day " + behavior(data[i][1]);
             }
           }
         }).select("title")
