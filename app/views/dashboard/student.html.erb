@@ -1,5 +1,5 @@
 
-<div>Welcome, <%= @student.full_name %>
+<div>Welcome, <%= @student.full_name %></div>
 
 
 <div>
@@ -52,5 +52,8 @@
   </div>
 <% end %>
 
-<div class="cash-chart"></div>
+<div class="cash-chart-container">
+  <div class="cash-chart"></div>
+</div>
+
 <%= render 'students/daily_balance_chart' %>
