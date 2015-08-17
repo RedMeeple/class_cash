@@ -1,4 +1,4 @@
-<%= simple_form_for @job, remote: !@job.new_record?, html: { class: "pure-form pure-form-stacked" } do |f| %>
+<%= simple_form_for @job, remote: !@job.new_record?, html: { class: "pure-form" } do |f| %>
   <%= f.error_notification %>
 
   <% if @job.new_record? %>
@@ -6,8 +6,8 @@
       <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
     <% end %>
   <% end %>
-  <%= f.input :description, label: false, placeholder: "Title" %>
-  <%= f.input :payscale, label: false, placeholder: "Daily Payscale" %>
+  <%= f.input_field :description, label: false, placeholder: "Title" %>
+  <%= f.input_field :payscale, label: false, placeholder: "Daily Payscale" %>
 
   <%= f.button :submit, "Hire", class: "pure-button pure-button-primary" %>
 
