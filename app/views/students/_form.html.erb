@@ -7,6 +7,7 @@
     <%= f.input :email %>
     <%= f.input :cash %>
     <%= f.association :period, include_blank: true %>
+    <%= ff.hidden_field :can_loan, value: false %>
 
     <%= f.submit "Submit", class: "pure-button pure-button-primary" %>
 

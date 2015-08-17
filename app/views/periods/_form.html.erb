@@ -22,7 +22,9 @@
           <td><%= ff.input :last_name, label: false %></td>
           <td><%= ff.input :email, label: false %>
             <% if ff.object.new_record? %>
-              <td><%= ff.input :password, label: false, placeholder: "Password" %></td>
+              <td><%= ff.input :password, label: false, placeholder: "Password" %>
+                  <%= ff.hidden_field :can_loan, value: false %>
+              </td>
             <% end %>
           </td>
         </tr>

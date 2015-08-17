@@ -1,5 +1,5 @@
 
-<div>Welcome, <%= @student.full_name %>
+<div>Welcome, <%= @student.full_name %></div>
 
 
 <div>
@@ -52,8 +52,8 @@
   </div>
 <% end %>
 
-<div class="cash-chart"></div>
-<%= render 'students/daily_balance_chart' %>
+<div class="cash-chart-container">
+  <div class="cash-chart"></div>
+</div>
 
-<%= link_to 'Transfer Money', send_money_students_path, class: "dashboard-student-send-money-link" %>
-<%= link_to 'Your Loans', all_loans_path, class: "dashboard-student-send-money-link" %>
+<%= render 'students/daily_balance_chart' %>

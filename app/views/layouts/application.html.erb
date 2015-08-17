@@ -12,41 +12,26 @@
     <header class="page-header">
       <div class="top-nav-container">
         <ul class="top-nav-ul">
-          <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
-          <li class="top-nav-li"><%= link_to 'Periods', periods_path %></li>
-          <li class="top-nav-li"><%= link_to 'Jobs', jobs_path %></li>
-          <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
-          <li class="top-nav-li"><%= link_to 'Transactions', transactions_path %></li>
-          <li class="top-nav-li"><%= link_to 'Loans', loans_path %></li>
-          <li class="top-nav-li"><%= link_to 'Rights', rights_path %></li>
+          <% if current_user and current_user.type == "Instructor" %>
+            <li class="top-nav-li"><%= link_to 'Roster', students_path %></li>
+            <li class="top-nav-li"><%= link_to 'Periods', periods_path %></li>
+            <li class="top-nav-li"><%= link_to 'Jobs', jobs_path %></li>
+            <li class="top-nav-li"><%= link_to 'Awards', awards_path %></li>
+            <li class="top-nav-li"><%= link_to 'Transactions', transactions_path %></li>
+            <li class="top-nav-li"><%= link_to 'Loans', loans_path %></li>
+            <li class="top-nav-li"><%= link_to 'Rights', rights_path %></li>
+          <% end %>
+          <% if current_user and current_user.type == "Student" %>
+            <li class="top-nav-li"><%= link_to 'Transfer Money', send_money_students_path, class: "dashboard-student-send-money-link" %></li>
+            <li class="top-nav-li"><%= link_to 'Your Loans', all_loans_path, class: "dashboard-student-send-money-link" %></li>
+          <% end %>
         </ul>
       </div>
       <% if user_signed_in? %>
         <%= link_to "", destroy_user_session_path, method: :delete, class: "fa-sign-out fa fa-2x signout-icon" %>
+        <%= link_to "", root_path, class: "fa-home fa fa-2x home-icon" %>
       <% end %>
-      <%= link_to "", root_path, class: "fa-home fa fa-2x home-icon" %>
     </header>
-    <!--<div class="navigation">
-      <div class="menu-btn" id="menu-btn">
-      	<span></span>
-      	<span></span>
-      	<span></span>
-      </div>
-      <div class="menu-responsive">
-        <ul>
-          <% if user_signed_in? %>
-        </li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "link-logout" %></li>
-          <% end %>
-          <% if @dashboard_instructor %>
-            <li><%= link_to 'Home', root_path, class: "home" %></li>
-          <% end %>
-          <% if @students_instructor %>
-            <li><%= link_to 'Home', root_path, class: "home" %></li>
-            <li><%= link_to 'Add New Student', new_student_path, class: "add-new-student" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>-->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

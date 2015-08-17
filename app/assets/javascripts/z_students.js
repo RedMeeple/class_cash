@@ -2,13 +2,6 @@
  // All this logic will automatically be available in application.js.
 
 app.students = {
-
-  displayOptions: function () {
-    $('.student-table-info-options div').on('click', function () {
-
-      $(this).next().toggleClass('active');
-    });
-  },
   
   cashChart: function (dates, cashAmount) {
     dates.unshift('dates');

@@ -4,7 +4,7 @@
   <h1 class="roster-title">Roster</h1>
 </div>
 
-<%= link_to 'Give Individual Bonus', give_bonus_students_path %>
+<%= link_to 'Give Individual Bonus', give_bonus_students_path, class: "pure-button" %>
 <% @periods.each do |per| %>
   <% per.find_richest %>
 
