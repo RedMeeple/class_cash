@@ -19,12 +19,14 @@
             <td class="jobs-table-student-name"><%= s.full_name %></td>
             <td class="jobs-table-job">
               <% s.jobs.each do |job| %>
-                <div id="job<%= job.id %>">
-                  <%= job.description %>: $<%= job.payscale %>
-                </div>
-                <div id="links<%= job.id %>">
-                  <%= link_to 'Edit', edit_job_path(job), remote: true %>
-                  <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <div class="jobs-table-job-info">
+                  <div id="job<%= job.id %>">
+                    <%= job.description %>: $<%= job.payscale %>
+                  </div>
+                  <div id="links<%= job.id %>">
+                    <%= link_to 'Edit', edit_job_path(job), remote: true %>
+                    <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
                 </div>
               <% end %>
             </td>
