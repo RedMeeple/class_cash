@@ -2,7 +2,7 @@
 
   <div class="student-send-money-title">Send Cash</div>
 
-  <%= form_for @transaction, url: sent_money_students_path do |f| %>
+  <%= form_for @transaction, url: sent_money_students_path, html: { class: "pure-form pure-form-stacked" } do |f| %>
     <% if @transaction.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -16,7 +16,9 @@
     <% end %>
 
     <div class="field student-send-money-recipient">
-      <div class="student-send-money-recipient-title"><%= f.label :recipient %></div>
+      <div class="student-send-money-recipient-title">
+        <%= f.label :recipient %>
+      </div>
       <div class="student-send-money-recipient-input">
         <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
       </div>
@@ -35,7 +37,7 @@
       <%= f.hidden_field :sender_id, value: @student.id %>
     </div>
     <div class="actions">
-      <%= f.submit 'Send Money'%>
+      <%= f.submit 'Send Money', class: "pure-button pure-button-primary" %>
     </div>
 
   <% end %>

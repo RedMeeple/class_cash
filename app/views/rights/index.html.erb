@@ -1,13 +1,20 @@
-<ul id="rights-list">
-  <% @rights.each do |right| %>
-    <div id="right-row<%= right.id %>">
-      <%= render partial: 'show', locals: { right: right } %>
-    </div>
-  <% end %>
-  <li><%= render partial: 'form' %></li>
-</ul>
+<div class="rights-container">
+  <div class="rights-main-container">
+    <h2 class="rights-list-heading">List of Rights</h2>
+    <ul id="rights-list">
+      <% @rights.each do |right| %>
+        <div id="right-row<%= right.id %>" class="rights-list-item">
+          <%= render partial: 'show', locals: { right: right } %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 
-  <br>
+<div class="new-right-container">
+  <div><%= render partial: 'form' %></div>
+      <br>
 
-  <h4>Students who have earned a right:</h4>
-  <ul id="new-rights-list"><%= render 'rights_list' %></ul>
+      <h4 class="student-right-list">Students who have earned a right:</h4>
+      <ul id="new-rights-list"><%= render 'rights_list' %></ul>
+  </div>
+</div>

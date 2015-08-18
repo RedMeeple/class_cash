@@ -2,6 +2,105 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'variables';
+
+#rights-list {
+  padding: 0;
+}
+
 .new_right div {
   display: inline-block;
+  margin: 0;
+}
+
+.rights-container * {
+  margin: 0;
+}
+
+.rights-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  min-width: 840px;
+}
+
+.rights-list-item {
+  min-height: 60px;
+  width: 45%;
+  list-style-type: none;
+  margin: 0 0 10px 0;
+  padding-left: 10px;
+  border-radius: 2px;
+  position: relative;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+0,f8f8f8+61,f6f6f6+100 */
+background: rgb(252,252,252); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(248,248,248,1) 61%, rgba(246,246,246,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(61%,rgba(248,248,248,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+  border: 2px solid #eaeaea;
+  border-left: 4px solid #0083e7;
+}
+
+.rights-list-item:nth-child(even) {
+  border-left: 4px solid $green-primary;
+}
+
+.rights-sub-list-item {
+  padding-top: 5px;
+  list-style-type: none;
+}
+
+.new-right-container {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.right-input-container {
+  width: 100%;
+  position: absolute;
+}
+
+.rights-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25%;
+  padding: 8px 15px;
+}
+
+.right_description input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 75%;
+  padding: 6px 0;
+  outline: none;
+  padding-left: 5px;
+}
+
+.student-right-list {
+  margin-top: 50px;
+}
+
+.rights-list-heading {
+  padding-bottom: 40px;
+}
+
+.new-right-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.rights-delete, .new-right-delete {
+  text-decoration: none;
+  color: #333;
 }

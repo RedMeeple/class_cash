@@ -39,6 +39,16 @@
   width: 15rem;
 }
 
+
+// Roster View
+.period-table {
+  margin-bottom: 2em;
+}
+
+.period-table td:nth-child(4) {
+  text-align: center;
+}
+
 .period-table-info-options {
   position: relative;
 }

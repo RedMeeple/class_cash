@@ -16,18 +16,15 @@ CSS GROUPING GUIDE
   box-sizing: border-box;
 }
 
-* + * {
-  margin-top: 1rem;
-}
-
 body {
   background: $body;
   height: 100%;
 }
 
+
+// Navigation Bar
 .page-header {
   background-color: $green-primary;
-  padding: 10px 0;
   position: relative;
   top: 0;
   right: 0;
@@ -38,13 +35,12 @@ body {
   list-style-type: none;
   text-align: center;
   margin: 0;
-  padding: 0;
-  border-bottom: 3px solid $green-primary; // is this needed?
+  padding: 1.5em;
 }
 
 .top-nav-ul a {
   text-decoration: none;
-  color: #eee;
+  color: $body;
   padding: 0 0.75em 0.25em 0.75em;
 }
 
@@ -53,42 +49,46 @@ body {
 }
 
 .top-nav-ul a:hover {
-  border-bottom: 3px solid #eee;
+  border-bottom: 3px solid $body;
 }
 
-.signout-icon, .home-icon {
+.home-icon,
+.signout-icon {
   position: absolute;
-  right: 25px;
-  top: 0;
-  color: #eee;
-  cursor: pointer;
-  width: 25px;
+  color: $body;
+  top: 0.5em;
   text-decoration: none;
 }
 
 .home-icon {
-  left: 25px;
+  left: 1em;
 }
 
+.signout-icon {
+  right: 1em;
+}
+
+
+// Notice/Alert
 .notice, #notice,
 .alert, #alert {
   text-align: center;
 }
 
-// form {
-//   width: 15rem;
-//   margin: 0 auto;
-// }
+
+// Other Styles that flow through everything
+
+.form-width {
+  width: 20em;
+}
+
+.input-total {
+  width: 100%;
+}
 
 input[type="checkbox"] {
   margin-right: 0.5rem;
 }
-
-// input.string, input.password, input.numeric,
-// input[type="number"], input[type="text"], input[type="password"],
-// select {
-//   width: 100%;
-// }
 
 .centered {
   margin: 0 auto;
