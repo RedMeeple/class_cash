@@ -45,20 +45,20 @@ app.students = {
     
     var currentYear = new Date().getFullYear();
     
-    var width = 960,
-        height = 750,
-        cellSize = 25; // cell size
+    var width = 960;
+    var height = 750;
+    var cellSize = 25; // cell size
         
     var no_months_in_a_row = Math.floor(width / (cellSize * 7 + 50));
     var shift_up = cellSize * 3;
     
-    var day = d3.time.format("%w"), // day of the week
-        day_of_month = d3.time.format("%e"), // day of the month
-        day_of_year = d3.time.format("%j"),
-        week = d3.time.format("%U"), // week number of the year
-        month = d3.time.format("%m"), // month number
-        year = d3.time.format("%Y"),
-        format = d3.time.format("%Y-%m-%d");
+    var day = d3.time.format("%w"); // day of the week
+    var day_of_month = d3.time.format("%e"); // day of the month
+    var day_of_year = d3.time.format("%j");
+    var week = d3.time.format("%U"); // week number of the year
+    var month = d3.time.format("%m"); // month number
+    var year = d3.time.format("%Y");
+    var format = d3.time.format("%Y-%m-%d");
         
     var behavior = function (d) {
       if (d === true) {
@@ -74,7 +74,7 @@ app.students = {
         .attr("width", width)
         .attr("height", height)
         .attr("class", "RdYlGn")
-      .append("g")
+      .append("g");
   
     var rect = svg.selectAll(".day")
         .data(function(d) { 
