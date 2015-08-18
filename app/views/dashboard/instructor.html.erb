@@ -6,7 +6,7 @@
   <h3 class="dashboard-section-title">Welcome</h3>
   <div class="stats-totals-container">
     <span class="stats-totals">Total Wealth: $<%= @instructor.students.sum(:cash) %></span>
-    <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / @instructor.students.count %></span>
+    <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / (@instructor.students.count + 1) %></span>
     <span class="stats-totals">Richest: <%= @instructor.wealthiest %></span>
   </div>
 </div>

@@ -24,8 +24,8 @@ class DashboardController < ApplicationController
     @transactions = @instructor.transactions.where("DATE(transactions.created_at) >= ?", Date.today).count
     @loans = @instructor.loans.where("DATE(loans.created_at) >= ?", Date.today).count
     @unentered_periods = @instructor.unentered_periods
-    @bonuses = Extra.where("DATE(extras.created_at) >= ?", Date.today)
-    @class_bonuses = Bonus.where("DATE(bonuses.created_at) >= ?", Date.today)
+    @bonuses = @instructor.extras.where("DATE(extras.created_at) >= ?", Date.today)
+    @class_bonuses = @instructor.bonuses.where("DATE(bonuses.created_at) >= ?", Date.today)
   end
 
   private def nav_links_instructor
