@@ -41,6 +41,7 @@
   width: 800px;
   margin: 0 auto;
 }
+
 .background {
   fill: #E0E0E0;
 }
@@ -78,8 +79,8 @@ text.active {
 }
 
 /* behavior colors */
-.RdYlGn .good { fill: #81C784 }
-.RdYlGn .bad { fill: #E57373 }
+.RdYlGn .good { fill: $green-primary }
+.RdYlGn .bad { fill: #F44336 }
 
 /* hover info */
 #tooltip {

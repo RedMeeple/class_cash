@@ -113,9 +113,15 @@
     rect.on("mouseout", mouseout);
     function mouseover(d) {
       tooltip.style("visibility", "visible");
-      var behavior_data = (data[1] !== undefined) ? data[1] : "none";
-      var behavior_text = 'testing';
-
+      var behavior_data = function() {
+        for (var i = 0; i < data.length; i++) {
+          if (d === data[i][0]) {
+            return behavior(data[i][1]);
+          }
+        }
+      }
+      var behavior_text = d + ': ' + behavior_data(d);
+      
       tooltip.transition()        
                   .duration(200)      
                   .style("opacity", .9);      
