@@ -20,6 +20,7 @@
 //= require z_dashboard
 //= require z_loans
 //= require z_periods
+//= require z_rights
 //= require z_students
 //= require zz_init
 

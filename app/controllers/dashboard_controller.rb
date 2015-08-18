@@ -14,7 +14,8 @@ class DashboardController < ApplicationController
     @received = Transaction.where(recipient_id: @student.id).last(5).reverse
     @awards = @student.awards
     @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
-    @student_rights = @student.student_right_assignments
+    @student_rights = @student.student_right_assignments.where(right_id: !nil)
+    @new_rights = @student.student_right_assignments.where(right_id: nil)
   end
 
   def instructor
@@ -23,6 +24,8 @@ class DashboardController < ApplicationController
     @transactions = @instructor.transactions.where("DATE(transactions.created_at) >= ?", Date.today).count
     @loans = @instructor.loans.where("DATE(loans.created_at) >= ?", Date.today).count
     @unentered_periods = @instructor.unentered_periods
+    @bonuses = Extra.where("DATE(extras.created_at) >= ?", Date.today)
+    @class_bonuses = Bonus.where("DATE(bonuses.created_at) >= ?", Date.today)
   end
 
   private def nav_links_instructor

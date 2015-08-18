@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :rights do
-    collection do
+    member do
       patch 'assign_right'
     end
   end

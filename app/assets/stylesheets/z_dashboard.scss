@@ -20,70 +20,36 @@
 }
 
 .dashboard-info-container a {
-  color: #333;
+  color: $body;
   text-decoration: none;
 }
 
 .dashboard-info {
   width: 33%;
-  padding-bottom: 33%;
-  background: $green-primary;
+  background: $green-primary-dark;
   display: inline-block;
   position: relative;
-}
-
-.dashboard-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.dashboard-stat {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -90%);
-  font-size: 62px;
-}
-
-.dashboard-stat-heading {
-  position: absolute;
-  width: 100%;
   text-align: center;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-  font-size: 28px;
 }
 
-.dashboard-stat-behavior {
-  width: 33%;
-  padding-bottom: 50px;
-  background-color: $green-primary;
-  display: inline-block;
-  position: relative;
-  margin-top: 0;
+.dashboard-stat-heading,
+.dashboard-stat {
+  font-size: 2em;
+  margin: 1.5em 0;
 }
 
 .period-title {
-  position: absolute;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  background: $green-primary-dark;
+  padding: 1em 0 1em 1em;
+
 }
 
 .dashboard-section-title {
-  font-size: 24px;
+  font-size: 1.6em;
   font-weight: bold;
-  padding: 0;
-  margin-top: 20px;
   margin-bottom: 0;
 }
 

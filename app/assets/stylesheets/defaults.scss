@@ -16,79 +16,22 @@ CSS GROUPING GUIDE
   box-sizing: border-box;
 }
 
-* + * {
-  margin-top: 1rem;
-}
-
 body {
   background: $body;
   height: 100%;
 }
 
-.page-header {
-  background-color: $green-primary;
-  padding: 10px 0;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: 0;
+.form-width {
+  width: 20em;
 }
 
-.top-nav-ul {
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  border-bottom: 3px solid $green-primary; // is this needed?
+.input-total {
+  width: 100%;
 }
-
-.top-nav-ul a {
-  text-decoration: none;
-  color: #eee;
-  padding: 0 0.75em 0.25em 0.75em;
-}
-
-.top-nav-li {
-  display: inline-block;
-}
-
-.top-nav-ul a:hover {
-  border-bottom: 3px solid #eee;
-}
-
-.signout-icon, .home-icon {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #eee;
-  cursor: pointer;
-  width: 25px;
-  text-decoration: none;
-}
-
-.home-icon {
-  left: 25px;
-}
-
-.notice, #notice,
-.alert, #alert {
-  text-align: center;
-}
-
-// form {
-//   width: 15rem;
-//   margin: 0 auto;
-// }
 
 input[type="checkbox"] {
   margin-right: 0.5rem;
 }
-
-// input.string, input.password, input.numeric,
-// input[type="number"], input[type="text"], input[type="password"],
-// select {
-//   width: 100%;
-// }
 
 .centered {
   margin: 0 auto;
@@ -140,4 +83,9 @@ td.numeric {
 td .pure-button {
   display: block;
   margin: 0 auto;
+}
+
+.btn-cc {
+  background: $green-primary;
+  color: $body;
 }

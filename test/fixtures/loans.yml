@@ -5,7 +5,6 @@ one:
   recipient_id: 1
   amount: 1
   interest: 1
-  end_date: 2015-06-28
   accepted: false
 
 two:
@@ -13,5 +12,4 @@ two:
   recipient_id: 1
   amount: 1
   interest: 1
-  end_date: 2015-06-28
   accepted: false

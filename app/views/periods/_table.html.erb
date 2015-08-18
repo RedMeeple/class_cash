@@ -16,7 +16,7 @@
       <tr class="period-table-info">
         <td><%= student.first_name %> <%= student.richest?.html_safe %></td>
         <td><%= student.last_name %></td>
-        <td>$<%= student.cash %></td>
+        <td class="numeric">$<%= student.cash %></td>
         <td><%= student.behaved?.html_safe if !student.behaviors.empty? %></td>
         <td><% student.jobs.each do |job|%>
           <%= job.description %><br>

@@ -5,6 +5,7 @@ class Loan < ActiveRecord::Base
     lender = self.student
     transaction do
       if self.accepted
+        self.update(end_date: Date.today + self.weeks * 7)
         lender.update(cash: (lender.cash - self.amount))
         recipient = Student.find_by_id(self.recipient_id)
         recipient.update(cash: (recipient.cash + self.amount))
@@ -15,18 +16,28 @@ class Loan < ActiveRecord::Base
     end
   end
 
+  def start_date
+    self.end_date - self.weeks * 7
+  end
+
+  def final_total
+    (self.amount * ((self.interest.to_f / 100) / ( 1 - (1 + (self.interest.to_f / 100)) ** (self.weeks * -1)) )) * self.weeks
+  end
+
   def calculate_new_balance
-    if (Date.today != self.created_at.to_date) && ((Date.today - self.created_at.to_date) % 7 == 0)
-      self.update(balance: (self.balance + (self.balance * self.interest / 100)))
+    if (Date.today != self.start_date) && ((Date.today - self.start_date) % 7 == 0)
       make_payment
+      self.update(balance: (self.balance + (self.balance * self.interest.to_f / 100)))
     end
   end
 
-  def calulate_payment
-    if self.balance <= self.amount / 10
+  def calculate_payment
+    if self.balance and self.balance <= self.final_total / self.weeks
+      self.balance
+    elsif self.end_date < Date.today + 7
       self.balance
     else
-      self.amount / 10
+      self.final_total / self.weeks
     end
   end
 

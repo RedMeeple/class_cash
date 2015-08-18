@@ -10,7 +10,9 @@
       <th>Amount</th>
       <th>Balance</th>
       <th>Weekly Interest</th>
-      <th>Date</th>
+      <th>Total Repayment</th>
+      <th>Start Date</th>
+      <th>End Date</th>
       <th></th>
     </tr>
   </thead>
@@ -20,10 +22,12 @@
       <tr>
         <td><%= loan.student.full_name %></td>
         <td><%= Student.find_by_id(loan.recipient_id).full_name %></td>
-        <td><%= loan.amount %></td>
-        <td><%= loan.balance %></td>
+        <td>$<%= loan.amount.round %></td>
+        <td>$<%= loan.balance.round %></td>
         <td><%= loan.interest %>%</td>
-        <td><%= loan.created_at.strftime("%b %e, %Y") %></td>
+        <td>$<%= loan.final_total.round %></td>
+        <td><%= loan.start_date.strftime('%b %e, %Y') %></td>
+        <td><%= loan.end_date.strftime('%b %e, %Y') %></td>
         <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -21,6 +21,7 @@
  *= require variables
  *= require defaults
  *
+ *= require z_application
  *= require z_awards
  *= require z_dashboard
  *= require z_devise

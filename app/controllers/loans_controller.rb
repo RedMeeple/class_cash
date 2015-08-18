@@ -43,7 +43,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to dashboard_student_path, notice: 'Loan was sent for confirmation.' }
+        format.html { redirect_to all_loans_path, notice: 'Loan was sent for confirmation.' }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new }
@@ -73,15 +73,12 @@ class LoansController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_loan
-      @loan = Loan.find(params[:id])
-    end
+  private def set_loan
+    @loan = Loan.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def loan_params
-      params.require(:loan).permit(:student_id, :recipient_id, :amount, :interest, :end_date, :accepted)
-    end
+  private def loan_params
+    params.require(:loan).permit(:student_id, :recipient_id, :amount, :interest, :weeks, :end_date, :accepted)
+  end
 
 end

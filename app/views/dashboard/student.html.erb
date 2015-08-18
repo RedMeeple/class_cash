@@ -1,6 +1,12 @@
 
 <div>Welcome, <%= @student.full_name %></div>
 
+<div>
+  <% @awards.each do |award| %>
+    <i class="<%= award.award_type.picture %> fa-4x"></i>
+  <% end %>
+</div>
+
 
 <div>
   You have $<%= @student.cash %>
@@ -17,6 +23,11 @@
 <h3>Your Rights</h3>
 <% @student_rights.each do |student_right| %>
   <div><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
+<% end %>
+<% if @new_rights.count > 0 %>
+  <% @new_rights.each do |new_right| %>
+  Good job, you earned a new right for reaching $<%= new_right.cash_level %>! You will have this right unless you drop below $<%= new_right.cash_level %>. See your instructor to claim it.
+  <% end %>
 <% end %>
 
 <h3>Your Bonuses</h3>

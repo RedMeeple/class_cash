@@ -1,40 +1,43 @@
+<div>You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>. <%= link_to "Give Bonus", give_bonus_students_path %></div>
+<div>You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
+<div><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", periods_path %></div>
+
 <div class="dashboard-header-container">
   <h3 class="dashboard-section-title">Welcome</h3>
   <div class="stats-totals-container">
     <span class="stats-totals">Total Wealth: $<%= @instructor.students.sum(:cash) %></span>
     <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / @instructor.students.count %></span>
+    <span class="stats-totals">Richest: <%= @instructor.wealthiest %></span>
   </div>
 </div>
 <div class="dashboard-info-container">
   <%= link_to rights_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">New Rights</p>
-    <i class="fa-star fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @new_rights %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">New Rights</p>
+      <i class="fa-star fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @new_rights %> </p>
+    </span>
   <% end %>
   <%= link_to transactions_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">Today's Transactions</p>
-    <i class="fa-exchange fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @transactions %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">Today's Transactions</p>
+      <i class="fa-exchange fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @transactions %> </p>
+    </span>
   <% end %>
   <%= link_to loans_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">Today's Loans</p>
-    <i class="fa-money fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @loans %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">Today's Loans</p>
+      <i class="fa-money fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @loans %> </p>
+    </span>
   <% end %>
-  <h3 class="dashboard-section-title">Today's Behavior</h3>
+  <h3 class="dashboard-section-title">Enter Today's Behavior</h3>
   <% if @unentered_periods.length == 0 %>
-    Today's behavior entry is complete.
+      Today's behavior entry is complete.
   <% else %>
     <% @unentered_periods.each do |up| %>
-    <div class="dashboard-stat-behavior">
       <%= link_to "#{up.name}", enter_behavior_period_path(up), class: "period-title" %>
-    </div>
     <% end %>
   <% end %>
 </div>

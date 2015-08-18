@@ -6,18 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-instructor = Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
+instructor = Instructor.create!(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
 
 3.times do |n|
 
-  period = Period.create(name: "Test Period #{n+1}", payscale: 20, instructor_id: instructor.id)
+  period = Period.new(name: "Test Period #{n+1}", payscale: 20, instructor_id: instructor.id)
 
   10.times do
     Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-        cash: (100..500).to_a.sample, period_id: period.id,
+        cash: (100..500).to_a.sample, period_id: n+1,
         password: "password", can_loan: true, email: Faker::Internet.email)
 
   end
+
+  period.save(validate: false)
 end
 
 15.times do
@@ -58,7 +60,7 @@ end
 
 5.times do
   Loan.create(student_id: (2..31).to_a.sample, recipient_id: (2..31).to_a.sample,
-  amount: 50, end_date: Date.today+30, balance: 50, accepted: true, interest: 5)
+  amount: 50, weeks: 8, end_date: Date.today + 56, balance: 50, accepted: true, interest: 5)
 end
 
 Right.create(description: "Eating in class")

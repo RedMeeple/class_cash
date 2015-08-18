@@ -27,7 +27,7 @@ class RightsController < ApplicationController
   end
 
   def assign_right
-    @student_right_assignment = StudentRightAssignment.find_by_student_id(params[:student_right_assignment][:student_id])
+    @student_right_assignment = StudentRightAssignment.find(params[:id])
     @student_right_assignment.update(student_right_assignment_params)
     @right = @student_right_assignment.right
     respond_to do |format|

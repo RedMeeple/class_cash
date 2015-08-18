@@ -7,6 +7,7 @@ class CreateLoans < ActiveRecord::Migration
       t.integer :balance
       t.integer :interest
       t.date :end_date
+      t.integer :weeks
       t.boolean :accepted
 
       t.timestamps null: false

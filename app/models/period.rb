@@ -5,6 +5,8 @@ class Period < ActiveRecord::Base
   belongs_to :instructor
   accepts_nested_attributes_for :students, reject_if: :all_blank
 
+  validates :students, presence: true
+
   def find_richest
     rich = self.students[0]
     self.students.each do |s| s.update(richest: false)
