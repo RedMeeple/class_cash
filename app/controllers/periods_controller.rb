@@ -63,6 +63,8 @@ class PeriodsController < ApplicationController
         format.html { redirect_to @period, notice: 'Period was successfully created.' }
         format.json { render :show, status: :created, location: @period }
       else
+        @instructor = Instructor.find_by_id(current_user.id)
+        30.times { @period.students.build }
         format.html { render :new }
         format.json { render json: @period.errors, status: :unprocessable_entity }
       end
