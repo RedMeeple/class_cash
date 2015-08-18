@@ -3,6 +3,7 @@
   <div class="stats-totals-container">
     <span class="stats-totals">Total Wealth: $<%= @instructor.students.sum(:cash) %></span>
     <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / @instructor.students.count %></span>
+    <span class="stats-totals">Richest: <%= @instructor.wealthiest %></span>
   </div>
 </div>
 <div class="dashboard-info-container">
@@ -27,9 +28,9 @@
     <p class="dashboard-stat"> <%= @loans %> </p>
   </div>
   <% end %>
-  <h3 class="dashboard-section-title">Today's Behavior</h3>
+  <h3 class="dashboard-section-title">Enter Today's Behavior</h3>
   <% if @unentered_periods.length == 0 %>
-    Today's behavior entry is complete.
+      Today's behavior entry is complete.
   <% else %>
     <% @unentered_periods.each do |up| %>
     <div class="dashboard-stat-behavior">
