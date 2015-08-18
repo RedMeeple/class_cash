@@ -20,7 +20,7 @@
 }
 
 .dashboard-info-container a {
-  color: #333;
+  color: $body;
   text-decoration: none;
 }
 
@@ -48,10 +48,8 @@
 }
 
 .dashboard-section-title {
-  font-size: 24px;
+  font-size: 1.6em;
   font-weight: bold;
-  padding: 0;
-  margin-top: 20px;
   margin-bottom: 0;
 }
 
