@@ -7,34 +7,32 @@
 </div>
 <div class="dashboard-info-container">
   <%= link_to rights_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">New Rights</p>
-    <i class="fa-star fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @new_rights %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">New Rights</p>
+      <i class="fa-star fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @new_rights %> </p>
+    </span>
   <% end %>
   <%= link_to transactions_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">Today's Transactions</p>
-    <i class="fa-exchange fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @transactions %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">Today's Transactions</p>
+      <i class="fa-exchange fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @transactions %> </p>
+    </span>
   <% end %>
   <%= link_to loans_path, :action => 'go' do %>
-  <div class="dashboard-info">
-    <p class="dashboard-stat-heading">Today's Loans</p>
-    <i class="fa-money fa-5x fa dashboard-icon"></i>
-    <p class="dashboard-stat"> <%= @loans %> </p>
-  </div>
+    <span class="dashboard-info">
+      <p class="dashboard-stat-heading">Today's Loans</p>
+      <i class="fa-money fa-5x fa dashboard-icon"></i>
+      <p class="dashboard-stat"> <%= @loans %> </p>
+    </span>
   <% end %>
   <h3 class="dashboard-section-title">Today's Behavior</h3>
   <% if @unentered_periods.length == 0 %>
     Today's behavior entry is complete.
   <% else %>
     <% @unentered_periods.each do |up| %>
-    <div class="dashboard-stat-behavior">
       <%= link_to "#{up.name}", enter_behavior_period_path(up), class: "period-title" %>
-    </div>
     <% end %>
   <% end %>
 </div>
