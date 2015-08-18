@@ -21,6 +21,8 @@ body {
   height: 100%;
 }
 
+
+// Navigation Bar
 .page-header {
   background-color: $green-primary;
   position: relative;
@@ -66,9 +68,22 @@ body {
   right: 1em;
 }
 
+
+// Notice/Alert
 .notice, #notice,
 .alert, #alert {
   text-align: center;
+}
+
+
+// Other Styles that flow through everything
+
+.form-width {
+  width: 15em;
+}
+
+.input-total {
+  width: 100%;
 }
 
 input[type="checkbox"] {
