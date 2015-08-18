@@ -7,8 +7,12 @@
 
   <ul>
     <% right.students.each do |s| %>
-      <li class="rights-sub-list-item"><%= s.full_name %> <%= link_to "x", fire_path(right, s), remote: true, class: "rights-delete" %></li>
+      <li class="rights-sub-list-item">
+        <%= link_to(fire_path(right, s), remote: true, class: "rights-delete") do %>
+          <i class="fa fa-times"></i>
+        <% end %>
+        <%= s.full_name %>
+      </li>
     <% end %>
   </ul>
-
 </li>
