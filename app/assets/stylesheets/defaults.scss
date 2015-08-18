@@ -21,63 +21,6 @@ body {
   height: 100%;
 }
 
-
-// Navigation Bar
-.page-header {
-  background-color: $green-primary;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-.top-nav-ul {
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 1.5em;
-}
-
-.top-nav-ul a {
-  text-decoration: none;
-  color: $body;
-  padding: 0 0.75em 0.25em 0.75em;
-}
-
-.top-nav-li {
-  display: inline-block;
-}
-
-.top-nav-ul a:hover {
-  border-bottom: 3px solid $body;
-}
-
-.home-icon,
-.signout-icon {
-  position: absolute;
-  color: $body;
-  top: 0.5em;
-  text-decoration: none;
-}
-
-.home-icon {
-  left: 1em;
-}
-
-.signout-icon {
-  right: 1em;
-}
-
-
-// Notice/Alert
-.notice, #notice,
-.alert, #alert {
-  text-align: center;
-}
-
-
-// Other Styles that flow through everything
-
 .form-width {
   width: 20em;
 }
@@ -140,4 +83,9 @@ td.numeric {
 td .pure-button {
   display: block;
   margin: 0 auto;
+}
+
+.btn-cc {
+  background: $green-primary;
+  color: $body;
 }
