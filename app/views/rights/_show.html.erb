@@ -2,12 +2,12 @@
 <li>
   <h3><%= right.description %>
   <% if right.instructor %>
-    <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
   <% end %></h3>
 
   <ul>
     <% right.students.each do |s| %>
-      <li><%= s.full_name %> <%= link_to "x", fire_path(right, s), remote: true %></li>
+      <li class="rights-sub-list-item"><%= s.full_name %> <%= link_to "x", fire_path(right, s), remote: true, class: "rights-delete" %></li>
     <% end %>
   </ul>
 
