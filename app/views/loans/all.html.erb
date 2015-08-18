@@ -1,22 +1,26 @@
-<h2>Given Loans<h2>
-  <% @loans_given.each do |loan| %>
-    <div><%= link_to "#{loan.amount} due on #{loan.end_date.strftime("%b %e, %Y")}", loan %></div>
-  <% end %>
+<h2>Given Loans</h2>
+  <ul>
+    <% @loans_given.each do |loan| %>
+      <li><%= link_to "$#{loan.amount.round} due on #{loan.end_date}", loan %></li>
+    <% end %>
+  </ul>
 
 <h2>Accepted Loans</h2>
-  <% @loans_received.where(accepted: true).each do |loan| %>
-    <div>
-      <%= link_to "#{loan.amount} due on #{loan.end_date.strftime("%b %e, %Y")}", loan %>
-      <%= link_to "Make Payment", pay_loan_path(loan) %>
-    </div>
-  <% end %>
+  <ul>
+    <% @loans_received.where(accepted: true).each do |loan| %>
+      <li>
+        <%= link_to "#{loan.amount} due on #{loan.end_date}", loan %>
+        <%= link_to "Make Payment", pay_loan_path(loan) %>
+      </li>
+    <% end %>
+  </ul>
 
-<h2>Loans Needing Your Confirmation<h2>
-  <% @loans_received.where(accepted: nil).each do |loan| %>
-    <%= link_to "View Terms from #{loan.student.full_name}", confirmation_loan_path(loan) %>
-  <% end %>
-
-<%= link_to 'Home', root_path %>
+<h2>Loans Needing Your Confirmation</h2>
+  <ul>
+    <% @loans_received.where(accepted: nil).each do |loan| %>
+      <li><%= link_to "View Terms from #{loan.student.full_name}", confirmation_loan_path(loan) %></li>
+    <% end %>
+  </ul>
 
 <% if @student.can_loan%>
   <%= link_to 'Offer Loan', new_loan_path %>

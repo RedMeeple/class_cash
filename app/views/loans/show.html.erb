@@ -2,7 +2,7 @@
 
 <p>
   <strong>Lender:</strong>
-  <%= Student.find_by_id(@loan.lender_id).full_name %>
+  <%= @loan.student.full_name %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Amount:</strong>
-  $<%= @loan.amount %>
+  $<%= @loan.amount.round %>
 </p>
 
 <p>
@@ -22,13 +22,10 @@
 
 <p>
   <strong>End date:</strong>
-  <%= @loan.end_date.strftime("%b %e, %Y") %>
+  <%= @loan.end_date %>
 </p>
 
 <p>
   <strong>Balance Left:</strong>
-  $<%= @loan.balance %>
+  $<%= @loan.balance.round %>
 </p>
-
-<%= link_to 'All Loans', all_loans_path %>
-<%= link_to 'Home', root_path %>
