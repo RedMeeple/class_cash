@@ -4,11 +4,6 @@ class Right < ActiveRecord::Base
   has_many :students, through: :student_right_assignments
 
   def available_students(id)
-    if !self.instructor_id.nil?
-      self.students
-    else
-      instructor = Instructor.find(id)
-      self.students.joins(instructor.students)
-    end
+    self.students
   end
 end
