@@ -27,4 +27,8 @@ class Instructor < User
     periods
   end
 
+  def wealthiest
+    students.order(:cash).last.full_name
+  end
+
 end
