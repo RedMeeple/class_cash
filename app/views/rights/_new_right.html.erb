@@ -1,4 +1,4 @@
-<%= simple_form_for StudentRightAssignment.find(right.id), url: assign_right_rights_path, remote: true do |f| %>
+<%= simple_form_for StudentRightAssignment.find(right.id), url: assign_right_right_path(right.id), remote: true do |f| %>
   <%= f.association :right, label: false, label_method: :description %>
   <%= f.hidden_field :student_id, value: right.student.id %>
 

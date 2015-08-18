@@ -5,7 +5,7 @@
     <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
   <% end %></h3>
 
-  <ul>
+  <ul id="right-list<%= right.id %>" class="right-list">
     <% right.students.each do |s| %>
       <li class="rights-sub-list-item">
         <%= link_to(fire_path(right, s), remote: true, class: "rights-delete") do %>
