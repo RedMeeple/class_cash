@@ -43,7 +43,8 @@ app.students = {
   
   behavior: function (data) {
     
-    var currentYear = new Date().getFullYear();
+    var startYear = parseInt(data[data.length - 1][0].split('-')[0]);
+    var endYear = parseInt(data[0][0].split('-')[0]);
     
     var width = 960;
     var height = 750;
@@ -69,7 +70,7 @@ app.students = {
     };
     
     var svg = d3.select("#chart").selectAll("svg")
-        .data(d3.range(currentYear - 1, currentYear + 2))
+        .data(d3.range(startYear, endYear + 2))
       .enter().append("svg")
         .attr("width", width)
         .attr("height", height)
