@@ -1,15 +1,17 @@
-<h2>Given Loans</h2>
-  <ul>
-    <% @loans_given.each do |loan| %>
-      <li><%= link_to "$#{loan.amount.round} due on #{loan.end_date}", loan %></li>
-    <% end %>
-  </ul>
+<% if @student.can_loan%>
+  <h2>Given Loans</h2>
+    <ul>
+      <% @loans_given.each do |loan| %>
+        <li><%= link_to "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}", loan %></li>
+      <% end %>
+    </ul>
+<% end %>
 
 <h2>Accepted Loans</h2>
   <ul>
     <% @loans_received.where(accepted: true).each do |loan| %>
       <li>
-        <%= link_to "#{loan.amount} due on #{loan.end_date}", loan %>
+        <%= link_to "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}", loan %>
         <%= link_to "Make Payment", pay_loan_path(loan) %>
       </li>
     <% end %>

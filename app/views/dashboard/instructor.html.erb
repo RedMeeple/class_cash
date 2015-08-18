@@ -1,4 +1,5 @@
-You have given <%= @bonuses %> individual bonuses and <%= @class_bonuses %> class bonuses today.
+You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.
+You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.
 
 <div class="dashboard-header-container">
   <h3 class="dashboard-section-title">Welcome</h3>
