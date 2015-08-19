@@ -6,7 +6,7 @@
   <% end %></h3>
 
   <ul id="right-list<%= right.id %>" class="right-list">
-    <% right.students.each do |s| %>
+    <% right.available_students(current_user.id).each do |s| %>
       <li class="rights-sub-list-item">
         <%= link_to(fire_path(right, s), remote: true, class: "rights-delete") do %>
           <i class="fa fa-times"></i>
