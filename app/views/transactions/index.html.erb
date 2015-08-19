@@ -18,9 +18,9 @@
       <tr>
         <td><%= t.student.full_name %></td>
         <td><%= Student.find(t.recipient_id).full_name %></td>
-        <td>$<%= t.amount %></td>
+        <td class="numeric">$<%= t.amount %></td>
         <td><%= t.reason %></td>
-        <td><%= t.created_at.strftime('%b %e, %Y') %></td>
+        <td class="numeric"><%= t.created_at.strftime('%b %e, %Y') %></td>
       </tr>
     <% end %>
   </tbody>
