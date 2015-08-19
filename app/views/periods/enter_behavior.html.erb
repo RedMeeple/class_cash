@@ -1,6 +1,6 @@
 <div class="enter-behavior-container">
 
-  <div class="heading-container"><h1>Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></h1></div>
+  <div class="heading-container behavior-heading-container"><h1>Behavior Entry for <%= Date.today.strftime('%b %e, %Y') %></h1></div>
 <%= form_for @period, url: update_behavior_period_path(@period) do |f| %>
   <table class = "pure-table pure-table-bordered">
     <thead>
@@ -30,7 +30,7 @@
     </tbody>
   </table>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "pure-button pure-button-primary btn-cc " %>
   </div>
 <% end %>
 </div>
