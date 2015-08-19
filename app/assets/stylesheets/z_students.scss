@@ -92,18 +92,48 @@ text.active {
 
 // Student details
 .student-show-container {
+  min-width: 880px;
+  background-color: rgba(220, 220, 220, 0.5);
+  margin: 0;
+  margin-top: -16px;
+  width: 100%;
+  position: relative;
+}
+
+.student-show-container-inner {
   width: 90%;
-  margin: 25px auto;
+  margin: 0 auto;
 }
 
 .student-info-container {
   width: 33.33%;
   float: left;
   padding: 25px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(220, 220, 220, 0.9);
 }
 
-.student-info-container h3 {
+.student-info-name {
+  text-align: center;
+  font-size: 24px;
   margin-top: 0;
+}
+
+.student-info-container-inner {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.student-info-icon {
+  padding: 10px 5px 10px 0;
+}
+
+.student-period-content,
+.student-richest-content {
+  padding: 8px 0;
 }
 
 .student-transaction-info {
