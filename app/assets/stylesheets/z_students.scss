@@ -121,3 +121,28 @@ text.active {
 .cash-chart-container {
   margin: 3em;
 }
+
+//Edit
+.student-edit-heading-container {
+  width: 60%;
+}
+
+.student-edit-name {
+  text-align: center;
+}
+
+.student-edit-container {
+  width: 60%;
+  min-width: 880px;
+  margin: 0 auto;
+}
+
+.student-edit-container input,
+.student-edit-container select {
+  width: 100%;
+}
+
+.student-edit-form {
+  margin: 0 auto;
+  width: 50%;
+}
