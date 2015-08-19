@@ -1,5 +1,10 @@
-<h1><%= @period.name %></h1>
+<div class="new-period-form-container">
+  <h1><%= @period.name %></h1>
+  <div class="buttons-container">
+    <%= link_to 'Show', @period, class: "pure-button" %>
+  </div>
+</div>
 
-<div id="period-edit-form"><%= render 'form' %></div>
-
-<%= link_to 'Show', @period, class: "pure-button" %>
+<div class="edit-periods-container">
+  <div id="period-edit-form"><%= render 'form' %></div>
+</div>

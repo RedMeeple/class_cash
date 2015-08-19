@@ -238,3 +238,23 @@
   float: right;
   margin-right: 5px;
 }
+
+//Edit Periods
+.heading-period-heading {
+  width: 880px;
+}
+
+.edit-periods-container {
+  width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.edit-periods-container table {
+  width: 880px;
+  margin: 0 auto;
+}
+
+#period-edit-form table td:last-child {
+  border-right: 1px solid #ccc;
+}
