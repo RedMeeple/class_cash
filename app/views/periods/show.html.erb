@@ -2,7 +2,7 @@
 
 <div class="period-title-container">
   <div class="period-title-main-heading">
-    Class: <%= @period.name %> - Payscale: <%= @period.payscale %>
+    <%= @period.name %> - Payscale: $<%= @period.payscale %>
   </div>
   <div class="buttons-container">
     <%= link_to 'Edit', edit_period_path(@period), class: "pure-button btn-cc" %>

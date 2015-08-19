@@ -1,4 +1,4 @@
-<div>You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>. <%= link_to "Give Bonus", give_bonus_students_path %></div>
+<div>You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.</div>
 <div>You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
 <div><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", periods_path %></div>
 

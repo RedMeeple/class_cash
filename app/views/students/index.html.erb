@@ -1,7 +1,8 @@
 <div class="heading-container">
   <h1 class="roster-title">Roster</h1>
   <div class="buttons-container">
-    <button class="pure-button display-class-bonus-modal btn-cc">Award Individual Bonus</button>
+    <button class="pure-button display-bonus-modal btn-cc">Award Individual Bonus</button>
+    <button class="pure-button display-class-bonus-modal btn-cc">Award Class Bonus</button>
   </div>
 </div>
 
@@ -13,11 +14,20 @@
 <% end %>
 
 
+<div class="bonus-modal-container">
+  <div class="bonus-modal-header">
+    <i class="fa-remove fa fa-2x close-btn"></i>
+  </div>
+  <div class="bonus-modal">
+    <td class="test"> <%= render partial: 'give_bonus' %></td>
+  </div>
+</div>
+
 <div class="class-bonus-modal-container">
   <div class="class-bonus-modal-header">
     <i class="fa-remove fa fa-2x close-btn"></i>
   </div>
   <div class="class-bonus-modal">
-    <td class="test"> <%= render partial: 'give_bonus' %></td>
+    <td class="test"> <%= render partial: 'periods/class_bonus' %></td>
   </div>
 </div>

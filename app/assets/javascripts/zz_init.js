@@ -40,6 +40,20 @@ $(function () {
     $(this).fadeOut();
     $('.class-bonus-modal').fadeOut('fast');
   });
+//Bonus Modal
+  $('.display-bonus-modal').click(function() {
+    $('.bonus-modal-container').slideDown();
+    $('.bonus-modal-header').slideDown();
+    $('.bonus-modal').fadeIn(1000);
+    $('.close-btn').fadeIn();
+  });
+
+  $('.close-btn').click(function() {
+    $(this).parent().parent().slideUp();
+    $('.bonus-modal-header').slideUp();
+    $(this).fadeOut();
+    $('.bonus-modal').fadeOut('fast');
+  });
 
 
 });
