@@ -50,6 +50,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
   border-left: 4px solid $green-primary;
 }
 
+.rights-list-item:last-child {
+  border: none;
+  padding: 0;
+}
+
 .rights-sub-list-item {
   padding-top: 5px;
   list-style-type: none;
@@ -72,22 +77,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
   position: absolute;
   right: 0;
   top: 0;
-  width: 25%;
+  width: 30%;
   padding: 8px 15px;
+  text-align: center;
 }
 
 .right_description input {
   position: absolute;
   left: 0;
   top: 0;
-  width: 75%;
+  width: 70%;
   padding: 6px 0;
   outline: none;
   padding-left: 5px;
-}
-
-.student-right-list {
-  margin-top: 50px;
 }
 
 .rights-list-heading {
@@ -103,4 +105,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
 .rights-delete, .new-right-delete {
   text-decoration: none;
   color: #333;
+}
+
+// #new-rights-list input, #new-rights-list select {
+//   width: 100%;
+// }
+//
+// #new-rights-list input {
+//   margin-bottom: 10px;
+// }
+
+.new-right-list-container {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.new-right-list-container select {
+  width: 70%;
+  float: left;
+  border: none;
+  outline: none;
+  height: 35px;
+  border: 2px solid #eaeaea;
+}
+
+.new-right-list-container input {
+  width: 30%;
+}
+
+.student-right-list {
+  font-size: 22px;
+  margin-left: 38px;
+  margin-bottom: 25px;
 }
