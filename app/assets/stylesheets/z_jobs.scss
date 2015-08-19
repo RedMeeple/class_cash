@@ -32,3 +32,27 @@
 .hire-btn {
   display: inline !important;
 }
+
+//New Job
+.new-job-container {
+  width: 50%;
+  margin: 0 auto;
+  min-width: 680px;
+}
+
+.new-job-heading-container {
+  width: 50%;
+  min-width: 680px;
+}
+
+.new-job-container input,
+.new-job-container select {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.new-job-form-container {
+  width: 55%;
+  margin: 0 auto;
+  margin-top: 25px;
+}
