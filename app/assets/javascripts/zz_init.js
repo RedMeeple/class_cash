@@ -1,11 +1,11 @@
 $(function () {
   'use strict';
 
+  app.periods.togglePeriod();
 
   if ($('.student-table').length) {
 
     app.students.displayOptions();
-    app.periods.togglePeriod();
   }
 
   if ($('.periods-table').length) {

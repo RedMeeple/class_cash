@@ -31,7 +31,7 @@ app.periods = {
 
   togglePeriod: function () {
     $('.view-button').on('click', function () {
-      id = $(this).id;
+      id = this.id;
       $('#period-table' + id).toggleClass('active');
     });
   }
