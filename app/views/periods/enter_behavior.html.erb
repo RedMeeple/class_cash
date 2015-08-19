@@ -18,7 +18,7 @@
             <tr>
               <%= ffb.hidden_field :date, value: Date.today %>
               <td><%= student.full_name %></td>
-              <td><%= ffb.check_box :well_behaved, { checked: true } %></td>
+              <td><%= ffb.check_box :well_behaved, { checked: true } %>Yes</td>
               <td><% student.jobs.each do |job| %>
                 <%= ff.fields_for :jobs, student.jobs.find_by_id(job.id) do |ffj|%>
                   <div><%= ffj.check_box :last_date_done, { checked: true }, Date.today, nil %> <%= job.description %></div>
