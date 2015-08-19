@@ -35,14 +35,21 @@
   width: 55rem;
 }
 
+.new-period-heading {
+  margin: 0;
+  padding: 0;
+}
+
 .periods-edit-input-wrapper {
-  width: 15rem;
+  width: 12rem;
+  display: inline-block;
 }
 
 
 // Roster View
 .period-table {
   margin-bottom: 2em;
+  min-width: 880px;
 }
 
 .period-table td:nth-child(4) {
@@ -83,7 +90,8 @@
 }
 
 .period-title-container {
-  width: 884px;
+  width: 80%;
+  min-width: 880px;
   margin: 0 auto;
   position: relative;
   margin-top: 60px;
@@ -141,4 +149,17 @@
   color: #eee;
   cursor: pointer;
   display: none;
+}
+
+// New Period Form
+.new-period-form-container {
+  width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.new-period-submit {
+  position: absolute;
+  right: -5px;
+  margin: 10px 0;
 }
