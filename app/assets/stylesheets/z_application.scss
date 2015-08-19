@@ -23,14 +23,21 @@
   text-decoration: none;
   color: $body;
   padding: 0 0.75em 0.25em 0.75em;
-}
-
-.top-nav-li {
-  display: inline-block;
+  border-bottom: 3px solid $green-primary-dark;
+  -webkit-transition: 0.25s all ease;
+  -moz-transition: 0.25s all ease;
+  transition: 0.25s all ease;
 }
 
 .top-nav-ul a:hover {
   border-bottom: 3px solid $body;
+  -webkit-transition: 0.25s all ease;
+  -moz-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.top-nav-li {
+  display: inline-block;
 }
 
 .home-icon,
