@@ -48,6 +48,7 @@
 .period-table {
   margin-bottom: 2em;
   min-width: 880px;
+  display: none;
 }
 
 .period-table td:nth-child(4) {
@@ -86,7 +87,7 @@
 }
 
 
-.active {
+.period-table.active {
   display: block;
 }
 
@@ -105,6 +106,9 @@
   bottom: 0;
   font-weight: bold;
   font-size: 24px;
+}
+.active {
+  display: block
 }
 
 //Awards Modal

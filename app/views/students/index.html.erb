@@ -8,8 +8,14 @@
 
 <% @periods.each do |per| %>
   <% per.find_richest %>
-
-  <div id="period-table<%= per.id %>"><%= render partial: 'periods/table', locals: { students: per.students } %></div>
+  <div>
+    <span class="period-name"><%= per.name %></span>
+    <span class="paysclae">Payscale: $<%= per.payscale %></span>
+    <span class="students-number">Total Students: <%= per.students.count %></span>
+    <span class="class-average">Class Average: $<%= per.class_average %></span>
+    <span class="view-button-span"><button id="<%= per.id %>" class="view-button btn-cc pure-button">View</button></span>
+  </div>
+  <div id="period-table<%= per.id %>" class="period-table"><%= render partial: 'periods/table', locals: { students: per.students } %></div>
 
 <% end %>
 
