@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     collection do
       get 'send_money'
       post 'sent_money'
-      get 'give_bonus'
       post 'gave_bonus'
     end
     member do

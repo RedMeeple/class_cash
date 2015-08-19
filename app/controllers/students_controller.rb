@@ -8,8 +8,10 @@ class StudentsController < ApplicationController
   before_action :nav_links_student
 
   def index
-    @periods = Period.where(instructor_id: current_user.id)
+    @instructor = Instructor.find_by_id(current_user.id)
+    @periods =  @instructor.periods
     @students = @periods.joins(:students)
+    @extra = Extra.new(instructor_id: @instructor.id)
   end
 
   def show
@@ -83,18 +85,12 @@ class StudentsController < ApplicationController
 
   end
 
-  def give_bonus
-    @instructor = Instructor.find_by_id(current_user.id)
-    @periods = Period.where(instructor_id: @instructor.id)
-    @extra = Extra.new(instructor_id: @instructor.id)
-  end
-
   def gave_bonus
     @extra = Extra.new(extra_params)
     if @extra.save
       @student = Student.find_by_id(@extra.student_id)
       @student.update(cash: (@student.cash + @extra.amount))
-      redirect_to give_bonus_students_path, notice: "$#{@extra.amount} sent to #{@student.first_name}."
+      redirect_to students_path, notice: "$#{@extra.amount} sent to #{@student.first_name}."
     else
       render :give_bonus, notice: "Please try again."
     end
