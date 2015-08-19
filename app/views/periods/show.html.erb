@@ -1,14 +1,13 @@
 <% @period.find_richest %>
 
-<div class="period-title-container">
-  <div class="period-title-main-heading">
-    Class: <%= @period.name %> - Payscale: <%= @period.payscale %>
-  </div>
+<div class="heading-container">
+  <h1>Class: <%= @period.name %> - Payscale: <%= @period.payscale %></h1>
   <div class="buttons-container">
     <%= link_to 'Edit', edit_period_path(@period), class: "pure-button btn-cc" %>
     <%= link_to 'Enter Behavior Data', enter_behavior_period_path(@period), class: "pure-button btn-cc" %>
   </div>
 </div>
+
 
 <div id="period-table<%= @period.id %>"><%= render partial: 'table', locals: { students: @students } %></div>
 
