@@ -22,12 +22,12 @@
       <tr>
         <td><%= loan.student.full_name %></td>
         <td><%= Student.find_by_id(loan.recipient_id).full_name %></td>
-        <td>$<%= loan.amount.round %></td>
-        <td>$<%= loan.balance.round %></td>
-        <td><%= loan.interest %>%</td>
-        <td>$<%= loan.final_total.round %></td>
-        <td><%= loan.start_date.strftime('%b %e, %Y') %></td>
-        <td><%= loan.end_date.strftime('%b %e, %Y') %></td>
+        <td class="numeric">$<%= loan.amount.round %></td>
+        <td class="numeric">$<%= loan.balance.round %></td>
+        <td class="numeric"><%= loan.interest %>%</td>
+        <td class="numeric">$<%= loan.final_total.round %></td>
+        <td class="numeric"><%= loan.start_date.strftime('%b %e, %Y') %></td>
+        <td class="numeric"><%= loan.end_date.strftime('%b %e, %Y') %></td>
         <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
