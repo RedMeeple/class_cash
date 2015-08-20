@@ -45,10 +45,13 @@
 
 
 // Roster View
+.period-table-container {
+  display: none;
+}
+
 .period-table {
   margin-bottom: 2em;
   min-width: 880px;
-  display: none;
 }
 
 .period-table td:nth-child(4) {
@@ -87,7 +90,7 @@
 }
 
 
-.period-table.active {
+.period-table-container.active {
   display: block;
 }
 

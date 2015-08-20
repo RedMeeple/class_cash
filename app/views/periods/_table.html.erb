@@ -37,3 +37,10 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="period-bonuses centered">
+  <h3>Class Bonuses</h3>
+  <% period.bonuses.each do |bonus| %>
+    <div>$<%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+  <% end %>
+</div>

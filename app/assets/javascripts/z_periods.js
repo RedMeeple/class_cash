@@ -32,7 +32,7 @@ app.periods = {
   togglePeriod: function () {
     $('.view-button').on('click', function () {
       id = this.id;
-      $('#period-table' + id).toggleClass('active');
+      $('#period-table-container' + id).toggleClass('active');
     });
   }
 
