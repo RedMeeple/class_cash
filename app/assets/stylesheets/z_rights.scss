@@ -23,7 +23,7 @@
 }
 
 .right-list {
-  background: $green-primary;
+  // background: $green-primary;
   padding: 0.5em;
   border-radius: 0.3em;
   min-height: 5em;
@@ -58,8 +58,8 @@
 }
 
 .new-right-container {
-  background: $green-primary;
-  padding: 1em;
+  // background: $green-primary;
+  // padding: 1em;
   border-radius: 0.5em;
   position: absolute;
   width: 45%;
@@ -103,6 +103,7 @@
   width: 100%;
   padding: 0.5em;
   margin: 0.5em 0;
+  cursor: pointer;
 }
 
 .new-right-list-container select {
