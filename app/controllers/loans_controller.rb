@@ -3,9 +3,6 @@ class LoansController < ApplicationController
   before_action :student_logged_in?, except: [:index, :destroy, :permissions]
   before_action :instructor_logged_in?, only: [:index, :destroy, :permissions]
 
-  def confirmation
-  end
-
   def pay
     @transaction = Transaction.new(recipient_id: @loan.student.id,
         student_id: Student.find_by_id(@loan.recipient_id).id, reason: "Loan Payment")
@@ -21,21 +18,11 @@ class LoansController < ApplicationController
   end
 
   def all
+    @loan = Loan.new
     @student = Student.find_by_id(current_user.id)
+    @periods = Period.where(instructor_id: @student.period.instructor_id)
     @loans_given = @student.loans
     @loans_received = Loan.where(recipient_id: @student.id)
-  end
-
-  def show
-  end
-
-  def new
-    @loan = Loan.new
-    @lender = Student.find_by_id(current_user.id)
-    @periods = Period.where(instructor_id: @lender.period.instructor_id)
-    unless @lender.can_loan
-      redirect_to dashboard_student_path
-    end
   end
 
   def create
@@ -57,7 +44,7 @@ class LoansController < ApplicationController
     respond_to do |format|
       if @loan.update(loan_params)
         @loan.finalize
-        format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
+        format.html { redirect_to all_loans_path, notice: 'Loan was successfully updated.' }
         format.json { render :show, status: :ok, location: @loan }
       else
         format.html { render :edit }
