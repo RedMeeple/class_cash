@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  resources :rights do
-    member do
-      patch 'assign_right'
-    end
-  end
-  get 'rights/first/:id/:student_id' => 'rights#fire', as: :fire
+  resources :rights
+  get 'rights/fire/:id/:student_id' => 'rights#fire', as: :fire
+  patch 'rights/assign/:assignment_id/:right_id' => 'rights#assign_right'
 
   devise_for :users
   resources :loans do

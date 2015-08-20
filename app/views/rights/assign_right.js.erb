@@ -1,2 +1,1 @@
-$("#right<%= @student_right_assignment.id %>").hide();
-$("#right-row<%= @right.id %>").html("<%= j(render partial: 'show', locals: { right: @right } ) %>");
+<%= j(render partial: 'show', locals: { right: @right } ) %>
