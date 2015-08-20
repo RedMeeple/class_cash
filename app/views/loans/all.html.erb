@@ -14,12 +14,14 @@
         <% @loans_given.each do |loan| %>
           <div class="student-loan-list">
             <% if loan.accepted == false %>
-              <%= link_to "#{Student.find_by_id(loan.recipient_id).full_name} has rejected your loan.", loan %>
+              <%= "#{Student.find_by_id(loan.recipient_id).full_name} has rejected your loan." %>
             <% elsif loan.accepted == nil %>
-              <%= link_to "The loan offer to #{Student.find_by_id(loan.recipient_id).full_name} is pending.", loan %>
+              <%= "The loan offer to #{Student.find_by_id(loan.recipient_id).full_name} is pending." %>
             <% else %>
-              <%= link_to "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}", loan %>
+              <%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
             <% end %>
+            <button>View</button>
+            <%= render partial: 'show', locals: { loan: loan } %>
           </div>
         <% end %>
       <!-- </ul> -->
@@ -29,8 +31,10 @@
     <!-- <ul> -->
       <% @loans_received.where(accepted: true).each do |loan| %>
         <div class="student-loan-list">
-          <%= link_to "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}", loan %>
+          <%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
+          <button>View</button>
           <%= link_to "Make Payment", pay_loan_path(loan) %>
+          <%= render partial: 'show', locals: { loan: loan } %>
         </div>
       <% end %>
     <!-- </ul> -->

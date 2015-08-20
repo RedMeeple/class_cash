@@ -28,9 +28,6 @@ class LoansController < ApplicationController
     @loans_received = Loan.where(recipient_id: @student.id)
   end
 
-  def show
-  end
-
   def create
     @loan = Loan.new(loan_params)
 
