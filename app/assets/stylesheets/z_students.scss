@@ -279,12 +279,12 @@ text.active {
 }
 
 .list-awards {
-  width: 24%;
+  width: 30%;
   display: inline-block;
   margin: 0;
   padding: 0;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 .student-dashboard-container {
@@ -300,6 +300,7 @@ text.active {
   padding: 0;
   position: relative;
   margin-bottom: 5px;
+  cursor: pointer;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+0,f8f8f8+61,f6f6f6+100 */
   background: rgb(252,252,252); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(248,248,248,1) 61%, rgba(246,246,246,1) 100%); /* FF3.6+ */
@@ -340,6 +341,16 @@ text.active {
 
 .hide {
   padding: 5px 0 10px 0;
-  margin: 0 0 10px 0;
+  margin: -20px 0 10px 0;
   display: none;
+}
+
+.hide h4 {
+  margin: 0;
+}
+
+.notifications-list {
+  border: 2px solid #ddd;
+  padding: 5px;
+  margin-bottom: 4px;
 }

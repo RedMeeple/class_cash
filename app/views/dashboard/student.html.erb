@@ -25,7 +25,7 @@
     <div class="student-transaction-heading"><h3>Your Rights</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% @student_rights.each do |student_right| %>
-        <div><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
+        <div class="notifications-list"><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
       <% end %>
       <% if @new_rights.count > 0 %>
         <% @new_rights.each do |new_right| %>
@@ -36,37 +36,37 @@
     <div class="student-transaction-heading"><h3>Your Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% @extras.each do |extra| %>
-        <div>You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
+        <div class="notifications-list">You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
       <% end %>
     </div>
     <div class="student-transaction-heading"><h3>Class Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% @bonuses.each do |bonus| %>
-        <div>Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+        <div class="notifications-list">Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
       <% end %>
     </div>
     <div class="student-transaction-heading"><h3>Transactions</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
-      <h4>You received</h4>
-      <% @received.each do |r| %>
-        <div>$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
-      <% end %>
-      <h4>You sent</h4>
-      <% @sent.each do |s| %>
-        <div>$<%= s.amount %> to
-          <% if Student.find_by_id(s.recipient_id) %>
-            <%= Student.find(s.recipient_id).full_name %>
-          <% else %>
-              <%= "Not Available" %>
-          <% end %>
-           for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
-      <% end %>
+        <h4>You received</h4>
+        <% @received.each do |r| %>
+          <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+        <% end %>
+        <h4>You sent</h4>
+        <% @sent.each do |s| %>
+          <div class="notifications-list">$<%= s.amount %> to
+            <% if Student.find_by_id(s.recipient_id) %>
+              <%= Student.find(s.recipient_id).full_name %>
+            <% else %>
+                <%= "Not Available" %>
+            <% end %>
+             for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
+        <% end %>
     </div>
 
     <div class="student-transaction-heading"><h3>Your Awards</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% @awards.each do |a| %>
-        <div>
+        <div class="notifications-list">
           You received the <%= a.award_type.name %> award for <%= a.reason %> and got a bonus of $<%= a.payment %>.
         </div>
       <% end %>
