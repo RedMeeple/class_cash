@@ -1,7 +1,7 @@
 <%= simple_form_for @loan do |f| %>
   <%= f.error_notification %>
 
-  <%= f.hidden_field :student_id, value: @lender.id %>
+  <%= f.hidden_field :student_id, value: @student.id %>
   <%= f.association :recipient do %>
     <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
   <% end %>

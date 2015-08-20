@@ -2,10 +2,11 @@
   <h1>Your Loans</h1>
   <div class="buttons-container">
     <% if @student.can_loan%>
-      <%= link_to 'Offer Loan', new_loan_path, class: "pure-button btn-cc" %>
+      <button class= "pure-button btn-cc">Offer Loan</button>
     <% end %>
   </div>
 </div>
+<div id="new-loan-form"><%= render 'new' %></div>
 <div class="student-loan-container">
   <% if @student.can_loan%>
     <h2>Given Loans</h2>

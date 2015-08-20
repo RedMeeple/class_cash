@@ -21,21 +21,14 @@ class LoansController < ApplicationController
   end
 
   def all
+    @loan = Loan.new
     @student = Student.find_by_id(current_user.id)
+    @periods = Period.where(instructor_id: @student.period.instructor_id)
     @loans_given = @student.loans
     @loans_received = Loan.where(recipient_id: @student.id)
   end
 
   def show
-  end
-
-  def new
-    @loan = Loan.new
-    @lender = Student.find_by_id(current_user.id)
-    @periods = Period.where(instructor_id: @lender.period.instructor_id)
-    unless @lender.can_loan
-      redirect_to dashboard_student_path
-    end
   end
 
   def create
