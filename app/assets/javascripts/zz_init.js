@@ -42,6 +42,7 @@ $(function () {
     $(this).fadeOut();
     $('.class-bonus-modal').fadeOut('fast');
   });
+  
 //Bonus Modal
   $('.display-bonus-modal').click(function() {
     $('.bonus-modal-container').slideDown();
