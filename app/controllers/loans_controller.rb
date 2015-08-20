@@ -43,6 +43,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
+        @loan.update(end_date: Date.today + 7 * @loan.weeks)
         format.html { redirect_to all_loans_path, notice: 'Loan was sent for confirmation.' }
         format.json { render :show, status: :created, location: @loan }
       else
