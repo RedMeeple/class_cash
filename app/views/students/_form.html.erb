@@ -7,6 +7,11 @@
     <span class="edit-email edit-input"><%= f.input :email %></span>
     <span class="edit-cash edit-input"><%= f.input :cash %></span>
     <span class="edit-period edit-input"><%= f.association :period, include_blank: true %></span>
+    <span>
+      <% if @student.new_record? %>
+        <%= f.input :password %>
+      <% end %>
+    </span>
     <%= f.hidden_field :can_loan, value: false %>
 
     <%= f.submit "Submit", class: "pure-button pure-button-primary btn-cc" %>
