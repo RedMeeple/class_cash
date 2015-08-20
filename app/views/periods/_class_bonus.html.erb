@@ -4,17 +4,11 @@
   <h3>Award Class Bonus</h3>
   <h4>This may be a positive or negative amount.</h4>
 
-    <div>
-    Distribute $<%= f.input :amount, label: false, placeholder: "Total award amount" %>
-    </div>
+  Distribute $<%= f.input :amount, label: false, placeholder: "Total award amount", input_html: { class: "input-total" } %>
 
-    <div>
-    to <%= f.association :period, label_method: :name, label: false%>
-    </div>
+  to <%= f.association :period, label_method: :name, label: false, input_html: { class: "input-total" } %>
 
-    <div>
-    for <%= f.input :reason, label: false, placeholder: "Enter reason here" %>
-    </div>
+  for <%= f.input :reason, label: false, placeholder: "Enter reason here", input_html: { class: "input-total" } %>
 
-    <%= f.button :submit, "Give Bonus", class: "pure-button pure-button-primary" %>
+  <%= f.button :submit, "Give Bonus", class: "pure-button btn-cc" %>
 <% end %>

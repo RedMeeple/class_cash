@@ -9,7 +9,7 @@ class PeriodsController < ApplicationController
   def update_behavior
     if @period.update(period_params)
       @period.pay_students
-      redirect_to periods_path, notice: 'Today\'s behavior has been updated.'
+      redirect_to root_path, notice: 'Today\'s behavior has been updated.'
     else
       @students = @period.students
       render :enter_behavior

@@ -45,6 +45,10 @@
 
 
 // Roster View
+.period-table-container {
+  display: none;
+}
+
 .period-table {
   margin-bottom: 2em;
   min-width: 880px;
@@ -86,7 +90,7 @@
 }
 
 
-.active {
+.period-table-container.active {
   display: block;
 }
 
@@ -105,6 +109,9 @@
   bottom: 0;
   font-weight: bold;
   font-size: 24px;
+}
+.active {
+  display: block
 }
 
 //Awards Modal
@@ -139,7 +146,7 @@
   right: 0;
   left: 0;
   height: 80px;
-  background-color: #0087e7;
+  background-color: $green-primary;
   border-radius: 5px 5px 0 0;
 }
 

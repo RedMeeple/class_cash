@@ -1,13 +1,49 @@
 <div class="heading-container">
   <h1 class="roster-title">Roster</h1>
   <div class="buttons-container">
-    <%= link_to 'Give Individual Bonus', give_bonus_students_path, class: "pure-button btn-cc" %>
+    <button class="pure-button display-bonus-modal btn-cc">Award Individual Bonus</button>
+    <button class="pure-button display-class-bonus-modal btn-cc">Award Class Bonus</button>
+    <%= link_to 'New Period', new_period_path, class: "pure-button btn-cc" %>
   </div>
 </div>
 
 <% @periods.each do |per| %>
   <% per.find_richest %>
-
-  <div id="period-table<%= per.id %>"><%= render partial: 'periods/table', locals: { students: per.students } %></div>
+  <div class="period-title-container">
+    <span class="period-name"><%= per.name %></span>
+    <span class="paysclae">Payscale: $<%= per.payscale %></span>
+    <span class="students-number">Total Students: <%= per.students.count %></span>
+    <span class="class-average">Class Average: $<%= per.class_average %></span>
+    <span class="view-button-span"><button id="<%= per.id %>" class="view-button btn-cc pure-button">View</button></span>
+    <span>
+      <div class="pure-button">Options</div>
+      <div class="periods-table-info-options-list">
+        <%= link_to 'Edit', edit_period_path(per), class: "pure-button" %>
+        <%= link_to 'Delete', per, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+        <%= link_to 'Enter Behavior Data', enter_behavior_period_path(per), class: "pure-button" %>
+        <%= link_to 'Loaning Permission', permissions_loan_path(per), class: "pure-button" %>
+      </div>
+    </span>
+  </div>
+  <div id="period-table-container<%= per.id %>" class="period-table-container"><%= render partial: 'periods/table', locals: { students: per.students, period: per } %></div>
 
 <% end %>
+
+
+<div class="bonus-modal-container">
+  <div class="bonus-modal-header">
+    <i class="fa-remove fa fa-2x close-btn"></i>
+  </div>
+  <div class="bonus-modal">
+    <td class="test"> <%= render partial: 'give_bonus' %></td>
+  </div>
+</div>
+
+<div class="class-bonus-modal-container">
+  <div class="class-bonus-modal-header">
+    <i class="fa-remove fa fa-2x close-btn"></i>
+  </div>
+  <div class="class-bonus-modal">
+    <td class="test"> <%= render partial: 'periods/class_bonus' %></td>
+  </div>
+</div>

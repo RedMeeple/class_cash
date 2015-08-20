@@ -176,3 +176,48 @@ text.active {
   margin: 0 auto;
   width: 50%;
 }
+
+//Bonus Modal
+.bonus-modal-container {
+  display: none;
+}
+
+.bonus-modal-container {
+  position: fixed;
+  margin: 0;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  background-color: #e0e0e0;
+  display: none;
+}
+
+.bonus-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.bonus-modal-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background-color: $green-primary;
+  border-radius: 5px 5px 0 0;
+}
+
+.close-btn {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  color: #eee;
+  cursor: pointer;
+  display: none;
+}

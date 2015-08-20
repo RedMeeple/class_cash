@@ -5,27 +5,36 @@ app.periods = {
 
   displayPeriodsOptions: function () {
     $('.periods-table-info-options').on('click', '.pure-button', function () {
-      
+
       if ($(this).next().hasClass('active')) {
         $(this).next().toggleClass('active');
       } else {
         $('.periods-table-info-options-list').removeClass('active');
         $(this).next().toggleClass('active');
       }
-      
+
     });
   },
 
   displayPeriodOptions: function () {
     $('.period-table-info-options').on('click', '.pure-button',function () {
-      
+
       if ($(this).next().hasClass('active')) {
         $(this).next().toggleClass('active');
       } else {
         $('.period-table-info-options-list').removeClass('active');
         $(this).next().toggleClass('active');
       }
-      
+
+    });
+  },
+
+  togglePeriod: function () {
+    $('.view-button').on('click', function () {
+      id = this.id;
+      $('#period-table-container' + id).toggleClass('active');
     });
   }
+
+
 }

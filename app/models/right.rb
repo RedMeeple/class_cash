@@ -4,6 +4,11 @@ class Right < ActiveRecord::Base
   has_many :students, through: :student_right_assignments
 
   def available_students(id)
-    self.students
+    if !self.instructor_id.nil?
+      self.students
+    else
+      instructor = Instructor.find(id)
+      instructor.students.select { |s| s.rights.include? self }
+    end
   end
 end

@@ -1,0 +1,20 @@
+
+<%= simple_form_for @extra, url: gave_bonus_students_path, html: { class: "pure-form pure-form-stacked form-width centered" } do |f| %>
+  <%= f.error_notification %>
+  <h3>Give Individual Bonus</h3>
+  <h5>A bonus can be a positive or negative amount.</h5>
+
+
+  <%= f.association :student do %>
+    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name, {}, { class: "input-total" } %>
+  <% end %>
+  is receiving
+  $<%= f.input :amount, label: false, input_html: { class: "input-total" } %>
+  because
+  <%= f.input :reason, label: false, input_html: { class: "input-total" } %>
+
+  <%= f.hidden_field :instructor_id, value: @instructor.id %>
+
+  <%= f.button :submit, "Give Bonus", class: "pure-button btn-cc" %>
+
+<% end %>
