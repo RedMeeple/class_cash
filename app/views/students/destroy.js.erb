@@ -1,1 +1,1 @@
-$("#period-table<%= @period.id %>").html("<%= j(render partial: 'periods/table', locals: {students: @period.students }) %>")
+$("#period-table<%= @period.id %>").html("<%= j(render partial: 'periods/show', locals: {students: @period.students }) %>")

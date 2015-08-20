@@ -29,7 +29,7 @@
       </span>
     </div>
   </div>
-  <div id="period-table-container<%= per.id %>" class="period-table-container"><%= render partial: 'periods/table', locals: { students: per.students, period: per } %></div>
+  <div id="period-table-container<%= per.id %>" class="period-table-container"><%= render partial: 'periods/show', locals: { students: per.students, period: per } %></div>
 
 <% end %>
 
