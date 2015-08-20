@@ -8,7 +8,7 @@ $(function () {
     app.students.displayOptions();
   }
 
-  if ($('.periods-table').length) {
+  if ($('.roster-title').length) {
     app.periods.displayPeriodsOptions();
   }
 
