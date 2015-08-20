@@ -2,16 +2,16 @@
 <li id="<%= right.id %>">
   <h3><%= right.description %>
   <% if right.instructor %>
-    <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
+    <%= link_to "<i class='fa fa-times'></i>".html_safe, right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
   <% end %></h3>
 
   <ul id="right-list<%= right.id %>" class="right-list">
     <% right.available_students(current_user.id).each do |s| %>
-      <li class="rights-sub-list-item">
+      <li class="new-right-list-container">
+        <%= s.full_name %>
         <%= link_to(fire_path(right, s), remote: true, class: "rights-delete") do %>
           <i class="fa fa-times"></i>
         <% end %>
-        <%= s.full_name %>
       </li>
     <% end %>
   </ul>
