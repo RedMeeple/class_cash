@@ -4,7 +4,7 @@
 app.periods = {
 
   displayPeriodsOptions: function () {
-    $('.periods-table-info-options').on('click', '.pure-button', function () {
+    $('.buttons-container').on('click', 'div.pure-button', function () {
 
       if ($(this).next().hasClass('active')) {
         $(this).next().toggleClass('active');
