@@ -42,7 +42,10 @@
   <h2>Loans Needing Your Confirmation</h2>
     <!-- <ul> -->
       <% @loans_received.where(accepted: nil).each do |loan| %>
-        <div class="student-loan-list"><%= link_to "View Terms from #{loan.student.full_name}", confirmation_loan_path(loan) %></div>
+        <div class="student-loan-list">
+          <button><%= "View Terms from #{loan.student.full_name}" %></button>
+          <%= render partial: 'confirmation', locals: { loan: loan } %>
+        </div>
       <% end %>
     <!-- </ul> -->
 </div>

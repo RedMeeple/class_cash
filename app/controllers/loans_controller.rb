@@ -3,9 +3,6 @@ class LoansController < ApplicationController
   before_action :student_logged_in?, except: [:index, :destroy, :permissions]
   before_action :instructor_logged_in?, only: [:index, :destroy, :permissions]
 
-  def confirmation
-  end
-
   def pay
     @transaction = Transaction.new(recipient_id: @loan.student.id,
         student_id: Student.find_by_id(@loan.recipient_id).id, reason: "Loan Payment")

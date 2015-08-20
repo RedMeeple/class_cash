@@ -1,0 +1,18 @@
+<%= simple_form_for loan do |f| %>
+  <%= f.error_notification %>
+  <p><%= Student.find_by_id(loan.student).full_name %> is willing to loan you
+    $<%= loan.amount.round %> at an interest rate of <%= loan.interest %>%. The terms are as follows:
+    <ol>
+      <li>You will have <%= loan.weeks %> weeks to repay.</li>
+      <li>Once a week you will have an automatic payment of $<%= loan.calculate_payment.round %>.</li>
+      <li>The total amount you will pay back will be $<%= loan.final_total.round %>.</li>
+      <li>You may make payments faster on the loan to avoid interest payments. </li>
+    </ol>
+  </p>
+
+  <div>I accept the terms of this loan.</div>
+  <%= f.input :accepted, as: :radio_buttons , label: false %>
+
+  <%= f.button :submit %>
+
+<% end %>
