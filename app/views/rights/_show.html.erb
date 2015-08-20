@@ -1,5 +1,5 @@
 
-<li>
+<li id="<%= right.id %>">
   <h3><%= right.description %>
   <% if right.instructor %>
     <%= link_to 'x', right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
