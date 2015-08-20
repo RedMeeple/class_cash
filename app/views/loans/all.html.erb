@@ -46,16 +46,16 @@
     <!-- <ul> -->
       <% @loans_received.where(accepted: true).each do |loan| %>
         <div class="student-loan-list">
-          <%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
-          <button class="pure-button view-modal-btn">View</button>
+          <%= "$#{loan.balance.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
+          <button class="pure-button view-modal-btn">View</button>          
 
           <div class="main-modal-container">
             <div class="main-modal">
               <div class="main-modal-header">
-                <%= link_to "Make Payment", pay_loan_path(loan), class: "pure-button" %>
                 <i class="fa-close fa fa-2x modal-close"></i>
               </div>
               <%= render partial: 'show', locals: { loan: loan } %>
+              <%= link_to "Make Payment", pay_loan_path(loan), class: "pure-button" %>
             </div>
           </div>
         </div>

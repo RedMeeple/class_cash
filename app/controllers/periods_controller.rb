@@ -60,7 +60,7 @@ class PeriodsController < ApplicationController
     respond_to do |format|
       if @period.save
         @period.students.update_all(cash: 0, can_loan: false)
-        format.html { redirect_to @period, notice: 'Period was successfully created.' }
+        format.html { redirect_to students_path, notice: 'Period was successfully created.' }
         format.json { render :show, status: :created, location: @period }
       else
         @instructor = Instructor.find_by_id(current_user.id)
