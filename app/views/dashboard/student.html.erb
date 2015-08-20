@@ -13,6 +13,13 @@
           You are the richest!
         <% end %>
       </div>
+      <div class="student-info-list">
+        <% if @new_rights.count > 0 %>
+          <% @new_rights.each do |new_right| %>
+            Good job, you earned a new right for reaching $<%= new_right.cash_level %>! You will have this right unless you drop below $<%= new_right.cash_level %>. See your instructor to claim it.
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="list-awards-container">
       <% @awards.each do |award| %>
@@ -31,22 +38,25 @@
       <% else %>
         <div class="notifications-list">You have no rights yet. You can claim one when you reach $1000, $10,000 and $25,000.</div>
       <% end %>
-      <% if @new_rights.count > 0 %>
-        <% @new_rights.each do |new_right| %>
-        Good job, you earned a new right for reaching $<%= new_right.cash_level %>! You will have this right unless you drop below $<%= new_right.cash_level %>. See your instructor to claim it.
-        <% end %>
-      <% end %>
     </div>
     <div class="student-transaction-heading"><h3>Your Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
-      <% @extras.each do |extra| %>
-        <div class="notifications-list">You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
+      <% if @extras.count > 0 %>
+        <% @extras.each do |extra| %>
+          <div class="notifications-list">You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
+        <% end %>
+      <% else %>
+        <div class="notifications-list">You have not received any bonuses yet.</div>
       <% end %>
     </div>
     <div class="student-transaction-heading"><h3>Class Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
-      <% @bonuses.each do |bonus| %>
-        <div class="notifications-list">Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+      <% if @bonuses.count > 0 %>
+        <% @bonuses.each do |bonus| %>
+          <div class="notifications-list">Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+        <% end %>
+      <% else %>
+        <div class="notifications-list">Your class has not received any bonuses yet.</div>
       <% end %>
     </div>
     <div class="student-transaction-heading"><h3>Transactions</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
@@ -69,10 +79,14 @@
 
     <div class="student-transaction-heading"><h3>Your Awards</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
-      <% @awards.each do |a| %>
-        <div class="notifications-list">
-          You received the <%= a.award_type.name %> award for <%= a.reason %> and got a bonus of $<%= a.payment %>.
-        </div>
+      <% if @awards.count > 0 %>
+        <% @awards.each do |a| %>
+          <div class="notifications-list">
+            You received the <%= a.award_type.name %> award for <%= a.reason %> and got a bonus of $<%= a.payment %>.
+          </div>
+        <% end %>
+      <% else %>
+        <div class="list-awards">You have not earned any awards yet. Do something awesome for your class!</div>
       <% end %>
     </div>
   </div>
