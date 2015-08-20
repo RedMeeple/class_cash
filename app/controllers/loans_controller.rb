@@ -44,7 +44,7 @@ class LoansController < ApplicationController
     respond_to do |format|
       if @loan.update(loan_params)
         @loan.finalize
-        format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
+        format.html { redirect_to all_loans_path, notice: 'Loan was successfully updated.' }
         format.json { render :show, status: :ok, location: @loan }
       else
         format.html { render :edit }
