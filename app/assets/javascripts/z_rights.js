@@ -4,6 +4,11 @@
 app.rights = {
   
   assignRights: function() {
-    dragula([document.querySelector('#rights-list'), document.querySelector('#new-rights-list')]);
+    var dropZones = dragula([document.querySelector('#new-rights-list')]);
+    var rights = document.querySelectorAll('ul[id*="right-list"]');
+    
+    for (var i = 0; i < rights.length; i++) {
+      dropZones.containers.push(rights[i]);
+    }
   }
 }

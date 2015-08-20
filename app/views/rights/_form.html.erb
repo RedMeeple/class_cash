@@ -1,7 +1,7 @@
 <%= simple_form_for @right do |f| %>
   <%= f.error_notification %>
 
-<div class="right-input-container">
+
   <div class="form-inputs rights-inputs">
     <%= f.input :description, label: false, placeholder: "New right description" %>
     <%= f.hidden_field :instructor_id, value: @instructor.id %>
@@ -11,4 +11,4 @@
     <%= f.button :submit, class: "pure-button rights-btn btn-cc" %>
   </div>
 <% end %>
-</div>
+
