@@ -363,10 +363,12 @@ text.active {
 }
 
 .student-loan-list {
-  width: 50%;
+  width: 49%;
+  display: inline-block;
   padding: 6px;
   border: 2px solid #ddd;
   margin: 0;
+  margin-bottom: 5px;
 }
 
 .student-loan-list a {

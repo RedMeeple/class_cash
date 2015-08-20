@@ -25,19 +25,19 @@
   <% end %>
 
   <h2>Accepted Loans</h2>
-    <ul>
+    <!-- <ul> -->
       <% @loans_received.where(accepted: true).each do |loan| %>
-        <li>
+        <div class="student-loan-list">
           <%= link_to "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}", loan %>
           <%= link_to "Make Payment", pay_loan_path(loan) %>
-        </li>
+        </div>
       <% end %>
-    </ul>
+    <!-- </ul> -->
 
   <h2>Loans Needing Your Confirmation</h2>
-    <ul>
+    <!-- <ul> -->
       <% @loans_received.where(accepted: nil).each do |loan| %>
-        <li><%= link_to "View Terms from #{loan.student.full_name}", confirmation_loan_path(loan) %></li>
+        <div class="student-loan-list"><%= link_to "View Terms from #{loan.student.full_name}", confirmation_loan_path(loan) %></div>
       <% end %>
-    </ul>
+    <!-- </ul> -->
 </div>
