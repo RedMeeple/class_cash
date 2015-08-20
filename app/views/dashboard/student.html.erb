@@ -62,18 +62,27 @@
     <div class="student-transaction-heading"><h3>Transactions</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
         <h4>You received</h4>
-        <% @received.each do |r| %>
-          <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+        <% if @received.count > 0 %>
+          <% @received.each do |r| %>
+            <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for <%= r.reason %> on on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+          <% end %>
+        <% else %>
+          <div class="notifications-list">You have not received any money yet.</div>
         <% end %>
         <h4>You sent</h4>
-        <% @sent.each do |s| %>
-          <div class="notifications-list">$<%= s.amount %> to
-            <% if Student.find_by_id(s.recipient_id) %>
-              <%= Student.find(s.recipient_id).full_name %>
-            <% else %>
-                <%= "Not Available" %>
-            <% end %>
-             for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
+        <% if @sent.count > 0 %>
+          <% @sent.each do |s| %>
+            <div class="notifications-list">$<%= s.amount %> to
+              <% student = Student.find_by_id(s.recipient_id) %>
+              <% if student %>
+                <%= student.full_name %>
+              <% else %>
+                  <%= "Not Available" %>
+              <% end %>
+               for <%= s.reason %> on on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
+          <% end %>
+        <% else %>
+          <div class="notifications-list">You have not sent any money yet.</div>
         <% end %>
     </div>
 
