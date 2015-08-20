@@ -369,6 +369,7 @@ text.active {
   border: 2px solid #ddd;
   margin: 0;
   margin-bottom: 5px;
+  height: 50px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+0,f8f8f8+61,f6f6f6+100 */
   background: rgb(252,252,252); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(248,248,248,1) 61%, rgba(246,246,246,1) 100%); /* FF3.6+ */
@@ -378,6 +379,10 @@ text.active {
   background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+}
+
+.student-loan-list .btn-cc {
+  float: right;
 }
 
 .student-loan-list a {

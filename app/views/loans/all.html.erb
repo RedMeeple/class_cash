@@ -2,11 +2,18 @@
   <h1>Your Loans</h1>
   <div class="buttons-container">
     <% if @student.can_loan%>
-      <button class= "pure-button btn-cc">Offer Loan</button>
+      <button class= "pure-button btn-cc new-loan-btn">Offer Loan</button>
     <% end %>
   </div>
 </div>
-<div id="new-loan-form"><%= render 'new' %></div>
+<div class="main-modal-container new-loan-modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-close fa fa-2x modal-close"></i>
+    </div>
+    <div id="new-loan-form"><%= render 'new' %></div>
+  </div>
+</div>
 <div class="student-loan-container">
   <% if @student.can_loan%>
     <h2>Given Loans</h2>
@@ -20,9 +27,17 @@
             <% else %>
               <%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
             <% end %>
-            <button>View</button>
-            <%= render partial: 'show', locals: { loan: loan } %>
+            <button class="pure-button btn-cc view-modal-btn">View</button>
+            <div class="main-modal-container">
+              <div class="main-modal">
+                <div class="main-modal-header">
+                  <i class="fa-close fa fa-2x modal-close"></i>
+                </div>
+                  <%= render partial: 'show', locals: { loan: loan } %>
+              </div>
+            </div>
           </div>
+
         <% end %>
       <!-- </ul> -->
   <% end %>
@@ -32,9 +47,17 @@
       <% @loans_received.where(accepted: true).each do |loan| %>
         <div class="student-loan-list">
           <%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
-          <button>View</button>
-          <%= link_to "Make Payment", pay_loan_path(loan) %>
-          <%= render partial: 'show', locals: { loan: loan } %>
+          <button class="pure-button btn-cc view-modal-btn">View</button>
+
+          <div class="main-modal-container">
+            <div class="main-modal">
+              <div class="main-modal-header">
+                <%= link_to "Make Payment", pay_loan_path(loan), class: "pure-button" %>
+                <i class="fa-close fa fa-2x modal-close"></i>
+              </div>
+              <%= render partial: 'show', locals: { loan: loan } %>
+            </div>
+          </div>
         </div>
       <% end %>
     <!-- </ul> -->
@@ -43,8 +66,15 @@
     <!-- <ul> -->
       <% @loans_received.where(accepted: nil).each do |loan| %>
         <div class="student-loan-list">
-          <button><%= "View Terms from #{loan.student.full_name}" %></button>
-          <%= render partial: 'confirmation', locals: { loan: loan } %>
+          <button class="pure-button btn-cc view-modal-btn"><%= "View Terms from #{loan.student.full_name}" %></button>
+          <div class="main-modal-container">
+            <div class="main-modal">
+              <div class="main-modal-header">
+                <i class="fa-close fa fa-2x modal-close"></i>
+              </div>
+              <%= render partial: 'confirmation', locals: { loan: loan } %>
+            </div>
+          </div>
         </div>
       <% end %>
     <!-- </ul> -->

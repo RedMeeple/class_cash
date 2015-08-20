@@ -69,5 +69,18 @@ $(function () {
     app.rights.assignRights();
   }
 
+//Default Modal
+  $('.view-modal-btn').click(function() {
+    $(this).next().fadeIn('slow');
+  });
+
+  $('.modal-close').click(function() {
+    $('.main-modal-container').fadeOut('slow');
+  });
+
+  $('.new-loan-btn').click(function() {
+    $('.new-loan-modal').fadeIn('slow');
+  });
+
 
 });
