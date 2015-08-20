@@ -15,6 +15,7 @@
 //
 //= require d3.min
 //= require c3.min
+//= require dragula.min
 //
 //= require z_app
 //= require z_dashboard

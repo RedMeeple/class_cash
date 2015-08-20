@@ -64,5 +64,10 @@ $(function () {
     $(this).find('.student-transaction-dropdown').toggleClass('rotate-dropdown');
   });
 
+// Rights
+  if ($('.rights-container').length) {
+    app.rights.assignRights();
+  }
+
 
 });

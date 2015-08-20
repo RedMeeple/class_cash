@@ -17,6 +17,7 @@
  *= require pure-min
  *= require grids-responsive-min
  *= require c3.min
+ *= require dragula.min
  *
  *= require variables
  *= require defaults
