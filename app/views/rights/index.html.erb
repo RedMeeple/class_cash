@@ -1,14 +1,14 @@
 <div class="rights-container">
   <div class="rights-main-container">
     <h2 class="rights-list-heading">List of Rights</h2>
-    <ul id="rights-list">
+    <div id="rights-list">
       <% @rights.each do |right| %>
         <div id="right-row<%= right.id %>" class="rights-list-item">
           <%= render partial: 'show', locals: { right: right } %>
         </div>
       <% end %>
       <li class="rights-list-item"><%= render partial: 'form' %></li>
-    </ul>
+    </div>
   </div>
 
 <div class="new-right-container">

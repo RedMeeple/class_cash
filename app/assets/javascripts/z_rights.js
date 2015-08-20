@@ -5,10 +5,31 @@ app.rights = {
   
   assignRights: function() {
     var dropZones = dragula([document.querySelector('#new-rights-list')]);
-    var rights = document.querySelectorAll('ul[id*="right-list"]');
+    var rights = document.querySelectorAll('div[id*="right-list"]');
     
     for (var i = 0; i < rights.length; i++) {
       dropZones.containers.push(rights[i]);
     }
+    
+    dropZones.on('drop', function(el) {
+      
+      if (!$(el).closest('div[id="new-rights-list"]').length) {
+        var assignmentId = el.id.split('-')[1];
+        var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
+        
+        console.log(assignmentId);
+        console.log(rightId);
+        console.log('/rights/assign/' + assignmentId + '/' + rightId);
+        
+        $.ajax({
+          url: '/rights/assign/' + assignmentId + '/' + rightId,
+          type: 'PATCH',
+          success: function(data) {
+            $('#right-row' + rightId).html(data);
+          }
+        })
+      }
+      
+    })
   }
 }
