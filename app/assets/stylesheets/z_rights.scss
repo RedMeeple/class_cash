@@ -116,9 +116,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
 // }
 
 .new-right-list-container {
+  background: $green-primary-light;
+  border-radius: 0.2em;
   position: relative;
   width: 100%;
-  padding: 10px 0;
+  padding: 0.5em;
+  margin: 0.5em 0;
 }
 
 .new-right-list-container select {
