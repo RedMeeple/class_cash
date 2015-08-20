@@ -42,7 +42,7 @@ $(function () {
     $(this).fadeOut();
     $('.class-bonus-modal').fadeOut('fast');
   });
-  
+
 //Bonus Modal
   $('.display-bonus-modal').click(function() {
     $('.bonus-modal-container').slideDown();
@@ -56,6 +56,12 @@ $(function () {
     $('.bonus-modal-header').slideUp();
     $(this).fadeOut();
     $('.bonus-modal').fadeOut('fast');
+  });
+
+//Student Dropdown
+  $('.student-transaction-heading').click(function() {
+    $(this).next().slideToggle('slow');
+    $(this).find('.student-transaction-dropdown').toggleClass('rotate-dropdown');
   });
 
 
