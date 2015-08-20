@@ -23,6 +23,14 @@
   padding: 0;
 }
 
+.right-list {
+  background: $green-primary;
+  padding: 1em;
+  margin: 0 0.5em 0.5em 0;
+  border-radius: 0.3em;
+  min-height: 5em;
+}
+
 .rights-list-item {
   min-height: 60px;
   list-style-type: none;
@@ -58,6 +66,9 @@
 }
 
 .new-right-container {
+  background: $green-primary;
+  padding: 1em;
+  border-radius: 0.5em;
   position: absolute;
   width: 45%;
   right: 0;
