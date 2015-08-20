@@ -24,8 +24,12 @@
   <div class="student-transaction-info student-transaction-info-studentview">
     <div class="student-transaction-heading"><h3>Your Rights</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
-      <% @student_rights.each do |student_right| %>
-        <div class="notifications-list"><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
+      <% if @student_rights.count > 0 %>
+        <% @student_rights.each do |student_right| %>
+          <div class="notifications-list"><%= student_right.right.description %> for reaching $<%= student_right.cash_level %>.</div>
+        <% end %>
+      <% else %>
+        <div class="notifications-list">You have no rights yet. You can claim one when you reach $1000, $10,000 and $25,000.</div>
       <% end %>
       <% if @new_rights.count > 0 %>
         <% @new_rights.each do |new_right| %>

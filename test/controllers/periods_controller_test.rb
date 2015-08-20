@@ -51,6 +51,6 @@ class PeriodsControllerTest < ActionController::TestCase
       delete :destroy, id: @period
     end
 
-    assert_redirected_to periods_path
+    assert_redirected_to students_path
   end
 end

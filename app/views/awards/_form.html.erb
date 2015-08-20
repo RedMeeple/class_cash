@@ -1,18 +1,18 @@
-<%= simple_form_for @award, html: { class: "pure-form pure-form-stacked" } do |f| %>
+<%= simple_form_for @award, html: { class: "pure-form pure-form-stacked form-width centered" } do |f| %>
 
   <%= f.error_notification %>
 
   Give
   <%= f.input :student, label: false do %>
-    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
+    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name, {}, { class: "input-total" } %>
   <% end %>
    the award for
-   <%= f.association :award_type, label_method: :name, include_blank: true, label: false %>,
+   <%= f.association :award_type, label_method: :name, include_blank: true, label: false, input_html: { class: "input-total" } %>,
   because
-  <%= f.input :reason, label: false %>.
+  <%= f.input :reason, label: false, input_html: { class: "input-total" } %>.
   This award is going to come with an extra bonus of
-  $<%= f.input :payment, label: false %>
+  $<%= f.input :payment, label: false, input_html: { class: "input-total" } %>
 
-  <%= f.button :submit, "Give Award", class: "pure-button pure-button-primary" %>
+  <%= f.button :submit, "Give Award", class: "pure-button btn-cc" %>
 
 <% end %>

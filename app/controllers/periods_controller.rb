@@ -25,9 +25,9 @@ class PeriodsController < ApplicationController
       @period.students.each do |student|
         student.update(cash: (student.cash + individual))
       end
-      redirect_to periods_path, notice: "$#{@bonus.amount} has been distributed."
+      redirect_to students_path, notice: "$#{@bonus.amount} has been distributed."
     else
-      redirect_to periods_path, notice: "This bonus did not go through."
+      redirect_to students_path, notice: "This bonus did not go through."
     end
 
   end
@@ -76,10 +76,10 @@ class PeriodsController < ApplicationController
       if @period.update!(period_params)
         @instructor = @period.instructor
         @period.students.build
-        format.html { redirect_to periods_path, notice: 'Loaning Permissions Updated.' }
+        format.html { redirect_to students_path, notice: 'Loaning Permissions Updated.' }
         format.js
       else
-        format.html { redirect_to periods_path, notice: @periods.errors }
+        format.html { redirect_to students_path, notice: @periods.errors }
       end
     end
 

@@ -21,6 +21,10 @@
   min-width: 35rem;
 }
 
+.jobs-table-job-info:not(:last-child) {
+  margin-bottom: 0.3em;
+}
+
 .jobs-table-job-info div {
   display: inline-block;
 }
