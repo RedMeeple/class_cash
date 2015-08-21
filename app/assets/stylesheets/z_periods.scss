@@ -18,15 +18,23 @@
 
 .periods-table-info-options-list {
   position: absolute;
-  left: 100%;
-  top: 15%;
-  margin-top: 0;
+  // left: 100%;
+  // top: 15%;
+  margin-top: 8px;
   display: none;
+  z-index: 100;
+  padding: 10px;
+  padding-top: 0;
+  // margin-top: 30px;
+  margin-right: -26px;
+  right: 0;
+  width: 200%;
 }
 
 .periods-table-info-options-list a {
   display: block;
   margin: 0;
+  width: 100%;
 }
 
 .periods-edit {
@@ -66,7 +74,7 @@
   position: absolute;
   // left: 100%;
   // top: 15%;
-  margin-top: 0;
+  top: 50px;
   display: none;
   bottom: -135px;
   right: -20px;
@@ -116,7 +124,7 @@
 
 //Awards Modal
 .class-bonus-modal-container {
-  display: none;
+  // display: none;
 }
 
 .class-bonus-modal-container {
@@ -129,7 +137,7 @@
   border-radius: 5px;
   transform: translate(-50%, -50%);
   background-color: #e0e0e0;
-  display: none;
+  // display: none;
 }
 
 .class-bonus-modal {
@@ -137,7 +145,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
+  // display: none;
 }
 
 .class-bonus-modal-header {
@@ -156,7 +164,7 @@
   right: 25px;
   color: #eee;
   cursor: pointer;
-  display: none;
+  // display: none;
 }
 
 // New Period Form

@@ -1,14 +1,15 @@
-<%= simple_form_for @loan do |f| %>
-  <%= f.error_notification %>
+<div class="offer-loan-container">
+  <%= simple_form_for @loan do |f| %>
+    <%= f.error_notification %>
 
-  <%= f.hidden_field :student_id, value: @student.id %>
-  <%= f.association :recipient do %>
-    <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
+    <%= f.hidden_field :student_id, value: @student.id %>
+    <%= f.association :recipient do %>
+      <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name%>
+    <% end %>
+    <%= f.input :amount, placeholder: 100 %>
+    <%= f.input :interest %>%
+    <%= f.input :weeks, label: "Weeks recipient has to repay loan" %>
+</div>
+    <%= f.button :submit, "Send for confirmation", class: "pure-button offer-loan-btn" %>
+
   <% end %>
-  <%= f.input :amount, placeholder: 100 %>
-  <%= f.input :interest %>%
-  <%= f.input :weeks, label: "Weeks recipient has to repay loan" %>
-
-  <%= f.button :submit, "Send for confirmation" %>
-
-<% end %>

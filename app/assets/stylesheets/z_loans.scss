@@ -6,3 +6,55 @@
 .loan-permission-inputs * {
   margin: 0.5em;
 }
+
+.vertical-center {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+
+//Loans modal styling
+.accept-loan-container {
+  border: 2px solid #ddd;
+  padding: 8px 5px;
+  margin-bottom: 5px;
+}
+
+.accept-loan-radio {
+  float: right;
+}
+
+.accept-loan-radio input[type="radio"] {
+  margin: 0 8px;
+}
+
+.loan-terms-list li {
+  padding-bottom: 15px;
+}
+
+.offer-loan-container {
+  width: 400px;
+  display: block;
+  padding: 10px;
+}
+
+.offer-loan-container input,
+.offer-loan-container select {
+  width: 100%;
+  margin-bottom: 8px;
+  border: 2px solid #ddd;
+  padding: 5px;
+  outline: none;
+  border-radius: 2px;
+}
+
+.offer-loan-container select {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.offer-loan-btn {
+  float: right;
+  margin-top: -13px;
+  margin-right: 10px;
+}

@@ -16,11 +16,6 @@ app.rights = {
       if (!$(el).closest('div[id="new-rights-list"]').length) {
         var assignmentId = el.id.split('-')[1];
         var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
-
-        console.log(assignmentId);
-        console.log(rightId);
-        console.log('/rights/assign/' + assignmentId + '/' + rightId);
-
         $.ajax({
           url: '/rights/assign/' + assignmentId + '/' + rightId,
           type: 'PATCH',
