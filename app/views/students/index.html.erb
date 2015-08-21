@@ -34,21 +34,24 @@
 
 <% end %>
 
-
-<div class="bonus-modal-container">
-  <div class="bonus-modal-header">
-    <i class="fa-remove fa fa-2x close-btn"></i>
-  </div>
-  <div class="bonus-modal">
-    <td class="test"> <%= render partial: 'give_bonus' %></td>
+<div class="main-modal-container ind-modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-remove fa fa-2x modal-close"></i>
+    </div>
+    <div class="bonus-modal">
+      <td class="test"> <%= render partial: 'give_bonus' %></td>
+    </div>
   </div>
 </div>
 
-<div class="class-bonus-modal-container">
-  <div class="class-bonus-modal-header">
-    <i class="fa-remove fa fa-2x close-btn"></i>
-  </div>
-  <div class="class-bonus-modal">
-    <td class="test"> <%= render partial: 'periods/class_bonus' %></td>
+<div class="main-modal-container class-modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-remove fa fa-2x modal-close"></i>
+    </div>
+    <div class="class-bonus-modal">
+      <td class="test"> <%= render partial: 'periods/class_bonus' %></td>
+    </div>
   </div>
 </div>
