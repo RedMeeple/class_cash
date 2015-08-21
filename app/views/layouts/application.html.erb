@@ -26,10 +26,10 @@
             <% end %>
             <% if current_user and current_user.type == "Student" %>
             <div class="top-nav-container">
-              <ul class="top-nav-ul">                
+              <ul class="top-nav-ul">
                 <li class="top-nav-li"><%= link_to 'Your Loans', all_loans_path %></li>
                 <li class="top-nav-li"><%= link_to 'Payment History', behavior_student_path(current_user) %></li>
-                <li class="top-nav-li"><%= link_to 'Transfer Money', send_money_students_path %></li>
+                <li class="top-nav-li"><button>Transfer Money</button></li>
               </ul>
             </div>
           <% end %>

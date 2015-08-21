@@ -69,12 +69,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  def send_money
-    @student = Student.find_by_id(current_user.id)
-    @periods = Period.where(instructor_id: @student.period.instructor_id)
-    @transaction = Transaction.new(student_id: @student.id)
-  end
-
   def sent_money
     @student = Student.find_by_id(current_user.id)
     @transaction = Transaction.new(transaction_params)
