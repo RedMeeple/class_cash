@@ -50,7 +50,8 @@ class PeriodsController < ApplicationController
 
   def edit
     @instructor = Instructor.find_by_id(current_user.id)
-    @period.students.build
+    up_to = 30 - @period.students.count
+    up_to.times { @period.students.build }
   end
 
   def create
