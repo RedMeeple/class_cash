@@ -1,31 +1,29 @@
-
-
-<p>
+<span class="modal-list">
   <strong>Lender:</strong>
   <%= loan.student.full_name %>
-</p>
+</span>
 
-<p>
+<span class="modal-list">
   <strong>Borrower:</strong>
   <%= Student.find_by_id(loan.recipient_id).full_name %>
-</p>
+</span>
 
-<p>
+<span class="modal-list">
   <strong>Amount:</strong>
   $<%= loan.amount.round %>
-</p>
+</span>
 
-<p>
+<span class="modal-list">
   <strong>Weekly Interest:</strong>
   <%= loan.interest %>%
-</p>
+</span>
 
-<p>
+<span class="modal-list">
   <strong>End date:</strong>
   <%= loan.end_date ? loan.end_date.strftime('%b %e, %Y') : "Pending" %>
-</p>
+</span>
 
-<p>
+<span class="modal-list">
   <strong>Balance Left:</strong>
   <%= loan.balance ? "$#{loan.balance.round}" : "Pending" %>
-</p>
+</span>
