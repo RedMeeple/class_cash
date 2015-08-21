@@ -73,7 +73,7 @@ class StudentsController < ApplicationController
     @student = Student.find_by_id(current_user.id)
     @transaction = Transaction.new(transaction_params)
     if @transaction.finalize
-      @transaction.save
+      @transaction.save!
       redirect_to dashboard_student_path, notice: "$#{@transaction.amount} sent."
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
