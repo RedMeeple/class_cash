@@ -23,9 +23,9 @@
                   <div id="job<%= job.id %>">
                     <%= job.description %>: $<%= job.payscale %>
                   </div>
-                  <div id="links<%= job.id %>">
+                  <div id="links<%= job.id %>" class="job-links">
                     <%= link_to 'Edit', edit_job_path(job), remote: true %>
-                    <%= link_to 'Delete', job, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Fire', job, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
                   </div>
                 </div>
               <% end %>
