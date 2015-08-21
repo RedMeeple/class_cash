@@ -10,6 +10,7 @@ app.periods = {
         $(this).next().toggleClass('active');
       } else {
         $('.periods-table-info-options-list').removeClass('active');
+        $('.period-table-info-options-list').removeClass('active');
         $(this).next().toggleClass('active');
       }
 
@@ -23,6 +24,7 @@ app.periods = {
         $(this).next().toggleClass('active');
       } else {
         $('.period-table-info-options-list').removeClass('active');
+        $('.periods-table-info-options-list').removeClass('active');
         $(this).next().toggleClass('active');
       }
 
