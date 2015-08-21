@@ -75,8 +75,11 @@ class PeriodsController < ApplicationController
   def update
     respond_to do |format|
       if @period.update!(period_params)
+        if request.xhr?
+          @period.students.build
+          @period.students.update_all(cash: 0, can_loan: false)
+        end
         @instructor = @period.instructor
-        @period.students.build
         format.html { redirect_to students_path, notice: 'Loaning Permissions Updated.' }
         format.js
       else

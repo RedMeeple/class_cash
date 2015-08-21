@@ -1,4 +1,4 @@
-<%= simple_form_for @student, html: { class: "pure-form pure-form-stacked student-edit-form" } do |f| %>
+<%= simple_form_for student, html: { class: "pure-form pure-form-stacked student-edit-form" } do |f| %>
   <%= f.error_notification %>
 
 
@@ -8,7 +8,7 @@
     <span class="edit-cash edit-input"><%= f.input :cash %></span>
     <span class="edit-period edit-input"><%= f.association :period, include_blank: true %></span>
     <span>
-      <% if @student.new_record? %>
+      <% if student.new_record? %>
         <%= f.input :password %>
       <% end %>
     </span>
