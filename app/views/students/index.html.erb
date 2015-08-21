@@ -16,6 +16,7 @@
       <span class="payscale period-info">Payscale: $<%= per.payscale %></span>
       <span class="students-number period-info">Total Students: <%= per.students.count %></span>
       <span class="class-average period-info">Class Average: $<%= per.class_average %></span>
+      <span class="class-bonuses period-info">Class Bonus Total: $<%= per.bonuses.sum(:amount) %></span>
     </span>
     <div class="buttons-container">
       <span class="view-button-span"><button id="<%= per.id %>" class="view-button btn-cc pure-button">View</button></span>
