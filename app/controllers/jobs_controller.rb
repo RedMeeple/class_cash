@@ -3,18 +3,13 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_students, only: [:new, :edit]
 
-  # GET /jobs
-  # GET /jobs.json
   def index
     @periods = Period.where(instructor_id: current_user.id)
     @students = @periods.joins(:students)
+    @job = Job.new(student_id: params[:student_id])
   end
 
   def show
-  end
-
-  def new
-    @job = Job.new(student_id: params[:student_id])
   end
 
   def edit

@@ -18,7 +18,7 @@ class AwardsController < ApplicationController
 
     if @award.save
       @award.assign
-      redirect_to new_award_path, notice: 'Award was successfully created.'
+      redirect_to awards_path, notice: 'Award was successfully created.'
     else
       render :new
     end
