@@ -1,7 +1,7 @@
 <div class="heading-container-awards">
   <h1>Awards</h1>
   <div class="buttons-container">
-    <button>Give Award</button>
+    <button class="modal-btn pure-button btn-cc">Give Award</button>
   </div>
 </div>
 
@@ -25,4 +25,11 @@
   </tbody>
 </table>
 
-<div id="new-award-modal"><%= render partial: 'new' %></div>
+<div class="main-modal-container modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-close fa fa-2x modal-close"></i>
+    </div>
+    <div id="new-student-form" class="modal-content"><%= render partial: 'new' %></div>
+  </div>
+</div>
