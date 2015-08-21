@@ -8,14 +8,18 @@ class Period < ActiveRecord::Base
   validates :students, presence: true
 
   def find_richest
-    rich = self.students[0]
-    self.students.each do |s| s.update(richest: false)
-      rich = s if s.cash > rich.cash
-    end
-    rich.update(richest: true) if rich
-    if Award.where(student_id: rich.id).where(award_type_id: 1).count == 0
-      Award.create(student_id: rich.id, award_type_id: 1,
-          reason: "being the richest on #{Date.today}", payment: 100)
+    if self.students.count == 1
+      return
+    else
+      rich = self.students[0]
+      self.students.each do |s| s.update(richest: false)
+        rich = s if s.cash > rich.cash
+      end
+      rich.update(richest: true) if rich
+      if Award.where(student_id: rich.id).where(award_type_id: 1).count == 0
+        Award.create(student_id: rich.id, award_type_id: 1,
+            reason: "being the richest on #{Date.today}", payment: 100)
+      end
     end
   end
 

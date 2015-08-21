@@ -37,6 +37,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
+        @student.update(cash: 0, can_loan: false)
         format.html { redirect_to students_path, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
