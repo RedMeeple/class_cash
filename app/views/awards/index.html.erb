@@ -1,7 +1,7 @@
 <div class="heading-container-awards">
   <h1>Awards</h1>
   <div class="buttons-container">
-    <%= link_to 'Give Award', new_award_path, class: "pure-button btn-cc" %>
+    <button>Give Award</button>
   </div>
 </div>
 
@@ -25,4 +25,4 @@
   </tbody>
 </table>
 
-<br>
+<div id="new-award-modal"><%= render partial: 'new' %></div>

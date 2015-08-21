@@ -7,12 +7,7 @@ class AwardsController < ApplicationController
   def index
     @award_types = AwardType.all
     @instructor = Instructor.find_by_id(current_user.id)
-  end
-
-  # GET /awards/new
-  def new
     @award = Award.new
-    @awards = AwardType.all
     @periods = Period.where(instructor_id: current_user.id)
   end
 
