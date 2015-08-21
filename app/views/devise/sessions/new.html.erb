@@ -1,15 +1,21 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "pure-form pure-form-stacked form-width centered" }) do |f| %>
-  <h1>Log in</h1>
-  
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true, input_html: { class: "input-total" } %>
-    <%= f.input :password, required: false, input_html: { class: "input-total" } %>
-    <%= f.input :remember_me, label_html: { class: "pure-checkbox" }, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<div class="welcome-wrapper">
+  <div class="welcome-header">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in", class: "pure-button pure-button-primary" %>
   </div>
-<% end %>
+  <div class="signup-form-container">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "pure-form pure-form-stacked form-width centered" }) do |f| %>
+    <h1>Log in</h1>
 
-<%= render "devise/shared/links" %>
+    <div class="form-inputs">
+      <%= f.input :email, required: false, autofocus: true, input_html: { class: "input-total" } %>
+      <%= f.input :password, required: false, input_html: { class: "input-total" } %>
+      <%= f.input :remember_me, label_html: { class: "pure-checkbox" }, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Log in", class: "pure-button btn-cc" %>
+    </div>
+    <% end %>
+    <span class="shared-links"><%= render "devise/shared/links" %></span>
+  </div>
+</div>
