@@ -84,5 +84,9 @@ $(function () {
     $('.new-loan-modal').fadeIn('slow');
   });
 
+  $('.modal-btn').click(function() {
+    $('.modal').fadeIn('slow');
+  });
+
 
 });
