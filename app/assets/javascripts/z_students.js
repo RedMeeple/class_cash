@@ -43,6 +43,12 @@ app.students = {
   
   behavior: function (data) {
     
+    var obj = {};
+    
+    data.forEach(function(data, index) {
+      obj[data[0]] = data[1];
+    });
+    
     var startYear = parseInt(data[data.length - 1][0].split('-')[0]);
     var endYear = parseInt(data[0][0].split('-')[0]);
     
@@ -137,17 +143,9 @@ app.students = {
       // Beginning of mapping data
       
       rect.filter(function(d) { 
-            for (var i = 0; i < data.length; i++) {
-              if (d === data[i][0]) {
-                return d;
-              }
-            }
+            return d in obj;
           }).attr("class", function(d) {
-            for (var i = 0; i < data.length; i++) {
-              if (d === data[i][0]) {
-                return "day " + behavior(data[i][1]);
-              }
-            }
+            return 'day ' + behavior(obj[d]);
           })
         
       //  Tooltip
@@ -156,14 +154,8 @@ app.students = {
       rect.on("mouseout", mouseout);
       function mouseover(d) {
         tooltip.style("visibility", "visible");
-        var behavior_data = function() {
-          for (var i = 0; i < data.length; i++) {
-            if (d === data[i][0]) {
-              return behavior(data[i][1]);
-            }
-          }
-        }
-        var behavior_text = d + ': ' + behavior_data(d);
+        var behavior_data = (obj[d] !== undefined) ? behavior(obj[d]) : 'no behavior';
+        var behavior_text = d + ': ' + behavior_data;
         
         tooltip.transition()        
                     .duration(200)      
