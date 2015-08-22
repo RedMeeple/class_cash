@@ -94,9 +94,25 @@
 }
 
 .period-bonuses {
-  width: 30rem;
+  width: 80%;
+  min-width: 880px;
+  padding: 10px;
+  padding-top: 10px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+  border: 2px solid #eaeaea;
 }
 
+.period-bonuses h3 {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.period-bonuses-list {
+  padding-bottom: 8px;
+  display: inline-block;
+  width: 49.5%;
+}
 
 .period-table-container.active {
   display: block;
