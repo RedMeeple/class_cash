@@ -37,6 +37,19 @@
   display: inline !important;
 }
 
+.jobs-icon {
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 22px;
+  color: #333;
+  transition: 0.5s transform ease;
+}
+
+.jobs-icon:hover {
+  transform: scale(1.1);
+  transition: 0.5s transform ease;
+}
+
 //New Job
 .new-job-container {
   width: 50%;
