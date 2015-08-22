@@ -1,13 +1,19 @@
 <%= simple_form_for @job, remote: !@job.new_record?, html: { class: "pure-form" } do |f| %>
   <%= f.error_notification %>
 
+<div>
   <% if @job.new_record? %>
     <%= f.input :student_id, label: false do %>
       <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
     <% end %>
   <% end %>
+</div>
+<div>
   <%= f.input_field :description, label: false, placeholder: "Title" %>
+</div>
+<div>
   <%= f.input_field :payscale, label: false, placeholder: "Daily Payscale" %>
+</div>
 
   <%= f.button :submit, "Hire", class: "pure-button pure-button-primary hire-btn btn-cc" %>
 

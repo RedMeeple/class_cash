@@ -215,6 +215,11 @@ text.active {
   // display: none;
 }
 
+.student-modal input,
+.student-modal select {
+  width: 100%;
+}
+
 //Student Loans
 .student-loan-container {
   width: 80%;

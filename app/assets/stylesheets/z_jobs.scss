@@ -37,6 +37,10 @@
   display: inline !important;
 }
 
+.hiring-title {
+  text-align: center;
+}
+
 .jobs-icon {
   text-decoration: none;
   margin-left: 10px;
@@ -72,6 +76,12 @@
   width: 55%;
   margin: 0 auto;
   margin-top: 25px;
+}
+
+.new-job-form-container input,
+.new-job-form-container select {
+  margin-top: 5px;
+  width: 100%;
 }
 
 .job-links {
