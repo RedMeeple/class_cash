@@ -94,5 +94,18 @@ $(function () {
     $('.modal').fadeIn('fast');
   });
 
+//New Student Modal
+  $('.new-student-modal-btn').click(function() {
+    $('.student-modal').fadeIn('fast');
+  });
 
+//Hire Student Modal
+  $('.hire-modal-btn').click(function() {
+    $('.hire-modal').fadeIn('fast');
+  });
+
+//Give Award Modal
+  $('.give-award-btn').click(function() {
+    $('.give-award-modal').fadeIn('fast');
+  });
 });

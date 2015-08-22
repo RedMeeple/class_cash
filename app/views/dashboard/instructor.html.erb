@@ -1,7 +1,3 @@
-<div>You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.</div>
-<div>You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
-<div><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", students_path %></div>
-
 <div class="dashboard-header-container">
   <h3 class="dashboard-section-title">Welcome</h3>
   <div class="stats-totals-container">
@@ -9,6 +5,11 @@
     <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / (@instructor.students.count + 1) %></span>
     <span class="stats-totals">Richest: <%= @instructor.wealthiest %></span>
   </div>
+</div>
+<div class="dash-bonus-alert">
+  <div class="bonus-alert-content">You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.</div>
+  <div class="bonus-alert-content">You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
+  <div class="bonus-alert-content"><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", students_path %></div>
 </div>
 <div class="dashboard-info-container">
   <%= link_to rights_path, :action => 'go' do %>
