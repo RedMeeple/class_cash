@@ -19,7 +19,6 @@
       <span class="class-bonuses period-info">Class Bonus Total: $<%= per.bonuses.sum(:amount) %></span>
     </span>
     <div class="buttons-container">
-      <span class="view-button-span"><button id="<%= per.id %>" class="view-button btn-cc pure-button">View</button></span>
       <span>
         <div class="pure-button">Options</div>
         <div class="periods-table-info-options-list">
@@ -29,6 +28,7 @@
           <%= link_to 'Loaning Permission', permissions_loan_path(per), class: "pure-button" %>
         </div>
       </span>
+      <span class="view-button-span"><i id="<%= per.id %>" class="fa-sort-down fa-2x fa view-button"></i></span>
     </div>
   </div>
   <div id="period-table-container<%= per.id %>" class="period-table-container"><%= render partial: 'periods/show', locals: { students: per.students, period: per } %></div>

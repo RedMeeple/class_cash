@@ -92,7 +92,7 @@ class PeriodsController < ApplicationController
   def destroy
     @period.destroy
     respond_to do |format|
-      format.html { redirect_to periods_url, notice: 'Period was removed.' }
+      format.html { redirect_to students_url, notice: 'Period was removed.' }
       format.json { head :no_content }
     end
   end
