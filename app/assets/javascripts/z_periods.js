@@ -34,8 +34,8 @@ app.periods = {
   togglePeriod: function () {
     $('.view-button').on('click', function () {
       id = this.id;
-      // $('#period-table-container' + id).toggleClass('active');
       $('#period-table-container' + id).slideToggle('slow');
+      $(this).toggleClass('rotate-dropdown');
     });
   }
 

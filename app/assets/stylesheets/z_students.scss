@@ -78,6 +78,19 @@ text.active {
   font-size: 1.5em;
 }
 
+.roster-options-btn {
+  position: absolute;
+  right: -10px;
+}
+
+.view-button {
+  position: absolute;
+  right: -50px;
+  transition: 1s all ease;
+  cursor: pointer;
+  top: 0;
+}
+
 /* behavior colors */
 .RdYlGn .good { fill: $green-primary }
 .RdYlGn .bad { fill: #000000 }
