@@ -26,7 +26,20 @@
   background: #F0F0F0;
   padding: 0.5em;
   border-radius: 0.3em;
-  min-height: 5em;
+  // min-height: 5em;
+  display: none;
+}
+
+.right-dropdown {
+  position: absolute;
+  right: 32px;
+  cursor: pointer;
+  transition: 1s all ease;
+}
+
+.right-dropdown-rotate {
+  transform: rotateX(180deg);
+  transition: 1s all ease;
 }
 
 .rights-list-item {

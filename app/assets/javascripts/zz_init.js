@@ -71,22 +71,27 @@ $(function () {
     app.rights.assignRights();
   }
 
+  $('.right-dropdown').click(function() {
+    $(this).closest('div').find('div.right-list').slideToggle();
+    $(this).toggleClass('right-dropdown-rotate');
+  });
+
 //Default Modal
   $('.view-modal-btn').click(function() {
-    $(this).next().fadeIn('slow');
+    $(this).next().fadeIn('fast');
   });
 
   $('.modal-close').click(function() {
-    $('.main-modal-container').fadeOut('slow');
-    $('.modal').fadeOut('slow');
+    $('.main-modal-container').fadeOut('fast');
+    $('.modal').fadeOut('fast');
   });
 
   $('.new-loan-btn').click(function() {
-    $('.new-loan-modal').fadeIn('slow');
+    $('.new-loan-modal').fadeIn('fast');
   });
 
   $('.transfer-money-modal-btn').click(function() {
-    $('.modal').fadeIn('slow');
+    $('.modal').fadeIn('fast');
   });
 
 

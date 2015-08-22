@@ -1,9 +1,9 @@
 
 <div id="therightid-<%= right.id %>">
-  <h3><%= right.description %>
+  <h3 class="right-title"><%= right.description %><i class="fa-sort-down fa right-dropdown"></i></h3>
   <% if right.instructor %>
     <%= link_to "<i class='fa fa-times'></i>".html_safe, right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
-  <% end %></h3>
+  <% end %>
 
   <div id="right-list<%= right.id %>" class="right-list">
     <% right.available_students(current_user.id).each do |s| %>
