@@ -1,6 +1,6 @@
 <div class="student-send-money-container">
 
-  <div class="student-send-money-title">Send Cash</div>
+  <h2 class="student-send-money-title">Send Cash</h2>
 
   <%= form_for @transaction, url: sent_money_students_path, html: { class: "pure-form pure-form-stacked" } do |f| %>
     <% if @transaction.errors.any? %>

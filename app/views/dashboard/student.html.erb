@@ -16,7 +16,7 @@
       <div class="student-info-list">
         <% if @new_rights.count > 0 %>
           <% @new_rights.each do |new_right| %>
-            Good job, you earned a new right for reaching $<%= new_right.cash_level %>! You will have this right unless you drop below $<%= new_right.cash_level %>. See your instructor to claim it.
+            <div>Good job, you earned a new right for reaching $<%= new_right.cash_level %>! You will have this right unless you drop below $<%= new_right.cash_level %>. See your instructor to claim it.</div>
           <% end %>
         <% end %>
       </div>
