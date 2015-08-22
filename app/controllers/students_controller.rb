@@ -30,6 +30,9 @@ class StudentsController < ApplicationController
 
   def edit
     @periods = Period.where(instructor_id: current_user.id)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
