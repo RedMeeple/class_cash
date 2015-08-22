@@ -24,7 +24,7 @@
 .signup-form-container {
   background-color: #eaeaea;
   width: 350px;
-  height: 450px;
+  min-height: 500px;
   margin: 0 auto;
   position: absolute;
   left: 50%;
@@ -37,6 +37,10 @@
 .signup-form-container .btn-cc {
   float: right;
   width: 100%;
+}
+
+.signup-form-container .signup-btn {
+  margin-bottom: 25px;
 }
 
 .shared-links {

@@ -1,6 +1,11 @@
+<div class="welcome-wrapper">
+  <div class="welcome-header">
+
+  </div>
+  <div class="signup-form-container">
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "pure-form pure-form-stacked form-width centered" }) do |f| %>
   <h2>Forgot your password?</h2>
-  
+
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -8,8 +13,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send", class: "pure-button pure-button-primary" %>
+    <%= f.button :submit, "Send", class: "pure-button btn-cc" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<span class="shared-links"><%= render "devise/shared/links" %></span>
+  </div>
+</div>
