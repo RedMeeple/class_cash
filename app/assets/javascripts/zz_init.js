@@ -78,13 +78,14 @@ $(function () {
 
   $('.modal-close').click(function() {
     $('.main-modal-container').fadeOut('slow');
+    $('.modal').fadeOut('slow');
   });
 
   $('.new-loan-btn').click(function() {
     $('.new-loan-modal').fadeIn('slow');
   });
 
-  $('.modal-btn').click(function() {
+  $('.transfer-money-modal-btn').click(function() {
     $('.modal').fadeIn('slow');
   });
 

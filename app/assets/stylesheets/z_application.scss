@@ -20,7 +20,7 @@
   padding: 1.5em;
 }
 
-.top-nav-ul a {
+.top-nav-ul a, .transfer-money-modal-btn {
   text-decoration: none;
   color: $body;
   padding: 0 0.75em 0.25em 0.75em;
@@ -28,9 +28,10 @@
   -webkit-transition: 0.25s all ease;
   -moz-transition: 0.25s all ease;
   transition: 0.25s all ease;
+  cursor: pointer;
 }
 
-.top-nav-ul a:hover {
+.top-nav-ul a:hover, .transfer-money-modal-btn:hover {
   border-bottom: 3px solid $body;
   -webkit-transition: 0.25s all ease;
   -moz-transition: 0.25s all ease;
