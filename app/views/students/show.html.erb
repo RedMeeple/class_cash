@@ -27,9 +27,13 @@
       <div>
         <div class="student-transaction-heading"><h3>Received Money </h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
         <div class="hide">
-          <% @received.each do |r| %>
-            <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for
-              <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+          <% if @received.count > 0 %>
+            <% @received.each do |r| %>
+              <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for
+                <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
+            <% end %>
+          <% else %>
+            <div class="notifications-list"><%= @student.first_name %> has not received any money.</div>
           <% end %>
         </div>
       </div>
@@ -37,6 +41,7 @@
       <div>
         <div class="student-transaction-heading"><h3>Sent Money </h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
         <div class="hide">
+          <% if @sent.count > 0 %>
             <% @sent.each do |s| %>
               <div class="notifications-list">$<%= s.amount %> to
                 <% if Student.find_by_id(s.recipient_id) %>
@@ -47,16 +52,23 @@
                  for
                 <%= s.reason %> on <%= s.created_at.strftime('%b %e, %Y') %>.</div>
             <% end %>
+          <% else %>
+            <div class="notifications-list"><%= @student.first_name %> has not transferred any money.</div>
+          <% end %>
         </div>
       </div>
 
       <div>
         <div class="student-transaction-heading"><h3>Awards </h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
         <div class="hide">
+          <% if @awards.count > 0 %>
             <% @awards.each do |a| %>
               <div class="notifications-list"><%= a.award_type.name %> for <%= a.reason %> on
                 <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></div>
             <% end %>
+          <% else %>
+            <div class="notifications-list"><%= @student.first_name %> has not received any awards yet.</div>
+          <% end %>
         </div>
       </div>
 
@@ -69,7 +81,7 @@
                 <%= b.created_at.strftime('%b %e, %Y') %> for <%= b.reason %></div>
             <% end %>
           <% else %>
-            <div class="notifications-list">Your class has not received any bonuses yet.</div>
+            <div class="notifications-list"><%= @student.first_name %> has not received any bonuses yet.</div>
           <% end %>
         </div>
       </div>
