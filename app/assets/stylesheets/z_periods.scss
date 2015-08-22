@@ -17,18 +17,15 @@
 }
 
 .periods-table-info-options-list {
-  position: absolute;
-  // left: 100%;
-  // top: 15%;
+  position: relative;
   margin-top: 8px;
   display: none;
-  z-index: 100;
+  z-index: 1000;
   padding: 10px;
   padding-top: 0;
-  // margin-top: 30px;
-  margin-right: -26px;
-  right: 0;
-  width: 200%;
+  right: -131px;
+  width: 80%;
+  top: 32px;
 }
 
 .periods-table-info-options-list a {
