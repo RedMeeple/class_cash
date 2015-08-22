@@ -50,7 +50,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         @periods = Period.where(instructor_id: current_user.id)

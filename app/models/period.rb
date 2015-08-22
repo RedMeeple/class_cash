@@ -8,11 +8,14 @@ class Period < ActiveRecord::Base
   validates :students, presence: true
 
   def find_richest
+    self.students.update_all(richest: false)
     if self.students.count == 1
+      return
+    elsif self.students.order(:cash).first.cash == self.students.order(:cash).second.cash
       return
     else
       rich = self.students[0]
-      self.students.each do |s| s.update(richest: false)
+      self.students.each do |s|
         rich = s if s.cash > rich.cash
       end
       rich.update(richest: true) if rich
