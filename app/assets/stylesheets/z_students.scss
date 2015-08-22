@@ -86,6 +86,8 @@ text.active {
 .view-button {
   position: absolute;
   right: -50px;
+  -webkit-transition: 1s all ease;
+  -moz-transition: 1s all ease;
   transition: 1s all ease;
   cursor: pointer;
   top: 0;
@@ -183,6 +185,8 @@ text.active {
   top: 50%;
   left: 50%;
   border-radius: 5px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: #e0e0e0;
   // display: none;
@@ -192,6 +196,8 @@ text.active {
   position: fixed;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   // display: none;
 }
