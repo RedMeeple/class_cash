@@ -13,10 +13,10 @@
 
   <tbody>
     <% students.each do |student| %>
-      <tr class="period-table-info">
+      <tr class="period-table-info" style="background-color:<%= student.richest? %>">
         <td><%= student.first_name %></td>
         <td><%= student.last_name %></td>
-        <td class="numeric" style="background-color:<%= student.richest?.html_safe %>">$<%= student.cash %></td>
+        <td class="numeric">$<%= student.cash %></td>
         <td><%= student.behaved?.html_safe if !student.behaviors.empty? %></td>
         <td><% student.jobs.each do |job|%>
           <%= job.description %><br>

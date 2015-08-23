@@ -43,7 +43,7 @@ class Student < User
   end
 
   def richest?
-    self.richest ? '#5db761' : ''
+    self.richest ? '#C8E6C9' : ''
   end
 
   def behaved?
