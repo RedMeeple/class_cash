@@ -18,6 +18,7 @@
 //= require dragula.min
 //
 //= require z_app
+//= require z_application
 //= require z_dashboard
 //= require z_loans
 //= require z_periods

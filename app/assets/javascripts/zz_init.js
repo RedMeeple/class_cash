@@ -2,6 +2,8 @@ $(function () {
   'use strict';
 
   app.periods.togglePeriod();
+  
+  app.application.navBar();
 
   if ($('.student-table').length) {
 
