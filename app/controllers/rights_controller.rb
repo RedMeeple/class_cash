@@ -45,9 +45,10 @@ class RightsController < ApplicationController
   end
 
   def destroy
-    @right.destroy
+    @instructor = Instructor.find(current_user.id)
+    @right.destroy if @right.instructor && @right.instructor == @instructor
     respond_to do |format|
-      format.html { redirect_to rights_url, notice: 'Right was successfully destroyed.' }
+      format.html { redirect_to rights_url, notice: 'Right was successfully removed.' }
       format.json { head :no_content }
     end
   end
