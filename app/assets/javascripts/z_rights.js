@@ -5,14 +5,34 @@ app.rights = {
 
   assignRights: function() {
     
-    var dropZones = dragula([document.querySelector('#new-rights-list')]);
-    var rights = document.querySelectorAll('div[id*="right-list"]');
+    var newRightsList = document.querySelector('#new-rights-list');
+    var rightList = document.querySelectorAll('div[id*="right-list"]');
+    var rightTitle = document.querySelectorAll('.right-title');
     
-    for (var i = 0; i < rights.length; i++) {
-      dropZones.containers.push(rights[i]);
+    var arr = [];
+    
+    arr.push(newRightsList);
+    
+    for (var i = 0; i < rightList.length; i++) {
+      arr.push(rightList[i]);
     }
     
-    dropZones.on('drop', function(el) {
+    for (var i = 0; i < rightTitle.length; i++) {
+      arr.push(rightTitle[i]);
+    }
+    
+    dragula(arr, {
+      
+      invalid: function(el, target) {
+        return el.tagName === 'I';
+      },
+      
+      accepts: function(el, target, source, sibling) {
+        return target.className !== 'right-title';
+      }
+      
+      
+    }).on('drop', function(el) {
       
       if (!$(el).closest('div[id="new-rights-list"]').length) {
         
