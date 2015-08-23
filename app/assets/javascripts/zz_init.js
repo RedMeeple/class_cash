@@ -71,10 +71,12 @@ $(function () {
     app.rights.assignRights();
   }
 
-  $('.right-dropdown').click(function() {
+
+  $('.rights-main-container').on('click', '.right-dropdown', function() {
     $(this).closest('div').find('div.right-list').slideToggle();
     $(this).toggleClass('right-dropdown-rotate');
-  });
+  })
+  
 
 //Default Modal
   $('.view-modal-btn').click(function() {
