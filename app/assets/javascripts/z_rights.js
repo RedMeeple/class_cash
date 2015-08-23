@@ -33,8 +33,10 @@ app.rights = {
       },
       
       accepts: function(el, target, source, sibling) {
-        return target.className !== 'right-title';
-      }
+        return target.tagName !== 'H3';
+      },
+      
+      revertOnSpill: true
       
       
     }).on('drop', function(el) {
@@ -58,7 +60,11 @@ app.rights = {
         
       }
       
-    });
+    }).on('over', function(el, container, source) {
+      if (container.className === 'right-title') {
+        console.log('hi');
+      }
+    })
     
   }
 }
