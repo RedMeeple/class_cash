@@ -47,7 +47,7 @@ class Student < User
   end
 
   def behaved?
-    self.behaviors.last.well_behaved ? '<i class="fa fa-star-o fa-2x"></i>' : ''
+    self.behaviors.last.well_behaved ? '<i class="fa fa-star-o fa-2x" style="color:GoldenRod"></i>' : ''
 
   end
 

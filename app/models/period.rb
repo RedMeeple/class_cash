@@ -15,7 +15,7 @@ class Period < ActiveRecord::Base
       return
     else
       rich = self.students.reorder(:cash).last
-      rich.update(richest: true) if rich
+      rich.update(richest: true)
       if Award.where(student_id: rich.id).where(award_type_id: 1).count == 0
         Award.create(student_id: rich.id, award_type_id: 1,
             reason: "being the richest on #{Date.today}", payment: 100)
