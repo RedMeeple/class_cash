@@ -15,9 +15,10 @@
 
   <tbody>
     <% @transactions.reverse.each do |t| %>
+    <% recipient = Student.find_by_id(t.recipient_id) %>
       <tr>
         <td><%= t.student.full_name %></td>
-        <td><%= Student.find(t.recipient_id).full_name %></td>
+        <td><%= recipient ? recipient.full_name : "Not Available" %></td>
         <td class="numeric">$<%= t.amount %></td>
         <td><%= t.reason %></td>
         <td class="numeric"><%= t.created_at.strftime('%b %e, %Y') %></td>
