@@ -44,6 +44,7 @@
       <td class="test"> <%= render partial: 'give_bonus' %></td>
     </div>
   </div>
+  <div class="outer-modal-click"></div>
 </div>
 
 <div class="main-modal-container class-modal">
@@ -55,6 +56,7 @@
       <td class="test"> <%= render partial: 'periods/class_bonus' %></td>
     </div>
   </div>
+  <div class="outer-modal-click"></div>
 </div>
 
 <div class="main-modal-container modal student-modal">
@@ -64,4 +66,5 @@
     </div>
     <div id="new-student-form" class="modal-content"><%= render partial: 'form', locals: { student: Student.new } %></div>
   </div>
+  <div class="outer-modal-click"></div>
 </div>
