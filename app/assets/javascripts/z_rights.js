@@ -29,11 +29,16 @@ app.rights = {
     dragula(buildArray(newRightsList, rightList, rightTitle), {
       
       invalid: function(el, target) {
-        return el.tagName === 'I';
+        if ($(el).closest('.right-list').length) {
+          return (el.tagName === 'I') || (el.tagName === 'DIV');
+        } else {
+          return el.tagName === 'I';
+        }
+        
       },
       
       accepts: function(el, target, source, sibling) {
-        return target.className == 'right-list';
+        return target.className === 'right-list';
       },
       
       revertOnSpill: true
