@@ -64,10 +64,6 @@ app.rights = {
       });
         
       
-    }).on('over', function(el, container, source) {
-      if (container.className === 'right-title') {
-        console.log('hi');
-      }
     })
     
   }
