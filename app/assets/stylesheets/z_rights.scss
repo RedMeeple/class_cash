@@ -34,11 +34,17 @@
   position: absolute;
   right: 32px;
   cursor: pointer;
+  -webkit-transition: 1s all ease;
+  -moz-transition: 1s all ease;
   transition: 1s all ease;
 }
 
 .right-dropdown-rotate {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
   transform: rotateX(180deg);
+  -webkit-transition: 1s all ease;
+  -moz-transition: 1s all ease;
   transition: 1s all ease;
 }
 
