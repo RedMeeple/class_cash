@@ -6,7 +6,7 @@ app.rights = {
   assignRights: function() {
     
     var newRightsList = document.querySelector('#new-rights-list');
-    var rightList = document.querySelectorAll('div[id*="right-list"]');
+    var rightList = document.querySelectorAll('.right-list');
     var rightTitle = document.querySelectorAll('.right-title');
     
     function buildArray(args) {
@@ -33,7 +33,7 @@ app.rights = {
       },
       
       accepts: function(el, target, source, sibling) {
-        return target.tagName !== 'H3';
+        return target.className == 'right-list';
       },
       
       revertOnSpill: true
