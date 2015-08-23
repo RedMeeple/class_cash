@@ -38,38 +38,39 @@ app.rights = {
       },
       
       accepts: function(el, target, source, sibling) {
-        return target.className === 'right-list';
+        return (target.className === 'right-list') || (target.className === 'right-title');
       },
       
       revertOnSpill: true
       
       
-    }).on('drop', function(el) {
+    }).on('drop', function(el, target, source) {
       
-      if (!$(el).closest('div[id="new-rights-list"]').length) {
+      var assignmentId = el.id.split('-')[1];
+      var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
+      
+      if ($(el).closest('.right-title').length) {
+        window.setTimeout(function() {
+          $(el).remove();
+        }, 1);
         
-        var assignmentId = el.id.split('-')[1];
-        var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
-        
-        $.ajax({
-          url: '/rights/assign/' + assignmentId + '/' + rightId,
-          type: 'PATCH',
-          success: function(data) {
-            $('#right-row' + rightId).html(data);
-          },
-          error: function(request, error) {
-            console.log(error)
-            console.log(request)
-          }
-        });
-        
+        $(source).next('.right-list').append(el);
       }
       
-    }).on('over', function(el, container, source) {
-      if (container.className === 'right-title') {
-        console.log('hi');
-      }
-    })
+      $.ajax({
+        url: '/rights/assign/' + assignmentId + '/' + rightId,
+        type: 'PATCH',
+        success: function(data) {
+          $('#right-row' + rightId).html(data);
+        },
+        error: function(request, error) {
+          console.log(error)
+          console.log(request)
+        }
+      });
+        
+      
+    });
     
   }
 }
