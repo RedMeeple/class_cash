@@ -28,21 +28,15 @@ app.rights = {
     
     dragula(buildArray(newRightsList, rightList, rightTitle), {
       
-      invalid: function(el, target) {
-        if ($(el).closest('.right-list').length) {
-          return (el.tagName === 'I') || (el.tagName === 'DIV');
-        } else {
-          return el.tagName === 'I';
-        }
-        
+      moves: function(el, source, handle) {
+        return source.id === 'new-rights-list';
       },
       
       accepts: function(el, target, source, sibling) {
-        return (target.className === 'right-list') || (target.className === 'right-title');
+        return target.id !== 'new-rights-list';
       },
       
       revertOnSpill: true
-      
       
     }).on('drop', function(el, target, source) {
       
@@ -70,7 +64,11 @@ app.rights = {
       });
         
       
-    });
+    }).on('over', function(el, container, source) {
+      if (container.className === 'right-title') {
+        console.log('hi');
+      }
+    })
     
   }
 }
