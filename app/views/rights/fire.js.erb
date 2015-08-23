@@ -1,2 +1,3 @@
 $("#new-rights-list").html("<%= j(render 'rights_list') %>");
 $("#right-row<%= @right.id %>").html("<%= j(render partial: 'show', locals: { right: @right } ) %>");
+$("#right-list<%= @right.id %>").attr("style", "display: block");
