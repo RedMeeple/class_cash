@@ -14,7 +14,7 @@ class LoansController < ApplicationController
 
   def index
     @instructor = Instructor.find_by_id(current_user.id)
-    @loans = @instructor.loans.where(accepted: true).reverse
+    @loans = @instructor.loans.where(accepted: true).reorder(:created_at).reverse
   end
 
   def all

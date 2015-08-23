@@ -11,13 +11,10 @@ class Period < ActiveRecord::Base
     self.students.update_all(richest: false)
     if self.students.count == 1
       return
-    elsif self.students.order(:cash).first.cash == self.students.order(:cash).second.cash
+    elsif self.students.reorder(:cash).reverse.first.cash == self.students.reorder(:cash).reverse.second.cash
       return
     else
-      rich = self.students[0]
-      self.students.each do |s|
-        rich = s if s.cash > rich.cash
-      end
+      rich = self.students.reorder(:cash).last
       rich.update(richest: true) if rich
       if Award.where(student_id: rich.id).where(award_type_id: 1).count == 0
         Award.create(student_id: rich.id, award_type_id: 1,
