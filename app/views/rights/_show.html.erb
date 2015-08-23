@@ -1,8 +1,9 @@
 
 <div id="therightid-<%= right.id %>">
   <h3 class="right-title">
-    <%= right.description %>
     <span id="student-count"><%= right.students.count %></span>
+    <%= right.description %>
+
     <i class="fa-sort-down fa right-dropdown"></i>
   </h3>
   <% if right.instructor %>
