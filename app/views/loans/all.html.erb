@@ -13,6 +13,7 @@
     </div>
     <div id="new-loan-form" class="modal-content"><%= render 'new' %></div>
   </div>
+  <div class="outer-modal-click"></div>
 </div>
 <div class="student-loan-container">
   <% if @student.can_loan%>
@@ -35,6 +36,7 @@
                 </div>
                   <div class="modal-content"><%= render partial: 'show', locals: { loan: loan } %></div>
               </div>
+              <div class="outer-modal-click"></div>
             </div>
           </div>
 
@@ -59,6 +61,7 @@
                 <%= link_to "Make Payment", pay_loan_path(loan), class: "pure-button" %>
               </div>
             </div>
+            <div class="outer-modal-click"></div>
           </div>
         </div>
       <% end %>
@@ -76,6 +79,7 @@
               </div>
               <div class="modal-content"><%= render partial: 'confirmation', locals: { loan: loan } %></div>
             </div>
+            <div class="outer-modal-click"></div>
           </div>
         </div>
       <% end %>
