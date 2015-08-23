@@ -1,6 +1,10 @@
 
 <div id="therightid-<%= right.id %>">
-  <h3 class="right-title"><%= right.description %><i class="fa-sort-down fa right-dropdown"></i></h3>
+  <h3 class="right-title">
+    <%= right.description %>
+    <span id="student-count"><%= right.students.count %></span>
+    <i class="fa-sort-down fa right-dropdown"></i>
+  </h3>
   <% if right.instructor %>
     <%= link_to "<i class='fa fa-times'></i>".html_safe, right, method: :delete, data: { confirm: 'Are you sure?'}, class: "new-right-delete" %>
   <% end %>
