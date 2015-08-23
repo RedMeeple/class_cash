@@ -7,7 +7,7 @@
 .rights-container {
   position: relative;
   width: 80%;
-  margin: 3em auto 0 auto;
+  margin: 2em auto 0 auto;
   min-width: 840px;
 }
 
@@ -26,7 +26,6 @@
   background: #F0F0F0;
   padding: 0.5em;
   border-radius: 0.3em;
-  // min-height: 5em;
   display: none;
 }
 
@@ -50,8 +49,8 @@
 
 .rights-list-item {
   list-style-type: none;
-  margin: 0 0 1em 0;
-  padding: 0 1em 1em 1em;
+  margin: 0 0 5px 0;
+  padding: 0 1em;
   border-radius: 0.2em;
   position: relative;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+0,f8f8f8+61,f6f6f6+100 */
@@ -63,7 +62,7 @@
   background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(248,248,248,1) 61%,rgba(246,246,246,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
-  border: 0.15em solid #eaeaea;
+  border: 1px solid #eaeaea;
   border-left: 0.3em solid #0083e7;
 }
 
@@ -77,8 +76,6 @@
 }
 
 .new-right-container {
-  // background: $green-primary;
-  // padding: 1em;
   border-radius: 0.5em;
   position: absolute;
   width: 45%;
@@ -106,8 +103,8 @@
 
 .new-right-delete {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
 }
 
 .rights-delete, .new-right-delete {
