@@ -23,6 +23,7 @@ class LoansController < ApplicationController
     @periods = Period.where(instructor_id: @student.period.instructor_id)
     @loans_given = @student.loans
     @loans_received = Loan.where(recipient_id: @student.id)
+    @transaction = Transaction.new(student_id: @student.id)
   end
 
   def create

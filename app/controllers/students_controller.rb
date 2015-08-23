@@ -97,6 +97,10 @@ class StudentsController < ApplicationController
 
   def behavior
     @all_days = @student.behaviors.map { |b| [b.date, b.well_behaved] }
+    if current_user == @student
+      @transaction = Transaction.new(student_id: @student.id)
+      @periods = Period.where(instructor_id: @student.period.instructor_id)
+    end
   end
 
   private def set_student
