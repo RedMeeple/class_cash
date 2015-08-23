@@ -33,7 +33,7 @@ app.rights = {
       },
       
       accepts: function(el, target, source, sibling) {
-        return target.className == 'right-list';
+        return target.className === 'right-list';
       },
       
       revertOnSpill: true
