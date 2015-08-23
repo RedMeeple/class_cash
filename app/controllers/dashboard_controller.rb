@@ -8,10 +8,10 @@ class DashboardController < ApplicationController
   def student
     @student = Student.find_by_id(current_user.id)
     @period = @student.period
-    @bonuses = Bonus.where(period_id: @student.period_id).last(5).reverse
-    @extras = @student.extras.last(5).reverse
-    @sent = @student.transactions.last(5).reverse
-    @received = Transaction.where(recipient_id: @student.id).last(5).reverse
+    @bonuses = Bonus.where(period_id: @student.period_id).reorder(:created_at).last(5).reverse
+    @extras = @student.extras.reorder(:created_at).last(5).reverse
+    @sent = @student.transactions.reorder(:created_at).last(5).reverse
+    @received = Transaction.where(recipient_id: @student.id).reorder(:created_at).last(5).reverse
     @awards = @student.awards
     @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
     @student_rights = @student.student_right_assignments.where.not(right_id: nil)

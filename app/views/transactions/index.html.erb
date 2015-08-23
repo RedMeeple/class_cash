@@ -14,8 +14,8 @@
   </thead>
 
   <tbody>
-    <% @transactions.reverse.each do |t| %>
-    <% recipient = Student.find_by_id(t.recipient_id) %>
+    <% @transactions.each do |t| %>
+      <% recipient = Student.find_by_id(t.recipient_id) %>
       <tr>
         <td><%= t.student.full_name %></td>
         <td><%= recipient ? recipient.full_name : "Not Available" %></td>
