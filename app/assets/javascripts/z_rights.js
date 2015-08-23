@@ -9,19 +9,24 @@ app.rights = {
     var rightList = document.querySelectorAll('div[id*="right-list"]');
     var rightTitle = document.querySelectorAll('.right-title');
     
-    var arr = [];
-    
-    arr.push(newRightsList);
-    
-    for (var i = 0; i < rightList.length; i++) {
-      arr.push(rightList[i]);
+    function buildArray(args) {
+      var arr = [];
+      
+      for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i].length > 1) {
+          for (j = 0; j < arguments[i].length; j++) {
+            arr.push(arguments[i][j]);
+          }
+        } else {
+          arr.push(arguments[i]);
+        }
+      }
+      
+      return arr;
     }
     
-    for (var i = 0; i < rightTitle.length; i++) {
-      arr.push(rightTitle[i]);
-    }
     
-    dragula(arr, {
+    dragula(buildArray(newRightsList, rightList, rightTitle), {
       
       invalid: function(el, target) {
         return el.tagName === 'I';
