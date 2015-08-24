@@ -18,7 +18,7 @@ app.periods = {
   },
 
   displayPeriodOptions: function () {
-    $('.period-table-info-options').on('click', '.pure-button',function () {
+    $('.period-table-container').on('click', '.pure-button',function () {
 
       if ($(this).next().hasClass('active')) {
         $(this).next().toggleClass('active');
