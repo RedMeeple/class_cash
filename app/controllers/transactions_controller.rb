@@ -14,10 +14,8 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.finalize
         @transaction.save!
-        format.html { redirect_to transactions_path, notice: "$#{@transaction.amount} sent." }
         format.js
       else
-        format.html { redirect_to transactions_path, notice: "Transaction failed." }
         format.js
       end
     end
