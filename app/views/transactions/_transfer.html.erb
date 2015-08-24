@@ -1,3 +1,4 @@
+<div class="transaction-form-container">
 <%= simple_form_for @transaction, url: new_transaction_path, remote: true do |f| %>
   <%= f.error_notification %>
 
@@ -16,3 +17,4 @@
   <%= f.submit 'Transfer', class: "pure-button pure-button-primary btn-cc" %>
 
 <% end %>
+</div>

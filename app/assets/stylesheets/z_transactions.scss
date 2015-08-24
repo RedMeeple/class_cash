@@ -1,3 +1,21 @@
 // Place all the styles related to the transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.transaction-form-container input,
+.transaction-form-container select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.transaction-form-container select {
+  height: 35px;
+}
+
+.transaction-form-container .btn-cc {
+  width: 50%;
+}
