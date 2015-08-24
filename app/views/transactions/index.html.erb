@@ -1,8 +1,12 @@
 <div class="heading-container">
   <h1 class="transactions-title">Student Transactions</h1>
+  <div class="buttons-container">
+    <button class="pure-button btn-cc give-award-btn">Transfer Money</button>
+  </div>
 </div>
 
-<table class="student-table pure-table pure-table-bordered">
+
+<table class="pure-table pure-table-bordered">
   <thead>
     <tr>
       <th>Sender</th>
@@ -26,3 +30,13 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="modal give-award-modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-close fa fa-2x modal-close"></i>
+    </div>
+    <div class="modal-content"><%= render 'transfer' %></div>
+  </div>
+  <div class="outer-modal-click"></div>
+</div>

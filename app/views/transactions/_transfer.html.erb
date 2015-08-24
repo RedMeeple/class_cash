@@ -1,0 +1,18 @@
+<%= simple_form_for @transaction, url: new_transaction_path do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :amount %>
+
+  <%= f.input :student_id, label: false do %>
+    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
+  <% end %>
+
+  <%= f.input :recipient_id, label: false do %>
+    <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
+  <% end %>
+
+  <%= f.input :reason %>
+
+  <%= f.submit 'Send Money', class: "pure-button pure-button-primary btn-cc" %>
+
+<% end %>

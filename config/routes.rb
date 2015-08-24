@@ -17,15 +17,16 @@ Rails.application.routes.draw do
     end
   end
   resources :awards
+
   get 'transactions/index', as: :transactions
+  post 'transactions/new', as: :new_transaction
 
   get 'welcome/home'
+  root 'welcome#home'
 
   get 'dashboard/student'
 
   get 'dashboard/instructor'
-
-  root 'welcome#home'
 
   resources :students do
     collection do
