@@ -1,4 +1,4 @@
-<%= simple_form_for @bonus, url: class_bonus_periods_path, html: { class: "pure-form pure-form-stacked" } do |f| %>
+<%= simple_form_for @bonus, url: class_bonus_periods_path, html: { class: "pure-form pure-form-stacked" }, remote: true do |f| %>
   <%= f.error_notification %>
 
   <h3>Award Class Bonus</h3>
