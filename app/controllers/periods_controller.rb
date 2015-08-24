@@ -1,6 +1,6 @@
 class PeriodsController < ApplicationController
   before_action :instructor_logged_in?
-  before_action :set_period, only: [:show, :edit, :update, :destroy, :enter_behavior, :update_behavior]
+  before_action :set_period, only: [:show, :edit, :update, :destroy, :enter_behavior, :update_behavior, :disable_accounts]
 
   def enter_behavior
     @students = @period.students
@@ -80,12 +80,16 @@ class PeriodsController < ApplicationController
           @period.students.update_all(cash: 0, can_loan: false)
         end
         @instructor = @period.instructor
-        format.html { redirect_to students_path, notice: 'Loaning Permissions Updated.' }
+        format.html { redirect_to students_path, notice: 'Period has been updated.' }
         format.js
       else
         format.html { redirect_to students_path, notice: @periods.errors }
       end
     end
+
+  end
+
+  def disable_accounts
 
   end
 
@@ -112,7 +116,7 @@ class PeriodsController < ApplicationController
 
     def period_params
       params.require(:period).permit(:instructor_id, :payscale, :name,
-          students_attributes: [:id, :first_name, :last_name, :password, :email, :can_loan, :cash,
+          students_attributes: [:id, :first_name, :last_name, :password, :disabled, :email, :can_loan, :cash,
           behaviors_attributes: [:id, :well_behaved, :date, :student_id],
           jobs_attributes: [:id, :last_date_done]])
     end

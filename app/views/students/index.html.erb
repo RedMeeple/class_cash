@@ -26,6 +26,7 @@
           <%= link_to 'Delete', per, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
           <%= link_to 'Enter Behavior Data', enter_behavior_period_path(per), class: "pure-button" %>
           <%= link_to 'Loaning Permission', permissions_loan_path(per), class: "pure-button" %>
+          <%= link_to 'Disable Accounts', disable_accounts_period_path(per), class: "pure-button" %>
         </div>
       </span>
       <span class="view-button-span"><i id="<%= per.id %>" class="fa-sort-down fa-2x fa view-button"></i></span>

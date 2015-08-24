@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     member do
       get 'enter_behavior'
       patch 'update_behavior'
+      get 'disable_accounts'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

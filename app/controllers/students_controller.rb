@@ -117,7 +117,7 @@ class StudentsController < ApplicationController
 
   private def student_params
     params.require(:student).permit(:first_name, :last_name, :email, :cash,
-        :period_id, :password, :richest,
+        :period_id, :password, :richest, :can_loan, :diabled,
         behaviors_attributes: [:id, :well_behaved, :date],
         jobs_attributes: [:id, :last_date_done, :description, :payscale])
   end

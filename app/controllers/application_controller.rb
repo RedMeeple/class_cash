@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   private def student_logged_in?
-    unless current_user.type == "Student"
+    if current_user.type == "Student" && Student.find(current_user.id).disabled
+      sign_out current_user
+      redirect_to user_session_path, notice: 'Access Denied'
+    elsif
+      current_user.type != "Student"
       redirect_to user_session_path, notice: 'Please login to view this page.'
     end
   end
