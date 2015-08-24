@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
     @students = @periods.joins(:students)
     @extra = Extra.new(instructor_id: @instructor.id)
     @bonus = Bonus.new
+    @transaction = Transaction.new
   end
 
   def show

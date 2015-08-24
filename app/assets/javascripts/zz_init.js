@@ -2,7 +2,7 @@ $(function () {
   'use strict';
 
   app.periods.togglePeriod();
-  
+
   app.application.navBar();
 
   if ($('.student-table').length) {
@@ -78,7 +78,7 @@ $(function () {
     $(this).closest('div').find('div.right-list').slideToggle();
     $(this).toggleClass('right-dropdown-rotate');
   })
-  
+
 
 //Default Modal
   $('.view-modal-btn').click(function() {
@@ -112,6 +112,11 @@ $(function () {
   $('.give-award-btn').click(function() {
     $('.give-award-modal').fadeIn('fast');
   });
+
+//Teacher Transfer Money Modal
+$('.transaction-modal-btn').click(function() {
+  $('.transaction-modal').fadeIn('fast');
+});
 
 //Close modal by clicking outside of it
   $('.outer-modal-click').click(function() {
