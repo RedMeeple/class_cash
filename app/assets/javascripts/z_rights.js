@@ -38,33 +38,36 @@ app.rights = {
       
       revertOnSpill: true
       
-    }).on('drop', function(el, target, source) {
+    }).on('dragend', function(el) {
       
-      var assignmentId = el.id.split('-')[1];
-      var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
-      
-      if ($(el).closest('.right-title').length) {
-        window.setTimeout(function() {
-          $(el).remove();
-        }, 1);
+      if (!$(el).closest('#new-rights-list').length) {
         
-        $(source).next('.right-list').append(el);
+        var assignmentId = el.id.split('-')[1];
+        var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
+        
+        if ($(el).closest('.right-title').length) {
+          window.setTimeout(function() {
+            $(el).remove();
+          }, 1);
+          
+          $(el).closest('.right-list').append(el);
+        }
+        
+        $.ajax({
+          url: '/rights/assign/' + assignmentId + '/' + rightId,
+          type: 'PATCH',
+          success: function(data) {
+            $('#right-row' + rightId).html(data);
+          },
+          error: function(request, error) {
+            console.log(error)
+            console.log(request)
+          }
+        });
+          
       }
       
-      $.ajax({
-        url: '/rights/assign/' + assignmentId + '/' + rightId,
-        type: 'PATCH',
-        success: function(data) {
-          $('#right-row' + rightId).html(data);
-        },
-        error: function(request, error) {
-          console.log(error)
-          console.log(request)
-        }
-      });
-        
-      
-    })
+    });
     
   }
 }
