@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.finalize
         @transaction.save!
+        @transaction = Transaction.new
         format.html { redirect_to transactions_path, notice: "$#{@transaction.amount} sent." }
         format.js
       else

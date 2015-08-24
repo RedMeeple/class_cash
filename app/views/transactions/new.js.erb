@@ -1,7 +1,11 @@
+console.log("here")
 <% @periods.uniq.each do |period| %>
+  console.log("hello")
   if ($("#period-table-container-<%= period.id %>").is(':visible')) {
-    $("#period-table-container-<%= period.id %>").html("<%= render partial: 'periods/show', locals: { students: period.students, period: period } %>");
+    console.log("hi")
+    $("#period-table-container-<%= period.id %>").html("<%= j(render partial: 'periods/show', locals: { students: period.students, period: period }) %>");
   };
 <% end %>
 
+$("#new_transaction")[0].reset();
 $(".transaction-modal").hide()
