@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :instructor_logged_in?, except: [:send_money, :sent_money, :behavior]
   before_action :student_logged_in?, only: [:send_money, :sent_money]
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior, :reset]
   before_action :logged_in?, only: [:behavior]
 
   before_action :nav_links_instructor
@@ -100,6 +100,20 @@ class StudentsController < ApplicationController
     if current_user == @student
       @transaction = Transaction.new(student_id: @student.id)
       @periods = Period.where(instructor_id: @student.period.instructor_id)
+    end
+  end
+
+  def reset
+    if @student.period.instructor == current_user
+      @new_password = params[:new_password]
+      @student.password = @new_password
+      @student.password_confirmation = @new_password
+      @student.save!
+      respond_to do |format|
+        format.js
+      end
+    else
+      redirect_to root_path
     end
   end
 

@@ -20,6 +20,8 @@
         </div>
 
         <div class="student-richest-content"><%= @student.richest ? "#{@student.first_name} is the richest in the class." : "#{@student.first_name} is not the richest in the class." %></div>
+
+        <div id="password"><%= render partial: 'students/reset' %></div>
       </div>
     </div>
 

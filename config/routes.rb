@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'behavior'
+      post 'reset'
     end
   end
   resources :jobs
