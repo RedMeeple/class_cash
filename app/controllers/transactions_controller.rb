@@ -10,11 +10,16 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new(transaction_params)
-    if @transaction.finalize
-      @transaction.save!
-      redirect_to transactions_path, notice: "$#{@transaction.amount} sent."
-    else
-      redirect_to transactions_path, notice: "Transaction failed."
+    @periods = [@transaction.student.period, Student.find(@transaction.recipient_id).period]
+    respond_to do |format|
+      if @transaction.finalize
+        @transaction.save!
+        format.html { redirect_to transactions_path, notice: "$#{@transaction.amount} sent." }
+        format.js
+      else
+        format.html { redirect_to transactions_path, notice: "Transaction failed." }
+        format.js
+      end
     end
   end
 

@@ -1,4 +1,4 @@
-<%= simple_form_for @transaction, url: new_transaction_path do |f| %>
+<%= simple_form_for @transaction, url: new_transaction_path, remote: true do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :amount %>

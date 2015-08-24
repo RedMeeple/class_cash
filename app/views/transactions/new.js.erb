@@ -1,0 +1,7 @@
+<% @periods.uniq.each do |period| %>
+  if ($("#period-table-container-<%= period.id %>").is(':visible')) {
+    $("#period-table-container-<%= period.id %>").html("<%= render partial: 'periods/show', locals: { students: period.students, period: period } %>");
+  };
+<% end %>
+
+$(".transaction-modal").hide()
