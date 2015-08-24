@@ -1,8 +1,5 @@
-console.log("here")
 <% @periods.uniq.each do |period| %>
-  console.log("hello")
   if ($("#period-table-container-<%= period.id %>").is(':visible')) {
-    console.log("hi")
     $("#period-table-container-<%= period.id %>").html("<%= j(render partial: 'periods/show', locals: { students: period.students, period: period }) %>");
   };
 <% end %>
