@@ -44,6 +44,7 @@ app.rights = {
 
         var assignmentId = el.id.split('-')[1];
         var rightId = $(el).closest('div[id*="therightid"]').attr('id').split('-')[1];
+        var visible = $("#right-list" + rightId).is(":visible");
 
         if ($(el).closest('.right-title').length) {
           window.setTimeout(function() {
@@ -58,6 +59,9 @@ app.rights = {
           type: 'PATCH',
           success: function(data) {
             $('#right-row' + rightId).html(data);
+            if(visible) {
+              $("#right-list" + rightId).css("display", "block")
+            };
           },
           error: function(request, error) {
             console.log(error)
