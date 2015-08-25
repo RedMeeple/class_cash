@@ -4,11 +4,11 @@
 
   <%= f.input :amount %>
 
-  <%= f.input :student_id, label: false do %>
+  <%= f.input :student_id, label: false, placeholder: "From" do %>
     <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name %>
   <% end %>
 
-  <%= f.input :recipient_id, label: false do %>
+  <%= f.input :recipient_id, label: false, placeholder: "To" do %>
     <%= f.grouped_collection_select :recipient_id, @periods, :students, :name, :id, :full_name %>
   <% end %>
 

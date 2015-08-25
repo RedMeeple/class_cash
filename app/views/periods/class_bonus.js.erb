@@ -1,0 +1,7 @@
+$("#avg<%= @period.id %>").html("Class Average: $<%= @period.class_average %>");
+$("#tot<%= @period.id %>").html("Class Bonus Total: $<%= @period.bonuses.sum(:amount) %>");
+if ($("#period-table-container-<%= @period.id %>").is(':visible')) {
+  $("#period-table-container-<%= @period.id %>").html("<%= j(render partial: 'periods/show', locals: { students: @period.students, period: @period }) %>");
+};
+$("#new_bonus")[0].reset();
+$(".class-modal").hide()

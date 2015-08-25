@@ -1,5 +1,5 @@
 
-<%= simple_form_for @extra, url: gave_bonus_students_path, html: { class: "pure-form pure-form-stacked form-width centered" } do |f| %>
+<%= simple_form_for @extra, url: gave_bonus_students_path, html: { class: "pure-form pure-form-stacked form-width centered" }, remote: true do |f| %>
   <%= f.error_notification %>
   <h3>Give Individual Bonus</h3>
   <h5>A bonus can be a positive or negative amount.</h5>

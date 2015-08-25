@@ -1,0 +1,4 @@
+$("#avg<%= @student.period.id %>").html("Class Average: $<%= @student.period.class_average %>");
+$("#cash<%= @student.id %>").html("<%= @student.cash %>");
+$("#new_extra")[0].reset();
+$(".ind-modal").hide()

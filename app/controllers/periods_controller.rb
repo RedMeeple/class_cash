@@ -19,17 +19,18 @@ class PeriodsController < ApplicationController
   def class_bonus
     @bonus = Bonus.new(bonus_params)
 
-    if @bonus.save && @bonus.period.students.count > 0
-      @period = Period.find(@bonus.period.id)
-      individual = @bonus.amount.to_i / @period.students.count
-      @period.students.each do |student|
-        student.update(cash: (student.cash + individual))
+    respond_to do |format|
+      if @bonus.save && @bonus.period.students.count > 0
+        @period = Period.find(@bonus.period_id)
+        individual = @bonus.amount.to_i / @period.students.count
+        @period.students.each do |student|
+          student.update(cash: (student.cash + individual))
+        end
+        format.js
+      else
+        redirect_to students_path, notice: "This bonus did not go through."
       end
-      redirect_to students_path, notice: "$#{@bonus.amount} has been distributed."
-    else
-      redirect_to students_path, notice: "This bonus did not go through."
     end
-
   end
 
   def index
