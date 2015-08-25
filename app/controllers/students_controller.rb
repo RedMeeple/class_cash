@@ -54,6 +54,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
+        @student.check_rights
         format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
@@ -78,6 +79,8 @@ class StudentsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     if @transaction.finalize
       @transaction.save!
+      @student.check_rights
+      Student.find(@transaction.recipient_id).check_rights
       redirect_to dashboard_student_path, notice: "$#{@transaction.amount} sent."
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
@@ -91,6 +94,7 @@ class StudentsController < ApplicationController
       if @extra.save
         @student = Student.find_by_id(@extra.student_id)
         @student.update(cash: (@student.cash + @extra.amount))
+        @student.check_rights
         format.js
       else
         format.js

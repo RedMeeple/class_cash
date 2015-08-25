@@ -9,6 +9,7 @@ class PeriodsController < ApplicationController
   def update_behavior
     if @period.update(period_params)
       @period.pay_students
+      @period.students.each { |s| s.check_rights }
       redirect_to root_path, notice: 'Today\'s behavior has been updated.'
     else
       @students = @period.students

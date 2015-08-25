@@ -10,10 +10,13 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new(transaction_params)
-    @periods = [@transaction.student.period, Student.find(@transaction.recipient_id).period]
+    @recipient = Student.find(@transaction.recipient_id)
+    @periods = [@transaction.student.period, @recipient.period]
     respond_to do |format|
       if @transaction.finalize
         @transaction.save!
+        @transaction.student.check_rights
+        @recipient.check_rights
         format.js
       else
         format.js
