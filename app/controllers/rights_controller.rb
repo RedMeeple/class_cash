@@ -30,9 +30,7 @@ class RightsController < ApplicationController
     @student_right_assignment = StudentRightAssignment.find(params[:assignment_id])
     @student_right_assignment.update(right_id: params[:right_id])
     @right = @student_right_assignment.right
-    respond_to do |format|
-      format.js
-    end
+    render layout: false
   end
 
   def fire
