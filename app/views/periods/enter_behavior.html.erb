@@ -14,6 +14,7 @@
     <tbody>
       <% @students.each do |student| %>
         <%= f.fields_for :students, student do |ff| %>
+        <%= ff.hidden_field :email %>
           <%= ff.fields_for :behaviors, student.behaviors.build do |ffb| %>
             <tr>
               <%= ffb.hidden_field :date, value: Date.today %>

@@ -8,6 +8,7 @@
     <%= f.error_notification %>
 
     <%= f.simple_fields_for :students do |ff| %>
+      <%= ff.hidden_field :email %>
       <div class="loan-permission-inputs">
         <span class="loan-permission-name"><%= ff.object.full_name %></span>
         <span class="loan-permission-radio"><%= ff.input :can_loan, as: :radio_buttons, label: false %></span>

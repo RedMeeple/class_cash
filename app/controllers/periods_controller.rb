@@ -61,7 +61,9 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        @period.students.update_all(cash: 0, can_loan: false)
+        @period.students.each do |s|
+          s.update(cash: 0, can_loan: false, password: s.make_password, password_confirmation: s.make_password )
+        end
         format.html { redirect_to students_path, notice: 'Period was successfully created.' }
         format.json { render :show, status: :created, location: @period }
       else
@@ -78,7 +80,9 @@ class PeriodsController < ApplicationController
       if @period.update!(period_params)
         if request.xhr?
           @period.students.build
-          @period.students.update_all(cash: 0, can_loan: false)
+          @period.students.where(cash: nil).each do |s|
+            s.update(cash: 0, can_loan: false, password: s.make_password, password_confirmation: s.make_password )
+          end
         end
         @instructor = @period.instructor
         format.html { redirect_to students_path, notice: 'Period has been updated.' }

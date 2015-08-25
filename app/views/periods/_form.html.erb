@@ -12,7 +12,7 @@
         <th>First name</th>
         <th>Last name</th>
         <th>E-mail Address</th>
-        <th></th>
+        <th>Default Password</th>
       </tr>
     </thead>
     <tbody>
@@ -20,13 +20,12 @@
         <tr>
           <td><%= ff.input :first_name, label: false %></td>
           <td><%= ff.input :last_name, label: false %></td>
-          <td><%= ff.input :email, label: false %>
-            <% if ff.object.new_record? %>
-              <td><%= ff.input :password, label: false, placeholder: "Password" %></td>
-              <% else %>
-              <td></td>
-            <% end %>
-          </td>
+          <td><%= ff.input :email, label: false %></td>
+          <% if !ff.object.new_record? %>
+            <td><%= ff.object.make_password %></td>
+            <% else %>
+            <td><%= ff.hidden_field :password, value: "password" %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

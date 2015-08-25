@@ -1,12 +1,6 @@
 <%= form_tag reset_student_path(@student), remote: true do |f| %>
 
-  <% if "#{@student.first_name}#{@student.id}".length >= 8 %>
-    <% @password = "#{@student.first_name.downcase}#{@student.id}" %>
-  <% elsif "#{@student.first_name}#{@student.last_name}#{@student.id}".length >= 8 %>
-    <% @password = "#{@student.first_name.downcase}#{@student.last_name.downcase}#{@student.id}" %>
-  <% else %>
-    <% @password = "#{@student.first_name.downcase}#{@student.last_name.downcase}#{@student.id}0000" %>
-  <% end %>
+  <% @password = @student.make_password %>
   <%= hidden_field_tag :new_password, @password %>
 
   <%= submit_tag "Reset Password", class: "pure-button btn-cc reset-password-btn" %>

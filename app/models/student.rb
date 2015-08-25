@@ -48,7 +48,16 @@ class Student < User
 
   def behaved?
     self.behaviors.last.well_behaved ? '<i class="fa fa-star-o fa-2x" style="color:GoldenRod"></i>' : ''
+  end
 
+  def make_password
+    if "#{self.first_name}#{self.id}".length >= 8
+      "#{self.first_name.downcase}#{self.id}"
+    elsif "#{self.first_name}#{self.last_name}#{self.id}".length >= 8
+      "#{self.first_name.downcase}#{self.last_name.downcase}#{self.id}"
+    else
+      "#{self.first_name.downcase}#{self.last_name.downcase}#{self.id}0000"
+    end
   end
 
 end
