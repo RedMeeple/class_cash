@@ -23,8 +23,10 @@ class Instructor < User
   def unentered_periods
     periods = []
     self.periods.each do |period|
-      behavior = period.students.first.behaviors.last
-      periods << period if behavior.nil? or behavior.date != Date.today
+      if period.students.count > 0
+        behavior = period.students.first.behaviors.last
+        periods << period if behavior.nil? or behavior.date != Date.today
+      end
     end
     periods
   end

@@ -4,6 +4,10 @@
       <div class="student-info-container-inner">
         <h3 class="student-info-name"><%= @student.full_name %></h3>
 
+        <div class="student-period-content">
+          <div><%= @student.period.name %></div>
+        </div>
+        
         <div>
           <span><i class="fa-envelope fa student-info-icon"></i></span>
           <span><%= @student.email %></span>
@@ -12,11 +16,6 @@
         <div>
           <span><i class="fa-money fa student-info-icon"></i></span>
           <span>$<%= @student.cash %></span>
-        </div>
-
-        <div class="student-period-content">
-          <div>Period:</div>
-          <div><%= @student.period.name %></div>
         </div>
 
         <div class="student-richest-content"><%= @student.richest ? "#{@student.first_name} is the richest in the class." : "#{@student.first_name} is not the richest in the class." %></div>

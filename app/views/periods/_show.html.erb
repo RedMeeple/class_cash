@@ -29,7 +29,9 @@
           <div class="period-table-info-options-list">
             <%= link_to 'Details', student, class: "pure-button" %>
             <%= link_to 'Edit', edit_student_path(student), remote: true, class: "pure-button" %>
-            <%= link_to 'Delete', student, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+            <% if student.period.students.count > 1 %>
+              <%= link_to 'Delete', student, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
+            <% end %>
             <%= link_to 'Behavior History', behavior_student_path(student), class: "pure-button" %>
             <%= link_to 'Assign Job', new_job_path(student_id: student.id), class: "pure-button" %>
           </div>
