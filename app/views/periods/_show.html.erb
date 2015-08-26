@@ -33,7 +33,6 @@
               <%= link_to 'Delete', student, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
             <% end %>
             <%= link_to 'Behavior History', behavior_student_path(student), class: "pure-button" %>
-            <%= link_to 'Assign Job', new_job_path(student_id: student.id), class: "pure-button" %>
           </div>
         </td>
       </tr>
