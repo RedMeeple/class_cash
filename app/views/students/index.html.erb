@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<% @periods.each do |per| %>
+<% @periods.order(:name).each do |per| %>
   <% per.find_richest %>
   <div class="period-title-container">
     <span class="period-info-heading">
