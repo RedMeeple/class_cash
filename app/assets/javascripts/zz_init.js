@@ -32,7 +32,7 @@ $(function () {
 
 //Awards Modal
   $('.display-class-bonus-modal').click(function() {
-    $('.class-modal').fadeIn('slow');
+    $('.class-modal').fadeIn('fast');
     // $('.class-bonus-modal-container').slideDown();
     // $('.class-bonus-modal-header').slideDown();
     // $('.class-bonus-modal').fadeIn(1000);
@@ -48,7 +48,7 @@ $(function () {
 
 //Bonus Modal
   $('.display-bonus-modal').click(function() {
-    $('.ind-modal').fadeIn('slow');
+    $('.ind-modal').fadeIn('fast');
     // $('.bonus-modal-container').slideDown();
     // $('.bonus-modal-header').slideDown();
     // $('.bonus-modal').fadeIn(1000);
@@ -64,7 +64,7 @@ $(function () {
 
 //Student Dropdown
   $('.student-transaction-heading').click(function() {
-    $(this).next().slideToggle('slow');
+    $(this).next().slideToggle();
     $(this).find('.student-transaction-dropdown').toggleClass('rotate-dropdown');
   });
 
