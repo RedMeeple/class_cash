@@ -132,7 +132,7 @@ text.active {
 
 .student-edit-form {
   margin: 0 auto;
-  width: 50%;
+  width: 80%;
 }
 
 //Accordion
@@ -273,4 +273,14 @@ text.active {
 
 .reset-password-btn {
   width: 100%;
+}
+
+.loan-radio {
+  // background: red;
+}
+
+.loan-radio input {
+  display: inline;
+  width: 8%;
+  text-align: center;
 }
