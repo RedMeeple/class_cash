@@ -37,7 +37,7 @@
   <% if @unentered_periods.length == 0 %>
       Today's behavior entry is complete.
   <% else %>
-    <% @unentered_periods.each do |up| %>
+    <% @unentered_periods.order(:name).each do |up| %>
       <%= link_to "#{up.name}", enter_behavior_period_path(up), class: "period-title" %>
     <% end %>
   <% end %>

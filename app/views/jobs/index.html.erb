@@ -4,7 +4,7 @@
     <button class="pure-button btn-cc modal-btn hire-modal-btn">Hire A Student</button>
   </div>
 </div>
-<% @periods.each do |per| %>
+<% @periods.order(:name).each do |per| %>
   <table class="pure-table pure-table-bordered centered jobs-table">
     <thead>
       <tr>

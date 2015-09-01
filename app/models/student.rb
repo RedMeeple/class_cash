@@ -32,9 +32,11 @@ class Student < User
   end
 
   def self.save_all_balances
-    Student.all.each do |student|
-      student.save_balance
-      student.check_rights
+    if Date.today.wday != 6 && Date.today.wday != 7
+      Student.all.each do |student|
+        student.save_balance
+        student.check_rights
+      end
     end
   end
 
