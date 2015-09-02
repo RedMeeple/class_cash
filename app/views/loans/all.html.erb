@@ -22,7 +22,8 @@
         <% @loans_given.each do |loan| %>
           <div class="student-loan-list">
             <% if loan.accepted == false %>
-              <span class="vertical-center"><%= "#{Student.find_by_id(loan.recipient_id).full_name} has rejected your loan." %></span>
+              <% recipient = Student.find_by_id(loan.recipient_id) ? Student.find_by_id(loan.recipient_id).full_name : "Not Available" %>
+              <span class="vertical-center"><%= "#{recipient} has rejected your loan." %></span>
             <% elsif loan.accepted == nil %>
               <span class="vertical-center"><%= "The loan offer to #{Student.find_by_id(loan.recipient_id).full_name} is pending." %></span>
             <% else %>

@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   before_action :set_students, only: [:new, :edit]
 
   def index
-    @periods = Period.where(instructor_id: current_user.id)
+    @periods = Period.where(instructor_id: current_user.id).order(:name)
     @students = @periods.joins(:students)
     @job = Job.new(student_id: params[:student_id])
   end

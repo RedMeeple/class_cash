@@ -10,6 +10,7 @@
   <div class="bonus-alert-content">You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.</div>
   <div class="bonus-alert-content">You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
   <div class="bonus-alert-content"><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", students_path %></div>
+  <div class="bonus-alert-content">You have given <%= @awards %> awards today. <%= link_to "Give Award", awards_path %></div>
 </div>
 <div class="dashboard-info-container">
   <%= link_to rights_path, :action => 'go' do %>
@@ -37,7 +38,7 @@
   <% if @unentered_periods.length == 0 %>
       Today's behavior entry is complete.
   <% else %>
-    <% @unentered_periods.order(:name).each do |up| %>
+    <% @unentered_periods.each do |up| %>
       <%= link_to "#{up.name}", enter_behavior_period_path(up), class: "period-title" %>
     <% end %>
   <% end %>

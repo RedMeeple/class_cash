@@ -18,7 +18,7 @@ class Period < ActiveRecord::Base
       rich.update(richest: true)
       if Award.where(student_id: rich.id).where(award_type_id: 1).count == 0
         Award.create(student_id: rich.id, award_type_id: 1,
-            reason: "being the richest on #{Date.today}", payment: 100)
+            reason: "being the richest", payment: 100)
       end
     end
   end

@@ -28,6 +28,7 @@ class DashboardController < ApplicationController
     @unentered_periods = @instructor.unentered_periods
     @bonuses = @instructor.extras.where("DATE(extras.created_at) >= ?", Date.today)
     @class_bonuses = @instructor.bonuses.where("DATE(bonuses.created_at) >= ?", Date.today)
+    @awards = @instructor.awards.where("DATE(awards.created_at) >= ?", Date.today).count
   end
 
   private def nav_links_instructor

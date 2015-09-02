@@ -7,6 +7,7 @@ class Instructor < User
   has_many :rights, dependent: :destroy
   has_many :student_right_assignments, through: :students
   has_many :extras, through: :students
+  has_many :awards, through: :students
 
   def find_students_with_award(award_type)
     self.students.select { |s| s.awards.map(&:award_type_id).include? award_type }
@@ -22,7 +23,7 @@ class Instructor < User
 
   def unentered_periods
     periods = []
-    self.periods.each do |period|
+    self.periods.order(:name).each do |period|
       if period.students.count > 0
         behavior = period.students.first.behaviors.last
         periods << period if behavior.nil? or behavior.date != Date.today
