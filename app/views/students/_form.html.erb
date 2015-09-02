@@ -8,7 +8,6 @@
     <span class="edit-cash edit-input"><%= f.input :cash %></span>
     <span class="edit-period edit-input"><%= f.association :period, collection: @periods, include_blank: true %></span>
     <div class="edit-input loan-radio"><%= f.input :can_loan, as: :radio_buttons, label: "Has permission to offer loans." %></div>
-    <div class="edit-input loan-radio"><%= f.input :disabled, as: :radio_buttons, label: "Account Temporarily Disabled." %></div>
     <%= f.hidden_field :password, value: "password" %>
 
     <%= f.submit "Submit", class: "pure-button pure-button-primary btn-cc" %>
