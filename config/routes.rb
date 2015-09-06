@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :store_items
+    collection do
+      get 'buy'
+      patch 'buy'
+      get 'bought'
+    end
   resources :rights
   get 'rights/fire/:id/:student_id' => 'rights#fire', as: :fire
   patch 'rights/assign/:assignment_id/:right_id' => 'rights#assign_right'

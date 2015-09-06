@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Store Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Instructor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @store_items.each do |store_item| %>
+      <tr>
+        <td><%= store_item.name %></td>
+        <td><%= store_item.price %></td>
+        <td><%= store_item.stock %></td>
+        <td><%= store_item.instructor_id %></td>
+        <td><%= link_to 'Show', store_item %></td>
+        <td><%= link_to 'Edit', edit_store_item_path(store_item) %></td>
+        <td><%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store item', new_store_item_path %>
