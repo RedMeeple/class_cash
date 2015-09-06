@@ -3,7 +3,8 @@ class StoreItemsController < ApplicationController
   before_action :instructor_logged_in?
 
   def index
-    @store_items = StoreItem.where(instructor_id: current_user.id)
+    @instructor = Instructor.find(current_user.id)
+    @store_items = StoreItem.where(instructor_id: @instructor.id)
   end
 
   def buy
@@ -20,6 +21,7 @@ class StoreItemsController < ApplicationController
   end
 
   def new
+    @instructor = Instructor.find(current_user.id)
     @store_item = StoreItem.new
   end
 
@@ -31,7 +33,7 @@ class StoreItemsController < ApplicationController
 
     respond_to do |format|
       if @store_item.save
-        format.html { redirect_to @store_item, notice: 'Store item was successfully created.' }
+        format.html { redirect_to store_items_path, notice: 'Store item was successfully created.' }
         format.json { render :show, status: :created, location: @store_item }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class StoreItemsController < ApplicationController
   def update
     respond_to do |format|
       if @store_item.update(store_item_params)
-        format.html { redirect_to @store_item, notice: 'Store item was successfully updated.' }
+        format.html { redirect_to store_items_path, notice: 'Store item was successfully updated.' }
         format.json { render :show, status: :ok, location: @store_item }
       else
         format.html { render :edit }

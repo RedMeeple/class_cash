@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :price %>
-    <%= f.input :stock %>
-    <%= f.input :instructor_id %>
+    <%= f.input :stock, label: "Number in Stock. Leave blank for unlimited." %>
+    <%= f.hidden_field :instructor_id, value: @instructor.id %>
   </div>
 
   <div class="form-actions">
