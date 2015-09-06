@@ -114,12 +114,17 @@ $(function () {
   });
 
 //Teacher Transfer Money Modal
-$('.transaction-modal-btn').click(function() {
-  $('.transaction-modal').fadeIn('fast');
-});
+  $('.transaction-modal-btn').click(function() {
+    $('.transaction-modal').fadeIn('fast');
+  });
 
 //Close modal by clicking outside of it
   $('.outer-modal-click').click(function() {
     $(this).parent().fadeOut('fast');
+  });
+
+//Store item modal
+  $('.item-modal-btn').click(function() {
+    $('.item-modal').fadeIn('fast');
   });
 });

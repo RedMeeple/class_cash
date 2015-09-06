@@ -5,6 +5,7 @@ class StoreItemsController < ApplicationController
   def index
     @instructor = Instructor.find(current_user.id)
     @store_items = StoreItem.where(instructor_id: @instructor.id)
+    @store_item = StoreItem.new
   end
 
   def buy
@@ -18,11 +19,6 @@ class StoreItemsController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-    @instructor = Instructor.find(current_user.id)
-    @store_item = StoreItem.new
   end
 
   def edit

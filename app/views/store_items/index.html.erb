@@ -1,4 +1,11 @@
-<h1>Items Available to Students For Sale</h1>
+<div class="heading-container">
+  <h1>Items Available to Students For Sale</h1>
+  <div class="buttons-container">
+    <button class="pure-button btn-cc modal-btn item-modal-btn">New Item</button>
+  </div>
+</div>
+
+
 
 <table class="pure-table pure-table-bordered centered">
   <thead>
@@ -25,4 +32,12 @@
 
 <br>
 
-<%= link_to 'New Store item', new_store_item_path %>
+<div class="main-modal-container modal item-modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-close fa fa-2x modal-close"></i>
+    </div>
+    <div id="new-item-form" class="modal-content"><%= render partial: 'form' %></div>
+  </div>
+  <div class="outer-modal-click"></div>
+</div>
