@@ -1,15 +1,17 @@
 class StoreItemsController < ApplicationController
   before_action :set_store_item, only: [:show, :edit, :update, :destroy]
-  before_action :instructor_logged_in?
+  before_action :instructor_logged_in?, except: [:buy, :bought]
+  before_action :student_logged_in?, only: [:buy, :bought]
 
   def index
     @instructor = Instructor.find(current_user.id)
-    @store_items = StoreItem.where(instructor_id: @instructor.id)
+    @store_items = StoreItem.where(instructor_id: @instructor.id).where.not(stock: 0)
     @store_item = StoreItem.new
   end
 
   def buy
-
+    @student = Student.find(current_user.id)
+    @store_items = StoreItem.where(instructor_id: @student.period.instructor_id)
   end
 
   def bought

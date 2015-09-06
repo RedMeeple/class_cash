@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :store_items do
     collection do
       get 'buy'
+    end
+    member do      
       patch 'bought'
     end
   end

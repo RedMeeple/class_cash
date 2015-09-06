@@ -1,0 +1,9 @@
+<% @store_items.each do |si| %>
+
+  <div>
+    <%= si.name %>
+    $<%= si.price %>
+    <%= link_to "Buy", bought_store_item_path(si) %>
+  </div>
+
+<% end %>
