@@ -1,11 +1,11 @@
 class StoreItemsController < ApplicationController
-  before_action :set_store_item, only: [:show, :edit, :update, :destroy]
-  before_action :instructor_logged_in?, except: [:buy, :bought]
-  before_action :student_logged_in?, only: [:buy, :bought]
+  before_action :set_store_item, only: [:show, :edit, :update, :destroy, :bought]
+  before_action :instructor_logged_in?, except: [:buy, :bought, :purchases]
+  before_action :student_logged_in?, only: [:buy, :bought, :purchases]
 
   def index
     @instructor = Instructor.find(current_user.id)
-    @store_items = StoreItem.where(instructor_id: @instructor.id).where.not(stock: 0)
+    @store_items = StoreItem.where(instructor_id: @instructor.id)
     @store_item = StoreItem.new
   end
 
@@ -15,15 +15,24 @@ class StoreItemsController < ApplicationController
   end
 
   def bought
+    Purchase.create(student_id: current_user.id, store_item_id: @store_item.id)
+    if @store_item.stock
+      @store_item.update(stock: @store_item.stock - 1)
+    end
     respond_to do |format|
       format.js
     end
+  end
+
+  def purchases
+
   end
 
   def show
   end
 
   def edit
+    @instructor = Instructor.find(current_user.id)
   end
 
   def create

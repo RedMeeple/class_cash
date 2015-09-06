@@ -1,9 +1,12 @@
 <% @store_items.each do |si| %>
 
-  <div>
+  <div id="<%= si.id %>">
     <%= si.name %>
     $<%= si.price %>
-    <%= link_to "Buy", bought_store_item_path(si) %>
+    <span id="stock<%= si.id %>"><%= si.stock || "Unlimited" %></span> in stock.
+    <% if si.stock == nil || si.stock > 0 %>
+      <span id="link<%= si.id %>"><%= link_to "Buy", bought_store_item_path(si), remote: true %></span>
+    <% end %>
   </div>
 
 <% end %>

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     collection do
       get 'buy'
     end
-    member do      
-      patch 'bought'
+    member do
+      get 'bought'
     end
   end
   resources :rights
