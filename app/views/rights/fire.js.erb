@@ -2,3 +2,4 @@ $("#new-rights-list").html("<%= j(render 'rights_list') %>");
 $("#right-row<%= @right.id %>").html("<%= j(render partial: 'show', locals: { right: @right } ) %>");
 $("#right-list<%= @right.id %>").attr("style", "display: block");
 $("#right-row<%= @right.id %>").find('.right-dropdown').toggleClass('right-dropdown-rotate');
+app.rights.assignRights();
