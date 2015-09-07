@@ -28,6 +28,7 @@
             <% if current_user and current_user.type == "Student" %>
             <div class="top-nav-container">
               <ul class="top-nav-ul">
+                <li class="top-nav-li"><%= link_to 'Store', buy_store_items_path %></li>
                 <li class="top-nav-li"><%= link_to 'Your Loans', all_loans_path %></li>
                 <li class="top-nav-li"><%= link_to 'Payment History', behavior_student_path(current_user) %></li>
                 <li class="top-nav-li"><span class="modal-btn transfer-money-modal-btn">Transfer Money</span>
