@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 3.times do |n|
 
-  period = Period.new(name: "Test Period #{n+1}", payscale: 20, instructor_id: instructor.id)
+  period = Period.new(name: "Test Period #{n+1}", payscale: 20, instructor_id: 1)
 
   10.times do
     Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
