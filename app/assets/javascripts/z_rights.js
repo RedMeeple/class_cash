@@ -4,11 +4,11 @@
 app.rights = {
 
   assignRights: function() {
-    
+
     $('.right-list').sortable({
       revert: true
     });
-    
+
     $('#new-rights-list .new-right-list-container').draggable({
       connectToSortable: ".right-list",
       revert: 'invalid',
@@ -16,12 +16,16 @@ app.rights = {
         if ($(el.target).closest('.right-list').length) {
           var assignmentId = el.target.id.split('-')[1];
           var rightId = $(el.target).closest('div[id*="therightid"]').attr('id').split('-')[1];
-          
+          var visible = $("#right-list" + rightId).is(":visible")
+
           $.ajax({
             url: '/rights/assign/' + assignmentId + '/' + rightId,
             type: 'PATCH',
             success: function(data) {
               $('#right-row' + rightId).html(data);
+              if(visible) {
+                $("#right-list" + rightId).css("display", "block")
+              };
             },
             error: function(request, error) {
               console.log(error)
@@ -33,6 +37,6 @@ app.rights = {
         }
       }
     })
-    
+
   }
 }
