@@ -18,6 +18,7 @@
  *= require grids-responsive-min
  *= require c3.min
  *= require dragula.min
+ *= require jquery-ui.min
  *
  *= require variables
  *= require defaults
