@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'bought'
+      get 'claim'
     end
   end
   resources :rights

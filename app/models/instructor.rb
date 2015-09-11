@@ -8,6 +8,7 @@ class Instructor < User
   has_many :student_right_assignments, through: :students
   has_many :extras, through: :students
   has_many :awards, through: :students
+  has_many :purchases, through: :students
 
   def find_students_with_award(award_type)
     self.students.select { |s| s.awards.map(&:award_type_id).include? award_type }

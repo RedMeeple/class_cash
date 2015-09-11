@@ -1,11 +1,12 @@
 class StoreItemsController < ApplicationController
   before_action :set_store_item, only: [:show, :edit, :update, :destroy, :bought]
-  before_action :instructor_logged_in?, except: [:buy, :bought, :purchases]
-  before_action :student_logged_in?, only: [:buy, :bought, :purchases]
+  before_action :instructor_logged_in?, except: [:buy, :bought]
+  before_action :student_logged_in?, only: [:buy, :bought]
 
   def index
     @store_items = StoreItem.where(instructor_id: @instructor.id)
     @store_item = StoreItem.new
+    @purchases = @instructor.purchases
   end
 
   def buy
@@ -23,8 +24,12 @@ class StoreItemsController < ApplicationController
     end
   end
 
-  def purchases
-
+  def claim
+    @purchase = Purchase.find(params[:id])
+    @purchase.delete
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
