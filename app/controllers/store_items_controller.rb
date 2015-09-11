@@ -4,23 +4,22 @@ class StoreItemsController < ApplicationController
   before_action :student_logged_in?, only: [:buy, :bought, :purchases]
 
   def index
-    @instructor = Instructor.find(current_user.id)
     @store_items = StoreItem.where(instructor_id: @instructor.id)
     @store_item = StoreItem.new
   end
 
   def buy
-    @student = Student.find(current_user.id)
     @store_items = StoreItem.where(instructor_id: @student.period.instructor_id)
+    @purchases = Purchase.where(student_id: @student.id)
   end
 
   def bought
-    Purchase.create(student_id: current_user.id, store_item_id: @store_item.id)
-    if @store_item.stock
-      @store_item.update(stock: @store_item.stock - 1)
-    end
-    respond_to do |format|
-      format.js
+    if @student.cash > @store_item.price
+      @purchase = Purchase.create(student_id: @student.id, store_item_id: @store_item.id)
+      @purchase.finalize
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -32,7 +31,6 @@ class StoreItemsController < ApplicationController
   end
 
   def edit
-    @instructor = Instructor.find(current_user.id)
   end
 
   def create

@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     unless current_user.type == "Instructor"
       redirect_to user_session_path, notice: 'Please login to view this page.'
     end
+    @instructor = Instructor.find(current_user.id)
   end
 
   private def student_logged_in?
@@ -23,6 +24,7 @@ class ApplicationController < ActionController::Base
       current_user.type != "Student"
       redirect_to user_session_path, notice: 'Please login to view this page.'
     end
+    @student = Student.find(current_user.id)
   end
 
 
