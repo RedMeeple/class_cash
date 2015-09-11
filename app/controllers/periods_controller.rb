@@ -51,13 +51,11 @@ class PeriodsController < ApplicationController
   end
 
   def edit
-    @instructor = Instructor.find_by_id(current_user.id)
     up_to = 30 - @period.students.count
     up_to.times { @period.students.build }
   end
 
   def create
-    @instructor = Instructor.find_by_id(current_user.id)
     @period = Period.new(period_params)
 
     respond_to do |format|
@@ -68,7 +66,6 @@ class PeriodsController < ApplicationController
         format.html { redirect_to students_path, notice: 'Period was successfully created.' }
         format.json { render :show, status: :created, location: @period }
       else
-        @instructor = Instructor.find_by_id(current_user.id)
         30.times { @period.students.build }
         format.html { render :new }
         format.json { render json: @period.errors, status: :unprocessable_entity }
@@ -85,7 +82,6 @@ class PeriodsController < ApplicationController
             s.update(cash: 0, can_loan: false, password: s.make_password, password_confirmation: s.make_password )
           end
         end
-        @instructor = @period.instructor
         format.html { redirect_to students_path, notice: 'Period has been updated.' }
         format.js
       else
@@ -121,7 +117,7 @@ class PeriodsController < ApplicationController
     end
 
     def period_params
-      params.require(:period).permit(:instructor_id, :payscale, :name,
+      params.require(:period).permit(:instructor_id, :payscale, :average_adjust, :name,
           students_attributes: [:id, :first_name, :last_name, :password, :disabled, :email, :can_loan, :cash,
           behaviors_attributes: [:id, :well_behaved, :date, :student_id],
           jobs_attributes: [:id, :last_date_done]])
