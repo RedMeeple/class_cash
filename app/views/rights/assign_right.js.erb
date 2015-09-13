@@ -1,0 +1,7 @@
+var visible = $("#right-list<%= @right.id %>").is(":visible");
+
+$("#right-row<%= @right.id %>").html("<%= j(render partial: 'rights/show', locals: { right: @right }) %>");
+if(visible) {
+  $("#right-list<%= @right.id %>").css("display", "block")
+};
+$("#new-right<%= @student_right_assignment.id %>").remove();

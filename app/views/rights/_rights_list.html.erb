@@ -1,5 +1,13 @@
 <% @new_rights.each do |n| %>
-  <div id="theassignmentid-<%= n.id %>" class="new-right-list-container">
+  <div id="new-right<%= n.id %>">
     <%= n.student.full_name %> for reaching $<%= n.cash_level %>
+
+    <%= simple_form_for n, url: assign_right_path(n.id), remote: true do |f| %>
+
+      <%= f.association :right, label: false, label_method: :description %>
+      <%= f.button :submit, "Submit" %>
+
+    <% end %>
+
   </div>
 <% end %>
