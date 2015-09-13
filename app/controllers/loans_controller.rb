@@ -13,13 +13,11 @@ class LoansController < ApplicationController
   end
 
   def index
-    @instructor = Instructor.find_by_id(current_user.id)
     @loans = @instructor.loans.where(accepted: true).reorder(:created_at).reverse
   end
 
   def all
     @loan = Loan.new
-    @student = Student.find_by_id(current_user.id)
     @periods = Period.where(instructor_id: @student.period.instructor_id)
     @loans_given = @student.loans
     @loans_received = Loan.where(recipient_id: @student.id)

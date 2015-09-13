@@ -69,10 +69,6 @@ $(function () {
   });
 
 // Rights
-  if ($('.rights-container').length) {
-    app.rights.assignRights();
-  }
-
 
   $('.rights-main-container').on('click', '.right-dropdown', function() {
     $(this).closest('div').find('div.right-list').slideToggle();

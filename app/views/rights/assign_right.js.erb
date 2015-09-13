@@ -1,0 +1,8 @@
+var visible = $("#right-list<%= @right.id %>").is(":visible");
+
+$("#right-row<%= @right.id %>").html("<%= j(render partial: 'rights/show', locals: { right: @right }) %>");
+if(visible) {
+  $("#right-list<%= @right.id %>").css("display", "block");
+  $("#right-row<%= @right.id %>").find('.right-dropdown').toggleClass('right-dropdown-rotate');
+};
+$("#new-right<%= @student_right_assignment.id %>").remove();

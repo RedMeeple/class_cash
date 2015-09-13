@@ -6,7 +6,6 @@ class AwardsController < ApplicationController
   # GET /awards.json
   def index
     @award_types = AwardType.all
-    @instructor = Instructor.find_by_id(current_user.id)
     @award = Award.new
     @periods = Period.where(instructor_id: current_user.id)
   end
