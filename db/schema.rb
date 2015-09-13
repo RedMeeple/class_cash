@@ -98,24 +98,8 @@ ActiveRecord::Schema.define(version: 20150911024728) do
     t.integer  "average_adjust"
   end
 
-  create_table "purchases", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "store_item_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "rights", force: :cascade do |t|
     t.string   "description"
-    t.integer  "instructor_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "store_items", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "price"
-    t.integer  "stock"
     t.integer  "instructor_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -163,7 +147,6 @@ ActiveRecord::Schema.define(version: 20150911024728) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "market_crash_cash_save"
     t.boolean  "disabled"
   end
 
