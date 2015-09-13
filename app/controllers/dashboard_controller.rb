@@ -6,7 +6,6 @@ class DashboardController < ApplicationController
 
 
   def student
-    @student = Student.find_by_id(current_user.id)
     @period = @student.period
     @bonuses = Bonus.where(period_id: @student.period_id).reorder(:created_at).last(5).reverse
     @extras = @student.extras.reorder(:created_at).last(5).reverse
@@ -21,7 +20,6 @@ class DashboardController < ApplicationController
   end
 
   def instructor
-    @instructor = Instructor.find_by_id(current_user.id)
     @new_rights = @instructor.unassigned_rights.count
     @transactions = @instructor.transactions.where("DATE(transactions.created_at) >= ?", Date.today).count
     @loans = @instructor.loans.where("DATE(loans.created_at) >= ?", Date.today).count

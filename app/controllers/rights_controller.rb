@@ -3,7 +3,6 @@ class RightsController < ApplicationController
   before_action :instructor_logged_in?
 
   def index
-    @instructor = Instructor.find(current_user.id)
     @rights = @instructor.all_rights
     @new_rights = @instructor.unassigned_rights
     @right = Right.new
@@ -35,7 +34,6 @@ class RightsController < ApplicationController
 
   def fire
     StudentRightAssignment.where(student_id: params[:student_id]).find_by_right_id(@right.id).update(right_id: nil)
-    @instructor = Instructor.find(current_user.id)
     @new_rights = @instructor.unassigned_rights
     respond_to do |format|
       format.js
@@ -43,7 +41,6 @@ class RightsController < ApplicationController
   end
 
   def destroy
-    @instructor = Instructor.find(current_user.id)
     @right.destroy if @right.instructor && @right.instructor == @instructor
     respond_to do |format|
       format.html { redirect_to rights_url, notice: 'Right was successfully removed.' }
