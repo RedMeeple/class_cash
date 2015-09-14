@@ -91,6 +91,25 @@
   top: 0;
 }
 
+.new-right-container select {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 35px;
+  border: 2px solid #eaeaea;
+}
+
+.new-right-container .right-submit {
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+  width: 100px;
+}
+
+.new-right-input-container {
+  margin-bottom: 35px;
+}
+
 .rights-btn {
   position: absolute;
   right: 0;
