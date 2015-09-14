@@ -3,10 +3,10 @@
     <%= n.student.full_name %> for reaching $<%= n.cash_level %>
 
     <%= simple_form_for n, url: assign_right_path(n.id), remote: true do |f| %>
-
+    <div class="new-right-input-container">
       <%= f.association :right, label: false, label_method: :description %>
-      <%= f.button :submit, "Submit" %>
-
+      <%= f.button :submit, "Submit", class:"pure-button btn-cc right-submit" %>
+    </div>
     <% end %>
 
   </div>
