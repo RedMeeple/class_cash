@@ -43,6 +43,10 @@
 <div class="period-bonuses centered">
   <h3>Class Bonuses</h3>
   <% period.bonuses.each do |bonus| %>
-    <span class="period-bonuses-list">$<%= bonus.amount %> for <%= bonus.reason %> on <%= bonus.created_at.strftime('%b %e, %Y') %>.</span>
+    <span class="period-bonuses-list">$<%= bonus.amount %>
+      <% if !bonus.reason.empty? %>
+        for <%= bonus.reason %>
+      <% end %>
+       on <%= bonus.created_at.strftime('%b %e, %Y') %>.</span>
   <% end %>
 </div>

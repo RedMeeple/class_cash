@@ -64,8 +64,11 @@
         <div class="hide">
           <% if @awards.count > 0 %>
             <% @awards.each do |a| %>
-              <div class="notifications-list"><%= a.award_type.name %> for <%= a.reason %> on
-                <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></div>
+              <div class="notifications-list"><%= a.award_type.name %>
+                <% if !a.reason.empty? %>
+                   for <%= a.reason %>
+                <% end %>
+                 on <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></div>
             <% end %>
           <% else %>
             <div class="notifications-list"><%= @student.first_name %> has not received any awards yet.</div>
@@ -79,7 +82,11 @@
           <% if @bonuses.count > 0 %>
             <% @bonuses.each do |b| %>
               <div class="notifications-list">$<%= b.amount %> on
-                <%= b.created_at.strftime('%b %e, %Y') %> for <%= b.reason %></div>
+                <%= b.created_at.strftime('%b %e, %Y') %>
+                <% if !b.reason.empty? %>
+                   for <%= b.reason %>
+                <% end %>
+              </div>
             <% end %>
           <% else %>
             <div class="notifications-list"><%= @student.first_name %> has not received any bonuses yet.</div>
