@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906173352) do
+ActiveRecord::Schema.define(version: 20150911024728) do
 
   create_table "award_types", force: :cascade do |t|
     t.string   "name"
@@ -93,8 +93,9 @@ ActiveRecord::Schema.define(version: 20150906173352) do
     t.integer  "instructor_id"
     t.integer  "payscale"
     t.string   "name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "average_adjust"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -162,7 +163,6 @@ ActiveRecord::Schema.define(version: 20150906173352) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "market_crash_cash_save"
     t.boolean  "disabled"
   end
 
