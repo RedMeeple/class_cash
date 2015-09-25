@@ -43,7 +43,12 @@
     <div class="hide">
       <% if @extras.count > 0 %>
         <% @extras.each do |extra| %>
-          <div class="notifications-list">You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
+          <div class="notifications-list">You received $<%= extra.amount %> on
+             <%= extra.created_at.strftime('%b %e, %Y') %>
+            <% if !extra.reason.empty? %>
+               for <%= extra.reason %>.
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <div class="notifications-list">You have not received any bonuses yet.</div>
@@ -53,7 +58,12 @@
     <div class="hide">
       <% if @bonuses.count > 0 %>
         <% @bonuses.each do |bonus| %>
-          <div class="notifications-list">Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+          <div class="notifications-list">Your class received $<%= bonus.amount %> on
+             <%= bonus.created_at.strftime('%b %e, %Y') %>
+            <% if !bonus.reason.empty? %>
+               for <%= bonus.reason %>.
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <div class="notifications-list">Your class has not received any bonuses yet.</div>
