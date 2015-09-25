@@ -1,0 +1,11 @@
+<table  class="pure-table pure-table-striped pure-table-horizontal centered">
+  <tbody>
+    <% @students.each_with_index do |s, index| %>
+      <tr>
+        <td><%= index + 1 %>.</td>
+        <td><%= s.full_name %></td>
+        <td>$<%= s.cash %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

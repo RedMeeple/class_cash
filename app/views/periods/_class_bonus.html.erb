@@ -6,7 +6,7 @@
 
   Distribute $<%= f.input :amount, label: false, placeholder: "Total award amount", input_html: { class: "input-total" } %>
 
-  to <%= f.association :period, label_method: :name, label: false, input_html: { class: "input-total" } %>
+  to <%= f.association :period, collection: @periods, include_black: true, label_method: :name, label: false, input_html: { class: "input-total" } %>
 
   for <%= f.input :reason, label: false, placeholder: "Enter reason here", input_html: { class: "input-total" } %>
 

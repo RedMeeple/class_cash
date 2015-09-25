@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       get 'send_money'
       post 'sent_money'
       post 'gave_bonus'
+      get 'rankings'
     end
     member do
       get 'behavior'
