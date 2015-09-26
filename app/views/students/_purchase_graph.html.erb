@@ -1,0 +1,20 @@
+
+<table>
+  <tbody>
+    <tr>
+      <% @purchase_information.each do |pi| %>
+        <td><%= pi[0] %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @purchase_information.each do |pi| %>
+        <td>$<%= pi[1] %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @purchase_information.each do |pi| %>
+        <td><%= pi[2] %>%</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -9,8 +9,9 @@ class Student < User
   has_many :daily_balances, dependent: :destroy
   has_many :student_right_assignments, dependent: :destroy
   has_many :rights, through: :student_right_assignments
-  has_many :purchases
+  has_many :purchases, dependent: :destroy
   has_many :store_items, through: :purchases
+  has_many :purchase_trackers, dependent: :destroy
 
   accepts_nested_attributes_for :behaviors
   accepts_nested_attributes_for :jobs
@@ -63,5 +64,23 @@ class Student < User
       "#{self.first_name.downcase}#{self.last_name.downcase}#{self.id}0000"
     end
   end
+
+  def get_purchase_information
+    information = []
+    purchases = PurchaseTracker.where(student_id: self.id)
+    total_spent = purchases.sum(:amount)
+    puchases.each do |purchase|
+      information << [purchase.item, purchase.amount, (100 * purchase.amount / total_spent)]
+    end
+    information
+  end
+
+
+
+
+
+
+
+
 
 end
