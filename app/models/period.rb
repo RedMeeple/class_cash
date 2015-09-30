@@ -50,4 +50,10 @@ class Period < ActiveRecord::Base
     end
   end
 
+  def extra_slots
+    up_to = 30 - students.count
+    up_to = 1 if up_to < 1
+    up_to
+  end
+
 end

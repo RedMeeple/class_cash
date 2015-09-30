@@ -51,8 +51,7 @@ class PeriodsController < ApplicationController
   end
 
   def edit
-    up_to = 30 - @period.students.count
-    up_to.times { @period.students.build }
+    @period.extra_slots.times { @period.students.build }
   end
 
   def create

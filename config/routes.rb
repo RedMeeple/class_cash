@@ -28,12 +28,13 @@ Rails.application.routes.draw do
 
   get 'dashboard/instructor'
 
+  get 'rankings' => 'students#rankings', as: :rankings
+
   resources :students do
     collection do
       get 'send_money'
       post 'sent_money'
       post 'gave_bonus'
-      get 'rankings'
     end
     member do
       get 'behavior'
