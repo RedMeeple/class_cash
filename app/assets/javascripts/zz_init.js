@@ -97,6 +97,7 @@ $(function () {
 //New Student Modal
   $('.new-student-modal-btn').click(function() {
     $('.student-modal').fadeIn('fast');
+    $("#new-student-form").html("<%= j(render partial: 'form', locals: { student: Student.new }) %>");
   });
 
 //Hire Student Modal
