@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :instructor_logged_in?, except: [:send_money, :sent_money, :behavior]
-  before_action :student_logged_in?, only: [:send_money, :sent_money]
+  before_action :instructor_logged_in?, except: [:sent_money, :behavior]
+  before_action :student_logged_in?, only: [:sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior, :reset]
   before_action :logged_in?, only: [:behavior]
 
@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
   before_action :nav_links_student
 
   def index
-    @instructor = Instructor.find_by_id(current_user.id)
     @periods =  @instructor.periods
     @students = @periods.joins(:students)
     @extra = Extra.new(instructor_id: @instructor.id)
@@ -76,7 +75,6 @@ class StudentsController < ApplicationController
   end
 
   def sent_money
-    @student = Student.find_by_id(current_user.id)
     @transaction = Transaction.new(transaction_params)
     if @transaction.finalize
       @transaction.save!
@@ -123,6 +121,10 @@ class StudentsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def rankings
+    @students = @instructor.students.reorder(:cash).reverse
   end
 
   private def set_student

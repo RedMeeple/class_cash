@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+instructor = Instructor.create(first_name: "Teacher", last_name: "Teacher", email: "test@test.com", password: "password")
+
 3.times do |n|
 
   period = Period.new(name: "Test Period #{n+1}", payscale: 20, instructor_id: instructor.id)

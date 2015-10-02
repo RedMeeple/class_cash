@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   end
   resources :rights
   get 'rights/fire/:id/:student_id' => 'rights#fire', as: :fire
-  patch 'rights/assign/:assignment_id/:right_id' => 'rights#assign_right'
-  get 'rights/assign/:assignment_id/:right_id' => 'rights#assign_right'
+  patch 'rights/assign/:assignment_id' => 'rights#assign_right', as: :assign_right
 
   devise_for :users
   resources :loans do
@@ -38,6 +37,8 @@ Rails.application.routes.draw do
   get 'dashboard/student'
 
   get 'dashboard/instructor'
+
+  get 'rankings' => 'students#rankings', as: :rankings
 
   resources :students do
     collection do

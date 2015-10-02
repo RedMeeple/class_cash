@@ -44,10 +44,16 @@ class Period < ActiveRecord::Base
     students = Student.where(period_id: self.id).all
     total = students.sum(:cash)
     if students.length > 0
-      total / students.length
+      (total / students.length) + (average_adjust || 0)
     else
       0
     end
+  end
+
+  def extra_slots
+    up_to = 30 - students.count
+    up_to = 1 if up_to < 1
+    up_to
   end
 
 end

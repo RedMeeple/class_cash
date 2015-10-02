@@ -2,7 +2,6 @@ class TransactionsController < ApplicationController
   before_action :instructor_logged_in?
 
   def index
-    @instructor = Instructor.find(current_user.id)
     @transactions = @instructor.transactions.reorder(:created_at).reverse
     @transaction = Transaction.new
     @periods = @instructor.periods
@@ -10,13 +9,16 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new(transaction_params)
-    @recipient = Student.find(@transaction.recipient_id)
-    @periods = [@transaction.student.period, @recipient.period]
+    if @transaction.recipient_id
+      @recipient = Student.find(@transaction.recipient_id)
+      @periods = [@transaction.student.period, @recipient.period]
+    else
+      @periods = [@transaction.student.period]
+    end
+
     respond_to do |format|
       if @transaction.finalize
         @transaction.save!
-        @transaction.student.check_rights
-        @recipient.check_rights
         format.js
       else
         format.js

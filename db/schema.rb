@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926130856) do
-
   create_table "award_types", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
@@ -96,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150926130856) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "average_adjust"
+<<<<<<< HEAD
   end
 
   create_table "purchase_trackers", force: :cascade do |t|
@@ -111,6 +110,8 @@ ActiveRecord::Schema.define(version: 20150926130856) do
     t.integer  "store_item_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+=======
+>>>>>>> master
   end
 
   create_table "rights", force: :cascade do |t|

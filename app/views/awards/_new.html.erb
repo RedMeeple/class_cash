@@ -4,7 +4,7 @@
 
   Give
   <%= f.input :student, label: false do %>
-    <%= f.grouped_collection_select :student_id, @periods, :students, :name, :id, :full_name, {}, { class: "input-total" } %>
+    <%= f.grouped_collection_select :student_id, @periods.order(:name), :students, :name, :id, :full_name, {}, { class: "input-total" } %>
   <% end %>
    the award for
    <%= f.association :award_type, label_method: :name, include_blank: true, label: false, input_html: { class: "input-total" } %>,

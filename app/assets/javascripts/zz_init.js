@@ -33,34 +33,12 @@ $(function () {
 //Awards Modal
   $('.display-class-bonus-modal').click(function() {
     $('.class-modal').fadeIn('fast');
-    // $('.class-bonus-modal-container').slideDown();
-    // $('.class-bonus-modal-header').slideDown();
-    // $('.class-bonus-modal').fadeIn(1000);
-    // $('.close-btn').fadeIn();
   });
-
-  // $('.close-btn').click(function() {
-  //   $(this).parent().parent().slideUp();
-  //   $('.class-bonus-modal-header').slideUp();
-  //   $(this).fadeOut();
-  //   $('.class-bonus-modal').fadeOut('fast');
-  // });
 
 //Bonus Modal
   $('.display-bonus-modal').click(function() {
     $('.ind-modal').fadeIn('fast');
-    // $('.bonus-modal-container').slideDown();
-    // $('.bonus-modal-header').slideDown();
-    // $('.bonus-modal').fadeIn(1000);
-    // $('.close-btn').fadeIn();
   });
-
-  // $('.close-btn').click(function() {
-  //   $(this).parent().parent().slideUp();
-  //   $('.bonus-modal-header').slideUp();
-  //   $(this).fadeOut();
-  //   $('.bonus-modal').fadeOut('fast');
-  // });
 
 //Student Dropdown
   $('.student-transaction-heading').click(function() {
@@ -69,10 +47,6 @@ $(function () {
   });
 
 // Rights
-  if ($('.rights-container').length) {
-    app.rights.assignRights();
-  }
-
 
   $('.rights-main-container').on('click', '.right-dropdown', function() {
     $(this).closest('div').find('div.right-list').slideToggle();

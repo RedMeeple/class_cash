@@ -26,9 +26,20 @@
         <div class="list-awards"><i class="<%= award.award_type.picture %> fa-4x"></i></div>
       <% end %>
     </div>
-
   </div>
+
   <div class="student-transaction-info student-transaction-info-studentview">
+    <div class="student-transaction-heading"><h3>Your Jobs</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
+    <div class="hide">
+      <% if @jobs.count > 0 %>
+        <% @jobs.each do |job| %>
+          <div class="notifications-list"><%= job.description %>.</div>
+        <% end %>
+      <% else %>
+        <div class="notifications-list">You have no jobs yet. Come up with something that your classroom needs and ask your teacher if that can be your job.</div>
+      <% end %>
+    </div>
+
     <div class="student-transaction-heading"><h3>Your Rights</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% if @student_rights.count > 0 %>
@@ -39,21 +50,33 @@
         <div class="notifications-list">You have no rights yet. You can claim one when you reach $1000, $10,000 and $25,000.</div>
       <% end %>
     </div>
+
     <div class="student-transaction-heading"><h3>Your Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% if @extras.count > 0 %>
         <% @extras.each do |extra| %>
-          <div class="notifications-list">You received $<%= extra.amount %> for <%= extra.reason %> on on <%= extra.created_at.strftime('%b %e, %Y') %>.</div>
+          <div class="notifications-list">You received $<%= extra.amount %> on
+             <%= extra.created_at.strftime('%b %e, %Y') %>
+            <% if !extra.reason.empty? %>
+               for <%= extra.reason %>.
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <div class="notifications-list">You have not received any bonuses yet.</div>
       <% end %>
     </div>
+
     <div class="student-transaction-heading"><h3>Class Bonuses</h3><i class="fa-sort-down fa student-transaction-dropdown"></i></div>
     <div class="hide">
       <% if @bonuses.count > 0 %>
         <% @bonuses.each do |bonus| %>
-          <div class="notifications-list">Your class received $<%= bonus.amount %> for <%= bonus.reason %> on on <%= bonus.created_at.strftime('%b %e, %Y') %>.</div>
+          <div class="notifications-list">Your class received $<%= bonus.amount %> on
+             <%= bonus.created_at.strftime('%b %e, %Y') %>
+            <% if !bonus.reason.empty? %>
+               for <%= bonus.reason %>.
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <div class="notifications-list">Your class has not received any bonuses yet.</div>
@@ -101,7 +124,7 @@
   </div>
 </div>
 <div class="cash-chart-container">
-  <div class="cash-chart"></div>
+  <div class="cash-chart"><%= render 'students/daily_balance_chart' %></div>
 </div>
 
 <div class="modal">
@@ -113,6 +136,3 @@
   </div>
   <div class="outer-modal-click"></div>
 </div>
-
-
-<%= render 'students/daily_balance_chart' %>

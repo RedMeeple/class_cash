@@ -34,7 +34,7 @@ class Instructor < User
   end
 
   def wealthiest
-    students.count > 0 ? students.order(:cash).last.full_name : "No students yet"
+    students.count > 0 ? students.reorder(:cash).last.full_name : "No students yet"
   end
 
 end
