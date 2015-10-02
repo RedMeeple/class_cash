@@ -69,12 +69,20 @@ class Student < User
     information = []
     purchases = PurchaseTracker.where(student_id: self.id)
     total_spent = purchases.sum(:amount)
-    puchases.each do |purchase|
+    purchases.each do |purchase|
       information << [purchase.item, purchase.amount, (100 * purchase.amount / total_spent)]
     end
     information
   end
 
+  def make_instant_purchase(amount, item)
+    if purchase = PurchaseTracker.where(student_id: self.id).find_by_item(item)
+      purchase.update(amount: purchase.amount + amount)
+    else
+      PurchaseTracker.create(student_id: self.id, item: item, amount: amount)
+    end
+    self.update(cash: self.cash - amount)
+  end
 
 
 

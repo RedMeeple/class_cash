@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :store_items do
     collection do
       get 'buy'
+      post 'instant_purchase'
     end
     member do
       get 'bought'

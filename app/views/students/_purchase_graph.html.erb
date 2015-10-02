@@ -1,17 +1,21 @@
+<h3>Spending Habits</h3>
 
-<table>
+<table class="pure-table pure-table-bordered pure-table-striped">
   <tbody>
     <tr>
+      <td>Product Name</td>
       <% @purchase_information.each do |pi| %>
         <td><%= pi[0] %></td>
       <% end %>
     </tr>
     <tr>
+      <td>Total spent on this product.</td>
       <% @purchase_information.each do |pi| %>
         <td>$<%= pi[1] %></td>
       <% end %>
     </tr>
     <tr>
+      <td>Percent of total store spending</td>
       <% @purchase_information.each do |pi| %>
         <td><%= pi[2] %>%</td>
       <% end %>

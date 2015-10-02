@@ -7,6 +7,7 @@ class StoreItemsController < ApplicationController
     @store_items = StoreItem.where(instructor_id: @instructor.id)
     @store_item = StoreItem.new
     @purchases = @instructor.purchases
+    @periods = @instructor.periods
   end
 
   def buy
@@ -21,6 +22,14 @@ class StoreItemsController < ApplicationController
       respond_to do |format|
         format.js
       end
+    end
+  end
+
+  def instant_purchase
+    student = Student.find(params[:purchase][:student_id].to_i)
+    student.make_instant_purchase(params[:purchase][:amount].to_i, params[:purchase][:item])
+    respond_to do |format|
+      format.js
     end
   end
 

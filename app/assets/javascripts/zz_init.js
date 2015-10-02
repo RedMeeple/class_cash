@@ -127,4 +127,9 @@ $(function () {
   $('.item-modal-btn').click(function() {
     $('.item-modal').fadeIn('fast');
   });
+
+  $('.instant-purchase-modal-btn').click(function() {
+    $('.instant-purchase-modal').fadeIn('fast');
+  });
+
 });
