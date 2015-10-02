@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
     @sent = @student.transactions.reorder(:created_at).last(5).reverse
     @received = Transaction.where(recipient_id: @student.id).reorder(:created_at).last(5).reverse
     @awards = @student.awards
+    @jobs = @student.jobs
     @daily_balances = @student.daily_balances.map { |db| [db.date, db.amount] }
     @student_rights = @student.student_right_assignments.where.not(right_id: nil)
     @new_rights = @student.student_right_assignments.where(right_id: nil)
