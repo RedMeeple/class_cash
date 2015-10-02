@@ -18,6 +18,7 @@ class DashboardController < ApplicationController
     @new_rights = @student.student_right_assignments.where(right_id: nil)
     @periods = Period.where(instructor_id: @student.period.instructor_id)
     @transaction = Transaction.new(student_id: @student.id)
+    @purchase_information = @student.get_purchase_information
   end
 
   def instructor
