@@ -1,4 +1,4 @@
-$("#stock<%= @store_item.id %>").html("<%= @store_item.stock || 'Unlimited' %>");
+$("#stock<%= @store_item.id %>").html("<%= @store_item.stock - 1 || 'Unlimited' %>");
 <% if @store_item.stock == 0 %>
   $("#link<%= @store_item.id %>").remove();
 <% end %>

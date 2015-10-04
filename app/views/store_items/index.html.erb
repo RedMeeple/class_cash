@@ -33,16 +33,19 @@
 
 <br>
 
-<h2>Purchased Items</h2>
-<p>These items have been bought by students but not yet used. When a student is ready to use the item, click 'Claim' and it will disappear from the list</p>
-<ul>
-  <% @purchases.each do |purchase| %>
-    <li id="<%= purchase.id %>">
-      <%= link_to "Claim", claim_store_item_path(purchase.id), remote: true %>
-      <%= purchase.student.full_name %> purchased <%= purchase.store_item.name %>
-    </li>
-  <% end %>
-</ul>
+
+<div style="margin: 20px;">
+  <h2>Purchased Items</h2>
+  <p>These items have been bought by students but not yet used. When a student is ready to use the item, click 'Claim' and it will disappear from the list</p>
+  <ul>
+    <% @purchases.each do |purchase| %>
+      <li id="<%= purchase.id %>">
+        <%= link_to "Claim", claim_store_item_path(purchase.id), remote: true %>
+        <%= purchase.student.full_name %> purchased <%= purchase.store_item.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 
 <div class="main-modal-container modal item-modal">
