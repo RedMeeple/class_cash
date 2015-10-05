@@ -11,7 +11,7 @@
     </div>
 
   <% end %>
-  
+
   <h3>Purchased Items</h3>
   <h4>See your teacher to claim and use an item.</h4>
   <ul>
@@ -19,4 +19,15 @@
       <li><%= purchase.store_item.name %></li>
     <% end %>
   </ul>
+</div>
+
+
+<div class="modal">
+  <div class="main-modal">
+    <div class="main-modal-header">
+      <i class="fa-close fa fa-2x modal-close"></i>
+    </div>
+    <div id="send-money-form" class="modal-content"><%= render 'transactions/send_money' %></div>
+  </div>
+  <div class="outer-modal-click"></div>
 </div>

@@ -13,6 +13,8 @@ class StoreItemsController < ApplicationController
   def buy
     @store_items = StoreItem.where(instructor_id: @student.period.instructor_id)
     @purchases = Purchase.where(student_id: @student.id)
+    @periods = Period.where(instructor_id: @student.period.instructor_id)
+    @transaction = Transaction.new(student_id: @student.id)
   end
 
   def bought
