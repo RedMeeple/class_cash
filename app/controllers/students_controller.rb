@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: [:edit]
+
   before_action :instructor_logged_in?, except: [:sent_money, :behavior]
   before_action :student_logged_in?, only: [:sent_money]
   before_action :set_student, only: [:show, :edit, :update, :destroy, :behavior, :reset]
