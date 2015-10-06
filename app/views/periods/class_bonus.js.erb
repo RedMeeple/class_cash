@@ -1,5 +1,5 @@
-$("#avg<%= @period.id %>").html("Class Average: $<%= @period.class_average %>");
-$("#tot<%= @period.id %>").html("Class Bonus Total: $<%= @period.bonuses.sum(:amount) %>");
+$("#avg<%= @period.id %>").html("Class Average: <%= number_to_currency(@period.class_average, precision: 0) %>");
+$("#tot<%= @period.id %>").html("Class Bonus Total: <%= number_to_currency(@period.bonuses.sum(:amount), precision: 0) %>");
 if ($("#period-table-container-<%= @period.id %>").is(':visible')) {
   $("#period-table-container-<%= @period.id %>").html("<%= j(render partial: 'periods/show', locals: { students: @period.students, period: @period }) %>");
 };

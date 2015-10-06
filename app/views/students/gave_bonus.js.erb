@@ -1,4 +1,4 @@
-$("#avg<%= @student.period.id %>").html("Class Average: $<%= @student.period.class_average %>");
-$("#cash<%= @student.id %>").html("$<%= @student.cash %>");
+$("#avg<%= @student.period.id %>").html("Class Average: <%= number_to_currency(@student.period.class_average, precision: 0) %>");
+$("#cash<%= @student.id %>").html("<%= number_to_currency(@student.cash, precision: 0) %>");
 $("#new_extra")[0].reset();
 $(".ind-modal").hide()

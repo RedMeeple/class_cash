@@ -1,6 +1,6 @@
 <% @new_rights.each do |n| %>
   <div id="new-right<%= n.id %>">
-    <%= n.student.full_name %> for reaching $<%= n.cash_level %>
+    <%= n.student.full_name %> for reaching <%= number_to_currency(n.cash_level, precision: 0) %>
 
     <%= simple_form_for n, url: assign_right_path(n.id), remote: true do |f| %>
     <div class="new-right-input-container">

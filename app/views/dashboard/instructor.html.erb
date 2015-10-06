@@ -1,14 +1,14 @@
 <div class="dashboard-header-container">
   <h3 class="dashboard-section-title">Welcome</h3>
   <div class="stats-totals-container">
-    <span class="stats-totals">Total Wealth: $<%= @instructor.students.sum(:cash) %></span>
-    <span class="stats-totals">Average Wealth: $<%= @instructor.students.sum(:cash) / (@instructor.students.count + 1) %></span>
+    <span class="stats-totals">Total Wealth: <%= number_to_currency(@instructor.students.sum(:cash), precision: 0) %></span>
+    <span class="stats-totals">Average Wealth: <%= number_to_currency(@instructor.students.sum(:cash) / (@instructor.students.count + 1), precision: 0) %></span>
     <span class="stats-totals">Richest: <%= @instructor.wealthiest %></span>
   </div>
 </div>
 <div class="dash-bonus-alert">
-  <div class="bonus-alert-content">You have given <%= @bonuses.count %> individual bonuses today for a total of $<%= @bonuses.sum(:amount) %>.</div>
-  <div class="bonus-alert-content">You have given <%= @class_bonuses.count %> class bonuses today for a total of $<%= @class_bonuses.sum(:amount) %>.</div>
+  <div class="bonus-alert-content">You have given <%= @bonuses.count %> individual bonuses today for a total of <%= number_to_currency(@bonuses.sum(:amount), precision: 0) %>.</div>
+  <div class="bonus-alert-content">You have given <%= @class_bonuses.count %> class bonuses today for a total of <%= number_to_currency(@class_bonuses.sum(:amount), precision: 0) %>.</div>
   <div class="bonus-alert-content"><%= @instructor.students.where(can_loan: true).count %> students have the ability to offer loans. <%= link_to "Change Permissions", students_path %></div>
   <div class="bonus-alert-content">You have given <%= @awards %> awards today. <%= link_to "Give Award", awards_path %></div>
 </div>

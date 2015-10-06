@@ -21,7 +21,7 @@
               <% s.jobs.each do |job| %>
                 <div class="jobs-table-job-info">
                   <div id="job<%= job.id %>">
-                    <%= job.description %>: $<%= job.payscale %>
+                    <%= job.description %>: <%= number_to_currency(job.payscale, precision: 0) %>
                   </div>
                   <div id="links<%= job.id %>" class="job-links">
                     <%= link_to '', edit_job_path(job), remote: true, class: "fa-edit fa jobs-icon" %>

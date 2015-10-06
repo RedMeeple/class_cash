@@ -27,7 +27,7 @@
             <% elsif loan.accepted == nil %>
               <span class="vertical-center"><%= "The loan offer to #{Student.find_by_id(loan.recipient_id).full_name} is pending." %></span>
             <% else %>
-              <span class="vertical-center"><%= "$#{loan.amount.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %></span>
+              <span class="vertical-center"><%= "#{number_to_currency(loan.amount.round, precision: 0)} due on #{loan.end_date.strftime('%b %e, %Y')}" %></span>
             <% end %>
             <button class="pure-button view-modal-btn">View</button>
             <div class="main-modal-container">
@@ -49,7 +49,7 @@
     <!-- <ul> -->
       <% @loans_received.where(accepted: true).each do |loan| %>
         <div class="student-loan-list">
-          <span class="vertical-center"><%= "$#{loan.balance.round} due on #{loan.end_date.strftime('%b %e, %Y')}" %></span>
+          <span class="vertical-center"><%= "#{number_to_currency(loan.balance.round, precision: 0)} due on #{loan.end_date.strftime('%b %e, %Y')}" %></span>
           <button class="pure-button view-modal-btn">View</button>
 
           <div class="main-modal-container">

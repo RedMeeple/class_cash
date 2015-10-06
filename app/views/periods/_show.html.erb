@@ -17,7 +17,7 @@
       <tr class="period-table-info" style="background-color:<%= student.richest? %>">
         <td><%= student.first_name %></td>
         <td><%= student.last_name %></td>
-        <td class="numeric" id="cash<%= student.id %>">$<%= student.cash %></td>
+        <td class="numeric" id="cash<%= student.id %>"><%= number_to_currency(student.cash, precision: 0) %></td>
         <td><%= student.behaved?.html_safe if !student.behaviors.empty? %></td>
         <td><% student.jobs.each do |job|%>
           <%= job.description %><br>
@@ -44,7 +44,7 @@
 <div class="period-bonuses centered">
   <h3>Class Bonuses</h3>
   <% period.bonuses.each do |bonus| %>
-    <span class="period-bonuses-list">$<%= bonus.amount %>
+    <span class="period-bonuses-list"><%= number_to_currency(bonus.amount, precision: 0) %>
       <% if !bonus.reason.empty? %>
         for <%= bonus.reason %>
       <% end %>

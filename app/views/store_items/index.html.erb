@@ -22,7 +22,7 @@
     <% @store_items.each do |store_item| %>
       <tr>
         <td><%= store_item.name %></td>
-        <td>$<%= store_item.price %></td>
+        <td><%= number_to_currency(store_item.price, precision: 0) %></td>
         <td><%= store_item.stock || "Unlimited" %></td>
         <td><%= link_to 'Edit', edit_store_item_path(store_item) %></td>
         <td><%= link_to 'Remove', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,7 +4,7 @@
       <tr>
         <td><%= index + 1 %>.</td>
         <td><%= s.full_name %></td>
-        <td>$<%= s.cash %></td>
+        <td><%= number_to_currency(s.cash, precision: 0) %></td>
       </tr>
     <% end %>
   </tbody>

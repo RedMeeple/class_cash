@@ -82,7 +82,7 @@ class StudentsController < ApplicationController
       @transaction.save!
       @student.check_rights
       Student.find(@transaction.recipient_id).check_rights
-      redirect_to dashboard_student_path, notice: "$#{@transaction.amount} sent."
+      redirect_to dashboard_student_path, notice: "#{number_to_currency(@transaction.amount, precision: 0)} sent."
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
     end

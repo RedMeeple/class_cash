@@ -11,7 +11,7 @@
     <tr>
       <td>Total spent on this product.</td>
       <% @purchase_information.each do |pi| %>
-        <td>$<%= pi[1] %></td>
+        <td><%= number_to_currency(pi[1], percision: 0) %></td>
       <% end %>
     </tr>
     <tr>

@@ -23,10 +23,10 @@
       <tr>
         <td><%= loan.student.full_name %></td>
         <td><%= recipient ? recipient.full_name : "Not Available" %></td>
-        <td class="numeric">$<%= loan.amount.round %></td>
-        <td class="numeric">$<%= loan.balance.round %></td>
+        <td class="numeric"><%= number_to_currency(loan.amount.round, precision: 0) %></td>
+        <td class="numeric"><%= number_to_currency(loan.balance.round, precision: 0) %></td>
         <td class="numeric"><%= loan.interest %>%</td>
-        <td class="numeric">$<%= loan.final_total.round %></td>
+        <td class="numeric"><%= number_to_currency(loan.final_total.round, precision: 0) %></td>
         <td class="numeric"><%= loan.start_date.strftime('%b %e, %Y') %></td>
         <td class="numeric"><%= loan.end_date.strftime('%b %e, %Y') %></td>
         <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

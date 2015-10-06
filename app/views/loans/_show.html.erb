@@ -10,7 +10,7 @@
 
 <span class="modal-list">
   <strong>Amount:</strong>
-  $<%= loan.amount.round %>
+  <%= number_to_currency(loan.amount.round, precision: 0) %>
 </span>
 
 <span class="modal-list">
@@ -25,5 +25,5 @@
 
 <span class="modal-list">
   <strong>Balance Left:</strong>
-  <%= loan.balance ? "$#{loan.balance.round}" : "Pending" %>
+  <%= loan.balance ? "#{number_to_currency(loan.balance.round, precision: 0)}" : "Pending" %>
 </span>

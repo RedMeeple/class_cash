@@ -14,10 +14,10 @@
   <div class="period-title-container">
     <span class="period-info-heading">
       <span class="period-name"><%= per.name %></span>
-      <span class="payscale period-info">Payscale: $<%= per.payscale %></span>
+      <span class="payscale period-info">Payscale: <%= number_to_currency(per.payscale, precision: 0) %></span>
       <span class="students-number period-info">Total Students: <%= per.students.count %></span>
-      <span id="avg<%= per.id %>" class="class-average period-info">Class Average: $<%= per.class_average %></span>
-      <span id="tot<%= per.id %>" class="class-bonuses period-info">Class Bonus Total: $<%= per.bonuses.sum(:amount) %></span>
+      <span id="avg<%= per.id %>" class="class-average period-info">Class Average: <%= number_to_currency(per.class_average, precision: 0) %></span>
+      <span id="tot<%= per.id %>" class="class-bonuses period-info">Class Bonus Total: <%= number_to_currency(per.bonuses.sum(:amount), precision: 0) %></span>
     </span>
     <div class="buttons-container">
       <span>

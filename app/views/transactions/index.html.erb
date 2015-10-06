@@ -20,7 +20,7 @@
       <tr>
         <td><%= t.student.full_name %></td>
         <td><%= recipient ? recipient.full_name : "Not Available" %></td>
-        <td class="numeric">$<%= t.amount %></td>
+        <td class="numeric"><%= number_to_currency(t.amount, precision: 0) %></td>
         <td><%= t.reason %></td>
         <td class="numeric"><%= t.created_at.strftime('%b %e, %Y') %></td>
       </tr>

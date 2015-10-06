@@ -3,7 +3,7 @@
 
     <div id="<%= si.id %>">
       <%= si.name %>
-      $<%= si.price %>
+      <%= number_to_currency(si.price, precision: 0) %>
       <span id="stock<%= si.id %>"><%= si.stock || "Unlimited" %></span> in stock.
       <% if (si.stock == nil || si.stock > 0) && si.price < @student.cash %>
         <span id="link<%= si.id %>"><%= link_to "Buy", bought_store_item_path(si), remote: true %></span>

@@ -1,2 +1,2 @@
-$("#job<%= @job.id %>").html("<%= j(@job.description) %>: $<%= @job.payscale %>");
+$("#job<%= @job.id %>").html("<%= j(@job.description) %>: <%= number_to_currency(@job.payscale, precision: 0) %>");
 $("#links<%= @job.id %>").show();

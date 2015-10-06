@@ -15,7 +15,7 @@
 
         <div>
           <span><i class="fa-money fa student-info-icon"></i></span>
-          <span>$<%= @student.cash %></span>
+          <span><%= number_to_currency(@student.cash, precision: 0) %></span>
         </div>
 
         <div class="student-richest-content"><%= @student.richest ? "#{@student.first_name} is the richest in the class." : "#{@student.first_name} is not the richest in the class." %></div>
@@ -30,7 +30,7 @@
         <div class="hide">
           <% if @received.count > 0 %>
             <% @received.each do |r| %>
-              <div class="notifications-list">$<%= r.amount %> from <%= r.student.full_name %> for
+              <div class="notifications-list"><%= number_to_currency(r.amount, precision: 0) %> from <%= r.student.full_name %> for
                 <%= r.reason %> on <%= r.created_at.strftime('%b %e, %Y') %>.</div>
             <% end %>
           <% else %>
@@ -44,7 +44,7 @@
         <div class="hide">
           <% if @sent.count > 0 %>
             <% @sent.each do |s| %>
-              <div class="notifications-list">$<%= s.amount %> to
+              <div class="notifications-list"><%= number_to_currency(s.amount, precision: 0) %> to
                 <% if Student.find_by_id(s.recipient_id) %>
                   <%= Student.find(s.recipient_id).full_name %>
                 <% else %>
@@ -68,7 +68,7 @@
                 <% if !a.reason.empty? %>
                    for <%= a.reason %>
                 <% end %>
-                 on <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of $<%= a.payment %></div>
+                 on <%= a.created_at.strftime('%b %e, %Y') %>. Bonus of <%= number_to_currency(a.payment, precision: 0) %></div>
             <% end %>
           <% else %>
             <div class="notifications-list"><%= @student.first_name %> has not received any awards yet.</div>
@@ -81,7 +81,7 @@
         <div class="hide">
           <% if @bonuses.count > 0 %>
             <% @bonuses.each do |b| %>
-              <div class="notifications-list">$<%= b.amount %> on
+              <div class="notifications-list"><%= number_to_currency(b.amount, precision: 0) %> on
                 <%= b.created_at.strftime('%b %e, %Y') %>
                 <% if !b.reason.empty? %>
                    for <%= b.reason %>
