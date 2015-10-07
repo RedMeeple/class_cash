@@ -19,6 +19,16 @@
 </span>
 
 <span class="modal-list">
+  <strong>Total Repayment:</strong>
+  <%= number_to_currency(loan.final_total.round, precision: 0) %>
+</span>
+
+<span class="modal-list">
+  <strong>Automatic Weekly Payment:</strong>
+  <%= number_to_currency(loan.calculate_payment, precision: 0) %>
+</span>
+
+<span class="modal-list">
   <strong>End date:</strong>
   <%= loan.end_date ? loan.end_date.strftime('%b %e, %Y') : "Pending" %>
 </span>

@@ -10,6 +10,7 @@
       <th>Amount</th>
       <th>Balance</th>
       <th>Weekly Interest</th>
+      <th>Automatic Weekly Payment</th>
       <th>Total Repayment</th>
       <th>Start Date</th>
       <th>End Date</th>
@@ -26,6 +27,7 @@
         <td class="numeric"><%= number_to_currency(loan.amount.round, precision: 0) %></td>
         <td class="numeric"><%= number_to_currency(loan.balance.round, precision: 0) %></td>
         <td class="numeric"><%= loan.interest %>%</td>
+        <td class="numeric"><%= number_to_currency(loan.calculate_payment, precision: 0) %></td>
         <td class="numeric"><%= number_to_currency(loan.final_total.round, precision: 0) %></td>
         <td class="numeric"><%= loan.start_date.strftime('%b %e, %Y') %></td>
         <td class="numeric"><%= loan.end_date.strftime('%b %e, %Y') %></td>
