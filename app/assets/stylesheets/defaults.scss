@@ -181,3 +181,70 @@ td {
   background-color: transparent;
   z-index: -1;
 }
+
+//STORE
+
+.store-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.store-item {
+  background: #ddd;
+  margin-bottom: 5px;
+  border: 4px solid $body;
+  position: relative;
+}
+
+.purchased-item {
+  padding: 1em;
+}
+
+.store-item a {
+  color: $green-primary;
+  text-decoration: none;
+}
+
+.store-item h3 {
+  padding: 0;
+}
+
+.buy-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 32px;
+  -webkit-transition: 0.25s transform ease;
+  -moz-transition: 0.25s transform ease;
+  -ms-transition: 0.25s transform ease;
+  -o-transition: 0.25s transform ease;
+  transition: 0.25s transform ease;
+}
+
+.buy-icon:hover {
+  -webkit-transform: scale(1.10);
+  -moz-transform: scale(1.10);
+  -ms-transform: scale(1.10);
+  -o-transform: scale(1.10);
+  transform: scale(1.10);
+}
+
+.store-price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: $green-primary-dark;
+}
+
+.l-box {
+  padding: 1em;
+}
+
+//teacher pov
+
+.teacher-purchased-items-container {
+  width: 80%;
+  margin: 0 auto;
+}

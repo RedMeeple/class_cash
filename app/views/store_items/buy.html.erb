@@ -1,24 +1,31 @@
-<div style="margin: 20px;">
-  <% @store_items.each do |si| %>
-
-    <div id="<%= si.id %>">
-      <%= si.name %>
-      <%= number_to_currency(si.price, precision: 0) %>
-      <span id="stock<%= si.id %>"><%= si.stock || "Unlimited" %></span> in stock.
-      <% if (si.stock == nil || si.stock > 0) && si.price < @student.cash %>
-        <span id="link<%= si.id %>"><%= link_to "Buy", bought_store_item_path(si), remote: true %></span>
-      <% end %>
+<div class="store-container">
+  <div class="pure-g">
+    <% @store_items.each do |si| %>
+    <div class="pure-u-1-3 store-item">
+      <div class="">
+        <div id="<%= si.id %>" class="l-box">
+          <h3><%= si.name %></h3>
+          <span class="store-price"><%= number_to_currency(si.price, precision: 0) %></span>
+          <span id="stock<%= si.id %>"><%= si.stock || "Unlimited" %></span> in stock.
+          <% if (si.stock == nil || si.stock > 0) && si.price < @student.cash %>
+            <span id="link<%= si.id %>"><%= link_to "", bought_store_item_path(si), remote: true, class:"fa fa-shopping-cart buy-icon" %></span>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-  <% end %>
-
-  <h3>Purchased Items</h3>
-  <h4>See your teacher to claim and use an item.</h4>
-  <ul>
-    <% @purchases.each do |purchase| %>
-      <li><%= purchase.store_item.name %></li>
     <% end %>
-  </ul>
+  </div>
+
+  <div>
+    <h3>Purchased Items</h3>
+    <h4>See your teacher to claim and use an item.</h4>
+      <div class="pure-g">
+      <% @purchases.each do |purchase| %>
+        <span class="pure-u-1-3 store-item purchased-item"><%= purchase.store_item.name %></span>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
