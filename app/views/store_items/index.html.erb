@@ -33,18 +33,17 @@
 
 <br>
 
-
-<div style="margin: 20px;">
+<div class="teacher-purchased-items-container">
   <h2>Purchased Items</h2>
   <p>These items have been bought by students but not yet used. When a student is ready to use the item, click 'Claim' and it will disappear from the list</p>
-  <ul>
+  <div class="pure-g">
     <% @purchases.each do |purchase| %>
-      <li id="<%= purchase.id %>">
+      <span class="pure-u-1-3 store-item purchased-item" id="<%= purchase.id %>">
         <%= link_to "Claim", claim_store_item_path(purchase.id), remote: true %>
         <%= purchase.student.full_name %> purchased <%= purchase.store_item.name %>
-      </li>
+      </span>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 

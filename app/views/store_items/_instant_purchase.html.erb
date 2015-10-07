@@ -1,11 +1,11 @@
-<%= simple_form_for :purchase, url: instant_purchase_store_items_path, remote: true do |f| %>
+<%= simple_form_for :purchase, url: instant_purchase_store_items_path, remote: true do |f|%>
 
-  <%= f.input :item %>
+  <%= f.input :item%>
   <%= f.input :amount, label: "Price", as: :integer %>
   <%= f.input :student_id, label: false do %>
     <%= f.grouped_collection_select :student_id, @periods.order(:name), :students, :name, :id, :full_name %>
   <% end %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, class:"pure-button btn-cc" %>
 
 <% end %>
