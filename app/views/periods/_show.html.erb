@@ -42,8 +42,8 @@
 </table>
 
 <div class="period-bonuses centered">
-  <h3>Class Bonuses</h3>
-  <% period.bonuses.each do |bonus| %>
+  <h3>Recent Class Bonuses</h3>
+  <% period.bonuses.last(10).each do |bonus| %>
     <span class="period-bonuses-list"><%= number_to_currency(bonus.amount, precision: 0) %>
       <% if !bonus.reason.empty? %>
         for <%= bonus.reason %>
