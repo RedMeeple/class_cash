@@ -127,8 +127,9 @@
   <div class="cash-chart"><%= render 'students/daily_balance_chart' %></div>
 </div>
 
-<%= render 'students/purchase_graph' %>
-
+<% if @purchase_information.count > 0 %>
+  <%= render 'students/purchase_graph' %>
+<% end %>
 <div class="modal">
   <div class="main-modal">
     <div class="main-modal-header">

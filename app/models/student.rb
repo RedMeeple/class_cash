@@ -35,8 +35,8 @@ class Student < User
   end
 
   def self.save_all_balances
-    if Date.today.wday != 6 && Date.today.wday != 7
-      Student.all.each do |student|
+    Student.all.each do |student|
+      if student.behaviors.where(date: Date.today).count > 0
         student.save_balance
         student.check_rights
       end
