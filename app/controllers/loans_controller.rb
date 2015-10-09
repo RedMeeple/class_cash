@@ -1,7 +1,8 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :update, :destroy, :confirmation, :pay]
-  before_action :student_logged_in?, except: [:index, :destroy, :permissions]
-  before_action :instructor_logged_in?, only: [:index, :destroy, :permissions]
+  before_action :student_logged_in?, except: [:index, :permissions]
+  before_action :instructor_logged_in?, only: [:index, :permissions]
+  before_action :logged_in?, only: [:destroy]
 
   def pay
     @transaction = Transaction.new(recipient_id: @loan.student.id,

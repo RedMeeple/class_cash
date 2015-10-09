@@ -161,10 +161,6 @@ class StudentsController < ApplicationController
     @students_student = true
   end
 
-  private def logged_in?
-    unless current_user.type == "Instructor" or current_user == @student
-      redirect_to user_session_path, notice: 'Please login to view this page.'
-    end
-  end
+
 
 end
