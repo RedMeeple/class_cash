@@ -57,6 +57,7 @@ class LoansController < ApplicationController
     respond_to do |format|
       format.html { redirect_to loans_url, notice: 'Loan was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
