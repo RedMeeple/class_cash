@@ -88,7 +88,6 @@ class StudentsController < ApplicationController
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
     end
-
   end
 
   def gave_bonus

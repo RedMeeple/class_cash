@@ -2,39 +2,16 @@
   <h1 class="active-loans">Active Loans</h1>
 </div>
 
-<table class="student-table pure-table pure-table-bordered">
-  <thead>
-    <tr>
-      <th>Lender</th>
-      <th>Borrower</th>
-      <th>Amount</th>
-      <th>Balance</th>
-      <th>Weekly Interest</th>
-      <th>Automatic Weekly Payment</th>
-      <th>Total Repayment</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th></th>
-    </tr>
-  </thead>
+<%= render partial: 'loan_table', locals: { loans: @loans.select{ |l| l.accepted == true }} %>
 
-  <tbody>
-    <% @loans.each do |loan| %>
-      <% recipient = Student.find_by_id(loan.recipient_id) %>
-      <tr>
-        <td><%= loan.student.full_name %></td>
-        <td><%= recipient ? recipient.full_name : "Not Available" %></td>
-        <td class="numeric"><%= number_to_currency(loan.amount.round, precision: 0) %></td>
-        <td class="numeric"><%= number_to_currency(loan.balance.round, precision: 0) %></td>
-        <td class="numeric"><%= loan.interest %>%</td>
-        <td class="numeric"><%= number_to_currency(loan.calculate_payment, precision: 0) %></td>
-        <td class="numeric"><%= number_to_currency(loan.final_total.round, precision: 0) %></td>
-        <td class="numeric"><%= loan.start_date.strftime('%b %e, %Y') %></td>
-        <td class="numeric"><%= loan.end_date.strftime('%b %e, %Y') %></td>
-        <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="heading-container">
+  <h1 class="active-loans">Offered Loans</h1>
+</div>
 
-<br>
+<%= render partial: 'loan_table', locals: { loans: @loans.select{ |l| l.accepted == nil }} %>
+
+<div class="heading-container">
+  <h1 class="active-loans">Rejected Loans</h1>
+</div>
+
+<%= render partial: 'loan_table', locals: { loans: @loans.select{ |l| l.accepted == false }} %>

@@ -13,7 +13,7 @@ class LoansController < ApplicationController
   end
 
   def index
-    @loans = @instructor.loans.where(accepted: true).reorder(:created_at).reverse
+    @loans = @instructor.loans.reorder(:created_at).reverse
   end
 
   def all
