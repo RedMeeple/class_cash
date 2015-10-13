@@ -25,5 +25,13 @@ module ClassCash
     config.assets.initialize_on_precompile = false
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.default_timezone = :local
+
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+       allow do
+         origins '*'
+         resource '*', headers: :any, methods: [:get, :post, :patch, :options]
+       end
+    end
+
   end
 end

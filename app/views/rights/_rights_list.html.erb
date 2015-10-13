@@ -4,7 +4,7 @@
 
     <%= simple_form_for n, url: assign_right_path(n.id), remote: true do |f| %>
     <div class="new-right-input-container">
-      <%= f.association :right, label: false, label_method: :description %>
+      <%= f.association :right, collection: @instructor.all_rights , label: false, label_method: :description %>
       <%= f.button :submit, "Submit", class:"pure-button btn-cc right-submit" %>
     </div>
     <% end %>
