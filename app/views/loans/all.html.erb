@@ -20,15 +20,19 @@
     <h2>Given Loans</h2>
       <!-- <ul> -->
         <% @loans_given.each do |loan| %>
-          <div class="student-loan-list">
+          <div class="student-loan-list" id="loan<%= loan.id %>">
             <% if loan.accepted == false %>
               <% recipient = Student.find_by_id(loan.recipient_id) ? Student.find_by_id(loan.recipient_id).full_name : "Not Available" %>
               <span class="vertical-center"><%= "#{recipient} has rejected your loan." %></span>
             <% elsif loan.accepted == nil %>
               <span class="vertical-center"><%= "The loan offer to #{Student.find_by_id(loan.recipient_id).full_name} is pending." %></span>
             <% else %>
-              <span class="vertical-center"><%= "#{number_to_currency(loan.amount.round, precision: 0)} due on #{loan.end_date.strftime('%b %e, %Y')}" %></span>
+              <span class="vertical-center">
+                <%= "#{number_to_currency(loan.amount.round, precision: 0)} due on #{loan.end_date.strftime('%b %e, %Y')}" %>
+              </span>
             <% end %>
+
+            <span style="margin-left: 10px;"><%= link_to 'Forgive Loan', loan, method: :delete, class: 'pure-button', data: { confirm: 'Are you sure?' }, remote: true %></span>
             <button class="pure-button view-modal-btn">View</button>
             <div class="main-modal-container">
               <div class="main-modal">

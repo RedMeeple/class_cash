@@ -4,9 +4,25 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :authenticate_user!, except: [:instructor_logged_in?, :student_logged_in?]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :add_allow_credentials_headers
+
+  def add_allow_credentials_headers
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#section_5
+    #
+    # Because we want our front-end to send cookies to allow the API to be authenticated
+    # (using 'withCredentials' in the XMLHttpRequest), we need to add some headers so
+    # the browser will not reject the response
+    response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+  end
+
+  def options
+    head :status => 200, :'Access-Control-Allow-Headers' => 'accept, content-type'
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:type, :first_name, :last_name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:type, :first_name, :last_name, :email, :password, :password_confirmation, :current_password) }
   end
 
   private def instructor_logged_in?
@@ -27,19 +43,9 @@ class ApplicationController < ActionController::Base
     @student = Student.find(current_user.id)
   end
 
-  def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH'
-    headers['Access-Control-Max-Age'] = "1728000"
-  end
-
-  def cors_preflight_check
-    if request.method == :options
-      headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-      headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version'
-      headers['Access-Control-Max-Age'] = '1728000'
-      render text: '', content_type: 'text/plain'
+  private def logged_in?
+    unless current_user.type == "Instructor" or current_user == @student
+      redirect_to user_session_path, notice: 'Please login to view this page.'
     end
   end
 

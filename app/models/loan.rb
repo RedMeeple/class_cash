@@ -34,7 +34,7 @@ class Loan < ActiveRecord::Base
   def calculate_payment
     if self.balance and self.balance <= self.final_total / self.weeks
       self.balance
-    elsif self.end_date < Date.today + 7
+    elsif self.balance and self.end_date < Date.today + 7
       self.balance
     else
       self.final_total / self.weeks

@@ -1,7 +1,4 @@
 class StudentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token, only: [:edit]
-  before_filter :cors_preflight_check, only: [:edit]
-  after_filter :cors_set_access_control_headers, only: [:edit]
 
   before_action :instructor_logged_in?, except: [:sent_money, :behavior]
   before_action :student_logged_in?, only: [:sent_money]
@@ -88,7 +85,6 @@ class StudentsController < ApplicationController
     else
       redirect_to dashboard_student_path, notice: "Transaction failed."
     end
-
   end
 
   def gave_bonus
@@ -162,10 +158,6 @@ class StudentsController < ApplicationController
     @students_student = true
   end
 
-  private def logged_in?
-    unless current_user.type == "Instructor" or current_user == @student
-      redirect_to user_session_path, notice: 'Please login to view this page.'
-    end
-  end
+
 
 end
