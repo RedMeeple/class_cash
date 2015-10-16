@@ -6,13 +6,8 @@
 
 // Instructor Dashboard
 .dash-bonus-alert {
-  width: 90%;
-  min-width: 960px;
-  margin: 0 auto;
   margin-bottom: 5px;
-  background-color: $green-primary-dark;
   color: $body;
-  padding: 1em;
 }
 
 .dash-bonus-alert a {
@@ -22,6 +17,9 @@
 
 .bonus-alert-content {
   padding-bottom: 8px;
+  background-color: $green-primary-dark;
+  padding: 1em;
+  border: 1px solid $body;
 }
 
 .dashboard-instructor {
@@ -33,10 +31,22 @@
 }
 
 .dashboard-info-container {
-  width: 90%;
-  height: 500px;
-  margin: 0 auto;
-  min-width: 960px;
+  background: $body;
+  padding: 5px;
+}
+
+.dashboard-info-container:first-child {
+  padding-left: 0;
+}
+
+.dashboard-info-container:last-child {
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .dashboard-info-container {
+    padding: 0;
+  }
 }
 
 .dashboard-info-container a {
@@ -45,11 +55,12 @@
 }
 
 .dashboard-info {
-  width: 33%;
+  width: 100%;
   background: $green-primary-dark;
   display: inline-block;
   position: relative;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .dashboard-stat-heading,
@@ -59,13 +70,10 @@
 }
 
 .period-title {
-  position: relative;
-  display: inline-block;
-  width: 33%;
   background: $green-primary-dark;
   padding: 1em 0 1em 1em;
   margin-bottom: 5px;
-
+  border: 1px solid $body;
 }
 
 .dashboard-section-title {
@@ -76,8 +84,6 @@
 
 .dashboard-header-container {
   position: relative;
-  width: 90%;
-  min-width: 960px;
   margin: 0 auto;
 }
 
