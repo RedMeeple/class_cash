@@ -12,7 +12,7 @@
 <% @periods.order(:name).each do |per| %>
   <% per.find_richest %>
   <div class="period-title-container">
-    <span class="period-info-heading">
+    <span class="period-info-heading" id="<%= per.id %>">
       <span class="period-name"><%= per.name %></span>
       <span class="payscale period-info">Payscale: <%= number_to_currency(per.payscale, precision: 0) %></span>
       <span class="students-number period-info">Total Students: <%= per.students.count %></span>
@@ -30,7 +30,6 @@
           <%= link_to 'Disable Accounts', disable_accounts_period_path(per), class: "pure-button" %>
         </div>
       </span>
-      <span class="view-button-span"><i id="<%= per.id %>" class="fa-sort-down fa-2x fa view-button"></i></span>
     </div>
   </div>
   <div id="period-table-container-<%= per.id %>" class="period-table-container"><%= render partial: 'periods/show', locals: { students: per.students, period: per } %></div>
