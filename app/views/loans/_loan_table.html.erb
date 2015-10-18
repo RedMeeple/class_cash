@@ -28,7 +28,7 @@
         <td class="numeric"><%= number_to_currency(loan.final_total.round, precision: 0) %></td>
         <td class="numeric"><%= loan.start_date.strftime('%b %e, %Y') %></td>
         <td class="numeric"><%= loan.end_date.strftime('%b %e, %Y') %></td>
-        <td><% if loan.balance %><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %><% end %></td>
+        <td><%= link_to 'End Loan', loan, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
