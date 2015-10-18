@@ -106,4 +106,9 @@ $(function () {
     $('.instant-purchase-modal').fadeIn('fast');
   });
 
+//Main Menu
+  $('.menu-icon').click(function() {
+    $('.slide-menu-inner').toggleClass('slide-menu-container-show');
+  });
+
 });

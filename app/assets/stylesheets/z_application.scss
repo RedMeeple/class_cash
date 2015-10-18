@@ -66,7 +66,68 @@
 }
 
 .active-page {
-  // text-transform: uppercase;
-  // font-weight: bold;
   border-bottom: 3px solid #ddd !important;
+}
+
+// Slide Out Menu
+
+.slide-menu-inner {
+  position: fixed;
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: $blue-primary-mid;
+  z-index: 1000;
+  margin-left: -300px;
+  transition: 0.25s all ease;
+}
+
+.slide-menu-container-show {
+  border-right: 4px solid $blue-primary-dark;
+  transition: 0.25s all ease;
+  margin: 0;
+}
+
+.menu-icon {
+  color: $body;
+  cursor: pointer;
+  transition: 0.25s all ease;
+  position: absolute;
+  top: 0.5em;
+  left: 1em;
+}
+
+.slide-menu-container-show > .menu-icon {
+  margin-left: 300px;
+  left: 0;
+  padding: 4px;
+  padding-left: 0;
+  background: $blue-primary-dark;
+  transition: 0.25s all ease;
+}
+
+.menu-links-container {
+  margin-top: 80px;
+}
+
+.list-unstyled {
+  list-style-type: none;
+}
+
+.list-unstyled a {
+  text-decoration: none;
+}
+
+.menu-item {
+  color: $body;
+  padding: 2px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.menu-heading {
+  margin-top: 20px;
+  text-decoration: underline;
+  cursor: default;
 }

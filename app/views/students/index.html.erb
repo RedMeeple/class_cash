@@ -1,12 +1,12 @@
 <div class="heading-container">
   <h1 class="roster-title">Roster</h1>
-  <div class="buttons-container">
+  <!-- <div class="buttons-container">
     <button class="pure-button display-bonus-modal btn-cc">Award Individual Bonus</button>
     <button class="pure-button display-class-bonus-modal btn-cc">Award Class Bonus</button>
     <%= link_to 'New Period', new_period_path, class: "pure-button btn-cc" %>
     <button class="modal-btn pure-button btn-cc new-student-modal-btn">New Student</button>
     <button class="pure-button btn-cc transaction-modal-btn">Transfer Money</button>
-  </div>
+  </div> -->
 </div>
 
 <% @periods.order(:name).each do |per| %>
