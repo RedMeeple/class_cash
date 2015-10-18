@@ -111,4 +111,11 @@ $(function () {
     $('.slide-menu-inner').toggleClass('slide-menu-container-show');
   });
 
+//Search through transactions
+$('.transaction-search').keyup(function(){
+  $('tr').hide();
+ var term = $(this).val();
+  $("tr:contains('" + term + "')").show();
+});
+
 });
