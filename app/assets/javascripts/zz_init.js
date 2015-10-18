@@ -113,9 +113,9 @@ $(function () {
 
 //Search through transactions
 $('.transaction-search').keyup(function(){
-  $('tr').hide();
- var term = $(this).val();
-  $("tr:contains('" + term + "')").show();
+    $('tr').hide();
+   var term = $(this).val();
+    $("tr:contains('" + term + "')").show();
 });
 
 });
