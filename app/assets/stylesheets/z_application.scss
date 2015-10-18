@@ -80,11 +80,19 @@
   background: $blue-primary-mid;
   z-index: 1000;
   margin-left: -300px;
+  -moz-transition: 0.25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -ms-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
 }
 
 .slide-menu-container-show {
   border-right: 4px solid $blue-primary-dark;
+  -moz-transition: 0.25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -ms-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
   margin: 0;
 }
@@ -92,10 +100,14 @@
 .menu-icon {
   color: $body;
   cursor: pointer;
-  transition: 0.25s all ease;
   position: absolute;
   top: 0.5em;
   left: 1em;
+  -moz-transition: 0.25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -ms-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
 }
 
 .slide-menu-container-show > .menu-icon {
@@ -104,6 +116,10 @@
   padding: 4px;
   padding-left: 0;
   background: $blue-primary-dark;
+  -moz-transition: 0.25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -ms-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
 }
 
