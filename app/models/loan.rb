@@ -1,6 +1,11 @@
 class Loan < ActiveRecord::Base
   belongs_to :student
 
+  validates :weeks, presence: true
+  validates :interest, presence: true
+  validates :amount, presence: true
+  validates :recipient, presence: true
+
   def finalize
     lender = self.student
     transaction do
