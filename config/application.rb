@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'rack/cors'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -28,7 +29,7 @@ module ClassCash
     config.middleware.insert_before 0, "Rack::Cors" do
        allow do
          origins '*'
-         resource '*', headers: :any, methods: [:get, :post, :patch, :options]
+         resource '*', headers: :any, methods: [:get, :post, :patch, :options, :put]
        end
     end
 
