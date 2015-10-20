@@ -4,21 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :authenticate_user!, except: [:instructor_logged_in?, :student_logged_in?]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :add_allow_credentials_headers
-
-  def add_allow_credentials_headers
-    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#section_5
-    #
-    # Because we want our front-end to send cookies to allow the API to be authenticated
-    # (using 'withCredentials' in the XMLHttpRequest), we need to add some headers so
-    # the browser will not reject the response
-    response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-  end
-
-  def options
-    head :status => 200, :'Access-Control-Allow-Headers' => 'accept, content-type'
-  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:type, :first_name, :last_name, :email, :password, :password_confirmation) }
