@@ -29,7 +29,7 @@
           <div class="pure-button">Options</div>
           <div class="period-table-info-options-list">
             <%= link_to 'Details', student, class: "pure-button" %>
-            <%= link_to 'Edit', edit_student_path(student), remote: true, class: "pure-button" %>
+            <%= link_to 'Edit', edit_student_path(student), class: "pure-button" %>
             <% if student.period.students.count > 1 %>
               <%= link_to 'Delete', student, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "pure-button" %>
             <% end %>
