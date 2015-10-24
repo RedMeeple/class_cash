@@ -21,9 +21,7 @@ class StoreItemsController < ApplicationController
     if @student.cash > @store_item.price
       @purchase = Purchase.create(student_id: @student.id, store_item_id: @store_item.id)
       @purchase.finalize
-      respond_to do |format|
-        format.js
-      end
+      redirect_to buy_store_items_path, notice: "#{@store_item.name} was purchased."
     end
   end
 
