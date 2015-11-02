@@ -18,8 +18,8 @@ class Student < User
 
   default_scope { order('last_name') }
 
-  def save_balance
-    DailyBalance.create(student_id: self.id, date: Date.today, amount: self.cash)
+  def save_balance(date)
+    DailyBalance.create(student_id: self.id, date: date, amount: self.cash)
   end
 
   def check_rights
@@ -36,8 +36,9 @@ class Student < User
 
   def self.save_all_balances
     Student.all.each do |student|
-      if student.behaviors.where(date: Date.today).count > 0
-        student.save_balance
+      date = student.behaviors.last.date
+      if student.daily_balances.where(date: date).count == 0
+        student.save_balance(date)
         student.check_rights
       end
     end
